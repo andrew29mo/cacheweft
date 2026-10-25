@@ -1,0 +1,123 @@
+{
+  "scope": "MIT metadata and package contents only; no new service, VM, inference or performance measurement",
+  "copyright": "2026 Andrew Yuan",
+  "project_license": "MIT",
+  "license_sha256": "0a5f48c5847660a83b6372cf47ef20c88bc20a0ae051dcc623707d081d8ad504",
+  "wheel": {
+    "sha256": "b5ed56418b309a87cae8f7717cae8d012142232a0d9db230bc58e616f31a25aa",
+    "license_expression": "MIT",
+    "license_file": "cacheweft-0.0.1.dist-info/licenses/LICENSE",
+    "files": [
+      "cacheweft/__init__.py",
+      "cacheweft/cli.py",
+      "cacheweft/core.py",
+      "cacheweft/http.py",
+      "cacheweft/service.py",
+      "cacheweft-0.0.1.dist-info/licenses/LICENSE",
+      "cacheweft-0.0.1.dist-info/METADATA",
+      "cacheweft-0.0.1.dist-info/WHEEL",
+      "cacheweft-0.0.1.dist-info/entry_points.txt",
+      "cacheweft-0.0.1.dist-info/top_level.txt",
+      "cacheweft-0.0.1.dist-info/RECORD"
+    ]
+  },
+  "sdist": {
+    "sha256": "e3c83061980c774f5131e8f53c26e5d25ca5b39b037b23027fdf866dbdfd3378",
+    "license_expression": "MIT",
+    "license_included": true
+  },
+  "installed": {
+    "license_expression": "MIT",
+    "license_files": [
+      "LICENSE"
+    ],
+    "license_sha256": "0a5f48c5847660a83b6372cf47ef20c88bc20a0ae051dcc623707d081d8ad504",
+    "runtime_modules": {
+      "cacheweft/service.py": "c8c608aa79fc164e6b9259cdb76acbae550ab2408e054e483aaf233f029fa21e",
+      "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
+      "cacheweft/core.py": "de6442307960c0066603ba37827205bd550011b9f3db71d600d49362bf6e6ba1",
+      "cacheweft/cli.py": "7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5",
+      "cacheweft/http.py": "41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76"
+    }
+  },
+  "runtime_matches_measured_commit": "c460d7de3dcd87c8cb9dc4cddfa398d47a35ee89",
+  "cli_help_exit": 0,
+  "third_party_bundled": false,
+  "optional_dependency_notices": [
+    {
+      "name": "numpy",
+      "version": "1.26.4",
+      "license_expression": null,
+      "metadata_license_first_line": [
+        "Copyright (c) 2005-2023, NumPy Developers."
+      ],
+      "notice_files": {
+        "numpy-1.26.4.dist-info/LICENSE.txt": "080b68e8f70ebc82c180b7396936172d4331f1a18b17f496b9a9256131712cd8",
+        "numpy/core/include/numpy/random/LICENSE.txt": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+        "numpy/ma/LICENSE": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+        "numpy/random/LICENSE.md": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f"
+      }
+    },
+    {
+      "name": "onnxruntime",
+      "version": "1.31.0",
+      "license_expression": null,
+      "metadata_license_first_line": [
+        "MIT License"
+      ],
+      "notice_files": {
+        "onnxruntime/LICENSE": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+        "onnxruntime/ThirdPartyNotices.txt": "143764b952fdb1a7c69ce653bfba74a7744d6a8a573bfb73e235fba356c83de3"
+      }
+    },
+    {
+      "name": "flatbuffers",
+      "version": "25.12.19",
+      "license_expression": null,
+      "metadata_license_first_line": [
+        "Apache 2.0"
+      ],
+      "notice_files": {}
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "license_expression": "Apache-2.0 OR BSD-2-Clause",
+      "metadata_license_first_line": [],
+      "notice_files": {
+        "packaging-26.3.dist-info/licenses/LICENSE": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+        "packaging-26.3.dist-info/licenses/LICENSE.APACHE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "packaging-26.3.dist-info/licenses/LICENSE.BSD": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+      }
+    },
+    {
+      "name": "protobuf",
+      "version": "7.36.2",
+      "license_expression": null,
+      "metadata_license_first_line": [
+        "3-Clause BSD License"
+      ],
+      "notice_files": {
+        "protobuf-7.36.2.dist-info/LICENSE": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d"
+      }
+    }
+  ],
+  "flatbuffers_upstream_notice": {
+    "url": "https://raw.githubusercontent.com/google/flatbuffers/7e163021e59cca4f8e1e35a7c828b5c6b7915953/LICENSE",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "reason": "Installed external wheel has Apache 2.0 metadata but no standalone license file; checked matching upstream release commit instead. No third-party wheel is redistributed."
+  },
+  "model_upstream_notice": {
+    "revision": "c5cae0f1942c8d7727372c7b1f6b485aa39e4421",
+    "license": "Apache-2.0",
+    "license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "card_sha256": "37c9978227b7fc5c481342d81cf8b892febea6c5e342827f8b8247457500312d",
+    "weights_bundled": false
+  },
+  "inputs": {
+    "LICENSE": "0a5f48c5847660a83b6372cf47ef20c88bc20a0ae051dcc623707d081d8ad504",
+    "pyproject.toml": "57ec102a868c452f04c6c9f2ca9d025316003c4f977f8f663f1075c62cffca97",
+    "examples/model.json": "2dbcc23c1fd8b9e37e8f60e9a2154a1407d33869c0b39f195493fc12613b70f9",
+    "examples/requirements.txt": "cc93bef4f4fef4de4daf859793b1cbe2b21f2a862e3c4613117028d1abfa368d"
+  }
+}

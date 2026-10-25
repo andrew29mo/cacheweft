@@ -143,5 +143,5 @@ qualification, real-model/provenance demonstration, clean installation runbook
 qualification, operational log/headroom policy and bounded sustained operation.
 History remains finite (64 manifest revisions, 128 IDs, default 256 requests),
 with no rollover or remote API. No sudden power-loss, suspend, hardware fault,
-boot-zero-gap or long-term qualification is claimed. GitHub remains Private
-and no license has been selected.
+boot-zero-gap or long-term qualification is claimed. At that revision GitHub was Private
+and no license had been selected. The current project is [MIT licensed](../LICENSE).

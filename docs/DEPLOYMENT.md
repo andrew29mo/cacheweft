@@ -10,7 +10,8 @@ This milestone installs the official wheel under a dedicated unprivileged
 `cacheweft` account. The administrator owns the executable environment and unit.
 The daemon owns only its private state and configuration. This is a local Unix
 socket service, not a remote administration API. Same UID/root remain trusted.
-No runtime third-party Python dependency is added; no project license is selected.
+No runtime third-party Python dependency is added. That recorded milestone had
+no selected project license; the current project is [MIT licensed](../LICENSE).
 
 ## Install, start, inspect and stop
 

@@ -72,5 +72,5 @@ Current measurements are local TLS, deterministic 1 MiB data, one observation
 per mode/environment. macOS peak and Linux current RSS include fixture/observer
 allocations; there is no isolated-daemon or cross-platform speed claim. Long-term
 operation, total slow-trickle deadline, real model use, real disk quota and
-sudden power-loss recovery remain unqualified. Repository stays Private with
-no selected license.
+sudden power-loss recovery remain unqualified. At that revision the repository was Private with
+no selected license. The current project license is [MIT](../LICENSE).

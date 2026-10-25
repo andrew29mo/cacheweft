@@ -2,8 +2,9 @@
 
 The final audit found no reproducible defect in the reviewed runtime change,
 but found two classes of fail-closed evidence-validation gaps. They are fixed.
-This is a release-candidate review with no new product feature, license or
-visibility change. The repository remains Private with no project license.
+The review at `891495d` changed no product feature, license or visibility;
+the repository was Private with no project license then. It remains Private
+and is now [MIT licensed](../LICENSE). See the licensing update below.
 
 [Qualification JSON](../evidence/final-review.json) and
 [HTML](../evidence/final-review.html) bind the corrected validators to the exact
@@ -103,9 +104,28 @@ The product wheel contains the five runtime modules and packaging metadata,
 without tests, observers, model weights, databases, certificates or private keys.
 Tracked-file/privacy-pattern checks did not find personal workspace paths or
 credential/private-key material. This is a bounded inspection, not a security
-certification. Project license/publication remain separate decisions.
+certification. The subsequently approved MIT adoption is described below;
+publication remains a separate decision.
 
 The three-minute observation is not proof of no leaks, a long-term plateau,
 automatic request-history rollover, power-loss recovery, boot autostart or
 boot-zero-gap protection. GC does not reclaim request history, and raising its
 configured cap provides finite additional headroom only.
+
+## Subsequent MIT metadata update
+
+MIT adoption adds `license = "MIT"` and `license-files = ["LICENSE"]` to the
+package configuration and the root LICENSE. The version bridge now permits
+exactly those two additions relative to the measured packaging configuration;
+it rejects changes to dependencies, runtime/build requirements or the license
+file selection. Three extra metadata guard tests bring the current qualification
+to **27 review tests**; the original review's 24-test count above remains a
+historical description. Both normal and optimized verification pass.
+
+The current qualification hashes LICENSE and pyproject.toml as well as the
+validators. Original measurement JSON/HTML remains unchanged. A newly built
+MIT wheel/source distribution and a fresh install were checked separately in
+[licensing.json](../evidence/licensing.json); their runtime bytes match the
+measured version. No VM, model inference or performance run was repeated for
+this licensing-only change. See [DEPENDENCIES.md](DEPENDENCIES.md) for independent
+model and optional-library terms.

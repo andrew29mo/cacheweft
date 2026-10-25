@@ -43,7 +43,7 @@ that a model is safe. Upstream TLS/repository identity remain trust assumptions.
 If redistributing weights elsewhere, preserve the upstream license/notices;
 this repository does not grant a new license to those weights.
 
-**Cacheweft itself still has no selected license.** Optional NumPy/ONNX Runtime
+**Cacheweft is now licensed under [MIT](../LICENSE).** Optional NumPy/ONNX Runtime
 and their pinned dependencies are external tools with their own terms; they
 are not vendored and are not added to the product wheel/runtime requirements.
 

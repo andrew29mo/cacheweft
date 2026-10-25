@@ -3,8 +3,8 @@
 This is the download/deadline qualification at commit `59860ca`, before
 the later [systemd deployment milestone](DEPLOYMENT.md). Its test counts,
 runtime hashes and measurements describe that historical version. [The initial milestone record](MILESTONE1.md)
-and its original JSON/HTML remain archived unchanged. The repository remains
-Private with no selected license.
+and its original JSON/HTML remain archived unchanged. At that revision the repository was
+Private with no selected license; the current project license is [MIT](../LICENSE).
 
 Two read-only reviewers independently examined runtime correctness and evidence.
 The author then reproduced the findings with the supported project Python and

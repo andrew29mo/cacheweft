@@ -3,6 +3,7 @@
   &quot;passed&quot;: true,
   &quot;measured_commit&quot;: &quot;c460d7de3dcd87c8cb9dc4cddfa398d47a35ee89&quot;,
   &quot;measured_wheel_sha256&quot;: &quot;0480c2845eb175e2286d83307b59ba79efab7d72ff6a0a0c93dd381101a559a9&quot;,
+  &quot;current_project_license&quot;: &quot;MIT&quot;,
   &quot;records&quot;: {
     &quot;closeout&quot;: {
       &quot;json_path&quot;: &quot;evidence/closeout.json&quot;,
@@ -21,6 +22,12 @@
           &quot;measured_sha256&quot;: &quot;5e994f5ceacfff66bb0afeb63dad0ed109bd195dc180be9c8f06649bd6a3e768&quot;,
           &quot;current_sha256&quot;: &quot;f1d8e1371b44cdf9adf1039ba741a2f4098c5a570b24032636cb9fc413a3ef7e&quot;,
           &quot;classification&quot;: &quot;trailing whitespace only; Python AST identical&quot;
+        },
+        {
+          &quot;path&quot;: &quot;pyproject.toml&quot;,
+          &quot;measured_sha256&quot;: &quot;6ee0499a249a5170281f960f4035720af3d6a808a085362437a1a3003123eecc&quot;,
+          &quot;current_sha256&quot;: &quot;57ec102a868c452f04c6c9f2ca9d025316003c4f977f8f663f1075c62cffca97&quot;,
+          &quot;classification&quot;: &quot;MIT license expression and LICENSE inclusion only; runtime/build requirements unchanged&quot;
         }
       ],
       &quot;current_runtime_matches&quot;: true,
@@ -41,6 +48,12 @@
           &quot;measured_sha256&quot;: &quot;412eb512fc85055525657fa020c1af4040fe6a7d34c3b9d17ffae388cfc9774c&quot;,
           &quot;current_sha256&quot;: &quot;3d3ba13059b89115acaf3faec7abf7935130c134bcd03b125f02a472c6bf8c27&quot;,
           &quot;classification&quot;: &quot;stricter validation only; not a measurement producer&quot;
+        },
+        {
+          &quot;path&quot;: &quot;pyproject.toml&quot;,
+          &quot;measured_sha256&quot;: &quot;6ee0499a249a5170281f960f4035720af3d6a808a085362437a1a3003123eecc&quot;,
+          &quot;current_sha256&quot;: &quot;57ec102a868c452f04c6c9f2ca9d025316003c4f977f8f663f1075c62cffca97&quot;,
+          &quot;classification&quot;: &quot;MIT license expression and LICENSE inclusion only; runtime/build requirements unchanged&quot;
         }
       ],
       &quot;current_runtime_matches&quot;: true,
@@ -52,18 +65,21 @@
     }
   },
   &quot;qualification_sources&quot;: {
+    &quot;LICENSE&quot;: &quot;0a5f48c5847660a83b6372cf47ef20c88bc20a0ae051dcc623707d081d8ad504&quot;,
+    &quot;pyproject.toml&quot;: &quot;57ec102a868c452f04c6c9f2ca9d025316003c4f977f8f663f1075c62cffca97&quot;,
     &quot;closeout/report.py&quot;: &quot;1f481a15eed5f4a5310fa62481a07b91602b65c2df99b6bd2185075e40cdf720&quot;,
     &quot;closeout/scenario.py&quot;: &quot;f1d8e1371b44cdf9adf1039ba741a2f4098c5a570b24032636cb9fc413a3ef7e&quot;,
     &quot;examples/report.py&quot;: &quot;3d3ba13059b89115acaf3faec7abf7935130c134bcd03b125f02a472c6bf8c27&quot;,
     &quot;review/__init__.py&quot;: &quot;e31092759609f92b3943c8732d565c557b03fef1611a4f11e0c7f2d807847052&quot;,
     &quot;review/test_closeout_report.py&quot;: &quot;65f1efc70537022445b17e359eead465ef4761df942d674b10e5308616aef8fe&quot;,
+    &quot;review/test_license_metadata.py&quot;: &quot;04bf3bc274c4bcc5b20cf8773d578a06263e26f8ae5c65c43eb253c9cd277e56&quot;,
     &quot;review/test_model_report.py&quot;: &quot;cfc81f0e750deb87d2aced8003ff4c0ba773a2f453c96e49cc2355b8f0ce0922&quot;,
     &quot;review/test_qualification.py&quot;: &quot;0527c928f1dcd31fab47b1f26102eb2492c78c8e684fbd2885554a5323ae4a4b&quot;,
-    &quot;review/validate.py&quot;: &quot;a0fa143b7ff5583bf7876165b6c3b0cd43ea79d8099036ce479617c7308767d0&quot;
+    &quot;review/validate.py&quot;: &quot;aae8ca50415a82cfc4cb8e4bffd5469a6137050cbcb4641ccf0bc3580e62b571&quot;
   },
   &quot;tests&quot;: {
     &quot;passed&quot;: true,
-    &quot;tests&quot;: 24,
+    &quot;tests&quot;: 27,
     &quot;test_ids&quot;: [
       &quot;review.test_closeout_report.CloseoutReportTests.test_duplicate_and_reversed_times&quot;,
       &quot;review.test_closeout_report.CloseoutReportTests.test_invalid_or_changed_invocation&quot;,
@@ -76,6 +92,9 @@
       &quot;review.test_closeout_report.CloseoutReportTests.test_original_measurement_and_controls&quot;,
       &quot;review.test_closeout_report.CloseoutReportTests.test_resource_and_process_domains&quot;,
       &quot;review.test_closeout_report.CloseoutReportTests.test_sparse_five_window_trace_with_consistent_summaries&quot;,
+      &quot;review.test_license_metadata.LicenseMetadataTests.test_dependency_change_is_rejected&quot;,
+      &quot;review.test_license_metadata.LicenseMetadataTests.test_extra_license_file_is_rejected&quot;,
+      &quot;review.test_license_metadata.LicenseMetadataTests.test_only_mit_fields_are_accepted&quot;,
       &quot;review.test_model_report.ModelReportReviewTests.test_boolean_error_is_not_a_measurement&quot;,
       &quot;review.test_model_report.ModelReportReviewTests.test_boolean_identity&quot;,
       &quot;review.test_model_report.ModelReportReviewTests.test_corpus_controls&quot;,
@@ -93,7 +112,7 @@
     &quot;failures&quot;: 0,
     &quot;errors&quot;: 0,
     &quot;skipped&quot;: 0,
-    &quot;seconds&quot;: 0.22212024999953428
+    &quot;seconds&quot;: 0.27155470800062176
   },
   &quot;observed_coverage&quot;: {
     &quot;samples&quot;: 714,
@@ -109,6 +128,6 @@
     &quot;epoch_end_not_separately_recorded&quot;: true,
     &quot;original_memory_gates_unchanged&quot;: true,
     &quot;github_settings_modified&quot;: false,
-    &quot;project_license_modified&quot;: false
+    &quot;qualification_writes_project_license&quot;: false
   }
 }</pre></html>

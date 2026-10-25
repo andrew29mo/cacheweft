@@ -15,7 +15,7 @@ readiness notifications, crash takeover and bounded rapid restart attempts.
 
 **Milestone 1:** persistent manifest versions, fixed operations and resources,
 per-request total download deadlines, daemon/CLI and conservative restart
-recovery. GitHub remains Private; no license has been selected or granted.
+recovery. GitHub remains Private. Cacheweft is licensed under [MIT](LICENSE).
 
 ## Install and run
 
@@ -93,3 +93,9 @@ remote administration, external mmap lease, qualified systemd autostart, sudden 
 suspend or boot-zero-gap qualification is included. The three-minute bounded
 observation does not establish long-term stability. GC does not reclaim request
 history; no automatic history rollover exists.
+
+## License
+
+[MIT](LICENSE), copyright 2026 Andrew Yuan. External dependencies and the
+optionally downloaded SqueezeNet model retain their own licenses; no weights
+are bundled. See [dependency and model licensing](docs/DEPENDENCIES.md).
