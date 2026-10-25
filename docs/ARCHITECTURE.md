@@ -1,6 +1,7 @@
 # Architecture decisions (milestone 1)
 
-Status: current implementation and qualification are linked from MILESTONE1_REVIEW.
+Status: download/deadline qualification is recorded in MILESTONE1_REVIEW;
+subsequent systemd deployment is described in [DEPLOYMENT.md](DEPLOYMENT.md).
 The following design supersedes the initial chat proposal.
 
 ## Authority and trust
@@ -17,8 +18,9 @@ The private root and its local filesystem are trusted. Root/same-UID attackers
 and disk modification while the process is serving are outside scope. Payload
 opens use O_NOFOLLOW. Unknown files are charged and reported by inspection,
 never automatically claimed or deleted. The installed unprivileged daemon
-exposes this same core through a bounded private Unix socket and CLI. systemd
-installation/autostart remain future work. See SERVICE for framing and limits.
+exposes this same core through a bounded private Unix socket and CLI. The shipped
+systemd unit adds notification readiness and limited rapid restart attempts.
+Automatic boot enablement remains unqualified. See SERVICE for framing and limits.
 
 Manifest IDs permanently map to literal URL/size/SHA-256 tuples in SQLite.
 Snapshots have monotonically advancing revisions, at most 64 snapshots and

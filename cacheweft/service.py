@@ -144,6 +144,15 @@ class Handler(socketserver.BaseRequestHandler):
             except (OSError,CacheError):pass
 
 
+def notify(message):
+    """Optional systemd notification; only the main daemon sends readiness."""
+    address=os.environ.get('NOTIFY_SOCKET')
+    if not address:return
+    if address.startswith('@'):address='\0'+address[1:]
+    with socket.socket(socket.AF_UNIX,socket.SOCK_DGRAM) as sock:
+        sock.connect(address);sock.sendall(message.encode('ascii'))
+
+
 def serve(root,configuration):
     if os.geteuid()==0:raise CacheError('Run daemon as an unprivileged account')
     value,specs,transport,limits=config(configuration)
@@ -162,7 +171,10 @@ def serve(root,configuration):
             with open(temp,'x') as f:json.dump(dict(epoch=cache.epoch,pid=os.getpid(),manifest_revision=cache.manifest_revision),f)
             os.replace(temp,ready)
             try:
+                notify('READY=1\nSTATUS=Recovered; local control API available')
                 while not stop.is_set():server.handle_request()
             finally:
                 cache.begin_shutdown()
+                try:notify('STOPPING=1')
+                except OSError:pass  # Notification loss must not skip cleanup.
                 ready.unlink(missing_ok=True);path.unlink(missing_ok=True)

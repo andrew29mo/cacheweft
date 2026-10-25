@@ -1,6 +1,8 @@
 # Milestone 1 review: SQLite commit fencing and subscriber deadlines
 
-This is the current qualification. [The initial milestone record](MILESTONE1.md)
+This is the download/deadline qualification at commit `59860ca`, before
+the later [systemd deployment milestone](DEPLOYMENT.md). Its test counts,
+runtime hashes and measurements describe that historical version. [The initial milestone record](MILESTONE1.md)
 and its original JSON/HTML remain archived unchanged. The repository remains
 Private with no selected license.
 

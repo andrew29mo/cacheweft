@@ -145,5 +145,6 @@ an owned private directory/socket. The socket is mode 0600. Same UID/root are
 trusted. SIGTERM closes admission, removes the readiness hint/socket, waits for
 control readers and workers, then releases the stable writer lock. `ready.json`
 is atomically replaced as a discovery hint; live `info` is the readiness check.
-It is not a power-loss durable health record. systemd units and autostart are
-deliberately outside this milestone.
+It is not a power-loss durable health record. The subsequent
+[systemd deployment milestone](DEPLOYMENT.md) adds a shipped unit and readiness
+notification; automatic boot enablement remains unqualified.

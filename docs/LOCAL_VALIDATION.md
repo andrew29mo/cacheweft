@@ -1,5 +1,11 @@
 # Local validation
 
+The download/deadline/reboot record below belongs to commit `59860ca`. For
+the current systemd deployment runner and its 71-test cohort, use
+[DEPLOYMENT.md](DEPLOYMENT.md). The earlier runner retains its original
+68-test evidence contract and does not qualify the later unit.
+
+
 Use Python 3.12+, a current setuptools build environment, Colima/Lima and a
 Linux guest with systemd. The runner creates a fresh `cw-exp-*` profile, no host
 mounts, two vCPUs and 2 GiB requested RAM. No existing profile is reused or
