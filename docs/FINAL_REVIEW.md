@@ -3,8 +3,8 @@
 The final audit found no reproducible defect in the reviewed runtime change,
 but found two classes of fail-closed evidence-validation gaps. They are fixed.
 The review at `891495d` changed no product feature, license or visibility;
-the repository was Private with no project license then. It remains Private
-and is now [MIT licensed](../LICENSE). See the licensing update below.
+the repository was Private with no project license then. The repository is now Public
+and [MIT licensed](../LICENSE); current settings are in [PUBLICATION.md](PUBLICATION.md). See the licensing update below.
 
 [Qualification JSON](../evidence/final-review.json) and
 [HTML](../evidence/final-review.html) bind the corrected validators to the exact
@@ -98,14 +98,15 @@ There are no tracked Actions workflows. Actions is enabled with read-only
 default workflow token permissions and cannot approve pull-request reviews;
 allowed-actions is currently all and SHA pinning is not required. These are
 observed settings, not a claim that future public workflows are hardened.
-Settings were not changed in this review.
+Settings were not changed in that review. The later public-release configuration
+is recorded in [PUBLICATION.md](PUBLICATION.md).
 
 The product wheel contains the five runtime modules and packaging metadata,
 without tests, observers, model weights, databases, certificates or private keys.
 Tracked-file/privacy-pattern checks did not find personal workspace paths or
 credential/private-key material. This is a bounded inspection, not a security
 certification. The subsequently approved MIT adoption is described below;
-publication remains a separate decision.
+the subsequent public-release decision is recorded in [PUBLICATION.md](PUBLICATION.md).
 
 The three-minute observation is not proof of no leaks, a long-term plateau,
 automatic request-history rollover, power-loss recovery, boot autostart or

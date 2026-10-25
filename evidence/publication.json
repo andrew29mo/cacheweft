@@ -1,0 +1,75 @@
+{
+  "repository": "andrew29mo/cacheweft",
+  "visibility": "public",
+  "default_branch": "main",
+  "license": "MIT",
+  "security_and_analysis": {
+    "secret_scanning": {
+      "status": "enabled"
+    },
+    "secret_scanning_push_protection": {
+      "status": "enabled"
+    },
+    "dependabot_security_updates": {
+      "status": "enabled"
+    },
+    "secret_scanning_non_provider_patterns": {
+      "status": "disabled"
+    },
+    "secret_scanning_validity_checks": {
+      "status": "disabled"
+    }
+  },
+  "actions": {
+    "enabled": false,
+    "sha_pinning_required": false
+  },
+  "workflow_token": {
+    "default_workflow_permissions": "read",
+    "can_approve_pull_request_reviews": false
+  },
+  "external_pr": {
+    "approval_policy": "all_external_contributors"
+  },
+  "dependabot_alerts_enabled": true,
+  "dependabot_security_updates": {
+    "enabled": true,
+    "paused": false
+  },
+  "private_vulnerability_reporting": {
+    "enabled": true
+  },
+  "main": {
+    "enforce_admins": true,
+    "linear_history": true,
+    "force_pushes": false,
+    "deletions": false,
+    "required_pr_reviews": null,
+    "required_status_checks": null,
+    "conversation_resolution": true
+  },
+  "collaborators": [
+    "andrew29mo"
+  ],
+  "allow_auto_merge": false,
+  "recorded_utc": "2026-10-25T16:59:30.854158+00:00",
+  "publication_date_asia_taipei": "2026-10-26",
+  "source_commit_before_publication": "1fc2af402444bdb2f8fd2fe1630c65a1f2f28220",
+  "dependabot_version_updates": {
+    "config": ".github/dependabot.yml",
+    "ecosystem": "pip",
+    "directories": [
+      "/",
+      "/examples"
+    ],
+    "interval": "weekly",
+    "max_open_version_prs_per_directory": 1
+  },
+  "limits": {
+    "new_measurement": false,
+    "ci_workflows_present": false,
+    "remote_ci_claimed": false,
+    "asynchronous_scans_not_claimed_complete": true
+  },
+  "actions_disabled_readback_note": "allowed_actions not exposed; sha_pinning_required false. Re-enable only with a fresh permissions review."
+}

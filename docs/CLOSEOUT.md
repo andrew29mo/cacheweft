@@ -7,7 +7,8 @@ validator corrections and their exact source/version bridge are documented in
 
 This iteration closes the existing scope. It adds no remote API, alternate
 origin, automatic eviction/rollover or new product operation. At the measured revision the repository was Private with no selected project
-license. It remains Private; the current project license is [MIT](../LICENSE).
+license. The repository is now Public and the project is [MIT licensed](../LICENSE);
+see [publication settings](PUBLICATION.md).
 
 The current evidence is [JSON](../evidence/closeout.json) / [HTML](../evidence/closeout.html).
 It must distinguish unit tests from installed-service observations and native
