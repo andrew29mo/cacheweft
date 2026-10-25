@@ -13,4 +13,8 @@ and SQLite. Python, OpenSSL and SQLite retain their own notices/terms:
 Build tooling (setuptools/pip), Colima/Lima, guest OS packages and OpenSSL CLI
 are external tools, not vendored product sources. Generated test certificates
 are ephemeral and ignored. No model, dataset or third-party code is bundled.
-Future actual model demonstration must separately record its license/provenance.
+The optional [real-model demonstration](MODEL_DEMO.md) records a pinned
+Apache-2.0 SqueezeNet model and upstream provenance without bundling its bytes.
+Its separate inference venv uses pinned NumPy/ONNX Runtime and dependencies;
+these are external optional tools, not Cacheweft runtime dependencies.
+Cacheweft itself remains without a selected license.

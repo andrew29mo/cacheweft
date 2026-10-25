@@ -1,0 +1,6 @@
+# Optional inference observer only; never installed into Cacheweft's runtime venv.
+numpy==1.26.4
+onnxruntime==1.31.0
+flatbuffers==25.12.19
+packaging==26.3
+protobuf==7.36.2

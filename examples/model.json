@@ -1,0 +1,11 @@
+{
+  "id": "squeezenet1.1-opset7",
+  "repository": "onnx/models",
+  "revision": "c5cae0f1942c8d7727372c7b1f6b485aa39e4421",
+  "path": "validated/vision/classification/squeezenet/model/squeezenet1.1-7.onnx",
+  "size": 4956208,
+  "sha256": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
+  "license": "Apache-2.0",
+  "license_path": "LICENSE",
+  "card_path": "validated/vision/classification/squeezenet/README.md"
+}

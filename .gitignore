@@ -9,3 +9,8 @@ AGENTS.md
 *.pem
 *.key
 *.db
+.demo-venv/
+*.onnx
+*.npy
+*.npz
+.runtime-demo-venv/

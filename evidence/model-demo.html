@@ -1,0 +1,1429 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Cacheweft real model</title><style>body{font:16px system-ui;max-width:1100px;margin:40px auto;padding:20px}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:8px}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>Cacheweft real-model demonstration</h1><p>Passed: True</p><p>Times include CLI startup and status polling. Resumed time excludes the prefix/crash/restart; it is not comparable to a full-download speedup. RSS is sampled daemon memory, excludes inference, and Linux VM is separate from native macOS. Body-write bytes exclude HTTP/TLS framing; offline attempts use formal counters and Linux syscall tracing. Synthetic input verifies model execution, not classification accuracy. WAN is one separate sample; no WAN speedup, power-loss or long-term claim.</p><table><tr><th>Environment</th><th>Mode</th><th>Fetch seconds</th><th>Server successful body-write bytes</th><th>Sampled max daemon RSS bytes</th></tr><tr><td>Native macOS loopback TLS</td><td>cold</td><td>0.179</td><td>4956208</td><td>30687232</td></tr><tr><td>Native macOS loopback TLS</td><td>resumed</td><td>0.1119</td><td>4956208</td><td>30146560</td></tr><tr><td>Native macOS loopback TLS</td><td>offline</td><td>0.0701</td><td>origin offline</td><td>29097984</td></tr><tr><td>Native macOS loopback TLS</td><td>corrupt</td><td>not timed</td><td>4956208</td><td>30277632</td></tr><tr><td>Linux VM loopback TLS</td><td>cold</td><td>0.2125</td><td>4956208</td><td>25260032</td></tr><tr><td>Linux VM loopback TLS</td><td>resumed</td><td>0.1453</td><td>4956208</td><td>25387008</td></tr><tr><td>Linux VM loopback TLS</td><td>offline</td><td>0.0468</td><td>origin offline</td><td>24674304</td></tr><tr><td>Linux VM loopback TLS</td><td>corrupt</td><td>not timed</td><td>4956208</td><td>25255936</td></tr></table><pre>{
+  &quot;contract&quot;: &quot;cacheweft-real-model-v1&quot;,
+  &quot;passed&quot;: true,
+  &quot;recorded_utc&quot;: &quot;2026-10-25T14:55:25.727858+00:00&quot;,
+  &quot;source&quot;: {
+    &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
+    &quot;cacheweft/cli.py&quot;: &quot;7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5&quot;,
+    &quot;cacheweft/core.py&quot;: &quot;068325c996f6acad07353a112970120327e75c70448edb084e23f3b054a48723&quot;,
+    &quot;cacheweft/http.py&quot;: &quot;41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76&quot;,
+    &quot;cacheweft/service.py&quot;: &quot;c8c608aa79fc164e6b9259cdb76acbae550ab2408e054e483aaf233f029fa21e&quot;,
+    &quot;deploy/cacheweft.service&quot;: &quot;b29542634a9f525d089e107f593b20ee28690e37ab4afc177c28bc2141c84053&quot;,
+    &quot;deploy/install.sh&quot;: &quot;b06ffe9e4d7dbcdfbbaa7dbe470c5ceee0c412ebc8028a3b1bbe4d7d2815706e&quot;,
+    &quot;deploy/test_notify.py&quot;: &quot;d42ff8d80473d55fa09ce29ffd44ffc55ec92a5beaff502f9c0ff008b429535e&quot;,
+    &quot;examples/__init__.py&quot;: &quot;17f04305f4f121e7760104113dfbdde6061f85885c6d09fdc4a17dbe2bfdf7d0&quot;,
+    &quot;examples/demo.py&quot;: &quot;cf60b1950f5bc1a71a90c4a21ece92f3702861e647d057ffd802b8d0e1e023ef&quot;,
+    &quot;examples/infer.py&quot;: &quot;d6523f2e091f01a32deb38d48653a09e9f813e4fa3cad43434c4fb29144baee1&quot;,
+    &quot;examples/model.json&quot;: &quot;2dbcc23c1fd8b9e37e8f60e9a2154a1407d33869c0b39f195493fc12613b70f9&quot;,
+    &quot;examples/origin.py&quot;: &quot;31cdeb243307575cfe5ab5796647cc721b10a4aa13724c26da4a802a9211da04&quot;,
+    &quot;examples/prepare.py&quot;: &quot;affd5090cedd319f48b7f43ac8bcc8a1194637cf6890a048ed56c9b658e0a28f&quot;,
+    &quot;examples/report.py&quot;: &quot;e0d77e5f6d6bc007d3b085f03c901f55f11b426d572d5bd2bcd053cb8ff57871&quot;,
+    &quot;examples/requirements.txt&quot;: &quot;cc93bef4f4fef4de4daf859793b1cbe2b21f2a862e3c4613117028d1abfa368d&quot;,
+    &quot;examples/validate.py&quot;: &quot;7eae74f5d00d63c15fcf1e0b2f0d782d6cca2fcf22dcad406523b4820810a0db&quot;,
+    &quot;examples/wan.py&quot;: &quot;5ab6c850de9766e027a3071f2531950329760db4adf8a0c8a49be320b7bebb32&quot;,
+    &quot;pyproject.toml&quot;: &quot;6ee0499a249a5170281f960f4035720af3d6a808a085362437a1a3003123eecc&quot;,
+    &quot;tests/__init__.py&quot;: &quot;e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&quot;,
+    &quot;tests/daemon_fixture.py&quot;: &quot;03ac73462542d1e7b8adbf38907b82398b093a1ce83a499bd919e4e8091acd1f&quot;,
+    &quot;tests/fixture.py&quot;: &quot;11eadd60812db5db5ebe5acbfbd620d6699497e6666e789f404e0d504c0b728e&quot;,
+    &quot;tests/review_fixture.py&quot;: &quot;6fcbbc68944799c7134ad51b5251cddae313af2e0c54bd681a589a35ca374542&quot;,
+    &quot;tests/test_core.py&quot;: &quot;ef8d6b1dd9195d814e47e4ce665ce1f4361340b39057945a5433f42a76b67a8b&quot;,
+    &quot;tests/test_review.py&quot;: &quot;02da5fb7322fa4ebde3265b892598329ef256bc762bdc52c58d774ab892b58a6&quot;,
+    &quot;tests/test_service.py&quot;: &quot;4fa4b1429ec989275be88b96684cb7e6125af672d59a8d680ca027ca62ca324f&quot;,
+    &quot;tools/__init__.py&quot;: &quot;e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&quot;,
+    &quot;tools/cases.py&quot;: &quot;018793b45dc0d426c9cc31487cfc8c288130864da4ec360da99d54c5dc7edcde&quot;,
+    &quot;tools/deployment.py&quot;: &quot;9e59e61426dfe01a11493badc8e584fb8a17c37df33301a8ea66840e7371c5e2&quot;,
+    &quot;tools/deployment_report.py&quot;: &quot;b68ad2d01e1fd05e083d114183229c514998c3b15c8a03ba1671d47a690eeb2b&quot;,
+    &quot;tools/deployment_validate.py&quot;: &quot;0bc79e84cf6b81ec1bd4ea131c58a81676dbd93227e43b537caf19b22e15cc04&quot;,
+    &quot;tools/milestone.py&quot;: &quot;e5aa771be7359d022b19bb5434c560a926012bf25453c6d18e76888337ac7f11&quot;,
+    &quot;tools/reboot.py&quot;: &quot;f948294a00c181c97d962d28cebe664a42cd38d924da718a56d80628ac9ef3f5&quot;,
+    &quot;tools/report.py&quot;: &quot;2e2653e027ea7fbb0538ddf08fdcbf17f4e982ae4a52ca2b89e0dff0d853e228&quot;,
+    &quot;tools/review_cases.py&quot;: &quot;4768007961241cecfdf8527c8e4a6979e81847d46aa41809537fd46ec58717e0&quot;,
+    &quot;tools/unit.py&quot;: &quot;a1f904bef90862c9bbe376dca54d4d8bc1002dc67b96396645eee22a589669e0&quot;,
+    &quot;tools/validate.py&quot;: &quot;1d30c0333b962ce550f61efae3f3d34c6b8afb570cdc5fc0561affb10f391993&quot;
+  },
+  &quot;wheel_sha256&quot;: &quot;fb4ef2397fa599c1cb874c80943521be9a6f52d39a0a24a3bc8bd8a0705a3ca5&quot;,
+  &quot;stages&quot;: [
+    {
+      &quot;name&quot;: &quot;initial&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.21725487499998053
+    },
+    {
+      &quot;name&quot;: &quot;create&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 20.66536958300003
+    },
+    {
+      &quot;name&quot;: &quot;dependencies&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 14.730194624999967
+    },
+    {
+      &quot;name&quot;: &quot;upload&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.445404999999937
+    },
+    {
+      &quot;name&quot;: &quot;install&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 9.442675165999844
+    },
+    {
+      &quot;name&quot;: &quot;provenance&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.3048982089999299
+    },
+    {
+      &quot;name&quot;: &quot;native-provenance&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.07207204199994521
+    },
+    {
+      &quot;name&quot;: &quot;native&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 26.57438091699987
+    },
+    {
+      &quot;name&quot;: &quot;native-model&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 3.0281265830003576
+    },
+    {
+      &quot;name&quot;: &quot;native-wan&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 1.3613310000000638
+    },
+    {
+      &quot;name&quot;: &quot;linux&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 26.5812840829999
+    },
+    {
+      &quot;name&quot;: &quot;linux-read&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.286864874999992
+    },
+    {
+      &quot;name&quot;: &quot;linux-model&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 2.9259122920002483
+    },
+    {
+      &quot;name&quot;: &quot;linux-model-read&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.2984760410004128
+    },
+    {
+      &quot;name&quot;: &quot;delete&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 1.4295308749997275
+    },
+    {
+      &quot;name&quot;: &quot;final&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.19745929100008652
+    }
+  ],
+  &quot;host_mounts&quot;: &quot;none&quot;,
+  &quot;reference&quot;: {
+    &quot;model&quot;: {
+      &quot;id&quot;: &quot;squeezenet1.1-opset7&quot;,
+      &quot;repository&quot;: &quot;onnx/models&quot;,
+      &quot;revision&quot;: &quot;c5cae0f1942c8d7727372c7b1f6b485aa39e4421&quot;,
+      &quot;path&quot;: &quot;validated/vision/classification/squeezenet/model/squeezenet1.1-7.onnx&quot;,
+      &quot;size&quot;: 4956208,
+      &quot;sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+      &quot;license&quot;: &quot;Apache-2.0&quot;,
+      &quot;license_path&quot;: &quot;LICENSE&quot;,
+      &quot;card_path&quot;: &quot;validated/vision/classification/squeezenet/README.md&quot;
+    },
+    &quot;pointer_url&quot;: &quot;https://raw.githubusercontent.com/onnx/models/c5cae0f1942c8d7727372c7b1f6b485aa39e4421/validated/vision/classification/squeezenet/model/squeezenet1.1-7.onnx&quot;,
+    &quot;pointer&quot;: &quot;version https://git-lfs.github.com/spec/v1\noid sha256:1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\nsize 4956208\n&quot;,
+    &quot;payload_url&quot;: &quot;https://media.githubusercontent.com/media/onnx/models/c5cae0f1942c8d7727372c7b1f6b485aa39e4421/validated/vision/classification/squeezenet/model/squeezenet1.1-7.onnx&quot;,
+    &quot;license_url&quot;: &quot;https://raw.githubusercontent.com/onnx/models/c5cae0f1942c8d7727372c7b1f6b485aa39e4421/LICENSE&quot;,
+    &quot;license_sha256&quot;: &quot;cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30&quot;,
+    &quot;card_url&quot;: &quot;https://raw.githubusercontent.com/onnx/models/c5cae0f1942c8d7727372c7b1f6b485aa39e4421/validated/vision/classification/squeezenet/README.md&quot;,
+    &quot;card_sha256&quot;: &quot;37c9978227b7fc5c481342d81cf8b892febea6c5e342827f8b8247457500312d&quot;,
+    &quot;reference_sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+    &quot;reference_size&quot;: 4956208,
+    &quot;redirects_allowed&quot;: false,
+    &quot;proxies_used&quot;: false
+  },
+  &quot;limits&quot;: {
+    &quot;accuracy_tested&quot;: false,
+    &quot;wan_trials&quot;: 1,
+    &quot;syscall_trace_linux_only&quot;: true,
+    &quot;systemd_tested&quot;: false,
+    &quot;power_loss_tested&quot;: false,
+    &quot;long_term_tested&quot;: false
+  },
+  &quot;installed_modules&quot;: {
+    &quot;cacheweft/service.py&quot;: &quot;c8c608aa79fc164e6b9259cdb76acbae550ab2408e054e483aaf233f029fa21e&quot;,
+    &quot;cacheweft/core.py&quot;: &quot;068325c996f6acad07353a112970120327e75c70448edb084e23f3b054a48723&quot;,
+    &quot;cacheweft/cli.py&quot;: &quot;7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5&quot;,
+    &quot;cacheweft/http.py&quot;: &quot;41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76&quot;,
+    &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;
+  },
+  &quot;native_installed_modules&quot;: {
+    &quot;cacheweft/service.py&quot;: &quot;c8c608aa79fc164e6b9259cdb76acbae550ab2408e054e483aaf233f029fa21e&quot;,
+    &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
+    &quot;cacheweft/core.py&quot;: &quot;068325c996f6acad07353a112970120327e75c70448edb084e23f3b054a48723&quot;,
+    &quot;cacheweft/cli.py&quot;: &quot;7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5&quot;,
+    &quot;cacheweft/http.py&quot;: &quot;41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76&quot;
+  },
+  &quot;native&quot;: {
+    &quot;passed&quot;: true,
+    &quot;tests&quot;: 71,
+    &quot;test_ids&quot;: [
+      &quot;deploy.test_notify.NotifyTests.test_failed_notify_is_failed_start_and_cleans_socket&quot;,
+      &quot;deploy.test_notify.NotifyTests.test_no_notify_environment&quot;,
+      &quot;deploy.test_notify.NotifyTests.test_ready_then_stopping_from_actual_daemon&quot;,
+      &quot;tests.test_core.CoreTests.test_416_not_success&quot;,
+      &quot;tests.test_core.CoreTests.test_bad_range_refused&quot;,
+      &quot;tests.test_core.CoreTests.test_cancel_races_durable_publish_intent&quot;,
+      &quot;tests.test_core.CoreTests.test_cancel_sql_failure_no_success&quot;,
+      &quot;tests.test_core.CoreTests.test_capacity_refusal_deletes_nothing&quot;,
+      &quot;tests.test_core.CoreTests.test_changed_validator_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_close_keeps_lock_until_reader_closed&quot;,
+      &quot;tests.test_core.CoreTests.test_coalescing_cancel_one&quot;,
+      &quot;tests.test_core.CoreTests.test_complete_checkpoint_corruption_not_published&quot;,
+      &quot;tests.test_core.CoreTests.test_complete_checkpoint_needs_no_origin_or_attempt&quot;,
+      &quot;tests.test_core.CoreTests.test_complete_checkpoint_without_validator&quot;,
+      &quot;tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows&quot;,
+      &quot;tests.test_core.CoreTests.test_disk_error_retires_authority&quot;,
+      &quot;tests.test_core.CoreTests.test_encoded_body_refused&quot;,
+      &quot;tests.test_core.CoreTests.test_existing_target_not_overwritten&quot;,
+      &quot;tests.test_core.CoreTests.test_fixture_eof_range_is_416&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_crash_recovery&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_crash_retains_partial_deletion_ownership&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_then_read_and_stale_generation&quot;,
+      &quot;tests.test_core.CoreTests.test_https_verified_content&quot;,
+      &quot;tests.test_core.CoreTests.test_late_chunk_after_last_cancel&quot;,
+      &quot;tests.test_core.CoreTests.test_local_quota_and_permission_errors_are_not_network_retries&quot;,
+      &quot;tests.test_core.CoreTests.test_lock_and_corrupt_on_restart&quot;,
+      &quot;tests.test_core.CoreTests.test_old_epoch_plan_and_pin_rejected&quot;,
+      &quot;tests.test_core.CoreTests.test_persistent_attempt_budget&quot;,
+      &quot;tests.test_core.CoreTests.test_pin_and_read_prevent_stale_gc_plan&quot;,
+      &quot;tests.test_core.CoreTests.test_publish_boundary_cancel_too_late&quot;,
+      &quot;tests.test_core.CoreTests.test_range_ignored_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_reader_and_job_limits&quot;,
+      &quot;tests.test_core.CoreTests.test_readonly_database_retires_authority&quot;,
+      &quot;tests.test_core.CoreTests.test_request_budget_and_conflict&quot;,
+      &quot;tests.test_core.CoreTests.test_reservation_not_oversold&quot;,
+      &quot;tests.test_core.CoreTests.test_resume_real_range&quot;,
+      &quot;tests.test_core.CoreTests.test_retired_download_cannot_block_new_generation&quot;,
+      &quot;tests.test_core.CoreTests.test_shorter_than_checkpoint_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_symlink_destination_never_overwritten&quot;,
+      &quot;tests.test_core.CoreTests.test_symlink_not_followed&quot;,
+      &quot;tests.test_core.CoreTests.test_tls_and_origin_restriction&quot;,
+      &quot;tests.test_core.CoreTests.test_unknown_data_charged_not_deleted&quot;,
+      &quot;tests.test_core.CoreTests.test_weak_or_absent_etag_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_wrong_hash_not_published&quot;,
+      &quot;tests.test_core.CoreTests.test_wrong_length_refused&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_daemon_admission_commit_reader_cutoff&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_delayed_validation_cannot_commit_after_cutoff&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_publish_commit_reader_cutoff&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_shared_begin_wait_only_live_member_succeeds&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_shared_commit_wait_only_live_member_succeeds&quot;,
+      &quot;tests.test_service.ServiceTests.test_authority_wait_cannot_turn_expired_fetch_into_hit&quot;,
+      &quot;tests.test_service.ServiceTests.test_bad_frames_and_config_permissions&quot;,
+      &quot;tests.test_service.ServiceTests.test_cli_flow_and_read&quot;,
+      &quot;tests.test_service.ServiceTests.test_coalesced_old_deadline_not_extended&quot;,
+      &quot;tests.test_service.ServiceTests.test_committed_publication_recovery_preserves_original_deadline&quot;,
+      &quot;tests.test_service.ServiceTests.test_control_connection_limit&quot;,
+      &quot;tests.test_service.ServiceTests.test_deadline_check_survives_delayed_sweeper&quot;,
+      &quot;tests.test_service.ServiceTests.test_deadline_rechecked_after_verification&quot;,
+      &quot;tests.test_service.ServiceTests.test_deadline_rechecked_after_write_precharge&quot;,
+      &quot;tests.test_service.ServiceTests.test_duplicate_id_cannot_extend_duration&quot;,
+      &quot;tests.test_service.ServiceTests.test_managed_core_cannot_import_or_create_unbounded_interest&quot;,
+      &quot;tests.test_service.ServiceTests.test_manifest_immutable_and_revision_rollback&quot;,
+      &quot;tests.test_service.ServiceTests.test_queued_job_expires_without_source_request&quot;,
+      &quot;tests.test_service.ServiceTests.test_restart_interrupts_old_deadline_and_requires_explicit_resume&quot;,
+      &quot;tests.test_service.ServiceTests.test_shutdown_rejects_preaccepted_incomplete_request&quot;,
+      &quot;tests.test_service.ServiceTests.test_slow_body_total_deadline&quot;,
+      &quot;tests.test_service.ServiceTests.test_slow_headers_total_deadline&quot;,
+      &quot;tests.test_service.ServiceTests.test_slow_source_cancel_and_stale_token&quot;,
+      &quot;tests.test_service.ServiceTests.test_sqlite_admission_wait_cannot_accept_expired_hit&quot;,
+      &quot;tests.test_service.ServiceTests.test_sqlite_publish_wait_cannot_create_expired_intent&quot;,
+      &quot;tests.test_service.ServiceTests.test_watchdog_lives_through_connection_close_response_body&quot;
+    ],
+    &quot;failures&quot;: 0,
+    &quot;errors&quot;: 0,
+    &quot;skipped&quot;: 0,
+    &quot;seconds&quot;: 26.46442179199994,
+    &quot;platform&quot;: &quot;Darwin&quot;,
+    &quot;python&quot;: &quot;3.12.14&quot;,
+    &quot;modules&quot;: {
+      &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
+      &quot;cacheweft/cli.py&quot;: &quot;7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5&quot;,
+      &quot;cacheweft/core.py&quot;: &quot;068325c996f6acad07353a112970120327e75c70448edb084e23f3b054a48723&quot;,
+      &quot;cacheweft/http.py&quot;: &quot;41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76&quot;,
+      &quot;cacheweft/service.py&quot;: &quot;c8c608aa79fc164e6b9259cdb76acbae550ab2408e054e483aaf233f029fa21e&quot;
+    }
+  },
+  &quot;native_model&quot;: {
+    &quot;platform&quot;: &quot;Darwin&quot;,
+    &quot;reference_sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+    &quot;cases&quot;: [
+      {
+        &quot;mode&quot;: &quot;cold&quot;,
+        &quot;fetch&quot;: {
+          &quot;seconds&quot;: 0.17899462500008667,
+          &quot;accepted_deadline&quot;: 2532.72743375,
+          &quot;final&quot;: {
+            &quot;request&quot;: {
+              &quot;id&quot;: &quot;cold&quot;,
+              &quot;params&quot;: &quot;[\&quot;squeezenet1.1-opset7\&quot;,\&quot;https://localhost:50558/model.onnx\&quot;,4956208,\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;,20.0,null]&quot;,
+              &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+              &quot;generation&quot;: &quot;c6b0111e-3eb1-416f-9adb-1acb1fe4ec3b&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: 2532.72743375,
+              &quot;epoch&quot;: &quot;42cf28e6-993e-424c-84eb-7bf6c33ca344&quot;,
+              &quot;revision&quot;: 2
+            },
+            &quot;available&quot;: true,
+            &quot;object&quot;: {
+              &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+              &quot;size&quot;: 4956208,
+              &quot;url&quot;: &quot;https://localhost:50558/model.onnx&quot;,
+              &quot;generation&quot;: &quot;c6b0111e-3eb1-416f-9adb-1acb1fe4ec3b&quot;,
+              &quot;state&quot;: &quot;READY&quot;,
+              &quot;offset&quot;: 4956208,
+              &quot;etag&quot;: &quot;\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;&quot;,
+              &quot;attempts&quot;: 1,
+              &quot;wire&quot;: 4956208,
+              &quot;pin&quot;: 0,
+              &quot;access&quot;: 1792940198620769000,
+              &quot;revision&quot;: 1
+            },
+            &quot;degraded&quot;: false,
+            &quot;epoch&quot;: &quot;42cf28e6-993e-424c-84eb-7bf6c33ca344&quot;,
+            &quot;remaining_seconds&quot;: null
+          }
+        },
+        &quot;read&quot;: {
+          &quot;seconds&quot;: 0.052121416999852954,
+          &quot;cli_exit&quot;: 0,
+          &quot;size&quot;: 4956208,
+          &quot;sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;
+        },
+        &quot;server_requests&quot;: [
+          {
+            &quot;range&quot;: null,
+            &quot;if_range&quot;: null,
+            &quot;status&quot;: 200,
+            &quot;start&quot;: 0,
+            &quot;successful_body_write_bytes&quot;: 4956208
+          }
+        ],
+        &quot;server_body_write_bytes&quot;: 4956208,
+        &quot;disk&quot;: {
+          &quot;root_regular_unique_inode_logical_bytes&quot;: 4989062,
+          &quot;root_regular_unique_inode_allocated_bytes&quot;: 4997120,
+          &quot;scope&quot;: &quot;cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded&quot;
+        },
+        &quot;usage&quot;: {
+          &quot;payload_bytes&quot;: 4956208,
+          &quot;remaining_reserved&quot;: 0,
+          &quot;allocated_payload_bytes&quot;: 4960256,
+          &quot;budget&quot;: 16777216
+        },
+        &quot;memory&quot;: {
+          &quot;pid&quot;: 5497,
+          &quot;uid&quot;: 501,
+          &quot;daemon_pgid&quot;: 5495,
+          &quot;observer_pgid&quot;: 5495,
+          &quot;sampled_min_bytes&quot;: 29114368,
+          &quot;sampled_max_bytes&quot;: 30687232,
+          &quot;samples&quot;: 4,
+          &quot;requested_interval_seconds&quot;: 0.05,
+          &quot;scope&quot;: &quot;daemon PID current RSS samples only; observer, inference and VM/host memory excluded&quot;,
+          &quot;platform&quot;: &quot;Darwin&quot;
+        },
+        &quot;cleanup&quot;: {
+          &quot;exit_code&quot;: 0,
+          &quot;socket_removed&quot;: true,
+          &quot;ready_removed&quot;: true
+        }
+      },
+      {
+        &quot;mode&quot;: &quot;resumed&quot;,
+        &quot;before_crash&quot;: {
+          &quot;state&quot;: &quot;WAITING&quot;,
+          &quot;deadline&quot;: 2533.283796208,
+          &quot;epoch&quot;: &quot;7fa6c7c3-0f66-414f-94a7-5c38c07a149d&quot;
+        },
+        &quot;checkpoint&quot;: 262144,
+        &quot;crash_exit&quot;: -9,
+        &quot;recovered_old&quot;: {
+          &quot;id&quot;: &quot;old&quot;,
+          &quot;params&quot;: &quot;[\&quot;squeezenet1.1-opset7\&quot;,\&quot;https://localhost:50558/model.onnx\&quot;,4956208,\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;,20.0,null]&quot;,
+          &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+          &quot;generation&quot;: &quot;e0f494c3-12b6-4164-a202-daaba7484352&quot;,
+          &quot;state&quot;: &quot;INTERRUPTED&quot;,
+          &quot;result&quot;: &quot;INTERRUPTED&quot;,
+          &quot;deadline&quot;: 2533.283796208,
+          &quot;epoch&quot;: &quot;7fa6c7c3-0f66-414f-94a7-5c38c07a149d&quot;,
+          &quot;revision&quot;: 2
+        },
+        &quot;old_epoch_rejected&quot;: true,
+        &quot;no_automatic_get&quot;: true,
+        &quot;restart_seconds&quot;: 0.049857417000112036,
+        &quot;resume_fetch_seconds&quot;: 0.11187316599989572,
+        &quot;final&quot;: {
+          &quot;request&quot;: {
+            &quot;id&quot;: &quot;new&quot;,
+            &quot;params&quot;: &quot;[\&quot;squeezenet1.1-opset7\&quot;,\&quot;https://localhost:50558/model.onnx\&quot;,4956208,\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;,20.0,\&quot;old\&quot;]&quot;,
+            &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+            &quot;generation&quot;: &quot;e0f494c3-12b6-4164-a202-daaba7484352&quot;,
+            &quot;state&quot;: &quot;SUCCEEDED&quot;,
+            &quot;result&quot;: &quot;SUCCEEDED&quot;,
+            &quot;deadline&quot;: 2533.396085291,
+            &quot;epoch&quot;: &quot;e122f1ef-50fc-4b1c-89ce-a1595af9b30d&quot;,
+            &quot;revision&quot;: 2
+          },
+          &quot;available&quot;: true,
+          &quot;object&quot;: {
+            &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+            &quot;size&quot;: 4956208,
+            &quot;url&quot;: &quot;https://localhost:50558/model.onnx&quot;,
+            &quot;generation&quot;: &quot;e0f494c3-12b6-4164-a202-daaba7484352&quot;,
+            &quot;state&quot;: &quot;READY&quot;,
+            &quot;offset&quot;: 4956208,
+            &quot;etag&quot;: &quot;\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;&quot;,
+            &quot;attempts&quot;: 2,
+            &quot;wire&quot;: 4956208,
+            &quot;pin&quot;: 0,
+            &quot;access&quot;: 1792940199177107000,
+            &quot;revision&quot;: 2
+          },
+          &quot;degraded&quot;: false,
+          &quot;epoch&quot;: &quot;e122f1ef-50fc-4b1c-89ce-a1595af9b30d&quot;,
+          &quot;remaining_seconds&quot;: null
+        },
+        &quot;read&quot;: {
+          &quot;seconds&quot;: 0.04983041700006652,
+          &quot;cli_exit&quot;: 0,
+          &quot;size&quot;: 4956208,
+          &quot;sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;
+        },
+        &quot;server_requests&quot;: [
+          {
+            &quot;range&quot;: null,
+            &quot;if_range&quot;: null,
+            &quot;status&quot;: 200,
+            &quot;start&quot;: 0,
+            &quot;successful_body_write_bytes&quot;: 262144
+          },
+          {
+            &quot;range&quot;: &quot;bytes=262144-&quot;,
+            &quot;if_range&quot;: &quot;\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;&quot;,
+            &quot;status&quot;: 206,
+            &quot;start&quot;: 262144,
+            &quot;successful_body_write_bytes&quot;: 4694064
+          }
+        ],
+        &quot;server_body_write_bytes&quot;: 4956208,
+        &quot;memory_before_crash&quot;: {
+          &quot;pid&quot;: 5504,
+          &quot;uid&quot;: 501,
+          &quot;daemon_pgid&quot;: 5495,
+          &quot;observer_pgid&quot;: 5495,
+          &quot;sampled_min_bytes&quot;: 28917760,
+          &quot;sampled_max_bytes&quot;: 30097408,
+          &quot;samples&quot;: 2,
+          &quot;requested_interval_seconds&quot;: 0.05,
+          &quot;scope&quot;: &quot;daemon PID current RSS samples only; observer, inference and VM/host memory excluded&quot;,
+          &quot;platform&quot;: &quot;Darwin&quot;
+        },
+        &quot;memory&quot;: {
+          &quot;pid&quot;: 5508,
+          &quot;uid&quot;: 501,
+          &quot;daemon_pgid&quot;: 5495,
+          &quot;observer_pgid&quot;: 5495,
+          &quot;sampled_min_bytes&quot;: 29097984,
+          &quot;sampled_max_bytes&quot;: 30146560,
+          &quot;samples&quot;: 3,
+          &quot;requested_interval_seconds&quot;: 0.05,
+          &quot;scope&quot;: &quot;daemon PID current RSS samples only; observer, inference and VM/host memory excluded&quot;,
+          &quot;platform&quot;: &quot;Darwin&quot;
+        },
+        &quot;disk&quot;: {
+          &quot;root_regular_unique_inode_logical_bytes&quot;: 4989062,
+          &quot;root_regular_unique_inode_allocated_bytes&quot;: 4997120,
+          &quot;scope&quot;: &quot;cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded&quot;
+        },
+        &quot;usage&quot;: {
+          &quot;payload_bytes&quot;: 4956208,
+          &quot;remaining_reserved&quot;: 0,
+          &quot;allocated_payload_bytes&quot;: 4960256,
+          &quot;budget&quot;: 16777216
+        },
+        &quot;cleanup&quot;: {
+          &quot;exit_code&quot;: 0,
+          &quot;socket_removed&quot;: true,
+          &quot;ready_removed&quot;: true
+        }
+      },
+      {
+        &quot;mode&quot;: &quot;offline&quot;,
+        &quot;fetch&quot;: {
+          &quot;seconds&quot;: 0.07013866700026483,
+          &quot;accepted_deadline&quot;: 2534.068793041,
+          &quot;final&quot;: {
+            &quot;request&quot;: {
+              &quot;id&quot;: &quot;offline&quot;,
+              &quot;params&quot;: &quot;[\&quot;squeezenet1.1-opset7\&quot;,\&quot;https://localhost:50558/model.onnx\&quot;,4956208,\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;,20.0,null]&quot;,
+              &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+              &quot;generation&quot;: &quot;c6b0111e-3eb1-416f-9adb-1acb1fe4ec3b&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: 2534.068793041,
+              &quot;epoch&quot;: &quot;4cb71efd-36c2-4435-b4b5-8dfbce682a88&quot;,
+              &quot;revision&quot;: 1
+            },
+            &quot;available&quot;: true,
+            &quot;object&quot;: {
+              &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+              &quot;size&quot;: 4956208,
+              &quot;url&quot;: &quot;https://localhost:50558/model.onnx&quot;,
+              &quot;generation&quot;: &quot;c6b0111e-3eb1-416f-9adb-1acb1fe4ec3b&quot;,
+              &quot;state&quot;: &quot;READY&quot;,
+              &quot;offset&quot;: 4956208,
+              &quot;etag&quot;: &quot;\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;&quot;,
+              &quot;attempts&quot;: 1,
+              &quot;wire&quot;: 4956208,
+              &quot;pin&quot;: 0,
+              &quot;access&quot;: 1792940198788807000,
+              &quot;revision&quot;: 1
+            },
+            &quot;degraded&quot;: false,
+            &quot;epoch&quot;: &quot;4cb71efd-36c2-4435-b4b5-8dfbce682a88&quot;,
+            &quot;remaining_seconds&quot;: null
+          }
+        },
+        &quot;read&quot;: {
+          &quot;seconds&quot;: 0.06060208300004888,
+          &quot;cli_exit&quot;: 0,
+          &quot;size&quot;: 4956208,
+          &quot;sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;
+        },
+        &quot;origin_closed&quot;: true,
+        &quot;origin_connection_refused&quot;: true,
+        &quot;transfer_attempts_delta&quot;: 0,
+        &quot;accepted_body_bytes_delta&quot;: 0,
+        &quot;trace&quot;: {
+          &quot;tested&quot;: false,
+          &quot;scope&quot;: &quot;Native macOS: closed origin and unchanged formal transfer counters only; no syscall trace&quot;
+        },
+        &quot;memory&quot;: {
+          &quot;pid&quot;: 5518,
+          &quot;uid&quot;: 501,
+          &quot;daemon_pgid&quot;: 5495,
+          &quot;observer_pgid&quot;: 5495,
+          &quot;sampled_min_bytes&quot;: 28983296,
+          &quot;sampled_max_bytes&quot;: 29097984,
+          &quot;samples&quot;: 3,
+          &quot;requested_interval_seconds&quot;: 0.05,
+          &quot;scope&quot;: &quot;daemon PID current RSS samples only; observer, inference and VM/host memory excluded&quot;,
+          &quot;platform&quot;: &quot;Darwin&quot;
+        },
+        &quot;disk&quot;: {
+          &quot;root_regular_unique_inode_logical_bytes&quot;: 4989062,
+          &quot;root_regular_unique_inode_allocated_bytes&quot;: 4997120,
+          &quot;scope&quot;: &quot;cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded&quot;
+        },
+        &quot;usage&quot;: {
+          &quot;payload_bytes&quot;: 4956208,
+          &quot;remaining_reserved&quot;: 0,
+          &quot;allocated_payload_bytes&quot;: 4960256,
+          &quot;budget&quot;: 16777216
+        },
+        &quot;cleanup&quot;: {
+          &quot;exit_code&quot;: 0,
+          &quot;socket_removed&quot;: true,
+          &quot;ready_removed&quot;: true
+        }
+      },
+      {
+        &quot;mode&quot;: &quot;corrupt&quot;,
+        &quot;state&quot;: &quot;FAILED&quot;,
+        &quot;available&quot;: false,
+        &quot;read_exit&quot;: 1,
+        &quot;output_exists&quot;: false,
+        &quot;published&quot;: false,
+        &quot;received_body_bytes&quot;: 4956208,
+        &quot;accepted_body_bytes&quot;: 4956208,
+        &quot;staged_sha256&quot;: &quot;44e35082ecf7e2c1efd1bd080934bd73d074c55226ac6b59e18b6f48e1530e14&quot;,
+        &quot;attempts&quot;: 1,
+        &quot;server_body_write_bytes&quot;: 4956208,
+        &quot;memory&quot;: {
+          &quot;pid&quot;: 5526,
+          &quot;uid&quot;: 501,
+          &quot;daemon_pgid&quot;: 5495,
+          &quot;observer_pgid&quot;: 5495,
+          &quot;sampled_min_bytes&quot;: 28917760,
+          &quot;sampled_max_bytes&quot;: 30277632,
+          &quot;samples&quot;: 4,
+          &quot;requested_interval_seconds&quot;: 0.05,
+          &quot;scope&quot;: &quot;daemon PID current RSS samples only; observer, inference and VM/host memory excluded&quot;,
+          &quot;platform&quot;: &quot;Darwin&quot;
+        },
+        &quot;disk&quot;: {
+          &quot;root_regular_unique_inode_logical_bytes&quot;: 4989062,
+          &quot;root_regular_unique_inode_allocated_bytes&quot;: 4997120,
+          &quot;scope&quot;: &quot;cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded&quot;
+        },
+        &quot;cleanup&quot;: {
+          &quot;exit_code&quot;: 0,
+          &quot;socket_removed&quot;: true,
+          &quot;ready_removed&quot;: true
+        }
+      }
+    ],
+    &quot;inference&quot;: {
+      &quot;onnxruntime&quot;: &quot;1.31.0&quot;,
+      &quot;numpy&quot;: &quot;1.26.4&quot;,
+      &quot;packages&quot;: {
+        &quot;onnxruntime&quot;: &quot;1.31.0&quot;,
+        &quot;packaging&quot;: &quot;26.3&quot;,
+        &quot;protobuf&quot;: &quot;7.36.2&quot;,
+        &quot;numpy&quot;: &quot;1.26.4&quot;,
+        &quot;pip&quot;: &quot;25.0.1&quot;,
+        &quot;flatbuffers&quot;: &quot;25.12.19&quot;
+      },
+      &quot;input_sha256&quot;: &quot;c83ddde4b251e6fa2366412601f133aec1e80e2b33ea31236716c2eeef541d9d&quot;,
+      &quot;input_shape&quot;: [
+        1,
+        3,
+        224,
+        224
+      ],
+      &quot;input_kind&quot;: &quot;deterministic synthetic normalized RGB gradient; no accuracy claim&quot;,
+      &quot;scope&quot;: &quot;separate inference process; CPUExecutionProvider; one thread; one warmup and five measured runs per file&quot;,
+      &quot;cases&quot;: [
+        {
+          &quot;mode&quot;: &quot;reference&quot;,
+          &quot;model_sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+          &quot;input_name&quot;: &quot;data&quot;,
+          &quot;output_shape&quot;: [
+            1,
+            1000
+          ],
+          &quot;output_sha256&quot;: &quot;6621d0a6b5d207d724d7d4712d49b316dcf0c65d740a7eddc26d4961b7b2239c&quot;,
+          &quot;max_abs_error&quot;: 0.0,
+          &quot;finite&quot;: true,
+          &quot;rtol&quot;: 1e-05,
+          &quot;atol&quot;: 1e-06,
+          &quot;session_load_seconds&quot;: 0.022448791999977402,
+          &quot;run_seconds&quot;: [
+            0.002433624999866879,
+            0.002011208000112674,
+            0.0020016250000480795,
+            0.0019958749999204883,
+            0.002003125000101136
+          ],
+          &quot;providers&quot;: [
+            &quot;CPUExecutionProvider&quot;
+          ]
+        },
+        {
+          &quot;mode&quot;: &quot;cold&quot;,
+          &quot;model_sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+          &quot;input_name&quot;: &quot;data&quot;,
+          &quot;output_shape&quot;: [
+            1,
+            1000
+          ],
+          &quot;output_sha256&quot;: &quot;6621d0a6b5d207d724d7d4712d49b316dcf0c65d740a7eddc26d4961b7b2239c&quot;,
+          &quot;max_abs_error&quot;: 0.0,
+          &quot;finite&quot;: true,
+          &quot;rtol&quot;: 1e-05,
+          &quot;atol&quot;: 1e-06,
+          &quot;session_load_seconds&quot;: 0.003956749999815656,
+          &quot;run_seconds&quot;: [
+            0.004114333999950759,
+            0.0032848330001797876,
+            0.0033673749999252323,
+            0.0031677090000812314,
+            0.0031819580003684678
+          ],
+          &quot;providers&quot;: [
+            &quot;CPUExecutionProvider&quot;
+          ]
+        },
+        {
+          &quot;mode&quot;: &quot;resumed&quot;,
+          &quot;model_sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+          &quot;input_name&quot;: &quot;data&quot;,
+          &quot;output_shape&quot;: [
+            1,
+            1000
+          ],
+          &quot;output_sha256&quot;: &quot;6621d0a6b5d207d724d7d4712d49b316dcf0c65d740a7eddc26d4961b7b2239c&quot;,
+          &quot;max_abs_error&quot;: 0.0,
+          &quot;finite&quot;: true,
+          &quot;rtol&quot;: 1e-05,
+          &quot;atol&quot;: 1e-06,
+          &quot;session_load_seconds&quot;: 0.00406112500013478,
+          &quot;run_seconds&quot;: [
+            0.0037276250000104483,
+            0.003388709000319068,
+            0.0034644590000425524,
+            0.003104791000168916,
+            0.0020308749999458087
+          ],
+          &quot;providers&quot;: [
+            &quot;CPUExecutionProvider&quot;
+          ]
+        },
+        {
+          &quot;mode&quot;: &quot;offline&quot;,
+          &quot;model_sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+          &quot;input_name&quot;: &quot;data&quot;,
+          &quot;output_shape&quot;: [
+            1,
+            1000
+          ],
+          &quot;output_sha256&quot;: &quot;6621d0a6b5d207d724d7d4712d49b316dcf0c65d740a7eddc26d4961b7b2239c&quot;,
+          &quot;max_abs_error&quot;: 0.0,
+          &quot;finite&quot;: true,
+          &quot;rtol&quot;: 1e-05,
+          &quot;atol&quot;: 1e-06,
+          &quot;session_load_seconds&quot;: 0.004159833999892726,
+          &quot;run_seconds&quot;: [
+            0.00374412500013932,
+            0.0031697919998805446,
+            0.0020736250003210444,
+            0.0020268749999559077,
+            0.0026187080002273433
+          ],
+          &quot;providers&quot;: [
+            &quot;CPUExecutionProvider&quot;
+          ]
+        }
+      ]
+    },
+    &quot;sample_scope&quot;: &quot;Controlled loopback TLS; model bytes independently provisioned from pinned upstream; no WAN speedup claim&quot;
+  },
+  &quot;wan&quot;: {
+    &quot;url&quot;: &quot;https://media.githubusercontent.com/media/onnx/models/c5cae0f1942c8d7727372c7b1f6b485aa39e4421/validated/vision/classification/squeezenet/model/squeezenet1.1-7.onnx&quot;,
+    &quot;provisioned_addresses&quot;: [
+      &quot;185.199.108.133&quot;,
+      &quot;185.199.109.133&quot;,
+      &quot;185.199.110.133&quot;,
+      &quot;185.199.111.133&quot;
+    ],
+    &quot;pinned_address&quot;: &quot;185.199.108.133&quot;,
+    &quot;fetch_seconds&quot;: 0.6462279589995887,
+    &quot;final&quot;: {
+      &quot;request&quot;: {
+        &quot;id&quot;: &quot;wan&quot;,
+        &quot;params&quot;: &quot;[\&quot;squeezenet1.1-opset7\&quot;,\&quot;https://media.githubusercontent.com/media/onnx/models/c5cae0f1942c8d7727372c7b1f6b485aa39e4421/validated/vision/classification/squeezenet/model/squeezenet1.1-7.onnx\&quot;,4956208,\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;,120.0,null]&quot;,
+        &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+        &quot;generation&quot;: &quot;e94c6018-f937-47e4-8352-dc3631ae538a&quot;,
+        &quot;state&quot;: &quot;SUCCEEDED&quot;,
+        &quot;result&quot;: &quot;SUCCEEDED&quot;,
+        &quot;deadline&quot;: 2635.649661333,
+        &quot;epoch&quot;: &quot;6dfe8713-521d-4744-936a-6e4060082fa9&quot;,
+        &quot;revision&quot;: 2
+      },
+      &quot;available&quot;: true,
+      &quot;object&quot;: {
+        &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+        &quot;size&quot;: 4956208,
+        &quot;url&quot;: &quot;https://media.githubusercontent.com/media/onnx/models/c5cae0f1942c8d7727372c7b1f6b485aa39e4421/validated/vision/classification/squeezenet/model/squeezenet1.1-7.onnx&quot;,
+        &quot;generation&quot;: &quot;e94c6018-f937-47e4-8352-dc3631ae538a&quot;,
+        &quot;state&quot;: &quot;READY&quot;,
+        &quot;offset&quot;: 4956208,
+        &quot;etag&quot;: &quot;\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;&quot;,
+        &quot;attempts&quot;: 1,
+        &quot;wire&quot;: 4956208,
+        &quot;pin&quot;: 0,
+        &quot;access&quot;: 1792940201543032000,
+        &quot;revision&quot;: 1
+      },
+      &quot;degraded&quot;: false,
+      &quot;epoch&quot;: &quot;6dfe8713-521d-4744-936a-6e4060082fa9&quot;,
+      &quot;remaining_seconds&quot;: null
+    },
+    &quot;read&quot;: {
+      &quot;seconds&quot;: 0.06730954199974803,
+      &quot;cli_exit&quot;: 0,
+      &quot;size&quot;: 4956208,
+      &quot;sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;
+    },
+    &quot;memory&quot;: {
+      &quot;pid&quot;: 5535,
+      &quot;uid&quot;: 501,
+      &quot;daemon_pgid&quot;: 5534,
+      &quot;observer_pgid&quot;: 5534,
+      &quot;sampled_min_bytes&quot;: 30048256,
+      &quot;sampled_max_bytes&quot;: 31932416,
+      &quot;samples&quot;: 13,
+      &quot;requested_interval_seconds&quot;: 0.05,
+      &quot;scope&quot;: &quot;daemon PID current RSS samples only; observer, inference and VM/host memory excluded&quot;,
+      &quot;platform&quot;: &quot;Darwin&quot;
+    },
+    &quot;disk&quot;: {
+      &quot;root_regular_unique_inode_logical_bytes&quot;: 4989062,
+      &quot;root_regular_unique_inode_allocated_bytes&quot;: 4997120,
+      &quot;scope&quot;: &quot;cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded&quot;
+    },
+    &quot;usage&quot;: {
+      &quot;payload_bytes&quot;: 4956208,
+      &quot;remaining_reserved&quot;: 0,
+      &quot;allocated_payload_bytes&quot;: 4960256,
+      &quot;budget&quot;: 16777216
+    },
+    &quot;cleanup&quot;: {
+      &quot;exit_code&quot;: 0,
+      &quot;socket_removed&quot;: true,
+      &quot;ready_removed&quot;: true
+    },
+    &quot;inference&quot;: {
+      &quot;onnxruntime&quot;: &quot;1.31.0&quot;,
+      &quot;numpy&quot;: &quot;1.26.4&quot;,
+      &quot;packages&quot;: {
+        &quot;onnxruntime&quot;: &quot;1.31.0&quot;,
+        &quot;packaging&quot;: &quot;26.3&quot;,
+        &quot;protobuf&quot;: &quot;7.36.2&quot;,
+        &quot;numpy&quot;: &quot;1.26.4&quot;,
+        &quot;pip&quot;: &quot;25.0.1&quot;,
+        &quot;flatbuffers&quot;: &quot;25.12.19&quot;
+      },
+      &quot;input_sha256&quot;: &quot;c83ddde4b251e6fa2366412601f133aec1e80e2b33ea31236716c2eeef541d9d&quot;,
+      &quot;input_shape&quot;: [
+        1,
+        3,
+        224,
+        224
+      ],
+      &quot;input_kind&quot;: &quot;deterministic synthetic normalized RGB gradient; no accuracy claim&quot;,
+      &quot;scope&quot;: &quot;separate inference process; CPUExecutionProvider; one thread; one warmup and five measured runs per file&quot;,
+      &quot;cases&quot;: [
+        {
+          &quot;mode&quot;: &quot;reference&quot;,
+          &quot;model_sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+          &quot;input_name&quot;: &quot;data&quot;,
+          &quot;output_shape&quot;: [
+            1,
+            1000
+          ],
+          &quot;output_sha256&quot;: &quot;6621d0a6b5d207d724d7d4712d49b316dcf0c65d740a7eddc26d4961b7b2239c&quot;,
+          &quot;max_abs_error&quot;: 0.0,
+          &quot;finite&quot;: true,
+          &quot;rtol&quot;: 1e-05,
+          &quot;atol&quot;: 1e-06,
+          &quot;session_load_seconds&quot;: 0.005146542000147747,
+          &quot;run_seconds&quot;: [
+            0.0038359580003088922,
+            0.0034824169997591525,
+            0.003209749999768974,
+            0.0033739580003384617,
+            0.0032042920001913444
+          ],
+          &quot;providers&quot;: [
+            &quot;CPUExecutionProvider&quot;
+          ]
+        },
+        {
+          &quot;mode&quot;: &quot;wan&quot;,
+          &quot;model_sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+          &quot;input_name&quot;: &quot;data&quot;,
+          &quot;output_shape&quot;: [
+            1,
+            1000
+          ],
+          &quot;output_sha256&quot;: &quot;6621d0a6b5d207d724d7d4712d49b316dcf0c65d740a7eddc26d4961b7b2239c&quot;,
+          &quot;max_abs_error&quot;: 0.0,
+          &quot;finite&quot;: true,
+          &quot;rtol&quot;: 1e-05,
+          &quot;atol&quot;: 1e-06,
+          &quot;session_load_seconds&quot;: 0.004148792000250978,
+          &quot;run_seconds&quot;: [
+            0.002953667000383575,
+            0.0033561670002200117,
+            0.003441208999902301,
+            0.0032015829997362744,
+            0.0032261670003208565
+          ],
+          &quot;providers&quot;: [
+            &quot;CPUExecutionProvider&quot;
+          ]
+        }
+      ]
+    },
+    &quot;scope&quot;: &quot;One real Internet fetch; DNS provisioning outside cache; no WAN speedup or throughput distribution claim&quot;
+  },
+  &quot;linux&quot;: {
+    &quot;passed&quot;: true,
+    &quot;tests&quot;: 71,
+    &quot;test_ids&quot;: [
+      &quot;deploy.test_notify.NotifyTests.test_failed_notify_is_failed_start_and_cleans_socket&quot;,
+      &quot;deploy.test_notify.NotifyTests.test_no_notify_environment&quot;,
+      &quot;deploy.test_notify.NotifyTests.test_ready_then_stopping_from_actual_daemon&quot;,
+      &quot;tests.test_core.CoreTests.test_416_not_success&quot;,
+      &quot;tests.test_core.CoreTests.test_bad_range_refused&quot;,
+      &quot;tests.test_core.CoreTests.test_cancel_races_durable_publish_intent&quot;,
+      &quot;tests.test_core.CoreTests.test_cancel_sql_failure_no_success&quot;,
+      &quot;tests.test_core.CoreTests.test_capacity_refusal_deletes_nothing&quot;,
+      &quot;tests.test_core.CoreTests.test_changed_validator_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_close_keeps_lock_until_reader_closed&quot;,
+      &quot;tests.test_core.CoreTests.test_coalescing_cancel_one&quot;,
+      &quot;tests.test_core.CoreTests.test_complete_checkpoint_corruption_not_published&quot;,
+      &quot;tests.test_core.CoreTests.test_complete_checkpoint_needs_no_origin_or_attempt&quot;,
+      &quot;tests.test_core.CoreTests.test_complete_checkpoint_without_validator&quot;,
+      &quot;tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows&quot;,
+      &quot;tests.test_core.CoreTests.test_disk_error_retires_authority&quot;,
+      &quot;tests.test_core.CoreTests.test_encoded_body_refused&quot;,
+      &quot;tests.test_core.CoreTests.test_existing_target_not_overwritten&quot;,
+      &quot;tests.test_core.CoreTests.test_fixture_eof_range_is_416&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_crash_recovery&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_crash_retains_partial_deletion_ownership&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_then_read_and_stale_generation&quot;,
+      &quot;tests.test_core.CoreTests.test_https_verified_content&quot;,
+      &quot;tests.test_core.CoreTests.test_late_chunk_after_last_cancel&quot;,
+      &quot;tests.test_core.CoreTests.test_local_quota_and_permission_errors_are_not_network_retries&quot;,
+      &quot;tests.test_core.CoreTests.test_lock_and_corrupt_on_restart&quot;,
+      &quot;tests.test_core.CoreTests.test_old_epoch_plan_and_pin_rejected&quot;,
+      &quot;tests.test_core.CoreTests.test_persistent_attempt_budget&quot;,
+      &quot;tests.test_core.CoreTests.test_pin_and_read_prevent_stale_gc_plan&quot;,
+      &quot;tests.test_core.CoreTests.test_publish_boundary_cancel_too_late&quot;,
+      &quot;tests.test_core.CoreTests.test_range_ignored_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_reader_and_job_limits&quot;,
+      &quot;tests.test_core.CoreTests.test_readonly_database_retires_authority&quot;,
+      &quot;tests.test_core.CoreTests.test_request_budget_and_conflict&quot;,
+      &quot;tests.test_core.CoreTests.test_reservation_not_oversold&quot;,
+      &quot;tests.test_core.CoreTests.test_resume_real_range&quot;,
+      &quot;tests.test_core.CoreTests.test_retired_download_cannot_block_new_generation&quot;,
+      &quot;tests.test_core.CoreTests.test_shorter_than_checkpoint_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_symlink_destination_never_overwritten&quot;,
+      &quot;tests.test_core.CoreTests.test_symlink_not_followed&quot;,
+      &quot;tests.test_core.CoreTests.test_tls_and_origin_restriction&quot;,
+      &quot;tests.test_core.CoreTests.test_unknown_data_charged_not_deleted&quot;,
+      &quot;tests.test_core.CoreTests.test_weak_or_absent_etag_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_wrong_hash_not_published&quot;,
+      &quot;tests.test_core.CoreTests.test_wrong_length_refused&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_daemon_admission_commit_reader_cutoff&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_delayed_validation_cannot_commit_after_cutoff&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_publish_commit_reader_cutoff&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_shared_begin_wait_only_live_member_succeeds&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_shared_commit_wait_only_live_member_succeeds&quot;,
+      &quot;tests.test_service.ServiceTests.test_authority_wait_cannot_turn_expired_fetch_into_hit&quot;,
+      &quot;tests.test_service.ServiceTests.test_bad_frames_and_config_permissions&quot;,
+      &quot;tests.test_service.ServiceTests.test_cli_flow_and_read&quot;,
+      &quot;tests.test_service.ServiceTests.test_coalesced_old_deadline_not_extended&quot;,
+      &quot;tests.test_service.ServiceTests.test_committed_publication_recovery_preserves_original_deadline&quot;,
+      &quot;tests.test_service.ServiceTests.test_control_connection_limit&quot;,
+      &quot;tests.test_service.ServiceTests.test_deadline_check_survives_delayed_sweeper&quot;,
+      &quot;tests.test_service.ServiceTests.test_deadline_rechecked_after_verification&quot;,
+      &quot;tests.test_service.ServiceTests.test_deadline_rechecked_after_write_precharge&quot;,
+      &quot;tests.test_service.ServiceTests.test_duplicate_id_cannot_extend_duration&quot;,
+      &quot;tests.test_service.ServiceTests.test_managed_core_cannot_import_or_create_unbounded_interest&quot;,
+      &quot;tests.test_service.ServiceTests.test_manifest_immutable_and_revision_rollback&quot;,
+      &quot;tests.test_service.ServiceTests.test_queued_job_expires_without_source_request&quot;,
+      &quot;tests.test_service.ServiceTests.test_restart_interrupts_old_deadline_and_requires_explicit_resume&quot;,
+      &quot;tests.test_service.ServiceTests.test_shutdown_rejects_preaccepted_incomplete_request&quot;,
+      &quot;tests.test_service.ServiceTests.test_slow_body_total_deadline&quot;,
+      &quot;tests.test_service.ServiceTests.test_slow_headers_total_deadline&quot;,
+      &quot;tests.test_service.ServiceTests.test_slow_source_cancel_and_stale_token&quot;,
+      &quot;tests.test_service.ServiceTests.test_sqlite_admission_wait_cannot_accept_expired_hit&quot;,
+      &quot;tests.test_service.ServiceTests.test_sqlite_publish_wait_cannot_create_expired_intent&quot;,
+      &quot;tests.test_service.ServiceTests.test_watchdog_lives_through_connection_close_response_body&quot;
+    ],
+    &quot;failures&quot;: 0,
+    &quot;errors&quot;: 0,
+    &quot;skipped&quot;: 0,
+    &quot;seconds&quot;: 26.218259695,
+    &quot;platform&quot;: &quot;Linux&quot;,
+    &quot;python&quot;: &quot;3.12.3&quot;,
+    &quot;modules&quot;: {
+      &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
+      &quot;cacheweft/cli.py&quot;: &quot;7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5&quot;,
+      &quot;cacheweft/core.py&quot;: &quot;068325c996f6acad07353a112970120327e75c70448edb084e23f3b054a48723&quot;,
+      &quot;cacheweft/http.py&quot;: &quot;41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76&quot;,
+      &quot;cacheweft/service.py&quot;: &quot;c8c608aa79fc164e6b9259cdb76acbae550ab2408e054e483aaf233f029fa21e&quot;
+    }
+  },
+  &quot;linux_model&quot;: {
+    &quot;platform&quot;: &quot;Linux&quot;,
+    &quot;reference_sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+    &quot;cases&quot;: [
+      {
+        &quot;mode&quot;: &quot;cold&quot;,
+        &quot;fetch&quot;: {
+          &quot;seconds&quot;: 0.21250385599999788,
+          &quot;accepted_deadline&quot;: 118.883076907,
+          &quot;final&quot;: {
+            &quot;request&quot;: {
+              &quot;id&quot;: &quot;cold&quot;,
+              &quot;params&quot;: &quot;[\&quot;squeezenet1.1-opset7\&quot;,\&quot;https://localhost:43397/model.onnx\&quot;,4956208,\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;,20.0,null]&quot;,
+              &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+              &quot;generation&quot;: &quot;76390e0e-3726-4262-baa6-efb50497e5c5&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: 118.883076907,
+              &quot;epoch&quot;: &quot;59f5dd1b-b2c9-443f-80cf-24dbdb324cbb&quot;,
+              &quot;revision&quot;: 2
+            },
+            &quot;available&quot;: true,
+            &quot;object&quot;: {
+              &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+              &quot;size&quot;: 4956208,
+              &quot;url&quot;: &quot;https://localhost:43397/model.onnx&quot;,
+              &quot;generation&quot;: &quot;76390e0e-3726-4262-baa6-efb50497e5c5&quot;,
+              &quot;state&quot;: &quot;READY&quot;,
+              &quot;offset&quot;: 4956208,
+              &quot;etag&quot;: &quot;\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;&quot;,
+              &quot;attempts&quot;: 1,
+              &quot;wire&quot;: 4956208,
+              &quot;pin&quot;: 0,
+              &quot;access&quot;: 1792940229953709896,
+              &quot;revision&quot;: 1
+            },
+            &quot;degraded&quot;: false,
+            &quot;epoch&quot;: &quot;59f5dd1b-b2c9-443f-80cf-24dbdb324cbb&quot;,
+            &quot;remaining_seconds&quot;: null
+          }
+        },
+        &quot;read&quot;: {
+          &quot;seconds&quot;: 0.034142629000001534,
+          &quot;cli_exit&quot;: 0,
+          &quot;size&quot;: 4956208,
+          &quot;sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;
+        },
+        &quot;server_requests&quot;: [
+          {
+            &quot;range&quot;: null,
+            &quot;if_range&quot;: null,
+            &quot;status&quot;: 200,
+            &quot;start&quot;: 0,
+            &quot;successful_body_write_bytes&quot;: 4956208
+          }
+        ],
+        &quot;server_body_write_bytes&quot;: 4956208,
+        &quot;disk&quot;: {
+          &quot;root_regular_unique_inode_logical_bytes&quot;: 4989062,
+          &quot;root_regular_unique_inode_allocated_bytes&quot;: 4997120,
+          &quot;scope&quot;: &quot;cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded&quot;
+        },
+        &quot;usage&quot;: {
+          &quot;payload_bytes&quot;: 4956208,
+          &quot;remaining_reserved&quot;: 0,
+          &quot;allocated_payload_bytes&quot;: 4960256,
+          &quot;budget&quot;: 16777216
+        },
+        &quot;memory&quot;: {
+          &quot;pid&quot;: 3256,
+          &quot;uid&quot;: 65534,
+          &quot;daemon_pgid&quot;: 3248,
+          &quot;observer_pgid&quot;: 3248,
+          &quot;sampled_min_bytes&quot;: 24326144,
+          &quot;sampled_max_bytes&quot;: 25260032,
+          &quot;samples&quot;: 5,
+          &quot;requested_interval_seconds&quot;: 0.05,
+          &quot;scope&quot;: &quot;daemon PID current RSS samples only; observer, inference and VM/host memory excluded&quot;,
+          &quot;platform&quot;: &quot;Linux&quot;
+        },
+        &quot;cleanup&quot;: {
+          &quot;exit_code&quot;: 0,
+          &quot;socket_removed&quot;: true,
+          &quot;ready_removed&quot;: true
+        }
+      },
+      {
+        &quot;mode&quot;: &quot;resumed&quot;,
+        &quot;before_crash&quot;: {
+          &quot;state&quot;: &quot;WAITING&quot;,
+          &quot;deadline&quot;: 119.432743653,
+          &quot;epoch&quot;: &quot;17ea4740-c1eb-4388-9a89-21161bfb47e6&quot;
+        },
+        &quot;checkpoint&quot;: 262144,
+        &quot;crash_exit&quot;: -9,
+        &quot;recovered_old&quot;: {
+          &quot;id&quot;: &quot;old&quot;,
+          &quot;params&quot;: &quot;[\&quot;squeezenet1.1-opset7\&quot;,\&quot;https://localhost:43397/model.onnx\&quot;,4956208,\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;,20.0,null]&quot;,
+          &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+          &quot;generation&quot;: &quot;816ab7ca-08b0-4667-8681-9e5c9ce251db&quot;,
+          &quot;state&quot;: &quot;INTERRUPTED&quot;,
+          &quot;result&quot;: &quot;INTERRUPTED&quot;,
+          &quot;deadline&quot;: 119.432743653,
+          &quot;epoch&quot;: &quot;17ea4740-c1eb-4388-9a89-21161bfb47e6&quot;,
+          &quot;revision&quot;: 2
+        },
+        &quot;old_epoch_rejected&quot;: true,
+        &quot;no_automatic_get&quot;: true,
+        &quot;restart_seconds&quot;: 0.04247002699999314,
+        &quot;resume_fetch_seconds&quot;: 0.14526036499999861,
+        &quot;final&quot;: {
+          &quot;request&quot;: {
+            &quot;id&quot;: &quot;new&quot;,
+            &quot;params&quot;: &quot;[\&quot;squeezenet1.1-opset7\&quot;,\&quot;https://localhost:43397/model.onnx\&quot;,4956208,\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;,20.0,\&quot;old\&quot;]&quot;,
+            &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+            &quot;generation&quot;: &quot;816ab7ca-08b0-4667-8681-9e5c9ce251db&quot;,
+            &quot;state&quot;: &quot;SUCCEEDED&quot;,
+            &quot;result&quot;: &quot;SUCCEEDED&quot;,
+            &quot;deadline&quot;: 119.52016343,
+            &quot;epoch&quot;: &quot;abac2f1a-b353-4c3a-9058-240469824197&quot;,
+            &quot;revision&quot;: 2
+          },
+          &quot;available&quot;: true,
+          &quot;object&quot;: {
+            &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+            &quot;size&quot;: 4956208,
+            &quot;url&quot;: &quot;https://localhost:43397/model.onnx&quot;,
+            &quot;generation&quot;: &quot;816ab7ca-08b0-4667-8681-9e5c9ce251db&quot;,
+            &quot;state&quot;: &quot;READY&quot;,
+            &quot;offset&quot;: 4956208,
+            &quot;etag&quot;: &quot;\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;&quot;,
+            &quot;attempts&quot;: 2,
+            &quot;wire&quot;: 4956208,
+            &quot;pin&quot;: 0,
+            &quot;access&quot;: 1792940230503386144,
+            &quot;revision&quot;: 2
+          },
+          &quot;degraded&quot;: false,
+          &quot;epoch&quot;: &quot;abac2f1a-b353-4c3a-9058-240469824197&quot;,
+          &quot;remaining_seconds&quot;: null
+        },
+        &quot;read&quot;: {
+          &quot;seconds&quot;: 0.037536715000001664,
+          &quot;cli_exit&quot;: 0,
+          &quot;size&quot;: 4956208,
+          &quot;sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;
+        },
+        &quot;server_requests&quot;: [
+          {
+            &quot;range&quot;: null,
+            &quot;if_range&quot;: null,
+            &quot;status&quot;: 200,
+            &quot;start&quot;: 0,
+            &quot;successful_body_write_bytes&quot;: 262144
+          },
+          {
+            &quot;range&quot;: &quot;bytes=262144-&quot;,
+            &quot;if_range&quot;: &quot;\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;&quot;,
+            &quot;status&quot;: 206,
+            &quot;start&quot;: 262144,
+            &quot;successful_body_write_bytes&quot;: 4694064
+          }
+        ],
+        &quot;server_body_write_bytes&quot;: 4956208,
+        &quot;memory_before_crash&quot;: {
+          &quot;pid&quot;: 3282,
+          &quot;uid&quot;: 65534,
+          &quot;daemon_pgid&quot;: 3248,
+          &quot;observer_pgid&quot;: 3248,
+          &quot;sampled_min_bytes&quot;: 24334336,
+          &quot;sampled_max_bytes&quot;: 24334336,
+          &quot;samples&quot;: 1,
+          &quot;requested_interval_seconds&quot;: 0.05,
+          &quot;scope&quot;: &quot;daemon PID current RSS samples only; observer, inference and VM/host memory excluded&quot;,
+          &quot;platform&quot;: &quot;Linux&quot;
+        },
+        &quot;memory&quot;: {
+          &quot;pid&quot;: 3294,
+          &quot;uid&quot;: 65534,
+          &quot;daemon_pgid&quot;: 3248,
+          &quot;observer_pgid&quot;: 3248,
+          &quot;sampled_min_bytes&quot;: 24498176,
+          &quot;sampled_max_bytes&quot;: 25387008,
+          &quot;samples&quot;: 4,
+          &quot;requested_interval_seconds&quot;: 0.05,
+          &quot;scope&quot;: &quot;daemon PID current RSS samples only; observer, inference and VM/host memory excluded&quot;,
+          &quot;platform&quot;: &quot;Linux&quot;
+        },
+        &quot;disk&quot;: {
+          &quot;root_regular_unique_inode_logical_bytes&quot;: 4989062,
+          &quot;root_regular_unique_inode_allocated_bytes&quot;: 4997120,
+          &quot;scope&quot;: &quot;cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded&quot;
+        },
+        &quot;usage&quot;: {
+          &quot;payload_bytes&quot;: 4956208,
+          &quot;remaining_reserved&quot;: 0,
+          &quot;allocated_payload_bytes&quot;: 4960256,
+          &quot;budget&quot;: 16777216
+        },
+        &quot;cleanup&quot;: {
+          &quot;exit_code&quot;: 0,
+          &quot;socket_removed&quot;: true,
+          &quot;ready_removed&quot;: true
+        }
+      },
+      {
+        &quot;mode&quot;: &quot;offline&quot;,
+        &quot;fetch&quot;: {
+          &quot;seconds&quot;: 0.046844473999996694,
+          &quot;accepted_deadline&quot;: 120.134732276,
+          &quot;final&quot;: {
+            &quot;request&quot;: {
+              &quot;id&quot;: &quot;offline&quot;,
+              &quot;params&quot;: &quot;[\&quot;squeezenet1.1-opset7\&quot;,\&quot;https://localhost:43397/model.onnx\&quot;,4956208,\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;,20.0,null]&quot;,
+              &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+              &quot;generation&quot;: &quot;76390e0e-3726-4262-baa6-efb50497e5c5&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: 120.134732276,
+              &quot;epoch&quot;: &quot;0fdcf8dc-f2ad-40ad-a996-4c4e0cdb3e86&quot;,
+              &quot;revision&quot;: 1
+            },
+            &quot;available&quot;: true,
+            &quot;object&quot;: {
+              &quot;digest&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+              &quot;size&quot;: 4956208,
+              &quot;url&quot;: &quot;https://localhost:43397/model.onnx&quot;,
+              &quot;generation&quot;: &quot;76390e0e-3726-4262-baa6-efb50497e5c5&quot;,
+              &quot;state&quot;: &quot;READY&quot;,
+              &quot;offset&quot;: 4956208,
+              &quot;etag&quot;: &quot;\&quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\&quot;&quot;,
+              &quot;attempts&quot;: 1,
+              &quot;wire&quot;: 4956208,
+              &quot;pin&quot;: 0,
+              &quot;access&quot;: 1792940230167089090,
+              &quot;revision&quot;: 1
+            },
+            &quot;degraded&quot;: false,
+            &quot;epoch&quot;: &quot;0fdcf8dc-f2ad-40ad-a996-4c4e0cdb3e86&quot;,
+            &quot;remaining_seconds&quot;: null
+          }
+        },
+        &quot;read&quot;: {
+          &quot;seconds&quot;: 0.04531002099999171,
+          &quot;cli_exit&quot;: 0,
+          &quot;size&quot;: 4956208,
+          &quot;sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;
+        },
+        &quot;origin_closed&quot;: true,
+        &quot;origin_connection_refused&quot;: true,
+        &quot;transfer_attempts_delta&quot;: 0,
+        &quot;accepted_body_bytes_delta&quot;: 0,
+        &quot;trace&quot;: {
+          &quot;tested&quot;: true,
+          &quot;tracer_attached&quot;: true,
+          &quot;daemon_pid&quot;: 3321,
+          &quot;tracer_pid&quot;: 3326,
+          &quot;connect_syscalls&quot;: 0,
+          &quot;trace_sha256&quot;: &quot;e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&quot;,
+          &quot;tracer_exit&quot;: -2,
+          &quot;scope&quot;: &quot;Linux strace attached to formal daemon and its threads before offline fetch through CLI read&quot;
+        },
+        &quot;memory&quot;: {
+          &quot;pid&quot;: 3321,
+          &quot;uid&quot;: 65534,
+          &quot;daemon_pgid&quot;: 3248,
+          &quot;observer_pgid&quot;: 3248,
+          &quot;sampled_min_bytes&quot;: 24489984,
+          &quot;sampled_max_bytes&quot;: 24674304,
+          &quot;samples&quot;: 3,
+          &quot;requested_interval_seconds&quot;: 0.05,
+          &quot;scope&quot;: &quot;daemon PID current RSS samples only; observer, inference and VM/host memory excluded&quot;,
+          &quot;platform&quot;: &quot;Linux&quot;
+        },
+        &quot;disk&quot;: {
+          &quot;root_regular_unique_inode_logical_bytes&quot;: 4989062,
+          &quot;root_regular_unique_inode_allocated_bytes&quot;: 4997120,
+          &quot;scope&quot;: &quot;cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded&quot;
+        },
+        &quot;usage&quot;: {
+          &quot;payload_bytes&quot;: 4956208,
+          &quot;remaining_reserved&quot;: 0,
+          &quot;allocated_payload_bytes&quot;: 4960256,
+          &quot;budget&quot;: 16777216
+        },
+        &quot;cleanup&quot;: {
+          &quot;exit_code&quot;: 0,
+          &quot;socket_removed&quot;: true,
+          &quot;ready_removed&quot;: true
+        }
+      },
+      {
+        &quot;mode&quot;: &quot;corrupt&quot;,
+        &quot;state&quot;: &quot;FAILED&quot;,
+        &quot;available&quot;: false,
+        &quot;read_exit&quot;: 1,
+        &quot;output_exists&quot;: false,
+        &quot;published&quot;: false,
+        &quot;received_body_bytes&quot;: 4956208,
+        &quot;accepted_body_bytes&quot;: 4956208,
+        &quot;staged_sha256&quot;: &quot;44e35082ecf7e2c1efd1bd080934bd73d074c55226ac6b59e18b6f48e1530e14&quot;,
+        &quot;attempts&quot;: 1,
+        &quot;server_body_write_bytes&quot;: 4956208,
+        &quot;memory&quot;: {
+          &quot;pid&quot;: 3339,
+          &quot;uid&quot;: 65534,
+          &quot;daemon_pgid&quot;: 3248,
+          &quot;observer_pgid&quot;: 3248,
+          &quot;sampled_min_bytes&quot;: 24334336,
+          &quot;sampled_max_bytes&quot;: 25255936,
+          &quot;samples&quot;: 4,
+          &quot;requested_interval_seconds&quot;: 0.05,
+          &quot;scope&quot;: &quot;daemon PID current RSS samples only; observer, inference and VM/host memory excluded&quot;,
+          &quot;platform&quot;: &quot;Linux&quot;
+        },
+        &quot;disk&quot;: {
+          &quot;root_regular_unique_inode_logical_bytes&quot;: 4989062,
+          &quot;root_regular_unique_inode_allocated_bytes&quot;: 4997120,
+          &quot;scope&quot;: &quot;cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded&quot;
+        },
+        &quot;cleanup&quot;: {
+          &quot;exit_code&quot;: 0,
+          &quot;socket_removed&quot;: true,
+          &quot;ready_removed&quot;: true
+        }
+      }
+    ],
+    &quot;inference&quot;: {
+      &quot;onnxruntime&quot;: &quot;1.31.0&quot;,
+      &quot;numpy&quot;: &quot;1.26.4&quot;,
+      &quot;packages&quot;: {
+        &quot;packaging&quot;: &quot;26.3&quot;,
+        &quot;onnxruntime&quot;: &quot;1.31.0&quot;,
+        &quot;pip&quot;: &quot;24.0&quot;,
+        &quot;protobuf&quot;: &quot;7.36.2&quot;,
+        &quot;numpy&quot;: &quot;1.26.4&quot;,
+        &quot;flatbuffers&quot;: &quot;25.12.19&quot;
+      },
+      &quot;input_sha256&quot;: &quot;c83ddde4b251e6fa2366412601f133aec1e80e2b33ea31236716c2eeef541d9d&quot;,
+      &quot;input_shape&quot;: [
+        1,
+        3,
+        224,
+        224
+      ],
+      &quot;input_kind&quot;: &quot;deterministic synthetic normalized RGB gradient; no accuracy claim&quot;,
+      &quot;scope&quot;: &quot;separate inference process; CPUExecutionProvider; one thread; one warmup and five measured runs per file&quot;,
+      &quot;cases&quot;: [
+        {
+          &quot;mode&quot;: &quot;reference&quot;,
+          &quot;model_sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+          &quot;input_name&quot;: &quot;data&quot;,
+          &quot;output_shape&quot;: [
+            1,
+            1000
+          ],
+          &quot;output_sha256&quot;: &quot;15f63b3298e1e305fd98935100d647f2a25099fb63967f797b2da37dba2ee9b2&quot;,
+          &quot;max_abs_error&quot;: 0.0,
+          &quot;finite&quot;: true,
+          &quot;rtol&quot;: 1e-05,
+          &quot;atol&quot;: 1e-06,
+          &quot;session_load_seconds&quot;: 0.008862672000006455,
+          &quot;run_seconds&quot;: [
+            0.009825950000006856,
+            0.008174800000006144,
+            0.008817735999997467,
+            0.008410482000002162,
+            0.007667963000002942
+          ],
+          &quot;providers&quot;: [
+            &quot;CPUExecutionProvider&quot;
+          ]
+        },
+        {
+          &quot;mode&quot;: &quot;cold&quot;,
+          &quot;model_sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+          &quot;input_name&quot;: &quot;data&quot;,
+          &quot;output_shape&quot;: [
+            1,
+            1000
+          ],
+          &quot;output_sha256&quot;: &quot;15f63b3298e1e305fd98935100d647f2a25099fb63967f797b2da37dba2ee9b2&quot;,
+          &quot;max_abs_error&quot;: 0.0,
+          &quot;finite&quot;: true,
+          &quot;rtol&quot;: 1e-05,
+          &quot;atol&quot;: 1e-06,
+          &quot;session_load_seconds&quot;: 0.004549323000006211,
+          &quot;run_seconds&quot;: [
+            0.008571048999996833,
+            0.008927823000007606,
+            0.007878550000000928,
+            0.007449370999992766,
+            0.007616190999996775
+          ],
+          &quot;providers&quot;: [
+            &quot;CPUExecutionProvider&quot;
+          ]
+        },
+        {
+          &quot;mode&quot;: &quot;resumed&quot;,
+          &quot;model_sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+          &quot;input_name&quot;: &quot;data&quot;,
+          &quot;output_shape&quot;: [
+            1,
+            1000
+          ],
+          &quot;output_sha256&quot;: &quot;15f63b3298e1e305fd98935100d647f2a25099fb63967f797b2da37dba2ee9b2&quot;,
+          &quot;max_abs_error&quot;: 0.0,
+          &quot;finite&quot;: true,
+          &quot;rtol&quot;: 1e-05,
+          &quot;atol&quot;: 1e-06,
+          &quot;session_load_seconds&quot;: 0.0035647440000019515,
+          &quot;run_seconds&quot;: [
+            0.007841702000007444,
+            0.007624903000007066,
+            0.0075468710000023975,
+            0.007668713000001048,
+            0.007596973999994816
+          ],
+          &quot;providers&quot;: [
+            &quot;CPUExecutionProvider&quot;
+          ]
+        },
+        {
+          &quot;mode&quot;: &quot;offline&quot;,
+          &quot;model_sha256&quot;: &quot;1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088&quot;,
+          &quot;input_name&quot;: &quot;data&quot;,
+          &quot;output_shape&quot;: [
+            1,
+            1000
+          ],
+          &quot;output_sha256&quot;: &quot;15f63b3298e1e305fd98935100d647f2a25099fb63967f797b2da37dba2ee9b2&quot;,
+          &quot;max_abs_error&quot;: 0.0,
+          &quot;finite&quot;: true,
+          &quot;rtol&quot;: 1e-05,
+          &quot;atol&quot;: 1e-06,
+          &quot;session_load_seconds&quot;: 0.0032396070000118016,
+          &quot;run_seconds&quot;: [
+            0.0076782159999879696,
+            0.007430779999992865,
+            0.007564044000005765,
+            0.0074214010000019925,
+            0.007500142000012033
+          ],
+          &quot;providers&quot;: [
+            &quot;CPUExecutionProvider&quot;
+          ]
+        }
+      ]
+    },
+    &quot;sample_scope&quot;: &quot;Controlled loopback TLS; model bytes independently provisioned from pinned upstream; no WAN speedup claim&quot;
+  },
+  &quot;cleanup&quot;: {
+    &quot;vm_deleted&quot;: true,
+    &quot;disk_removed&quot;: true,
+    &quot;preexisting_unchanged&quot;: true,
+    &quot;native_work_removed&quot;: true
+  },
+  &quot;source_unchanged&quot;: true,
+  &quot;controls&quot;: {
+    &quot;rejected&quot;: 24,
+    &quot;all_rejected&quot;: true
+  }
+}</pre></html>

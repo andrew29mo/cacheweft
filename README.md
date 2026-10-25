@@ -5,7 +5,9 @@ and CLI. Downloads are checkpointed, verified against a trusted size/SHA-256,
 then published immutably. Clients can share work, cancel their own request,
 stream verified content, pin objects and explicitly reclaim space.
 
-**Current scope:** Linux systemd deployment adds unprivileged start/stop,
+**Current scope:** a [real-model demonstration](docs/MODEL_DEMO.md) verifies
+cold download, interrupted continuation, offline read and independent model
+execution. Linux systemd deployment adds unprivileged start/stop,
 readiness notifications, crash takeover and bounded rapid restart attempts.
 [Deployment and repair guide](docs/DEPLOYMENT.md).
 
@@ -48,6 +50,7 @@ into a new download attempt.
 - [Reviewed milestone results, scope and remaining work](docs/MILESTONE1_REVIEW.md)
 - [Initial milestone record](docs/MILESTONE1.md)
 - [Architecture](docs/ARCHITECTURE.md) and [local VM reproduction](docs/LOCAL_VALIDATION.md)
+- [Real-model JSON](evidence/model-demo.json) and [HTML](evidence/model-demo.html)
 - [Deployment JSON](evidence/deployment.json) and [HTML](evidence/deployment.html)
 - [Previous download/deadline review JSON](evidence/latest.json) and [HTML](evidence/latest.html) (commit `59860ca`; historical runtime snapshot)
 - [Earlier exploration review](docs/REVIEW.md) and [archived exploration JSON](evidence/explorations-reviewed.json)
@@ -62,7 +65,9 @@ RSS, restart-limit and cleanup observations. Historical download/deadline eviden
 at `59860ca` separately includes unresolved-neighbor namespace and normal VM
 reboot tests of manually launched daemons; it does not prove systemd autostart.
 
-All payloads are deterministic 1 MiB test data, not a real model. Daemon RSS
+Earlier benchmark payloads are deterministic 1 MiB test data. The later model
+demonstration uses a pinned 4.96 MB SqueezeNet model with synthetic inference
+inputs; it does not measure classification accuracy. Daemon RSS
 samples are distinct from the older whole-observer measurements. These are
 controlled observations, not WAN speed, realtime recovery or long-term claims.
 
@@ -77,5 +82,4 @@ Deadlines stop pre-publication authority; synchronous disk I/O can delay a
 response. Once publication intent commits, cancellation is TOO_LATE and a
 client timeout requires status reconciliation. No arbitrary external URL API,
 remote administration, external mmap lease, qualified systemd autostart, sudden power-loss,
-suspend or boot-zero-gap qualification is included. A real-model example and
-bounded sustained operation are later milestones.
+suspend or boot-zero-gap qualification is included. Bounded sustained operation remains a later milestone.
