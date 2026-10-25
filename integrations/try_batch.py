@@ -20,6 +20,44 @@ ROOT=Path(__file__).resolve().parents[1]
 def require(value,message):
     if not value:raise RuntimeError(message)
 
+def stop_process(proc):
+    if proc and proc.poll() is None:
+        proc.terminate()
+        try:proc.wait(8)
+        except subprocess.TimeoutExpired:
+            os.killpg(proc.pid,signal.SIGKILL);proc.wait(3);raise
+    if proc:require(proc.returncode==0,'Unexpected process exit')
+
+
+def await_cache(proc,query):
+    try:
+        until=time.monotonic()+5
+        while time.monotonic()<until:
+            require(proc.poll() is None,'Cache daemon exited')
+            try:return query()
+            except (OSError,RuntimeError):time.sleep(.02)
+        raise TimeoutError('Cache daemon not ready')
+    except BaseException:
+        # Ownership has not yet transferred to run()'s outer cleanup.
+        if proc.poll() is None:
+            try:stop_process(proc)
+            except Exception:pass
+        raise
+
+
+def execute(args):
+    output=Path(args.output)
+    output.write_text(json.dumps(dict(passed=False,status='integration_in_progress'))+'\n')
+    try:return run(args)
+    except Exception as exc:
+        # run() writes richer records after preflight; preserve those failures.
+        value=json.loads(output.read_text())
+        if value.get('status')=='integration_in_progress':
+            value=dict(passed=False,status='preflight_failed',error_type=type(exc).__name__)
+            output.write_text(json.dumps(value,indent=2)+'\n')
+        raise
+
+
 def run(args):
     cli=str(Path(args.cacheweft).absolute());consumer=Path(args.consumer).resolve();python=consumer/'.venv/bin/python';service=consumer/'.venv/bin/tiny-batch-service'
     commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=consumer,text=True).strip()
@@ -41,19 +79,8 @@ def run(args):
         def start_cache():
             log=open(base/('cache-'+str(len(log_files))+'.log'),'wb');log_files.append(log.name)
             proc=subprocess.Popen([cli,'serve','--root',str(base/'cache'),'--config',str(base/'config.json')],stdout=log,stderr=log,start_new_session=True);log.close()
-            until=time.monotonic()+5
-            while time.monotonic()<until:
-                require(proc.poll() is None,'Cache daemon exited')
-                try:return proc,cache('info')
-                except (OSError,RuntimeError):time.sleep(.02)
-            stop(proc);raise TimeoutError('Cache daemon not ready')
-        def stop(proc):
-            if proc and proc.poll() is None:
-                proc.terminate()
-                try:proc.wait(8)
-                except subprocess.TimeoutExpired:
-                    os.killpg(proc.pid,signal.SIGKILL);proc.wait(3);raise
-            if proc:require(proc.returncode==0,'Unexpected process exit')
+            return proc,await_cache(proc,lambda:cache('info'))
+        stop=stop_process
         def http(port,path,body=None):
             opener=urllib.request.build_opener(urllib.request.ProxyHandler({}));request=urllib.request.Request('http://127.0.0.1:'+str(port)+path,data=json.dumps(body).encode() if body is not None else None,headers={'Content-Type':'application/json'})
             with opener.open(request,timeout=5) as response:return json.loads(response.read())
@@ -137,4 +164,4 @@ def run(args):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--cacheweft',required=True);p.add_argument('--consumer',required=True);p.add_argument('--output',required=True);a=p.parse_args()
-    v=run(a);print(json.dumps(dict(passed=v['passed'],cases=len(v['cases']))));raise SystemExit(0 if v['passed'] else 1)
+    v=execute(a);print(json.dumps(dict(passed=v['passed'],cases=len(v['cases']))));raise SystemExit(0 if v['passed'] else 1)

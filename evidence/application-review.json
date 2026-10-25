@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "baseline_commit": "fc9b18e5345b00c34e89a0de1c85f283127f938a",
+  "integration_record": "evidence/batch-integration.json",
+  "integration_sha256": "36ec80708fd3b7ac0fc31b74dccbe69f8b26bb388cad24412f9c6070ac097d43",
+  "sources": {
+    "integrations/try_batch.py": "10fdd4fc3a165205c3693d3a1ab17bc30dbb9857c8fc52c1802812f21a4e8ab9",
+    "integrations/launch_batch.py": "be57cbedd02468bdb33cc5fceaea26814f54b2c41f2399ab1b730e98ed55ffbd",
+    "integrations/test_failure_paths.py": "544130c5ab0c09954325f24e44602579ba8a6e912726b29207a9e9bba1943a97"
+  },
+  "failure_path_tests": [
+    {
+      "optimized": false,
+      "exit_code": 0,
+      "tests": 2,
+      "test_names": [
+        "test_preflight_failure_replaces_previous_success",
+        "test_query_timeout_reaps_unclaimed_daemon"
+      ]
+    },
+    {
+      "optimized": true,
+      "exit_code": 0,
+      "tests": 2,
+      "test_names": [
+        "test_preflight_failure_replaces_previous_success",
+        "test_query_timeout_reaps_unclaimed_daemon"
+      ]
+    }
+  ],
+  "recorded_evidence_qualification": {
+    "tests": 27,
+    "closeout_rejected_controls": 33,
+    "model_rejected_controls": 28
+  },
+  "limits": {
+    "new_vm_run": false,
+    "new_performance_measurement": false,
+    "new_accuracy_benchmark": false,
+    "new_power_loss_test": false
+  },
+  "fixes": [
+    "Preflight failure replaces a previous successful output with passed:false",
+    "Readiness exceptions clean up a daemon before its ownership transfers to the outer runner"
+  ]
+}

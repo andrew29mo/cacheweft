@@ -106,3 +106,20 @@ The consumer uses fixed selection, normalization and generated reference
 probabilities; this pilot samples seven rows and records aggregate errors only.
 No weights, pixels, labels or reference arrays are bundled here. External
 inference libraries retain their own licenses and are not Cacheweft dependencies.
+
+## Application review
+
+The reviewed rerun retains the same four application cases and probability
+error. It fixes two runner failure paths: preflight errors now overwrite any
+previous successful output with `passed:false`; readiness exceptions clean up
+a newly started daemon before ownership transfers to the outer runner. These
+were evidence-tool defects, not changes to Cacheweft's runtime or the consumer.
+
+Run `python3.12 -m unittest integrations.test_failure_paths -v` for the two
+regressions. They challenge stale report replacement with an actual failing
+preflight, and inject a query timeout while a real child process is running to
+verify cleanup. They are separate from the full installed-service pilot and do
+not substitute for it. Both also pass under `python3.12 -O`.
+[The review record](../evidence/application-review.json) binds these test sources
+and the rerun JSON. The existing 27 evidence-validation tests and 61 corruption
+controls passed again; the earlier VM measurement files remain unchanged.

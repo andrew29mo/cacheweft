@@ -36,7 +36,7 @@
       "rtol": 0.0001,
       "atol": 1e-05,
       "loaded_model_sha256": "305cd78a3e29dd5704a1560934aacae2c0adaedf63e6f515ebb729df16e3ef2c",
-      "worker_pid": 16345,
+      "worker_pid": 16934,
       "service_exit": 0,
       "worker_cleaned": true
     },
@@ -57,7 +57,7 @@
       "rtol": 0.0001,
       "atol": 1e-05,
       "loaded_model_sha256": "305cd78a3e29dd5704a1560934aacae2c0adaedf63e6f515ebb729df16e3ef2c",
-      "worker_pid": 16355,
+      "worker_pid": 16946,
       "service_exit": 0,
       "worker_cleaned": true,
       "origin_stopped": true,
@@ -86,7 +86,7 @@
   },
   "adapter_sources": {
     "integrations/launch_batch.py": "be57cbedd02468bdb33cc5fceaea26814f54b2c41f2399ab1b730e98ed55ffbd",
-    "integrations/try_batch.py": "878e4c308b8db7288181260a8486342a1f8ae11206683e4e0b250bdeb277142b"
+    "integrations/try_batch.py": "10fdd4fc3a165205c3693d3a1ab17bc30dbb9857c8fc52c1802812f21a4e8ab9"
   },
   "cache_runtime_modules": {
     "service.py": "c8c608aa79fc164e6b9259cdb76acbae550ab2408e054e483aaf233f029fa21e",
@@ -95,9 +95,9 @@
     "cli.py": "7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5",
     "http.py": "41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76"
   },
-  "cache_initial_epoch": "9b5d96a9-5daa-494a-a506-e756bee347bd",
+  "cache_initial_epoch": "722b89a2-6b3f-410c-98db-71cd72de35be",
   "passed": true,
-  "cache_final_epoch": "d97bbc76-81f5-4993-b126-1664b983cbe7",
+  "cache_final_epoch": "2d1e77e3-99d5-4428-99d1-625e73ab321c",
   "cleanup": {
     "cache_exit": 0,
     "socket_removed": true,
