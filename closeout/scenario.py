@@ -40,7 +40,7 @@ def footprint():
     out=dict(payload_logical=0,payload_allocated=0,metadata_logical=0,metadata_allocated=0);seen=set()
     for p in ROOT.rglob('*'):
         if not p.is_file():continue
-        
+
         try:st=p.stat()
         except FileNotFoundError:continue  # Concurrent publication/journal unlink; sampled footprint is not atomic.
         key=(st.st_dev,st.st_ino)

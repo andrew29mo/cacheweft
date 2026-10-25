@@ -49,6 +49,9 @@ into a new download attempt.
 
 ## Evidence
 
+- [Final independent review and version bridge](docs/FINAL_REVIEW.md)
+- [Corrected-validator qualification JSON](evidence/final-review.json) and [HTML](evidence/final-review.html)
+
 - [Current bounded closeout JSON](evidence/closeout.json) and [HTML](evidence/closeout.html)
 - [Closeout procedure, fixed gates and limits](docs/CLOSEOUT.md)
 - [Reviewed milestone results, scope and remaining work](docs/MILESTONE1_REVIEW.md)

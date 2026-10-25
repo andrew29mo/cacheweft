@@ -1,0 +1,114 @@
+{
+  "contract": "cacheweft-final-review-v1",
+  "passed": true,
+  "measured_commit": "c460d7de3dcd87c8cb9dc4cddfa398d47a35ee89",
+  "measured_wheel_sha256": "0480c2845eb175e2286d83307b59ba79efab7d72ff6a0a0c93dd381101a559a9",
+  "records": {
+    "closeout": {
+      "json_path": "evidence/closeout.json",
+      "json_sha256": "d2ea226472e239a799c5c10803d47c6f393dfa0345d28ba8a8edd8418256ad58",
+      "html_sha256": "105086bc77745cdc5abe74d1ee0afc3e0d172b1d6047e764a538a199e26d742b",
+      "measured_commit": "c460d7de3dcd87c8cb9dc4cddfa398d47a35ee89",
+      "measured_source_changes": [
+        {
+          "path": "closeout/report.py",
+          "measured_sha256": "09b6f4caf27715f10243b64525bf33293aef8d3923045334b1db1c91a4107766",
+          "current_sha256": "1f481a15eed5f4a5310fa62481a07b91602b65c2df99b6bd2185075e40cdf720",
+          "classification": "stricter validation only; not a measurement producer"
+        },
+        {
+          "path": "closeout/scenario.py",
+          "measured_sha256": "5e994f5ceacfff66bb0afeb63dad0ed109bd195dc180be9c8f06649bd6a3e768",
+          "current_sha256": "f1d8e1371b44cdf9adf1039ba741a2f4098c5a570b24032636cb9fc413a3ef7e",
+          "classification": "trailing whitespace only; Python AST identical"
+        }
+      ],
+      "current_runtime_matches": true,
+      "verified": true,
+      "corruption_controls": {
+        "all_rejected": true,
+        "rejected": 33
+      }
+    },
+    "model-demo": {
+      "json_path": "evidence/model-demo.json",
+      "json_sha256": "a9f8458bd44f704f887d60dda1586bdcefbd4ecbf67e9ed3d40f68c8ec149d03",
+      "html_sha256": "b606b23f2aa727356c83ec9a300bc3087e05868f45c996d6d34935914d294bc9",
+      "measured_commit": "c460d7de3dcd87c8cb9dc4cddfa398d47a35ee89",
+      "measured_source_changes": [
+        {
+          "path": "examples/report.py",
+          "measured_sha256": "412eb512fc85055525657fa020c1af4040fe6a7d34c3b9d17ffae388cfc9774c",
+          "current_sha256": "3d3ba13059b89115acaf3faec7abf7935130c134bcd03b125f02a472c6bf8c27",
+          "classification": "stricter validation only; not a measurement producer"
+        }
+      ],
+      "current_runtime_matches": true,
+      "verified": true,
+      "corruption_controls": {
+        "rejected": 28,
+        "all_rejected": true
+      }
+    }
+  },
+  "qualification_sources": {
+    "closeout/report.py": "1f481a15eed5f4a5310fa62481a07b91602b65c2df99b6bd2185075e40cdf720",
+    "closeout/scenario.py": "f1d8e1371b44cdf9adf1039ba741a2f4098c5a570b24032636cb9fc413a3ef7e",
+    "examples/report.py": "3d3ba13059b89115acaf3faec7abf7935130c134bcd03b125f02a472c6bf8c27",
+    "review/__init__.py": "e31092759609f92b3943c8732d565c557b03fef1611a4f11e0c7f2d807847052",
+    "review/test_closeout_report.py": "65f1efc70537022445b17e359eead465ef4761df942d674b10e5308616aef8fe",
+    "review/test_model_report.py": "cfc81f0e750deb87d2aced8003ff4c0ba773a2f453c96e49cc2355b8f0ce0922",
+    "review/test_qualification.py": "0527c928f1dcd31fab47b1f26102eb2492c78c8e684fbd2885554a5323ae4a4b",
+    "review/validate.py": "a0fa143b7ff5583bf7876165b6c3b0cd43ea79d8099036ce479617c7308767d0"
+  },
+  "tests": {
+    "passed": true,
+    "tests": 24,
+    "test_ids": [
+      "review.test_closeout_report.CloseoutReportTests.test_duplicate_and_reversed_times",
+      "review.test_closeout_report.CloseoutReportTests.test_invalid_or_changed_invocation",
+      "review.test_closeout_report.CloseoutReportTests.test_minimal_positive_fd_is_valid",
+      "review.test_closeout_report.CloseoutReportTests.test_missing_or_malformed_epoch",
+      "review.test_closeout_report.CloseoutReportTests.test_missing_start_end_and_interior_coverage",
+      "review.test_closeout_report.CloseoutReportTests.test_negative_resources_with_consistent_summaries",
+      "review.test_closeout_report.CloseoutReportTests.test_nonfinite_times_and_duration",
+      "review.test_closeout_report.CloseoutReportTests.test_only_runtime_unfinished_request_state_is_accepted",
+      "review.test_closeout_report.CloseoutReportTests.test_original_measurement_and_controls",
+      "review.test_closeout_report.CloseoutReportTests.test_resource_and_process_domains",
+      "review.test_closeout_report.CloseoutReportTests.test_sparse_five_window_trace_with_consistent_summaries",
+      "review.test_model_report.ModelReportReviewTests.test_boolean_error_is_not_a_measurement",
+      "review.test_model_report.ModelReportReviewTests.test_boolean_identity",
+      "review.test_model_report.ModelReportReviewTests.test_corpus_controls",
+      "review.test_model_report.ModelReportReviewTests.test_matched_negative_process_groups",
+      "review.test_model_report.ModelReportReviewTests.test_negative_disk_allocation",
+      "review.test_model_report.ModelReportReviewTests.test_nonfinite_rss",
+      "review.test_model_report.ModelReportReviewTests.test_original_record",
+      "review.test_model_report.ModelReportReviewTests.test_unknown_address",
+      "review.test_model_report.ModelReportReviewTests.test_unknown_matching_output_digests",
+      "review.test_model_report.ModelReportReviewTests.test_unknown_provenance_digest",
+      "review.test_qualification.QualificationWriterTests.test_failure_replaces_stale_success",
+      "review.test_qualification.QualificationWriterTests.test_html_output_cannot_collide_with_json",
+      "review.test_qualification.QualificationWriterTests.test_measured_artifact_cannot_be_output"
+    ],
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.22212024999953428
+  },
+  "observed_coverage": {
+    "samples": 714,
+    "first_seconds": 0.00019045900000946858,
+    "last_seconds": 179.825820085,
+    "max_gap_seconds": 0.2673509519999868,
+    "accepted_gap_limit_seconds": 1.0
+  },
+  "limits": {
+    "new_measurement": false,
+    "vm_rerun": false,
+    "new_inference_run": false,
+    "epoch_end_not_separately_recorded": true,
+    "original_memory_gates_unchanged": true,
+    "github_settings_modified": false,
+    "project_license_modified": false
+  }
+}

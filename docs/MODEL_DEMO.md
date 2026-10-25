@@ -1,5 +1,10 @@
 # Real-model demonstration
 
+The measurements below remain the immutable `c460d7d` records. Subsequent
+validator corrections and their exact source/version bridge are documented in
+[FINAL_REVIEW.md](FINAL_REVIEW.md); they do not represent new measurements.
+
+
 The prior `b3597f7` record is preserved as [JSON](../evidence/model-demo-before-closeout.json)
 and [HTML](../evidence/model-demo-before-closeout.html). The current runner uses
 the expanded 74-test cohort after the generation-retirement correction; use the

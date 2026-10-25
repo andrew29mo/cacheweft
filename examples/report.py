@@ -3,6 +3,8 @@ import copy
 import html
 import json
 import math
+import ipaddress
+import re
 from pathlib import Path
 from tools.report import INPUTS
 from tools.deployment_report import EXTRA,TESTS as PRIOR_TESTS
@@ -18,13 +20,17 @@ def need(value,why):
 
 def seconds(x):need(type(x) in (int,float) and math.isfinite(x) and x>0,'Invalid measured duration')
 
+def integer(x,minimum=0):return type(x) is int and x>=minimum
+
+def digest(x):return isinstance(x,str) and re.fullmatch('[0-9a-f]{64}',x) is not None
+
 def memory(m):
-    need(m['pid']>0 and m['uid']>0 and m['daemon_pgid']==m['observer_pgid'],'RSS process binding')
-    need(m['samples']>0 and 0<m['sampled_min_bytes']<=m['sampled_max_bytes'] and m['requested_interval_seconds']==.05,'RSS')
+    need(all(integer(m[k],1) for k in ('pid','uid','daemon_pgid','observer_pgid')) and m['daemon_pgid']==m['observer_pgid'],'RSS process binding')
+    need(integer(m['samples'],1) and integer(m['sampled_min_bytes'],1) and integer(m['sampled_max_bytes'],1) and m['sampled_min_bytes']<=m['sampled_max_bytes'] and m['requested_interval_seconds']==.05,'RSS')
     need('daemon PID' in m['scope'] and 'inference' in m['scope'],'RSS scope')
 
 def disk(d):
-    need(d['root_regular_unique_inode_logical_bytes']>=0 and d['root_regular_unique_inode_allocated_bytes']>=0,'Disk')
+    need(all(integer(d[k]) for k in ('root_regular_unique_inode_logical_bytes','root_regular_unique_inode_allocated_bytes')),'Disk')
 
 def read(r):need(r['cli_exit']==0 and r['size']==MODEL['size'] and r['sha256']==MODEL['sha256'],'Wrong CLI output');seconds(r['seconds'])
 
@@ -33,10 +39,10 @@ def clean(c):need(c==dict(exit_code=0,socket_removed=True,ready_removed=True),'D
 def inference(i,names):
     need(i['onnxruntime']=='1.31.0' and i['numpy']=='1.26.4' and i['input_shape']==[1,3,224,224] and i['input_sha256']==INPUT_SHA,'Reference tool/input')
     need([c['mode'] for c in i['cases']]==['reference',*names],'Inference cohort')
-    base=i['cases'][0]['output_sha256']
+    base=i['cases'][0]['output_sha256'];need(digest(base),'Invalid reference output digest')
     for c in i['cases']:
         need(c['model_sha256']==MODEL['sha256'] and c['output_shape']==[1,1000] and c['finite'] is True and c['providers']==['CPUExecutionProvider'],'Wrong model/output')
-        need(c['output_sha256']==base and c['max_abs_error']==0 and c['rtol']==1e-5 and c['atol']==1e-6,'Inference mismatch')
+        need(digest(c['output_sha256']) and c['output_sha256']==base and type(c['max_abs_error']) in (int,float) and math.isfinite(c['max_abs_error']) and c['max_abs_error']==0 and c['rtol']==1e-5 and c['atol']==1e-6,'Inference mismatch')
         seconds(c['session_load_seconds']);need(len(c['run_seconds'])==5,'Inference timing count')
         for s in c['run_seconds']:seconds(s)
 
@@ -45,6 +51,7 @@ def success(f):
 
 def verify(v):
     need(v['contract']=='cacheweft-real-model-v2' and v['passed'] is True and set(v['source'])==FILES and v['source_unchanged'] is True,'Source/success')
+    need(all(digest(h) for h in v['source'].values()) and digest(v['wheel_sha256']),'Invalid provenance digest')
     runtime={k:h for k,h in v['source'].items() if k.startswith('cacheweft/')}
     need(v['installed_modules']==v['native_installed_modules']==runtime,'Runtime provenance')
     need(v['reference']['model']==MODEL and v['reference']['reference_sha256']==MODEL['sha256'] and v['reference']['reference_size']==MODEL['size'],'Reference provenance')
@@ -73,6 +80,7 @@ def verify(v):
         need(bad['state']=='FAILED' and bad['available'] is False and bad['read_exit']!=0 and bad['published'] is False and bad['output_exists'] is False and bad['server_body_write_bytes']==bad['received_body_bytes']==bad['accepted_body_bytes']==MODEL['size'] and bad['attempts']==1 and bad['staged_sha256']=='44e35082ecf7e2c1efd1bd080934bd73d074c55226ac6b59e18b6f48e1530e14','Corruption accepted or incomplete')
         memory(bad['memory']);disk(bad['disk']);clean(bad['cleanup']);inference(demo['inference'],['cold','resumed','offline'])
     wan=v['wan'];seconds(wan['fetch_seconds']);read(wan['read']);memory(wan['memory']);disk(wan['disk']);clean(wan['cleanup']);inference(wan['inference'],['wan'])
+    need(isinstance(wan['provisioned_addresses'],list) and 1<=len(wan['provisioned_addresses'])<=16 and all(isinstance(a,str) and str(ipaddress.IPv4Address(a))==a for a in wan['provisioned_addresses']),'Invalid provisioned address')
     need(wan['url']==v['reference']['payload_url'] and wan['pinned_address'] in wan['provisioned_addresses'] and wan['final']['request']['state']=='SUCCEEDED' and wan['final']['available'] is True,'No real WAN success')
     need(all(v['cleanup'][k] is True for k in ('vm_deleted','disk_removed','preexisting_unchanged','native_work_removed')),'Cleanup')
     need(v['limits']==dict(accuracy_tested=False,wan_trials=1,syscall_trace_linux_only=True,systemd_tested=False,power_loss_tested=False,long_term_tested=False),'Scope')
@@ -90,7 +98,11 @@ def controls(v):
         lambda x:x['linux_model']['cases'][2]['trace'].update(tracer_attached=False),
         lambda x:x['native_model']['cases'][0]['memory'].update(daemon_pgid=-1),
         lambda x:x['linux_model']['cases'][3].update(received_body_bytes=0),
-        lambda x:x['native_model']['cases'][3].update(staged_sha256=MODEL['sha256'])]
+        lambda x:x['native_model']['cases'][3].update(staged_sha256=MODEL['sha256']),
+        lambda x:x['native_model']['cases'][0]['memory'].update(daemon_pgid=-1,observer_pgid=-1),
+        lambda x:[c.update(output_sha256='UNKNOWN') for c in x['native_model']['inference']['cases']],
+        lambda x:x['linux_model']['cases'][0]['disk'].update(root_regular_unique_inode_logical_bytes=float('nan')),
+        lambda x:x['native_model']['cases'][0]['memory'].update(samples=True)]
     for change in changes:
         bad=copy.deepcopy(v);change(bad)
         try:verify(bad)

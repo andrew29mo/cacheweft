@@ -5,6 +5,7 @@ import json
 import math
 from pathlib import Path
 import statistics
+import uuid
 from tools.report import INPUTS
 from tools.deployment_report import EXTRA,TESTS as PRIOR_TESTS
 
@@ -16,6 +17,18 @@ STAGES={'initial','create','dependencies','upload','install','provenance','nativ
 def need(value,message):
     if not value:raise ValueError(message)
 
+def finite_number(value):
+    return type(value) in (int,float) and math.isfinite(value)
+
+def positive_integer(value):
+    return type(value) is int and value>0
+
+def valid_identity(value,compact=False):
+    if not isinstance(value,str):return False
+    try:parsed=uuid.UUID(value)
+    except ValueError:return False
+    return parsed.int!=0 and value==(parsed.hex if compact else str(parsed))
+
 def verify(v):
     need(v['contract']=='cacheweft-closeout-v2' and v['passed'] is True and set(v['source'])==FILES and v['source_unchanged'] is True,'Source or result')
     runtime={k:h for k,h in v['source'].items() if k.startswith('cacheweft/')};need(v['installed_modules']==v['observer_modules']==runtime,'Installed runtime differs')
@@ -26,14 +39,29 @@ def verify(v):
     c=v['closeout'];need(c['contract']==POLICY and c['failures']==[],'Policy changed or failures hidden')
     fresh=c['clean_install'];need(fresh['account_absent'] is True and fresh['observer_venv_separate'] is True and fresh['absent_paths']==dict.fromkeys(['/opt/cacheweft/venv','/etc/systemd/system/cacheweft.service','/etc/cacheweft/config.json','/var/lib/cacheweft'],True),'Not a clean install')
     need(c['installed_modules']==runtime,'Wrong official service runtime')
-    ident=c['installed_identity'];need(ident['uid']>0 and int(ident['cap_eff'],16)==0 and ident['no_new_privs']=='1','Privileges')
+    ident=c['installed_identity'];need(positive_integer(ident['uid']) and int(ident['cap_eff'],16)==0 and ident['no_new_privs']=='1','Privileges')
     need(c['installed_unit_sha256']==v['source']['deploy/cacheweft.service'],'Wrong installed unit')
     book=c['runbook'];need(all(book[k] is True for k in ('quota_refused_without_deletion','request_slot_refused','cancellation_under_full_worker_budget')),'Runbook did not exercise limits')
-    s=c['soak'];need(s['seconds']>=POLICY['duration_seconds'] and s['cycles']==POLICY['cycles'] and s['sampler_errors']==[],'Short soak or sampling failure')
+    s=c['soak'];need(finite_number(s['seconds']) and s['seconds']>=POLICY['duration_seconds'] and s['cycles']==POLICY['cycles'] and s['sampler_errors']==[],'Short soak or sampling failure')
+    # The producer checks the live end epoch; the saved record has one epoch only.
+    need(positive_integer(s['pid']) and valid_identity(s['epoch']) and valid_identity(s['before']['InvocationID'],compact=True),'Invalid process identity')
     need(s['before']['MainPID']==s['after']['MainPID']==str(s['pid']) and s['before']['InvocationID']==s['after']['InvocationID'] and s['before']['NRestarts']==s['after']['NRestarts']=='0','Restart hid growth')
     cycles=c['cycles'];need([x['index'] for x in cycles]==list(range(POLICY['cycles'])),'Missing cycles')
     for x in cycles:need(x['requests']==4 and x['partial_offset']>0 and x['old_deadline_unchanged'] is True and x['states']==['SUCCEEDED','TIMED_OUT','SUCCEEDED','CANCELLED'] and 0<=x['start_lag_seconds']<=POLICY['max_schedule_lag_seconds'],'Cycle missing actual work')
     samples=c['samples'];need(len(samples)>=600 and all(x['pid']==s['pid'] for x in samples) and len({x['start_ticks'] for x in samples})==1,'Invalid PID/resource trace')
+    for x in samples:
+        need(positive_integer(x['pid']) and isinstance(x['start_ticks'],str) and x['start_ticks'].isascii() and x['start_ticks'].isdigit() and int(x['start_ticks'])>0,'Invalid process identity')
+        need(positive_integer(x['rss']) and positive_integer(x['threads']) and positive_integer(x['fd']),'Invalid resource value')
+        need(type(x['disk']['metadata_allocated']) is int and x['disk']['metadata_allocated']>=0,'Invalid metadata allocation')
+    times=[x['seconds'] for x in samples]
+    need(all(finite_number(t) and 0<=t<=s['seconds'] for t in times),'Invalid sample time')
+    # Allow four target sampling intervals for scheduling jitter, while requiring
+    # observation throughout the soak and every resource-comparison window.
+    coverage_gap=4*POLICY['sample_interval_seconds']
+    need(times[0]<=coverage_gap and s['seconds']-times[-1]<=coverage_gap and all(0<b-a<=coverage_gap for a,b in zip(times,times[1:])),'Incomplete sample coverage')
+    for a,b in [POLICY['early_window'],POLICY['late_window'],*((a,a+30) for a in range(30,180,30))]:
+        window=[t for t in times if a<=t<b]
+        need(window and window[0]-a<=coverage_gap and b-window[-1]<=coverage_gap,'Incomplete resource window')
     for field,absolute,growth in [('rss','rss_absolute_bytes','rss_median_growth_bytes'),('fd','fd_absolute','fd_median_growth'),('threads','threads_absolute','threads_median_growth')]:
         early=statistics.median(x[field] for x in samples if POLICY['early_window'][0]<=x['seconds']<POLICY['early_window'][1])
         late=statistics.median(x[field] for x in samples if POLICY['late_window'][0]<=x['seconds']<POLICY['late_window'][1])
@@ -46,13 +74,24 @@ def verify(v):
     history=c['history_full'];need(history['full']['count']==history['gc_history_count']==history['after_restart']['count']==POLICY['records'] and history['after_restart']==history['full'] and history['actual_eviction'] is True and history['historical_result']=='SUCCEEDED' and history['historical_available'] is False,'History reset or only a no-op GC was tested')
     need(history['repair_limit']==POLICY['repaired_records'] and history['after_repair']['count']==POLICY['records']+1 and history['old_epoch_rejected'] is True,'History repair misrepresented')
     disk=c['disk_full'];need(disk['tmpfs_bytes']==POLICY['disk_fault_tmpfs_bytes'] and disk['free_bytes_at_injection']==POLICY['disk_fault_free_bytes'] and disk['checkpoint_before_fault']==262144 and disk['tracer_attached'] is True and disk['enospc_payload_syscalls'] and all('ENOSPC' in line and '/staging/' in line for line in disk['enospc_payload_syscalls']),'Not actual service payload ENOSPC')
-    need(disk['state_under_fault']!='SUCCEEDED' and disk['repair_old_state']=='INTERRUPTED' and disk['new_request_state']=='SUCCEEDED','Disk failure falsely succeeded')
+    need(disk['state_under_fault']=='WAITING' and disk['repair_old_state']=='INTERRUPTED' and disk['new_request_state']=='SUCCEEDED','Invalid disk fault request state')
     need(all(disk[k] is True for k in ('no_ready_target','mutation_refused','deadline_unchanged','stale_epoch_rejected','mounts_removed','original_catalog_unchanged')),'Disk repair or cleanup')
     need(c['cleanup']==dict(main_pid='0',active_state='inactive',socket_removed=True,ready_removed=True,origin_handlers=0),'Service cleanup')
     need(all(v['cleanup'][k] is True for k in ('vm_deleted','disk_removed','preexisting_unchanged')),'VM cleanup')
     need(v['limits']==dict(vm_only_soak=True,long_term_tested=False,power_loss_tested=False,autostart_tested=False,rollover_implemented=False),'Scope expanded')
 
 def controls(v):
+    def negative_resources(x):
+        c=x['closeout']
+        for sample in c['samples']:sample.update(fd=-1,threads=-1)
+        for key in ('early_medians','late_medians'):c['soak'][key].update(fd=-1,threads=-1)
+
+    def sparse_trace(x):
+        c=x['closeout']
+        c['samples']=[dict(copy.deepcopy(c['samples'][0]),seconds=t) for t in (35,65,95,125,155) for _ in range(120)]
+        sample=c['samples'][0];medians={field:sample[field] for field in ('rss','fd','threads')}
+        c['soak'].update(early_medians=medians.copy(),late_medians=medians.copy(),rss_window_medians=[sample['rss']]*5,largest_growing_streak=0)
+
     changes=[lambda x:x['native'].update(skipped=1),lambda x:x['linux']['test_ids'].__setitem__(0,'unrelated'),lambda x:x['stages'][0].update(timed_out=True),
         lambda x:x['stages'][0].update(exit_code=1),lambda x:x['installed_modules'].clear(),lambda x:x['closeout']['contract'].update(rss_absolute_bytes=2**40),
         lambda x:x['closeout']['soak'].update(seconds=20),lambda x:x['closeout']['soak']['after'].update(NRestarts='1'),lambda x:x['closeout']['cycles'].pop(),
@@ -63,7 +102,17 @@ def controls(v):
         lambda x:x['closeout']['clean_install'].update(account_absent=False),
         lambda x:x['closeout']['clean_install']['absent_paths'].update({'/opt/cacheweft/venv':False}),
         lambda x:x['closeout']['disk_full'].update(checkpoint_before_fault=0),
-        lambda x:x['closeout']['history_full'].update(actual_eviction=False)]
+        lambda x:x['closeout']['history_full'].update(actual_eviction=False),
+        lambda x:x['closeout']['samples'][1].update(seconds=x['closeout']['samples'][0]['seconds']),
+        lambda x:x['closeout']['samples'][0].update(seconds=float('nan')),
+        lambda x:x['closeout']['samples'][0].update(seconds=float('inf')),
+        lambda x:x['closeout']['soak'].pop('epoch'),
+        lambda x:x['closeout']['soak'].update(epoch='invalid'),
+        lambda x:x['closeout']['soak']['before'].update(InvocationID='invalid'),
+        lambda x:x['closeout']['disk_full'].update(state_under_fault='UNKNOWN'),
+        lambda x:x['closeout']['samples'][0].update(fd=0),
+        lambda x:x['closeout']['samples'][0].update(fd=-1),
+        lambda x:x['closeout']['samples'][0].update(threads=-1),negative_resources,sparse_trace]
     for change in changes:
         bad=copy.deepcopy(v);change(bad)
         try:verify(bad)

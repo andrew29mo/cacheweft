@@ -1,5 +1,10 @@
 # Bounded closeout and deployment acceptance
 
+The measurements below remain the immutable `c460d7d` records. Subsequent
+validator corrections and their exact source/version bridge are documented in
+[FINAL_REVIEW.md](FINAL_REVIEW.md); they do not represent new measurements.
+
+
 This iteration closes the existing scope. It adds no remote API, alternate
 origin, automatic eviction/rollover or new product operation. The repository
 remains Private and without a selected project license.
