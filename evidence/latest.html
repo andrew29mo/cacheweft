@@ -1,154 +1,210 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><title>Cacheweft exploration evidence</title><style>body{font:16px system-ui;max-width:1000px;margin:40px auto;padding:20px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f6f8;padding:20px}</style><h1>Cacheweft exploration evidence</h1><p>Passed: True</p><p>Exploration core only. Linux VM metrics are separate from native macOS. No power-loss, WAN, long-term or deployed-service qualification.</p><pre>{
-  &quot;contract&quot;: &quot;cacheweft-exploration-review-v3&quot;,
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Cacheweft milestone 1 evidence</title><style>body{font:16px system-ui;max-width:1000px;margin:40px auto;padding:20px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f6f8;padding:20px}</style><h1>Cacheweft milestone 1 evidence</h1><p>Passed: True</p><p>Unprivileged local daemon, deadlines and normal VM reboot. Linux VM metrics are separate from native macOS. No systemd, power-loss, WAN or long-term qualification.</p><pre>{
+  &quot;contract&quot;: &quot;cacheweft-milestone1-v4&quot;,
   &quot;passed&quot;: true,
-  &quot;recorded_utc&quot;: &quot;2026-10-25T10:35:52.921702+00:00&quot;,
+  &quot;recorded_utc&quot;: &quot;2026-10-25T11:32:57.872999+00:00&quot;,
   &quot;source&quot;: {
-    &quot;pyproject.toml&quot;: &quot;af7360215f65e363a138cb62cf8c708f8669e52136ca7b7e028acfded6e70cce&quot;,
+    &quot;pyproject.toml&quot;: &quot;6ee0499a249a5170281f960f4035720af3d6a808a085362437a1a3003123eecc&quot;,
     &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
-    &quot;cacheweft/core.py&quot;: &quot;e826b34a08ccb3a51b84ef902ac2717a336565494d7c4223463f6c9fc609b1fb&quot;,
-    &quot;cacheweft/http.py&quot;: &quot;5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925&quot;,
+    &quot;cacheweft/cli.py&quot;: &quot;7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5&quot;,
+    &quot;cacheweft/core.py&quot;: &quot;4f5f7a0db664b336e38cd218a0764007cd389bd2a983b0d7e50a0f9a7f615d3a&quot;,
+    &quot;cacheweft/http.py&quot;: &quot;41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76&quot;,
+    &quot;cacheweft/service.py&quot;: &quot;7c34a9cfcffbf58fb1b7d0d85188ba14361f15a2dd5445d33617ffa16902e5d6&quot;,
     &quot;tools/__init__.py&quot;: &quot;e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&quot;,
     &quot;tools/cases.py&quot;: &quot;018793b45dc0d426c9cc31487cfc8c288130864da4ec360da99d54c5dc7edcde&quot;,
+    &quot;tools/milestone.py&quot;: &quot;e5aa771be7359d022b19bb5434c560a926012bf25453c6d18e76888337ac7f11&quot;,
     &quot;tools/reboot.py&quot;: &quot;f948294a00c181c97d962d28cebe664a42cd38d924da718a56d80628ac9ef3f5&quot;,
-    &quot;tools/report.py&quot;: &quot;80d5a4762ba7cfe03a7a22e9272dd7d76478284af142b954bea319a9cad8aa23&quot;,
+    &quot;tools/report.py&quot;: &quot;9523241cab94993d051133f6622062962cb5d8a965bf011b7e1e597fc66da890&quot;,
     &quot;tools/unit.py&quot;: &quot;a1f904bef90862c9bbe376dca54d4d8bc1002dc67b96396645eee22a589669e0&quot;,
-    &quot;tools/validate.py&quot;: &quot;8707ad92984dcf2fd5108571f88c9b3a31670ec476d1489f82dbb1321096e76a&quot;,
+    &quot;tools/validate.py&quot;: &quot;332d9fd6eb980d0b56fc82416bba8f076deb05a0d5c4ea67503f8a5e5031a7ed&quot;,
     &quot;tests/__init__.py&quot;: &quot;e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&quot;,
-    &quot;tests/fixture.py&quot;: &quot;334d6e3493da6c34d3794561ec79a3645d3ad9cb7b0d633595ba1a1b9a9c50b4&quot;,
-    &quot;tests/test_core.py&quot;: &quot;ef8d6b1dd9195d814e47e4ce665ce1f4361340b39057945a5433f42a76b67a8b&quot;
+    &quot;tests/daemon_fixture.py&quot;: &quot;03ac73462542d1e7b8adbf38907b82398b093a1ce83a499bd919e4e8091acd1f&quot;,
+    &quot;tests/fixture.py&quot;: &quot;11eadd60812db5db5ebe5acbfbd620d6699497e6666e789f404e0d504c0b728e&quot;,
+    &quot;tests/test_core.py&quot;: &quot;ef8d6b1dd9195d814e47e4ce665ce1f4361340b39057945a5433f42a76b67a8b&quot;,
+    &quot;tests/test_service.py&quot;: &quot;4fa4b1429ec989275be88b96684cb7e6125af672d59a8d680ca027ca62ca324f&quot;
   },
-  &quot;wheel_sha256&quot;: &quot;266b3c8e42c5edbf954ccea492b48d52aae5afb221fb21ac6a5e80a38f862418&quot;,
+  &quot;wheel_sha256&quot;: &quot;86d9e981607688d1fd1f99384d7ba0cd9b02fe74c167e0ac8e5f41162cf9dbaa&quot;,
   &quot;stages&quot;: [
     {
       &quot;name&quot;: &quot;initial&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.3167764169629663
+      &quot;seconds&quot;: 0.3825119999819435
     },
     {
       &quot;name&quot;: &quot;create&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 21.051962167024612
+      &quot;seconds&quot;: 21.8573365000193
     },
     {
       &quot;name&quot;: &quot;dependencies&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 17.73784766701283
+      &quot;seconds&quot;: 16.854318834026344
     },
     {
       &quot;name&quot;: &quot;upload&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.52073383302195
+      &quot;seconds&quot;: 0.47264866600744426
     },
     {
       &quot;name&quot;: &quot;install&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 1.4387970420066267
+      &quot;seconds&quot;: 1.507114916050341
     },
     {
       &quot;name&quot;: &quot;provenance&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.3353927090065554
+      &quot;seconds&quot;: 0.3037231669877656
     },
     {
       &quot;name&quot;: &quot;native&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 3.28964387497399
+      &quot;seconds&quot;: 19.64457816700451
     },
     {
       &quot;name&quot;: &quot;native-cases&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.7421145830303431
+      &quot;seconds&quot;: 0.8315302499686368
+    },
+    {
+      &quot;name&quot;: &quot;native-service&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 2.936923375003971
     },
     {
       &quot;name&quot;: &quot;linux&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 3.2265797079890035
+      &quot;seconds&quot;: 19.61734699999215
     },
     {
       &quot;name&quot;: &quot;linux-read&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.346890417044051
+      &quot;seconds&quot;: 0.46370970900170505
     },
     {
       &quot;name&quot;: &quot;linux-cases&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 1.821204291016329
+      &quot;seconds&quot;: 1.8917637499980628
     },
     {
       &quot;name&quot;: &quot;linux-cases-read&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.3377379580051638
+      &quot;seconds&quot;: 0.24251433298923075
+    },
+    {
+      &quot;name&quot;: &quot;linux-service&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 3.5381909160059877
+    },
+    {
+      &quot;name&quot;: &quot;linux-service-read&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.27052541699958965
     },
     {
       &quot;name&quot;: &quot;reboot-prepare&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.9794314170139842
+      &quot;seconds&quot;: 1.0315128750517033
     },
     {
       &quot;name&quot;: &quot;reboot-prepared-read&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.2432995840208605
+      &quot;seconds&quot;: 0.2659804160357453
     },
     {
       &quot;name&quot;: &quot;schedule-reboot&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.31357512495014817
+      &quot;seconds&quot;: 0.3583221669541672
     },
     {
       &quot;name&quot;: &quot;reboot-finish&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.4304205839871429
+      &quot;seconds&quot;: 0.2968046250171028
     },
     {
       &quot;name&quot;: &quot;reboot-finished-read&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.23344149999320507
+      &quot;seconds&quot;: 0.3554030419909395
+    },
+    {
+      &quot;name&quot;: &quot;service-boot-prepare&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.9389974169898778
+    },
+    {
+      &quot;name&quot;: &quot;service-boot-prepared-read&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.25553645798936486
+    },
+    {
+      &quot;name&quot;: &quot;service-schedule-reboot&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.2394002500222996
+    },
+    {
+      &quot;name&quot;: &quot;service-boot-finish&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.9875009159441106
+    },
+    {
+      &quot;name&quot;: &quot;service-boot-finished-read&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.24290004099020734
     },
     {
       &quot;name&quot;: &quot;delete&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 1.46285191597417
+      &quot;seconds&quot;: 1.4182954169809818
     },
     {
       &quot;name&quot;: &quot;final&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.20043366600293666
+      &quot;seconds&quot;: 0.17488499998580664
     }
   ],
   &quot;host_mounts&quot;: &quot;none&quot;,
   &quot;limits&quot;: {
     &quot;power_loss_tested&quot;: false,
     &quot;wan_tested&quot;: false,
-    &quot;deployed_service_tested&quot;: false,
+    &quot;deployed_service_tested&quot;: true,
+    &quot;systemd_tested&quot;: false,
     &quot;long_term_tested&quot;: false
   },
   &quot;installed_modules&quot;: {
-    &quot;cacheweft/core.py&quot;: &quot;e826b34a08ccb3a51b84ef902ac2717a336565494d7c4223463f6c9fc609b1fb&quot;,
-    &quot;cacheweft/http.py&quot;: &quot;5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925&quot;,
+    &quot;cacheweft/service.py&quot;: &quot;7c34a9cfcffbf58fb1b7d0d85188ba14361f15a2dd5445d33617ffa16902e5d6&quot;,
+    &quot;cacheweft/core.py&quot;: &quot;4f5f7a0db664b336e38cd218a0764007cd389bd2a983b0d7e50a0f9a7f615d3a&quot;,
+    &quot;cacheweft/cli.py&quot;: &quot;7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5&quot;,
+    &quot;cacheweft/http.py&quot;: &quot;41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76&quot;,
     &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;
   },
   &quot;native&quot;: {
     &quot;passed&quot;: true,
-    &quot;tests&quot;: 42,
+    &quot;tests&quot;: 63,
     &quot;test_ids&quot;: [
       &quot;tests.test_core.CoreTests.test_416_not_success&quot;,
       &quot;tests.test_core.CoreTests.test_bad_range_refused&quot;,
@@ -191,20 +247,43 @@
       &quot;tests.test_core.CoreTests.test_unknown_data_charged_not_deleted&quot;,
       &quot;tests.test_core.CoreTests.test_weak_or_absent_etag_restarts&quot;,
       &quot;tests.test_core.CoreTests.test_wrong_hash_not_published&quot;,
-      &quot;tests.test_core.CoreTests.test_wrong_length_refused&quot;
+      &quot;tests.test_core.CoreTests.test_wrong_length_refused&quot;,
+      &quot;tests.test_service.ServiceTests.test_authority_wait_cannot_turn_expired_fetch_into_hit&quot;,
+      &quot;tests.test_service.ServiceTests.test_bad_frames_and_config_permissions&quot;,
+      &quot;tests.test_service.ServiceTests.test_cli_flow_and_read&quot;,
+      &quot;tests.test_service.ServiceTests.test_coalesced_old_deadline_not_extended&quot;,
+      &quot;tests.test_service.ServiceTests.test_committed_publication_recovery_preserves_original_deadline&quot;,
+      &quot;tests.test_service.ServiceTests.test_control_connection_limit&quot;,
+      &quot;tests.test_service.ServiceTests.test_deadline_check_survives_delayed_sweeper&quot;,
+      &quot;tests.test_service.ServiceTests.test_deadline_rechecked_after_verification&quot;,
+      &quot;tests.test_service.ServiceTests.test_deadline_rechecked_after_write_precharge&quot;,
+      &quot;tests.test_service.ServiceTests.test_duplicate_id_cannot_extend_duration&quot;,
+      &quot;tests.test_service.ServiceTests.test_managed_core_cannot_import_or_create_unbounded_interest&quot;,
+      &quot;tests.test_service.ServiceTests.test_manifest_immutable_and_revision_rollback&quot;,
+      &quot;tests.test_service.ServiceTests.test_queued_job_expires_without_source_request&quot;,
+      &quot;tests.test_service.ServiceTests.test_restart_interrupts_old_deadline_and_requires_explicit_resume&quot;,
+      &quot;tests.test_service.ServiceTests.test_shutdown_rejects_preaccepted_incomplete_request&quot;,
+      &quot;tests.test_service.ServiceTests.test_slow_body_total_deadline&quot;,
+      &quot;tests.test_service.ServiceTests.test_slow_headers_total_deadline&quot;,
+      &quot;tests.test_service.ServiceTests.test_slow_source_cancel_and_stale_token&quot;,
+      &quot;tests.test_service.ServiceTests.test_sqlite_admission_wait_cannot_accept_expired_hit&quot;,
+      &quot;tests.test_service.ServiceTests.test_sqlite_publish_wait_cannot_create_expired_intent&quot;,
+      &quot;tests.test_service.ServiceTests.test_watchdog_lives_through_connection_close_response_body&quot;
     ],
     &quot;failures&quot;: 0,
     &quot;errors&quot;: 0,
     &quot;skipped&quot;: 0,
-    &quot;seconds&quot;: 3.196347584016621,
+    &quot;seconds&quot;: 19.54007454100065,
     &quot;platform&quot;: &quot;Darwin&quot;,
     &quot;python&quot;: &quot;3.12.14&quot;,
     &quot;sqlite&quot;: &quot;3.53.1&quot;,
     &quot;openssl&quot;: &quot;OpenSSL 3.5.8 25 Aug 2026&quot;,
     &quot;modules&quot;: {
       &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
-      &quot;cacheweft/core.py&quot;: &quot;e826b34a08ccb3a51b84ef902ac2717a336565494d7c4223463f6c9fc609b1fb&quot;,
-      &quot;cacheweft/http.py&quot;: &quot;5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925&quot;
+      &quot;cacheweft/cli.py&quot;: &quot;7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5&quot;,
+      &quot;cacheweft/core.py&quot;: &quot;4f5f7a0db664b336e38cd218a0764007cd389bd2a983b0d7e50a0f9a7f615d3a&quot;,
+      &quot;cacheweft/http.py&quot;: &quot;41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76&quot;,
+      &quot;cacheweft/service.py&quot;: &quot;7c34a9cfcffbf58fb1b7d0d85188ba14361f15a2dd5445d33617ffa16902e5d6&quot;
     }
   },
   &quot;native_cases&quot;: {
@@ -218,8 +297,8 @@
           &quot;mode&quot;: &quot;cold&quot;,
           &quot;request_count&quot;: 1,
           &quot;size&quot;: 1048576,
-          &quot;download_seconds&quot;: 0.038817457971163094,
-          &quot;read_seconds&quot;: 0.0012124580098316073,
+          &quot;download_seconds&quot;: 0.04041741701075807,
+          &quot;read_seconds&quot;: 0.0013386670034378767,
           &quot;actual_origin_requests&quot;: 1,
           &quot;origin_payload_bytes&quot;: 1048576,
           &quot;request_ranges&quot;: [
@@ -230,20 +309,23 @@
           &quot;subscriber_outcomes&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;2da6d317-993e-4da1-9290-f54bac57bde8&quot;,
+              &quot;generation&quot;: &quot;420c2b84-d7ce-4014-83f6-c5cae9cbf96d&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
-              &quot;result&quot;: &quot;SUCCEEDED&quot;
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;8d1d3e91-dcc9-44a9-8716-59065cf41e15&quot;,
+              &quot;revision&quot;: 2
             }
           ],
-          &quot;process_rss_or_peak_bytes&quot;: 32768000,
+          &quot;process_rss_or_peak_bytes&quot;: 33292288,
           &quot;usage&quot;: {
             &quot;payload_bytes&quot;: 1048576,
             &quot;remaining_reserved&quot;: 0,
             &quot;allocated_payload_bytes&quot;: 1048576,
             &quot;budget&quot;: 16777216,
-            &quot;free_bytes&quot;: 713735483392
+            &quot;free_bytes&quot;: 711845478400
           },
           &quot;root_allocated_bytes&quot;: 1069056
         },
@@ -251,8 +333,8 @@
           &quot;mode&quot;: &quot;resume&quot;,
           &quot;request_count&quot;: 1,
           &quot;size&quot;: 1048576,
-          &quot;download_seconds&quot;: 0.041253749979659915,
-          &quot;read_seconds&quot;: 0.0018164999783039093,
+          &quot;download_seconds&quot;: 0.04042754101101309,
+          &quot;read_seconds&quot;: 0.0010182500118389726,
           &quot;actual_origin_requests&quot;: 2,
           &quot;origin_payload_bytes&quot;: 1048576,
           &quot;request_ranges&quot;: [
@@ -264,20 +346,23 @@
           &quot;subscriber_outcomes&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;1f5d075b-1a8a-4f5e-92e4-376fdaf2c467&quot;,
+              &quot;generation&quot;: &quot;ae4ee372-9667-4cb1-8954-5fa7710ef085&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
-              &quot;result&quot;: &quot;SUCCEEDED&quot;
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;2795bf36-60f3-4e31-ba62-2a508733000f&quot;,
+              &quot;revision&quot;: 2
             }
           ],
-          &quot;process_rss_or_peak_bytes&quot;: 34226176,
+          &quot;process_rss_or_peak_bytes&quot;: 34832384,
           &quot;usage&quot;: {
             &quot;payload_bytes&quot;: 1048576,
             &quot;remaining_reserved&quot;: 0,
             &quot;allocated_payload_bytes&quot;: 1048576,
             &quot;budget&quot;: 16777216,
-            &quot;free_bytes&quot;: 713734414336
+            &quot;free_bytes&quot;: 711844409344
           },
           &quot;root_allocated_bytes&quot;: 1069056
         },
@@ -285,8 +370,8 @@
           &quot;mode&quot;: &quot;coalesced&quot;,
           &quot;request_count&quot;: 4,
           &quot;size&quot;: 1048576,
-          &quot;download_seconds&quot;: 0.03135904198279604,
-          &quot;read_seconds&quot;: 0.0010020839981734753,
+          &quot;download_seconds&quot;: 0.029196792049333453,
+          &quot;read_seconds&quot;: 0.0009468329953961074,
           &quot;actual_origin_requests&quot;: 1,
           &quot;origin_payload_bytes&quot;: 1048576,
           &quot;request_ranges&quot;: [
@@ -296,87 +381,174 @@
           &quot;subscribers_before_release&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
-              &quot;result&quot;: null
+              &quot;result&quot;: null,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;revision&quot;: 1
             },
             {
               &quot;id&quot;: &quot;r1&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
-              &quot;result&quot;: null
+              &quot;result&quot;: null,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;revision&quot;: 1
             },
             {
               &quot;id&quot;: &quot;r2&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
-              &quot;result&quot;: null
+              &quot;result&quot;: null,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;revision&quot;: 1
             },
             {
               &quot;id&quot;: &quot;r3&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
-              &quot;result&quot;: null
+              &quot;result&quot;: null,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;revision&quot;: 1
             }
           ],
           &quot;subscriber_outcomes&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
-              &quot;result&quot;: &quot;SUCCEEDED&quot;
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;revision&quot;: 2
             },
             {
               &quot;id&quot;: &quot;r1&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
-              &quot;result&quot;: &quot;SUCCEEDED&quot;
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;revision&quot;: 2
             },
             {
               &quot;id&quot;: &quot;r2&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
-              &quot;result&quot;: &quot;SUCCEEDED&quot;
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;revision&quot;: 2
             },
             {
               &quot;id&quot;: &quot;r3&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
-              &quot;result&quot;: &quot;SUCCEEDED&quot;
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;revision&quot;: 2
             }
           ],
-          &quot;process_rss_or_peak_bytes&quot;: 34275328,
+          &quot;process_rss_or_peak_bytes&quot;: 34914304,
           &quot;usage&quot;: {
             &quot;payload_bytes&quot;: 1048576,
             &quot;remaining_reserved&quot;: 0,
             &quot;allocated_payload_bytes&quot;: 1048576,
             &quot;budget&quot;: 16777216,
-            &quot;free_bytes&quot;: 713733341184
+            &quot;free_bytes&quot;: 711843336192
           },
           &quot;root_allocated_bytes&quot;: 1069056
         }
       ]
     }
   },
+  &quot;native_service&quot;: {
+    &quot;cases&quot;: [
+      {
+        &quot;mode&quot;: &quot;slow_headers&quot;,
+        &quot;result&quot;: &quot;TIMED_OUT&quot;,
+        &quot;deadline_unchanged&quot;: true,
+        &quot;available&quot;: false,
+        &quot;seconds&quot;: 0.3127420420059934,
+        &quot;stop_seconds&quot;: 0.2319307919824496,
+        &quot;identity&quot;: {
+          &quot;uid&quot;: 501,
+          &quot;rss_bytes&quot;: 28950528,
+          &quot;pid&quot;: 72005,
+          &quot;scope&quot;: &quot;daemon PID current RSS via ps&quot;
+        },
+        &quot;stale_cancel_rejected&quot;: null,
+        &quot;exit_code&quot;: 0,
+        &quot;receipt_removed&quot;: true
+      },
+      {
+        &quot;mode&quot;: &quot;slow_body&quot;,
+        &quot;result&quot;: &quot;TIMED_OUT&quot;,
+        &quot;deadline_unchanged&quot;: true,
+        &quot;available&quot;: false,
+        &quot;seconds&quot;: 0.3204023750149645,
+        &quot;stop_seconds&quot;: 0.22795570798916742,
+        &quot;identity&quot;: {
+          &quot;uid&quot;: 501,
+          &quot;rss_bytes&quot;: 29032448,
+          &quot;pid&quot;: 72008,
+          &quot;scope&quot;: &quot;daemon PID current RSS via ps&quot;
+        },
+        &quot;stale_cancel_rejected&quot;: null,
+        &quot;exit_code&quot;: 0,
+        &quot;receipt_removed&quot;: true
+      },
+      {
+        &quot;mode&quot;: &quot;cancel&quot;,
+        &quot;result&quot;: &quot;CANCELLED&quot;,
+        &quot;deadline_unchanged&quot;: true,
+        &quot;available&quot;: false,
+        &quot;seconds&quot;: 0.008666208013892174,
+        &quot;stop_seconds&quot;: 0.235336790967267,
+        &quot;identity&quot;: {
+          &quot;uid&quot;: 501,
+          &quot;rss_bytes&quot;: 28983296,
+          &quot;pid&quot;: 72011,
+          &quot;scope&quot;: &quot;daemon PID current RSS via ps&quot;
+        },
+        &quot;stale_cancel_rejected&quot;: true,
+        &quot;exit_code&quot;: 0,
+        &quot;receipt_removed&quot;: true
+      },
+      {
+        &quot;mode&quot;: &quot;shared_deadlines&quot;,
+        &quot;old_state&quot;: &quot;TIMED_OUT&quot;,
+        &quot;new_state&quot;: &quot;SUCCEEDED&quot;,
+        &quot;old_deadline_unchanged&quot;: true
+      }
+    ],
+    &quot;cleanup&quot;: true,
+    &quot;scope&quot;: &quot;actual daemon subprocess; 2s assertion is a controlled observation bound, not a production SLA&quot;
+  },
   &quot;linux&quot;: {
     &quot;passed&quot;: true,
-    &quot;tests&quot;: 42,
+    &quot;tests&quot;: 63,
     &quot;test_ids&quot;: [
       &quot;tests.test_core.CoreTests.test_416_not_success&quot;,
       &quot;tests.test_core.CoreTests.test_bad_range_refused&quot;,
@@ -419,20 +591,43 @@
       &quot;tests.test_core.CoreTests.test_unknown_data_charged_not_deleted&quot;,
       &quot;tests.test_core.CoreTests.test_weak_or_absent_etag_restarts&quot;,
       &quot;tests.test_core.CoreTests.test_wrong_hash_not_published&quot;,
-      &quot;tests.test_core.CoreTests.test_wrong_length_refused&quot;
+      &quot;tests.test_core.CoreTests.test_wrong_length_refused&quot;,
+      &quot;tests.test_service.ServiceTests.test_authority_wait_cannot_turn_expired_fetch_into_hit&quot;,
+      &quot;tests.test_service.ServiceTests.test_bad_frames_and_config_permissions&quot;,
+      &quot;tests.test_service.ServiceTests.test_cli_flow_and_read&quot;,
+      &quot;tests.test_service.ServiceTests.test_coalesced_old_deadline_not_extended&quot;,
+      &quot;tests.test_service.ServiceTests.test_committed_publication_recovery_preserves_original_deadline&quot;,
+      &quot;tests.test_service.ServiceTests.test_control_connection_limit&quot;,
+      &quot;tests.test_service.ServiceTests.test_deadline_check_survives_delayed_sweeper&quot;,
+      &quot;tests.test_service.ServiceTests.test_deadline_rechecked_after_verification&quot;,
+      &quot;tests.test_service.ServiceTests.test_deadline_rechecked_after_write_precharge&quot;,
+      &quot;tests.test_service.ServiceTests.test_duplicate_id_cannot_extend_duration&quot;,
+      &quot;tests.test_service.ServiceTests.test_managed_core_cannot_import_or_create_unbounded_interest&quot;,
+      &quot;tests.test_service.ServiceTests.test_manifest_immutable_and_revision_rollback&quot;,
+      &quot;tests.test_service.ServiceTests.test_queued_job_expires_without_source_request&quot;,
+      &quot;tests.test_service.ServiceTests.test_restart_interrupts_old_deadline_and_requires_explicit_resume&quot;,
+      &quot;tests.test_service.ServiceTests.test_shutdown_rejects_preaccepted_incomplete_request&quot;,
+      &quot;tests.test_service.ServiceTests.test_slow_body_total_deadline&quot;,
+      &quot;tests.test_service.ServiceTests.test_slow_headers_total_deadline&quot;,
+      &quot;tests.test_service.ServiceTests.test_slow_source_cancel_and_stale_token&quot;,
+      &quot;tests.test_service.ServiceTests.test_sqlite_admission_wait_cannot_accept_expired_hit&quot;,
+      &quot;tests.test_service.ServiceTests.test_sqlite_publish_wait_cannot_create_expired_intent&quot;,
+      &quot;tests.test_service.ServiceTests.test_watchdog_lives_through_connection_close_response_body&quot;
     ],
     &quot;failures&quot;: 0,
     &quot;errors&quot;: 0,
     &quot;skipped&quot;: 0,
-    &quot;seconds&quot;: 2.9167154390000007,
+    &quot;seconds&quot;: 19.173983075000002,
     &quot;platform&quot;: &quot;Linux&quot;,
     &quot;python&quot;: &quot;3.12.3&quot;,
     &quot;sqlite&quot;: &quot;3.45.1&quot;,
     &quot;openssl&quot;: &quot;OpenSSL 3.0.13 30 Jan 2024&quot;,
     &quot;modules&quot;: {
       &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
-      &quot;cacheweft/core.py&quot;: &quot;e826b34a08ccb3a51b84ef902ac2717a336565494d7c4223463f6c9fc609b1fb&quot;,
-      &quot;cacheweft/http.py&quot;: &quot;5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925&quot;
+      &quot;cacheweft/cli.py&quot;: &quot;7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5&quot;,
+      &quot;cacheweft/core.py&quot;: &quot;4f5f7a0db664b336e38cd218a0764007cd389bd2a983b0d7e50a0f9a7f615d3a&quot;,
+      &quot;cacheweft/http.py&quot;: &quot;41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76&quot;,
+      &quot;cacheweft/service.py&quot;: &quot;7c34a9cfcffbf58fb1b7d0d85188ba14361f15a2dd5445d33617ffa16902e5d6&quot;
     }
   },
   &quot;linux_cases&quot;: {
@@ -446,8 +641,8 @@
           &quot;mode&quot;: &quot;cold&quot;,
           &quot;request_count&quot;: 1,
           &quot;size&quot;: 1048576,
-          &quot;download_seconds&quot;: 0.09206668299999876,
-          &quot;read_seconds&quot;: 0.011764110000001438,
+          &quot;download_seconds&quot;: 0.059136180000010086,
+          &quot;read_seconds&quot;: 0.0012908599999974513,
           &quot;actual_origin_requests&quot;: 1,
           &quot;origin_payload_bytes&quot;: 1048576,
           &quot;request_ranges&quot;: [
@@ -458,29 +653,32 @@
           &quot;subscriber_outcomes&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;fd13fedc-ee60-4472-b91d-7736d7e68979&quot;,
+              &quot;generation&quot;: &quot;fdcd081f-bbb1-41ab-acfc-af8fab9f4c09&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
-              &quot;result&quot;: &quot;SUCCEEDED&quot;
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;9f1bf584-607c-4eaa-97a3-890551b16a93&quot;,
+              &quot;revision&quot;: 2
             }
           ],
-          &quot;process_rss_or_peak_bytes&quot;: 27910144,
+          &quot;process_rss_or_peak_bytes&quot;: 28512256,
           &quot;usage&quot;: {
             &quot;payload_bytes&quot;: 1048576,
             &quot;remaining_reserved&quot;: 0,
-            &quot;allocated_payload_bytes&quot;: 1048576,
+            &quot;allocated_payload_bytes&quot;: 1052672,
             &quot;budget&quot;: 16777216,
-            &quot;free_bytes&quot;: 18383478784
+            &quot;free_bytes&quot;: 18382106624
           },
-          &quot;root_allocated_bytes&quot;: 1069056
+          &quot;root_allocated_bytes&quot;: 1073152
         },
         {
           &quot;mode&quot;: &quot;resume&quot;,
           &quot;request_count&quot;: 1,
           &quot;size&quot;: 1048576,
-          &quot;download_seconds&quot;: 0.09157772900000083,
-          &quot;read_seconds&quot;: 0.0007322869999981663,
+          &quot;download_seconds&quot;: 0.08801979800000481,
+          &quot;read_seconds&quot;: 0.006481465000007347,
           &quot;actual_origin_requests&quot;: 2,
           &quot;origin_payload_bytes&quot;: 1048576,
           &quot;request_ranges&quot;: [
@@ -492,29 +690,32 @@
           &quot;subscriber_outcomes&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;12778772-3e6f-4bd4-b8d2-36d733cea24f&quot;,
+              &quot;generation&quot;: &quot;63f6092a-b934-486a-9682-08e4b697c2c2&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
-              &quot;result&quot;: &quot;SUCCEEDED&quot;
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;ff805f52-c1b8-4587-9c19-7b1caf77f472&quot;,
+              &quot;revision&quot;: 2
             }
           ],
-          &quot;process_rss_or_peak_bytes&quot;: 28127232,
+          &quot;process_rss_or_peak_bytes&quot;: 28983296,
           &quot;usage&quot;: {
             &quot;payload_bytes&quot;: 1048576,
             &quot;remaining_reserved&quot;: 0,
-            &quot;allocated_payload_bytes&quot;: 1048576,
+            &quot;allocated_payload_bytes&quot;: 1052672,
             &quot;budget&quot;: 16777216,
-            &quot;free_bytes&quot;: 18382397440
+            &quot;free_bytes&quot;: 18381021184
           },
-          &quot;root_allocated_bytes&quot;: 1069056
+          &quot;root_allocated_bytes&quot;: 1073152
         },
         {
           &quot;mode&quot;: &quot;coalesced&quot;,
           &quot;request_count&quot;: 4,
           &quot;size&quot;: 1048576,
-          &quot;download_seconds&quot;: 0.04229570100000046,
-          &quot;read_seconds&quot;: 0.0008556380000044328,
+          &quot;download_seconds&quot;: 0.08593749000000628,
+          &quot;read_seconds&quot;: 0.0013979839999933574,
           &quot;actual_origin_requests&quot;: 1,
           &quot;origin_payload_bytes&quot;: 1048576,
           &quot;request_ranges&quot;: [
@@ -524,78 +725,102 @@
           &quot;subscribers_before_release&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
-              &quot;result&quot;: null
+              &quot;result&quot;: null,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;revision&quot;: 1
             },
             {
               &quot;id&quot;: &quot;r1&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
-              &quot;result&quot;: null
+              &quot;result&quot;: null,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;revision&quot;: 1
             },
             {
               &quot;id&quot;: &quot;r2&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
-              &quot;result&quot;: null
+              &quot;result&quot;: null,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;revision&quot;: 1
             },
             {
               &quot;id&quot;: &quot;r3&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
-              &quot;result&quot;: null
+              &quot;result&quot;: null,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;revision&quot;: 1
             }
           ],
           &quot;subscriber_outcomes&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
-              &quot;result&quot;: &quot;SUCCEEDED&quot;
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;revision&quot;: 2
             },
             {
               &quot;id&quot;: &quot;r1&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
-              &quot;result&quot;: &quot;SUCCEEDED&quot;
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;revision&quot;: 2
             },
             {
               &quot;id&quot;: &quot;r2&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
-              &quot;result&quot;: &quot;SUCCEEDED&quot;
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;revision&quot;: 2
             },
             {
               &quot;id&quot;: &quot;r3&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
-              &quot;result&quot;: &quot;SUCCEEDED&quot;
+              &quot;result&quot;: &quot;SUCCEEDED&quot;,
+              &quot;deadline&quot;: null,
+              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;revision&quot;: 2
             }
           ],
-          &quot;process_rss_or_peak_bytes&quot;: 28053504,
+          &quot;process_rss_or_peak_bytes&quot;: 28913664,
           &quot;usage&quot;: {
             &quot;payload_bytes&quot;: 1048576,
             &quot;remaining_reserved&quot;: 0,
             &quot;allocated_payload_bytes&quot;: 1052672,
             &quot;budget&quot;: 16777216,
-            &quot;free_bytes&quot;: 18381312000
+            &quot;free_bytes&quot;: 18379935744
           },
           &quot;root_allocated_bytes&quot;: 1073152
         }
@@ -636,7 +861,7 @@
         {
           &quot;mode&quot;: &quot;sqlite_full_admission&quot;,
           &quot;sqlite_errorcode&quot;: 13,
-          &quot;successful_extra_requests&quot;: 38,
+          &quot;successful_extra_requests&quot;: 32,
           &quot;degraded&quot;: true,
           &quot;rejected&quot;: true,
           &quot;scope&quot;: &quot;request catalog admission after an already READY artifact&quot;,
@@ -667,15 +892,113 @@
       &quot;mount_removed&quot;: true
     }
   },
+  &quot;linux_service&quot;: {
+    &quot;cases&quot;: [
+      {
+        &quot;mode&quot;: &quot;slow_headers&quot;,
+        &quot;result&quot;: &quot;TIMED_OUT&quot;,
+        &quot;deadline_unchanged&quot;: true,
+        &quot;available&quot;: false,
+        &quot;seconds&quot;: 0.3081160250000039,
+        &quot;stop_seconds&quot;: 0.22067121999999983,
+        &quot;identity&quot;: {
+          &quot;Uid&quot;: &quot;65534\t65534\t65534\t65534&quot;,
+          &quot;FDSize&quot;: &quot;64&quot;,
+          &quot;VmRSS&quot;: &quot;23748 kB&quot;,
+          &quot;CapEff&quot;: &quot;0000000000000000&quot;,
+          &quot;NoNewPrivs&quot;: &quot;1&quot;,
+          &quot;pid&quot;: 3243,
+          &quot;fd_count&quot;: 6,
+          &quot;rss_bytes&quot;: 24317952
+        },
+        &quot;stale_cancel_rejected&quot;: null,
+        &quot;exit_code&quot;: 0,
+        &quot;receipt_removed&quot;: true
+      },
+      {
+        &quot;mode&quot;: &quot;slow_body&quot;,
+        &quot;result&quot;: &quot;TIMED_OUT&quot;,
+        &quot;deadline_unchanged&quot;: true,
+        &quot;available&quot;: false,
+        &quot;seconds&quot;: 0.3127959279999999,
+        &quot;stop_seconds&quot;: 0.22949411000000453,
+        &quot;identity&quot;: {
+          &quot;Uid&quot;: &quot;65534\t65534\t65534\t65534&quot;,
+          &quot;FDSize&quot;: &quot;64&quot;,
+          &quot;VmRSS&quot;: &quot;23752 kB&quot;,
+          &quot;CapEff&quot;: &quot;0000000000000000&quot;,
+          &quot;NoNewPrivs&quot;: &quot;1&quot;,
+          &quot;pid&quot;: 3279,
+          &quot;fd_count&quot;: 6,
+          &quot;rss_bytes&quot;: 24322048
+        },
+        &quot;stale_cancel_rejected&quot;: null,
+        &quot;exit_code&quot;: 0,
+        &quot;receipt_removed&quot;: true
+      },
+      {
+        &quot;mode&quot;: &quot;cancel&quot;,
+        &quot;result&quot;: &quot;CANCELLED&quot;,
+        &quot;deadline_unchanged&quot;: true,
+        &quot;available&quot;: false,
+        &quot;seconds&quot;: 0.008207920999993235,
+        &quot;stop_seconds&quot;: 0.217662016999995,
+        &quot;identity&quot;: {
+          &quot;Uid&quot;: &quot;65534\t65534\t65534\t65534&quot;,
+          &quot;FDSize&quot;: &quot;64&quot;,
+          &quot;VmRSS&quot;: &quot;23760 kB&quot;,
+          &quot;CapEff&quot;: &quot;0000000000000000&quot;,
+          &quot;NoNewPrivs&quot;: &quot;1&quot;,
+          &quot;pid&quot;: 3316,
+          &quot;fd_count&quot;: 6,
+          &quot;rss_bytes&quot;: 24330240
+        },
+        &quot;stale_cancel_rejected&quot;: true,
+        &quot;exit_code&quot;: 0,
+        &quot;receipt_removed&quot;: true
+      },
+      {
+        &quot;mode&quot;: &quot;shared_deadlines&quot;,
+        &quot;old_state&quot;: &quot;TIMED_OUT&quot;,
+        &quot;new_state&quot;: &quot;SUCCEEDED&quot;,
+        &quot;old_deadline_unchanged&quot;: true
+      },
+      {
+        &quot;mode&quot;: &quot;connect_blackhole&quot;,
+        &quot;result&quot;: &quot;TIMED_OUT&quot;,
+        &quot;deadline_unchanged&quot;: true,
+        &quot;available&quot;: false,
+        &quot;namespace_isolated&quot;: true,
+        &quot;unresolved_neighbor&quot;: true,
+        &quot;origin_requests&quot;: 0,
+        &quot;terminal_seconds&quot;: 0.31816719399999727,
+        &quot;total_through_stop_seconds&quot;: 0.5507383890000028,
+        &quot;identity&quot;: {
+          &quot;Uid&quot;: &quot;65534\t65534\t65534\t65534&quot;,
+          &quot;FDSize&quot;: &quot;64&quot;,
+          &quot;VmRSS&quot;: &quot;23752 kB&quot;,
+          &quot;CapEff&quot;: &quot;0000000000000000&quot;,
+          &quot;NoNewPrivs&quot;: &quot;1&quot;,
+          &quot;pid&quot;: 3382,
+          &quot;fd_count&quot;: 6,
+          &quot;rss_bytes&quot;: 24322048
+        },
+        &quot;exit_code&quot;: 0,
+        &quot;network_cleaned&quot;: true
+      }
+    ],
+    &quot;cleanup&quot;: true,
+    &quot;scope&quot;: &quot;actual daemon subprocess; 2s assertion is a controlled observation bound, not a production SLA&quot;
+  },
   &quot;reboot&quot;: {
     &quot;boot_changed&quot;: true,
-    &quot;boot_id_after&quot;: &quot;34cb3ec1-ea14-4ad3-8ba9-9739cc2a80d2&quot;,
+    &quot;boot_id_after&quot;: &quot;4e6fb81d-4941-4503-a5d9-1a0ac1650993&quot;,
     &quot;catalog_unchanged_before_recovery&quot;: true,
     &quot;states_before_recovery&quot;: {
       &quot;objects&quot;: [
         [
           &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-          &quot;1f3b18c8-acdf-4edd-aaa6-6b05dfca3f7c&quot;,
+          &quot;a8842976-6e47-4b1c-b2ec-c90913ed6b20&quot;,
           &quot;PUBLISHING&quot;,
           1048576
         ]
@@ -683,26 +1006,29 @@
       &quot;requests&quot;: [
         [
           &quot;reboot_request&quot;,
-          &quot;1f3b18c8-acdf-4edd-aaa6-6b05dfca3f7c&quot;,
+          &quot;a8842976-6e47-4b1c-b2ec-c90913ed6b20&quot;,
           &quot;WAITING&quot;
         ]
       ]
     },
-    &quot;catalog_sha256_before_recovery&quot;: &quot;f6d381d22a2e9a05e671a631925afe58e8ad153ab8b2c0088f130fc75dd47a57&quot;,
+    &quot;catalog_sha256_before_recovery&quot;: &quot;427d92fab881dd0ac3121f65cdb1ad649dfa679546ca6f42fc815d98cd47721e&quot;,
     &quot;stage_sha256_before_recovery&quot;: [
       &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;
     ],
     &quot;recovered_request&quot;: {
       &quot;id&quot;: &quot;reboot_request&quot;,
-      &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:34881/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+      &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:39427/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
       &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-      &quot;generation&quot;: &quot;1f3b18c8-acdf-4edd-aaa6-6b05dfca3f7c&quot;,
+      &quot;generation&quot;: &quot;a8842976-6e47-4b1c-b2ec-c90913ed6b20&quot;,
       &quot;state&quot;: &quot;SUCCEEDED&quot;,
-      &quot;result&quot;: &quot;SUCCEEDED&quot;
+      &quot;result&quot;: &quot;SUCCEEDED&quot;,
+      &quot;deadline&quot;: null,
+      &quot;epoch&quot;: &quot;277498b3-f471-4253-8219-2849239a962c&quot;,
+      &quot;revision&quot;: 2
     },
     &quot;before&quot;: {
-      &quot;boot_id&quot;: &quot;0e2a2052-8181-419b-8dab-e525e4774abe&quot;,
-      &quot;catalog_sha256&quot;: &quot;f6d381d22a2e9a05e671a631925afe58e8ad153ab8b2c0088f130fc75dd47a57&quot;,
+      &quot;boot_id&quot;: &quot;04fc6dcd-d64d-4449-8188-88a30559c483&quot;,
+      &quot;catalog_sha256&quot;: &quot;427d92fab881dd0ac3121f65cdb1ad649dfa679546ca6f42fc815d98cd47721e&quot;,
       &quot;stage_sha256&quot;: [
         &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;
       ],
@@ -712,7 +1038,7 @@
         &quot;objects&quot;: [
           [
             &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-            &quot;1f3b18c8-acdf-4edd-aaa6-6b05dfca3f7c&quot;,
+            &quot;a8842976-6e47-4b1c-b2ec-c90913ed6b20&quot;,
             &quot;PUBLISHING&quot;,
             1048576
           ]
@@ -720,7 +1046,7 @@
         &quot;requests&quot;: [
           [
             &quot;reboot_request&quot;,
-            &quot;1f3b18c8-acdf-4edd-aaa6-6b05dfca3f7c&quot;,
+            &quot;a8842976-6e47-4b1c-b2ec-c90913ed6b20&quot;,
             &quot;WAITING&quot;
           ]
         ]
@@ -730,6 +1056,151 @@
     &quot;normal_reboot&quot;: true,
     &quot;power_loss_tested&quot;: false
   },
+  &quot;service_reboot&quot;: {
+    &quot;before&quot;: {
+      &quot;boot_id&quot;: &quot;4e6fb81d-4941-4503-a5d9-1a0ac1650993&quot;,
+      &quot;epoch&quot;: &quot;cb97ab33-2d06-4a07-b948-fb9b400aa3db&quot;,
+      &quot;identity&quot;: {
+        &quot;Uid&quot;: &quot;65534\t65534\t65534\t65534&quot;,
+        &quot;FDSize&quot;: &quot;64&quot;,
+        &quot;VmRSS&quot;: &quot;23676 kB&quot;,
+        &quot;CapEff&quot;: &quot;0000000000000000&quot;,
+        &quot;NoNewPrivs&quot;: &quot;1&quot;,
+        &quot;pid&quot;: 1009,
+        &quot;fd_count&quot;: 6,
+        &quot;rss_bytes&quot;: 24244224
+      },
+      &quot;catalog_sha256&quot;: &quot;d55a878dcfa3f447cfb66ab092a20e3f3b90c9d6e9a64c0353b572a290a30c72&quot;,
+      &quot;rows&quot;: {
+        &quot;requests&quot;: [
+          {
+            &quot;id&quot;: &quot;old_request&quot;,
+            &quot;params&quot;: &quot;[\&quot;fixture-v1\&quot;,\&quot;https://localhost:40493/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;,30.0,null]&quot;,
+            &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+            &quot;generation&quot;: &quot;a320d95a-dd55-4ab5-8855-b649f7d3dfec&quot;,
+            &quot;state&quot;: &quot;WAITING&quot;,
+            &quot;result&quot;: null,
+            &quot;deadline&quot;: 34.432437043,
+            &quot;epoch&quot;: &quot;cb97ab33-2d06-4a07-b948-fb9b400aa3db&quot;,
+            &quot;revision&quot;: 1
+          }
+        ],
+        &quot;objects&quot;: [
+          {
+            &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+            &quot;size&quot;: 1048576,
+            &quot;url&quot;: &quot;https://localhost:40493/artifact&quot;,
+            &quot;generation&quot;: &quot;a320d95a-dd55-4ab5-8855-b649f7d3dfec&quot;,
+            &quot;state&quot;: &quot;DOWNLOADING&quot;,
+            &quot;offset&quot;: 131072,
+            &quot;etag&quot;: &quot;\&quot;v1\&quot;&quot;,
+            &quot;attempts&quot;: 1,
+            &quot;wire&quot;: 131072,
+            &quot;pin&quot;: 0,
+            &quot;access&quot;: 1792928079880048377,
+            &quot;revision&quot;: 1
+          }
+        ]
+      },
+      &quot;port&quot;: 40493,
+      &quot;stage_sha256&quot;: [
+        &quot;59f410ae5e17962412e2aed4f815918f634932f2abf084f00bb638c4db017850&quot;
+      ],
+      &quot;crash_exit&quot;: -9
+    },
+    &quot;boot_id_after&quot;: &quot;6ed064a3-edd1-461d-8765-4cc1b26557e6&quot;,
+    &quot;catalog_sha256_before_recovery&quot;: &quot;d55a878dcfa3f447cfb66ab092a20e3f3b90c9d6e9a64c0353b572a290a30c72&quot;,
+    &quot;rows_before_recovery&quot;: {
+      &quot;requests&quot;: [
+        {
+          &quot;id&quot;: &quot;old_request&quot;,
+          &quot;params&quot;: &quot;[\&quot;fixture-v1\&quot;,\&quot;https://localhost:40493/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;,30.0,null]&quot;,
+          &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+          &quot;generation&quot;: &quot;a320d95a-dd55-4ab5-8855-b649f7d3dfec&quot;,
+          &quot;state&quot;: &quot;WAITING&quot;,
+          &quot;result&quot;: null,
+          &quot;deadline&quot;: 34.432437043,
+          &quot;epoch&quot;: &quot;cb97ab33-2d06-4a07-b948-fb9b400aa3db&quot;,
+          &quot;revision&quot;: 1
+        }
+      ],
+      &quot;objects&quot;: [
+        {
+          &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+          &quot;size&quot;: 1048576,
+          &quot;url&quot;: &quot;https://localhost:40493/artifact&quot;,
+          &quot;generation&quot;: &quot;a320d95a-dd55-4ab5-8855-b649f7d3dfec&quot;,
+          &quot;state&quot;: &quot;DOWNLOADING&quot;,
+          &quot;offset&quot;: 131072,
+          &quot;etag&quot;: &quot;\&quot;v1\&quot;&quot;,
+          &quot;attempts&quot;: 1,
+          &quot;wire&quot;: 131072,
+          &quot;pin&quot;: 0,
+          &quot;access&quot;: 1792928079880048377,
+          &quot;revision&quot;: 1
+        }
+      ]
+    },
+    &quot;stage_sha256_before_recovery&quot;: [
+      &quot;59f410ae5e17962412e2aed4f815918f634932f2abf084f00bb638c4db017850&quot;
+    ],
+    &quot;identity_after&quot;: {
+      &quot;Uid&quot;: &quot;65534\t65534\t65534\t65534&quot;,
+      &quot;FDSize&quot;: &quot;64&quot;,
+      &quot;VmRSS&quot;: &quot;23820 kB&quot;,
+      &quot;CapEff&quot;: &quot;0000000000000000&quot;,
+      &quot;NoNewPrivs&quot;: &quot;1&quot;,
+      &quot;pid&quot;: 1027,
+      &quot;fd_count&quot;: 6,
+      &quot;rss_bytes&quot;: 24391680
+    },
+    &quot;epoch_after&quot;: &quot;a0b1f447-dd41-4079-aef6-501da4728d35&quot;,
+    &quot;old_before_resume&quot;: {
+      &quot;id&quot;: &quot;old_request&quot;,
+      &quot;params&quot;: &quot;[\&quot;fixture-v1\&quot;,\&quot;https://localhost:40493/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;,30.0,null]&quot;,
+      &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+      &quot;generation&quot;: &quot;a320d95a-dd55-4ab5-8855-b649f7d3dfec&quot;,
+      &quot;state&quot;: &quot;INTERRUPTED&quot;,
+      &quot;result&quot;: &quot;INTERRUPTED&quot;,
+      &quot;deadline&quot;: 34.432437043,
+      &quot;epoch&quot;: &quot;cb97ab33-2d06-4a07-b948-fb9b400aa3db&quot;,
+      &quot;revision&quot;: 2
+    },
+    &quot;old_after_resume&quot;: {
+      &quot;id&quot;: &quot;old_request&quot;,
+      &quot;params&quot;: &quot;[\&quot;fixture-v1\&quot;,\&quot;https://localhost:40493/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;,30.0,null]&quot;,
+      &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+      &quot;generation&quot;: &quot;a320d95a-dd55-4ab5-8855-b649f7d3dfec&quot;,
+      &quot;state&quot;: &quot;INTERRUPTED&quot;,
+      &quot;result&quot;: &quot;INTERRUPTED&quot;,
+      &quot;deadline&quot;: 34.432437043,
+      &quot;epoch&quot;: &quot;cb97ab33-2d06-4a07-b948-fb9b400aa3db&quot;,
+      &quot;revision&quot;: 2
+    },
+    &quot;fresh&quot;: {
+      &quot;id&quot;: &quot;fresh_request&quot;,
+      &quot;params&quot;: &quot;[\&quot;fixture-v1\&quot;,\&quot;https://localhost:40493/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;,3.0,\&quot;old_request\&quot;]&quot;,
+      &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+      &quot;generation&quot;: &quot;a320d95a-dd55-4ab5-8855-b649f7d3dfec&quot;,
+      &quot;state&quot;: &quot;SUCCEEDED&quot;,
+      &quot;result&quot;: &quot;SUCCEEDED&quot;,
+      &quot;deadline&quot;: 7.261721583,
+      &quot;epoch&quot;: &quot;a0b1f447-dd41-4079-aef6-501da4728d35&quot;,
+      &quot;revision&quot;: 2
+    },
+    &quot;no_automatic_origin_request&quot;: true,
+    &quot;old_epoch_rejected&quot;: true,
+    &quot;old_token_rejected&quot;: true,
+    &quot;resume_ranges&quot;: [
+      &quot;bytes=131072-&quot;
+    ],
+    &quot;read_sha256&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+    &quot;cli_read_exit&quot;: 0,
+    &quot;installed_entrypoint_exit&quot;: 0,
+    &quot;normal_reboot&quot;: true,
+    &quot;power_loss_tested&quot;: false,
+    &quot;process_cleaned&quot;: true
+  },
   &quot;cleanup&quot;: {
     &quot;vm_deleted&quot;: true,
     &quot;disk_removed&quot;: true,
@@ -737,7 +1208,7 @@
   },
   &quot;source_unchanged&quot;: true,
   &quot;controls&quot;: {
-    &quot;rejected&quot;: 26,
+    &quot;rejected&quot;: 36,
     &quot;all_rejected&quot;: true
   }
 }</pre></html>

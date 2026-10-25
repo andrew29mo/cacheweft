@@ -10,11 +10,12 @@ DATA=bytes(range(256))*4096
 
 
 class Origin:
-    def __init__(self,root):
+    def __init__(self,root,port=0,reuse_certificate=False):
         self.root=Path(root); self.root.mkdir(parents=True,exist_ok=True)
         self.calls=[]; self.sent=0; self.mode='normal'; self.release=threading.Event(); self.arrived=threading.Event()
         cert,key=self.root/'cert.pem',self.root/'key.pem'
-        subprocess.run(['openssl','req','-x509','-newkey','rsa:2048','-nodes','-keyout',str(key),'-out',str(cert),'-days','1','-subj','/CN=localhost','-addext','subjectAltName=DNS:localhost'],check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+        if not reuse_certificate:
+            subprocess.run(['openssl','req','-x509','-newkey','rsa:2048','-nodes','-keyout',str(key),'-out',str(cert),'-days','1','-subj','/CN=localhost','-addext','subjectAltName=DNS:localhost'],check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
         owner=self
         class Handler(BaseHTTPRequestHandler):
             def log_message(self,*args): pass
@@ -22,6 +23,13 @@ class Origin:
                 rang=self.headers.get('Range'); tag=self.headers.get('If-Range')
                 owner.calls.append(dict(range=rang,if_range=tag,encoding=self.headers.get('Accept-Encoding')))
                 mode=owner.mode
+                if mode=='slow_headers':
+                    owner.arrived.set()
+                    try:
+                        for byte in b'HTTP/1.1 200 OK\r\nContent-Length: 1048576\r\n\r\n':
+                            self.connection.sendall(bytes([byte]));time.sleep(.03)
+                    except OSError:pass
+                    return
                 if mode=='hold':
                     owner.arrived.set();owner.release.wait(5)
                 start=int(rang.split('=')[1].split('-')[0]) if rang else 0
@@ -44,11 +52,19 @@ class Origin:
                 if status==416:self.send_header('Content-Range',f'bytes */{len(DATA)}')
                 self.end_headers()
                 try:
+                    if mode=='slow_body':
+                        owner.arrived.set()
+                        for position in range(len(body)):
+                            part=body[position:position+1];self.wfile.write(part);self.wfile.flush();owner.sent+=len(part);time.sleep(.03)
+                        return
                     if mode=='drop' and not rang:
                         part=body[:131072];self.wfile.write(part);self.wfile.flush();owner.sent+=len(part);self.close_connection=True;return
+                    if mode=='partial_hold' and not rang:
+                        part=body[:131072];self.wfile.write(part);self.wfile.flush();owner.sent+=len(part)
+                        owner.arrived.set();owner.release.wait(5);body=body[131072:]
                     self.wfile.write(body);self.wfile.flush();owner.sent+=len(body)
                 except (BrokenPipeError,ConnectionResetError,ssl.SSLError):pass
-        self.server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
+        self.server=ThreadingHTTPServer(('127.0.0.1',port),Handler)
         self.server.daemon_threads=True
         context=ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER);context.load_cert_chain(cert,key)
         self.server.socket=context.wrap_socket(self.server.socket,server_side=True)

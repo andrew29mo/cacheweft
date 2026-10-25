@@ -1,25 +1,29 @@
-# Architecture decisions (exploration core)
+# Architecture decisions (milestone 1)
 
-Status: implementation and qualification evidence are linked from EXPLORATIONS.
+Status: current implementation and qualification are linked from MILESTONE1.
 The following design supersedes the initial chat proposal.
 
 ## Authority and trust
 
 One process holds a stable writer-lock inode. A reentrant authority lock
-serializes catalog changes, payload writes, sealing, publication and GC. Only
-network reads occur outside this lock. The two-worker pool uses generation
+serializes catalog changes, payload writes, sealing, publication and GC.
+Network connect/get/read and consumer streaming run outside this lock. The two-worker pool uses generation
 specific paths; retired work still counts against the outstanding-work limit.
 No writable FD is passed to another process. Shutdown retains the writer lock
-until all workers and reader references have exited. It may wait for blocked
+until the expiry sweep, workers, transport watchers and reader references have exited. It may wait for blocked
 kernel I/O; no bounded cancellation time is promised.
 
 The private root and its local filesystem are trusted. Root/same-UID attackers
 and disk modification while the process is serving are outside scope. Payload
 opens use O_NOFOLLOW. Unknown files are charged and reported by inspection,
-never automatically claimed or deleted. The core is a Python library; daemon,
-Unix socket framing/authorization and packaging of a service are future work.
+never automatically claimed or deleted. The installed unprivileged daemon
+exposes this same core through a bounded private Unix socket and CLI. systemd
+installation/autostart remain future work. See SERVICE for framing and limits.
 
-Manifest names map to fixed URL/size/SHA-256 tuples for an instance. A single
+Manifest IDs permanently map to literal URL/size/SHA-256 tuples in SQLite.
+Snapshots have monotonically advancing revisions, at most 64 snapshots and
+128 lifetime IDs. Same revision with changed entries or an older revision is
+rejected. A single
 origin with an explicit numeric destination is configured; TLS still verifies
 the URL hostname. No DNS fallback, redirects, proxy environment routing,
 automatic decompression, arbitrary URL input or cross-origin credentials.
@@ -34,6 +38,9 @@ QUEUED -> DOWNLOADING -> VERIFYING -> PUBLISHING -> READY
              +-> FAILED       +-> FAILED
 QUEUED/DOWNLOADING -> CANCELLED
 READY/FAILED/CANCELLED/CORRUPT -> DELETING -> absent
+QUEUED/DOWNLOADING/VERIFYING -> PAUSED (no live bounded interest)
+PAUSED -> QUEUED (new explicit resume request)
+PAUSED -> DELETING -> absent
 ```
 
 Retry waiting and sealing are synchronous phases, not separately persisted
@@ -41,6 +48,11 @@ states in this core. Every write completes and closes its FD under the lock
 before verification. There is no writable background disk task. A digest plus
 size identifies content; a random generation owns its staging path. Request
 records persist parameters, generation and immutable terminal result.
+Bounded requests additionally retain their original epoch, monotonic deadline
+and revision. The daemon requires a finite duration; the backend enforces that
+policy too when manifest management is active. It rejects an unversioned
+exploration catalog with request history; preserve it and use a fresh service
+root. It does not silently import old unbounded interest or rename old IDs.
 
 Repeated request IDs return the original result plus current availability; an
 evicted prior success does not trigger a new download. Same ID with different
@@ -54,6 +66,11 @@ Pin/unpin and GC plans carry instance epoch, object generation and revision.
 Pin changes increment revision. GC rechecks the token, state, pin and readers
 at execution; stale plans cannot delete a newer generation or bypass changed
 pins. Old cancellation refers only to its immutable request generation.
+Resume/cancel require current request tokens and epoch. After restart,
+pre-publication bounded WAITING requests become INTERRUPTED/PAUSED without
+rewriting deadlines. Committed intents recover normally. Explicit resume uses
+a new request ID/deadline, exact artifact match and fresh tokens; it waits for
+retired work to finish rather than accepting a race with its old completion.
 
 ## HTTP continuation
 
@@ -66,10 +83,14 @@ lengths and digest mismatches cannot be published.
 The attempt counter and accepted payload-byte counter persist across restart.
 At most six attempts and four object lengths of charged body bytes are allowed;
 this is not a total wire/network-quota guarantee. Received but uncheckpointed
-network data and HTTP/TLS overhead are not included. Socket operations use a
-two-second inactivity timeout. An overall wall-clock deadline against a
-slow-trickle origin remains an MVP gap; do not describe the current timeout as
-a hard total download deadline.
+network data and HTTP/TLS overhead are not included. Socket inactivity timeouts
+are supplemented with a request's fixed total pre-publication deadline.
+Nonblocking connect polls live interest; a transport watcher shuts down stalled
+TLS/header/body I/O. Queueing, retries and verification do not reset duration.
+Expired interest is checked before writes, after verification and on exception
+cleanup (socket shutdown can surface as HTTP parser error). A later subscriber
+cannot extend an old deadline. The expiry sweep is an aid, not the only guard.
+See SERVICE for committed-publication, synchronous I/O and suspend boundaries.
 
 ## Checkpoint and publication
 
@@ -116,6 +137,9 @@ is finite (256 requests by default); there is no automatic ID reuse.
 Two workers, sixteen outstanding jobs and eight readers are default limits.
 An old cancelled but unfinished worker counts toward the work cap. READY
 objects and requests are additionally bounded by finite request history.
+PAUSED bytes stay charged while their unused reservation is released. Resume
+must reserve the remaining bytes again. Socket workers, backlog, control frames
+and stream deadlines are separately bounded; gc-plan returns at most 32 items.
 
 GC plan/run is explicit. Fetch never silently evicts other content. Reads acquire
 references and FDs under authority, and close the FD before dropping the

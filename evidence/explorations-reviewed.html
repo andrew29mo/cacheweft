@@ -1,0 +1,743 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Cacheweft exploration evidence</title><style>body{font:16px system-ui;max-width:1000px;margin:40px auto;padding:20px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f6f8;padding:20px}</style><h1>Cacheweft exploration evidence</h1><p>Passed: True</p><p>Exploration core only. Linux VM metrics are separate from native macOS. No power-loss, WAN, long-term or deployed-service qualification.</p><pre>{
+  &quot;contract&quot;: &quot;cacheweft-exploration-review-v3&quot;,
+  &quot;passed&quot;: true,
+  &quot;recorded_utc&quot;: &quot;2026-10-25T10:35:52.921702+00:00&quot;,
+  &quot;source&quot;: {
+    &quot;pyproject.toml&quot;: &quot;af7360215f65e363a138cb62cf8c708f8669e52136ca7b7e028acfded6e70cce&quot;,
+    &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
+    &quot;cacheweft/core.py&quot;: &quot;e826b34a08ccb3a51b84ef902ac2717a336565494d7c4223463f6c9fc609b1fb&quot;,
+    &quot;cacheweft/http.py&quot;: &quot;5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925&quot;,
+    &quot;tools/__init__.py&quot;: &quot;e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&quot;,
+    &quot;tools/cases.py&quot;: &quot;018793b45dc0d426c9cc31487cfc8c288130864da4ec360da99d54c5dc7edcde&quot;,
+    &quot;tools/reboot.py&quot;: &quot;f948294a00c181c97d962d28cebe664a42cd38d924da718a56d80628ac9ef3f5&quot;,
+    &quot;tools/report.py&quot;: &quot;80d5a4762ba7cfe03a7a22e9272dd7d76478284af142b954bea319a9cad8aa23&quot;,
+    &quot;tools/unit.py&quot;: &quot;a1f904bef90862c9bbe376dca54d4d8bc1002dc67b96396645eee22a589669e0&quot;,
+    &quot;tools/validate.py&quot;: &quot;8707ad92984dcf2fd5108571f88c9b3a31670ec476d1489f82dbb1321096e76a&quot;,
+    &quot;tests/__init__.py&quot;: &quot;e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&quot;,
+    &quot;tests/fixture.py&quot;: &quot;334d6e3493da6c34d3794561ec79a3645d3ad9cb7b0d633595ba1a1b9a9c50b4&quot;,
+    &quot;tests/test_core.py&quot;: &quot;ef8d6b1dd9195d814e47e4ce665ce1f4361340b39057945a5433f42a76b67a8b&quot;
+  },
+  &quot;wheel_sha256&quot;: &quot;266b3c8e42c5edbf954ccea492b48d52aae5afb221fb21ac6a5e80a38f862418&quot;,
+  &quot;stages&quot;: [
+    {
+      &quot;name&quot;: &quot;initial&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.3167764169629663
+    },
+    {
+      &quot;name&quot;: &quot;create&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 21.051962167024612
+    },
+    {
+      &quot;name&quot;: &quot;dependencies&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 17.73784766701283
+    },
+    {
+      &quot;name&quot;: &quot;upload&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.52073383302195
+    },
+    {
+      &quot;name&quot;: &quot;install&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 1.4387970420066267
+    },
+    {
+      &quot;name&quot;: &quot;provenance&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.3353927090065554
+    },
+    {
+      &quot;name&quot;: &quot;native&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 3.28964387497399
+    },
+    {
+      &quot;name&quot;: &quot;native-cases&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.7421145830303431
+    },
+    {
+      &quot;name&quot;: &quot;linux&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 3.2265797079890035
+    },
+    {
+      &quot;name&quot;: &quot;linux-read&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.346890417044051
+    },
+    {
+      &quot;name&quot;: &quot;linux-cases&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 1.821204291016329
+    },
+    {
+      &quot;name&quot;: &quot;linux-cases-read&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.3377379580051638
+    },
+    {
+      &quot;name&quot;: &quot;reboot-prepare&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.9794314170139842
+    },
+    {
+      &quot;name&quot;: &quot;reboot-prepared-read&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.2432995840208605
+    },
+    {
+      &quot;name&quot;: &quot;schedule-reboot&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.31357512495014817
+    },
+    {
+      &quot;name&quot;: &quot;reboot-finish&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.4304205839871429
+    },
+    {
+      &quot;name&quot;: &quot;reboot-finished-read&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.23344149999320507
+    },
+    {
+      &quot;name&quot;: &quot;delete&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 1.46285191597417
+    },
+    {
+      &quot;name&quot;: &quot;final&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.20043366600293666
+    }
+  ],
+  &quot;host_mounts&quot;: &quot;none&quot;,
+  &quot;limits&quot;: {
+    &quot;power_loss_tested&quot;: false,
+    &quot;wan_tested&quot;: false,
+    &quot;deployed_service_tested&quot;: false,
+    &quot;long_term_tested&quot;: false
+  },
+  &quot;installed_modules&quot;: {
+    &quot;cacheweft/core.py&quot;: &quot;e826b34a08ccb3a51b84ef902ac2717a336565494d7c4223463f6c9fc609b1fb&quot;,
+    &quot;cacheweft/http.py&quot;: &quot;5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925&quot;,
+    &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;
+  },
+  &quot;native&quot;: {
+    &quot;passed&quot;: true,
+    &quot;tests&quot;: 42,
+    &quot;test_ids&quot;: [
+      &quot;tests.test_core.CoreTests.test_416_not_success&quot;,
+      &quot;tests.test_core.CoreTests.test_bad_range_refused&quot;,
+      &quot;tests.test_core.CoreTests.test_cancel_races_durable_publish_intent&quot;,
+      &quot;tests.test_core.CoreTests.test_cancel_sql_failure_no_success&quot;,
+      &quot;tests.test_core.CoreTests.test_capacity_refusal_deletes_nothing&quot;,
+      &quot;tests.test_core.CoreTests.test_changed_validator_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_close_keeps_lock_until_reader_closed&quot;,
+      &quot;tests.test_core.CoreTests.test_coalescing_cancel_one&quot;,
+      &quot;tests.test_core.CoreTests.test_complete_checkpoint_corruption_not_published&quot;,
+      &quot;tests.test_core.CoreTests.test_complete_checkpoint_needs_no_origin_or_attempt&quot;,
+      &quot;tests.test_core.CoreTests.test_complete_checkpoint_without_validator&quot;,
+      &quot;tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows&quot;,
+      &quot;tests.test_core.CoreTests.test_disk_error_retires_authority&quot;,
+      &quot;tests.test_core.CoreTests.test_encoded_body_refused&quot;,
+      &quot;tests.test_core.CoreTests.test_existing_target_not_overwritten&quot;,
+      &quot;tests.test_core.CoreTests.test_fixture_eof_range_is_416&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_crash_recovery&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_crash_retains_partial_deletion_ownership&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_then_read_and_stale_generation&quot;,
+      &quot;tests.test_core.CoreTests.test_https_verified_content&quot;,
+      &quot;tests.test_core.CoreTests.test_late_chunk_after_last_cancel&quot;,
+      &quot;tests.test_core.CoreTests.test_local_quota_and_permission_errors_are_not_network_retries&quot;,
+      &quot;tests.test_core.CoreTests.test_lock_and_corrupt_on_restart&quot;,
+      &quot;tests.test_core.CoreTests.test_old_epoch_plan_and_pin_rejected&quot;,
+      &quot;tests.test_core.CoreTests.test_persistent_attempt_budget&quot;,
+      &quot;tests.test_core.CoreTests.test_pin_and_read_prevent_stale_gc_plan&quot;,
+      &quot;tests.test_core.CoreTests.test_publish_boundary_cancel_too_late&quot;,
+      &quot;tests.test_core.CoreTests.test_range_ignored_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_reader_and_job_limits&quot;,
+      &quot;tests.test_core.CoreTests.test_readonly_database_retires_authority&quot;,
+      &quot;tests.test_core.CoreTests.test_request_budget_and_conflict&quot;,
+      &quot;tests.test_core.CoreTests.test_reservation_not_oversold&quot;,
+      &quot;tests.test_core.CoreTests.test_resume_real_range&quot;,
+      &quot;tests.test_core.CoreTests.test_retired_download_cannot_block_new_generation&quot;,
+      &quot;tests.test_core.CoreTests.test_shorter_than_checkpoint_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_symlink_destination_never_overwritten&quot;,
+      &quot;tests.test_core.CoreTests.test_symlink_not_followed&quot;,
+      &quot;tests.test_core.CoreTests.test_tls_and_origin_restriction&quot;,
+      &quot;tests.test_core.CoreTests.test_unknown_data_charged_not_deleted&quot;,
+      &quot;tests.test_core.CoreTests.test_weak_or_absent_etag_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_wrong_hash_not_published&quot;,
+      &quot;tests.test_core.CoreTests.test_wrong_length_refused&quot;
+    ],
+    &quot;failures&quot;: 0,
+    &quot;errors&quot;: 0,
+    &quot;skipped&quot;: 0,
+    &quot;seconds&quot;: 3.196347584016621,
+    &quot;platform&quot;: &quot;Darwin&quot;,
+    &quot;python&quot;: &quot;3.12.14&quot;,
+    &quot;sqlite&quot;: &quot;3.53.1&quot;,
+    &quot;openssl&quot;: &quot;OpenSSL 3.5.8 25 Aug 2026&quot;,
+    &quot;modules&quot;: {
+      &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
+      &quot;cacheweft/core.py&quot;: &quot;e826b34a08ccb3a51b84ef902ac2717a336565494d7c4223463f6c9fc609b1fb&quot;,
+      &quot;cacheweft/http.py&quot;: &quot;5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925&quot;
+    }
+  },
+  &quot;native_cases&quot;: {
+    &quot;measurements&quot;: {
+      &quot;environment&quot;: &quot;Darwin&quot;,
+      &quot;memory_scope&quot;: &quot;whole observer process including TLS fixture and core&quot;,
+      &quot;memory_kind&quot;: &quot;peak_RSS&quot;,
+      &quot;performance_scope&quot;: &quot;local TLS fixture; single observation per mode, no WAN/speedup claim&quot;,
+      &quot;trials&quot;: [
+        {
+          &quot;mode&quot;: &quot;cold&quot;,
+          &quot;request_count&quot;: 1,
+          &quot;size&quot;: 1048576,
+          &quot;download_seconds&quot;: 0.038817457971163094,
+          &quot;read_seconds&quot;: 0.0012124580098316073,
+          &quot;actual_origin_requests&quot;: 1,
+          &quot;origin_payload_bytes&quot;: 1048576,
+          &quot;request_ranges&quot;: [
+            null
+          ],
+          &quot;correct&quot;: true,
+          &quot;subscribers_before_release&quot;: [],
+          &quot;subscriber_outcomes&quot;: [
+            {
+              &quot;id&quot;: &quot;r&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;2da6d317-993e-4da1-9290-f54bac57bde8&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;
+            }
+          ],
+          &quot;process_rss_or_peak_bytes&quot;: 32768000,
+          &quot;usage&quot;: {
+            &quot;payload_bytes&quot;: 1048576,
+            &quot;remaining_reserved&quot;: 0,
+            &quot;allocated_payload_bytes&quot;: 1048576,
+            &quot;budget&quot;: 16777216,
+            &quot;free_bytes&quot;: 713735483392
+          },
+          &quot;root_allocated_bytes&quot;: 1069056
+        },
+        {
+          &quot;mode&quot;: &quot;resume&quot;,
+          &quot;request_count&quot;: 1,
+          &quot;size&quot;: 1048576,
+          &quot;download_seconds&quot;: 0.041253749979659915,
+          &quot;read_seconds&quot;: 0.0018164999783039093,
+          &quot;actual_origin_requests&quot;: 2,
+          &quot;origin_payload_bytes&quot;: 1048576,
+          &quot;request_ranges&quot;: [
+            null,
+            &quot;bytes=131072-&quot;
+          ],
+          &quot;correct&quot;: true,
+          &quot;subscribers_before_release&quot;: [],
+          &quot;subscriber_outcomes&quot;: [
+            {
+              &quot;id&quot;: &quot;r&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;1f5d075b-1a8a-4f5e-92e4-376fdaf2c467&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;
+            }
+          ],
+          &quot;process_rss_or_peak_bytes&quot;: 34226176,
+          &quot;usage&quot;: {
+            &quot;payload_bytes&quot;: 1048576,
+            &quot;remaining_reserved&quot;: 0,
+            &quot;allocated_payload_bytes&quot;: 1048576,
+            &quot;budget&quot;: 16777216,
+            &quot;free_bytes&quot;: 713734414336
+          },
+          &quot;root_allocated_bytes&quot;: 1069056
+        },
+        {
+          &quot;mode&quot;: &quot;coalesced&quot;,
+          &quot;request_count&quot;: 4,
+          &quot;size&quot;: 1048576,
+          &quot;download_seconds&quot;: 0.03135904198279604,
+          &quot;read_seconds&quot;: 0.0010020839981734753,
+          &quot;actual_origin_requests&quot;: 1,
+          &quot;origin_payload_bytes&quot;: 1048576,
+          &quot;request_ranges&quot;: [
+            null
+          ],
+          &quot;correct&quot;: true,
+          &quot;subscribers_before_release&quot;: [
+            {
+              &quot;id&quot;: &quot;r&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;state&quot;: &quot;WAITING&quot;,
+              &quot;result&quot;: null
+            },
+            {
+              &quot;id&quot;: &quot;r1&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;state&quot;: &quot;WAITING&quot;,
+              &quot;result&quot;: null
+            },
+            {
+              &quot;id&quot;: &quot;r2&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;state&quot;: &quot;WAITING&quot;,
+              &quot;result&quot;: null
+            },
+            {
+              &quot;id&quot;: &quot;r3&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;state&quot;: &quot;WAITING&quot;,
+              &quot;result&quot;: null
+            }
+          ],
+          &quot;subscriber_outcomes&quot;: [
+            {
+              &quot;id&quot;: &quot;r&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;
+            },
+            {
+              &quot;id&quot;: &quot;r1&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;
+            },
+            {
+              &quot;id&quot;: &quot;r2&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;
+            },
+            {
+              &quot;id&quot;: &quot;r3&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:58164/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;7fff9a58-d59d-4d75-8ddc-b8ae455c4c03&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;
+            }
+          ],
+          &quot;process_rss_or_peak_bytes&quot;: 34275328,
+          &quot;usage&quot;: {
+            &quot;payload_bytes&quot;: 1048576,
+            &quot;remaining_reserved&quot;: 0,
+            &quot;allocated_payload_bytes&quot;: 1048576,
+            &quot;budget&quot;: 16777216,
+            &quot;free_bytes&quot;: 713733341184
+          },
+          &quot;root_allocated_bytes&quot;: 1069056
+        }
+      ]
+    }
+  },
+  &quot;linux&quot;: {
+    &quot;passed&quot;: true,
+    &quot;tests&quot;: 42,
+    &quot;test_ids&quot;: [
+      &quot;tests.test_core.CoreTests.test_416_not_success&quot;,
+      &quot;tests.test_core.CoreTests.test_bad_range_refused&quot;,
+      &quot;tests.test_core.CoreTests.test_cancel_races_durable_publish_intent&quot;,
+      &quot;tests.test_core.CoreTests.test_cancel_sql_failure_no_success&quot;,
+      &quot;tests.test_core.CoreTests.test_capacity_refusal_deletes_nothing&quot;,
+      &quot;tests.test_core.CoreTests.test_changed_validator_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_close_keeps_lock_until_reader_closed&quot;,
+      &quot;tests.test_core.CoreTests.test_coalescing_cancel_one&quot;,
+      &quot;tests.test_core.CoreTests.test_complete_checkpoint_corruption_not_published&quot;,
+      &quot;tests.test_core.CoreTests.test_complete_checkpoint_needs_no_origin_or_attempt&quot;,
+      &quot;tests.test_core.CoreTests.test_complete_checkpoint_without_validator&quot;,
+      &quot;tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows&quot;,
+      &quot;tests.test_core.CoreTests.test_disk_error_retires_authority&quot;,
+      &quot;tests.test_core.CoreTests.test_encoded_body_refused&quot;,
+      &quot;tests.test_core.CoreTests.test_existing_target_not_overwritten&quot;,
+      &quot;tests.test_core.CoreTests.test_fixture_eof_range_is_416&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_crash_recovery&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_crash_retains_partial_deletion_ownership&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_then_read_and_stale_generation&quot;,
+      &quot;tests.test_core.CoreTests.test_https_verified_content&quot;,
+      &quot;tests.test_core.CoreTests.test_late_chunk_after_last_cancel&quot;,
+      &quot;tests.test_core.CoreTests.test_local_quota_and_permission_errors_are_not_network_retries&quot;,
+      &quot;tests.test_core.CoreTests.test_lock_and_corrupt_on_restart&quot;,
+      &quot;tests.test_core.CoreTests.test_old_epoch_plan_and_pin_rejected&quot;,
+      &quot;tests.test_core.CoreTests.test_persistent_attempt_budget&quot;,
+      &quot;tests.test_core.CoreTests.test_pin_and_read_prevent_stale_gc_plan&quot;,
+      &quot;tests.test_core.CoreTests.test_publish_boundary_cancel_too_late&quot;,
+      &quot;tests.test_core.CoreTests.test_range_ignored_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_reader_and_job_limits&quot;,
+      &quot;tests.test_core.CoreTests.test_readonly_database_retires_authority&quot;,
+      &quot;tests.test_core.CoreTests.test_request_budget_and_conflict&quot;,
+      &quot;tests.test_core.CoreTests.test_reservation_not_oversold&quot;,
+      &quot;tests.test_core.CoreTests.test_resume_real_range&quot;,
+      &quot;tests.test_core.CoreTests.test_retired_download_cannot_block_new_generation&quot;,
+      &quot;tests.test_core.CoreTests.test_shorter_than_checkpoint_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_symlink_destination_never_overwritten&quot;,
+      &quot;tests.test_core.CoreTests.test_symlink_not_followed&quot;,
+      &quot;tests.test_core.CoreTests.test_tls_and_origin_restriction&quot;,
+      &quot;tests.test_core.CoreTests.test_unknown_data_charged_not_deleted&quot;,
+      &quot;tests.test_core.CoreTests.test_weak_or_absent_etag_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_wrong_hash_not_published&quot;,
+      &quot;tests.test_core.CoreTests.test_wrong_length_refused&quot;
+    ],
+    &quot;failures&quot;: 0,
+    &quot;errors&quot;: 0,
+    &quot;skipped&quot;: 0,
+    &quot;seconds&quot;: 2.9167154390000007,
+    &quot;platform&quot;: &quot;Linux&quot;,
+    &quot;python&quot;: &quot;3.12.3&quot;,
+    &quot;sqlite&quot;: &quot;3.45.1&quot;,
+    &quot;openssl&quot;: &quot;OpenSSL 3.0.13 30 Jan 2024&quot;,
+    &quot;modules&quot;: {
+      &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
+      &quot;cacheweft/core.py&quot;: &quot;e826b34a08ccb3a51b84ef902ac2717a336565494d7c4223463f6c9fc609b1fb&quot;,
+      &quot;cacheweft/http.py&quot;: &quot;5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925&quot;
+    }
+  },
+  &quot;linux_cases&quot;: {
+    &quot;measurements&quot;: {
+      &quot;environment&quot;: &quot;Linux&quot;,
+      &quot;memory_scope&quot;: &quot;whole observer process including TLS fixture and core&quot;,
+      &quot;memory_kind&quot;: &quot;current_RSS&quot;,
+      &quot;performance_scope&quot;: &quot;local TLS fixture; single observation per mode, no WAN/speedup claim&quot;,
+      &quot;trials&quot;: [
+        {
+          &quot;mode&quot;: &quot;cold&quot;,
+          &quot;request_count&quot;: 1,
+          &quot;size&quot;: 1048576,
+          &quot;download_seconds&quot;: 0.09206668299999876,
+          &quot;read_seconds&quot;: 0.011764110000001438,
+          &quot;actual_origin_requests&quot;: 1,
+          &quot;origin_payload_bytes&quot;: 1048576,
+          &quot;request_ranges&quot;: [
+            null
+          ],
+          &quot;correct&quot;: true,
+          &quot;subscribers_before_release&quot;: [],
+          &quot;subscriber_outcomes&quot;: [
+            {
+              &quot;id&quot;: &quot;r&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;fd13fedc-ee60-4472-b91d-7736d7e68979&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;
+            }
+          ],
+          &quot;process_rss_or_peak_bytes&quot;: 27910144,
+          &quot;usage&quot;: {
+            &quot;payload_bytes&quot;: 1048576,
+            &quot;remaining_reserved&quot;: 0,
+            &quot;allocated_payload_bytes&quot;: 1048576,
+            &quot;budget&quot;: 16777216,
+            &quot;free_bytes&quot;: 18383478784
+          },
+          &quot;root_allocated_bytes&quot;: 1069056
+        },
+        {
+          &quot;mode&quot;: &quot;resume&quot;,
+          &quot;request_count&quot;: 1,
+          &quot;size&quot;: 1048576,
+          &quot;download_seconds&quot;: 0.09157772900000083,
+          &quot;read_seconds&quot;: 0.0007322869999981663,
+          &quot;actual_origin_requests&quot;: 2,
+          &quot;origin_payload_bytes&quot;: 1048576,
+          &quot;request_ranges&quot;: [
+            null,
+            &quot;bytes=131072-&quot;
+          ],
+          &quot;correct&quot;: true,
+          &quot;subscribers_before_release&quot;: [],
+          &quot;subscriber_outcomes&quot;: [
+            {
+              &quot;id&quot;: &quot;r&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;12778772-3e6f-4bd4-b8d2-36d733cea24f&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;
+            }
+          ],
+          &quot;process_rss_or_peak_bytes&quot;: 28127232,
+          &quot;usage&quot;: {
+            &quot;payload_bytes&quot;: 1048576,
+            &quot;remaining_reserved&quot;: 0,
+            &quot;allocated_payload_bytes&quot;: 1048576,
+            &quot;budget&quot;: 16777216,
+            &quot;free_bytes&quot;: 18382397440
+          },
+          &quot;root_allocated_bytes&quot;: 1069056
+        },
+        {
+          &quot;mode&quot;: &quot;coalesced&quot;,
+          &quot;request_count&quot;: 4,
+          &quot;size&quot;: 1048576,
+          &quot;download_seconds&quot;: 0.04229570100000046,
+          &quot;read_seconds&quot;: 0.0008556380000044328,
+          &quot;actual_origin_requests&quot;: 1,
+          &quot;origin_payload_bytes&quot;: 1048576,
+          &quot;request_ranges&quot;: [
+            null
+          ],
+          &quot;correct&quot;: true,
+          &quot;subscribers_before_release&quot;: [
+            {
+              &quot;id&quot;: &quot;r&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;state&quot;: &quot;WAITING&quot;,
+              &quot;result&quot;: null
+            },
+            {
+              &quot;id&quot;: &quot;r1&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;state&quot;: &quot;WAITING&quot;,
+              &quot;result&quot;: null
+            },
+            {
+              &quot;id&quot;: &quot;r2&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;state&quot;: &quot;WAITING&quot;,
+              &quot;result&quot;: null
+            },
+            {
+              &quot;id&quot;: &quot;r3&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;state&quot;: &quot;WAITING&quot;,
+              &quot;result&quot;: null
+            }
+          ],
+          &quot;subscriber_outcomes&quot;: [
+            {
+              &quot;id&quot;: &quot;r&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;
+            },
+            {
+              &quot;id&quot;: &quot;r1&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;
+            },
+            {
+              &quot;id&quot;: &quot;r2&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;
+            },
+            {
+              &quot;id&quot;: &quot;r3&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:42605/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+              &quot;generation&quot;: &quot;837cfb60-24de-47ca-8499-640b79edf2fd&quot;,
+              &quot;state&quot;: &quot;SUCCEEDED&quot;,
+              &quot;result&quot;: &quot;SUCCEEDED&quot;
+            }
+          ],
+          &quot;process_rss_or_peak_bytes&quot;: 28053504,
+          &quot;usage&quot;: {
+            &quot;payload_bytes&quot;: 1048576,
+            &quot;remaining_reserved&quot;: 0,
+            &quot;allocated_payload_bytes&quot;: 1052672,
+            &quot;budget&quot;: 16777216,
+            &quot;free_bytes&quot;: 18381312000
+          },
+          &quot;root_allocated_bytes&quot;: 1073152
+        }
+      ]
+    },
+    &quot;storage&quot;: {
+      &quot;cases&quot;: [
+        {
+          &quot;mode&quot;: &quot;enospc&quot;,
+          &quot;actual_errors&quot;: [
+            {
+              &quot;point&quot;: &quot;worker_exit&quot;,
+              &quot;error&quot;: &quot;OSError&quot;,
+              &quot;errno&quot;: 28,
+              &quot;sqlite_errorcode&quot;: null
+            }
+          ],
+          &quot;rejected&quot;: true,
+          &quot;published_before_repair&quot;: false,
+          &quot;repair_correct&quot;: true,
+          &quot;injection&quot;: &quot;filled 8MiB tmpfs leaving 32KiB free&quot;
+        },
+        {
+          &quot;mode&quot;: &quot;readonly&quot;,
+          &quot;actual_errors&quot;: [
+            {
+              &quot;point&quot;: &quot;worker_exit&quot;,
+              &quot;error&quot;: &quot;OSError&quot;,
+              &quot;errno&quot;: 30,
+              &quot;sqlite_errorcode&quot;: null
+            }
+          ],
+          &quot;rejected&quot;: true,
+          &quot;published_before_repair&quot;: false,
+          &quot;repair_correct&quot;: true,
+          &quot;injection&quot;: &quot;read-only bind mount&quot;
+        },
+        {
+          &quot;mode&quot;: &quot;sqlite_full_admission&quot;,
+          &quot;sqlite_errorcode&quot;: 13,
+          &quot;successful_extra_requests&quot;: 38,
+          &quot;degraded&quot;: true,
+          &quot;rejected&quot;: true,
+          &quot;scope&quot;: &quot;request catalog admission after an already READY artifact&quot;,
+          &quot;repair_correct&quot;: true
+        },
+        {
+          &quot;mode&quot;: &quot;sqlite_full_publish&quot;,
+          &quot;actual_errors&quot;: [
+            {
+              &quot;point&quot;: &quot;worker_exit&quot;,
+              &quot;error&quot;: &quot;OperationalError&quot;,
+              &quot;errno&quot;: null,
+              &quot;sqlite_errorcode&quot;: 13
+            }
+          ],
+          &quot;degraded&quot;: true,
+          &quot;rejected&quot;: true,
+          &quot;state_before_repair&quot;: {
+            &quot;object&quot;: &quot;VERIFYING&quot;,
+            &quot;request&quot;: &quot;WAITING&quot;
+          },
+          &quot;published_before_repair&quot;: false,
+          &quot;repair_correct&quot;: true,
+          &quot;repair_origin_requests&quot;: 0,
+          &quot;injection&quot;: &quot;SQLite allocation trigger at publish intent under 16-page cap; trigger removed offline&quot;
+        }
+      ],
+      &quot;mount_removed&quot;: true
+    }
+  },
+  &quot;reboot&quot;: {
+    &quot;boot_changed&quot;: true,
+    &quot;boot_id_after&quot;: &quot;34cb3ec1-ea14-4ad3-8ba9-9739cc2a80d2&quot;,
+    &quot;catalog_unchanged_before_recovery&quot;: true,
+    &quot;states_before_recovery&quot;: {
+      &quot;objects&quot;: [
+        [
+          &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+          &quot;1f3b18c8-acdf-4edd-aaa6-6b05dfca3f7c&quot;,
+          &quot;PUBLISHING&quot;,
+          1048576
+        ]
+      ],
+      &quot;requests&quot;: [
+        [
+          &quot;reboot_request&quot;,
+          &quot;1f3b18c8-acdf-4edd-aaa6-6b05dfca3f7c&quot;,
+          &quot;WAITING&quot;
+        ]
+      ]
+    },
+    &quot;catalog_sha256_before_recovery&quot;: &quot;f6d381d22a2e9a05e671a631925afe58e8ad153ab8b2c0088f130fc75dd47a57&quot;,
+    &quot;stage_sha256_before_recovery&quot;: [
+      &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;
+    ],
+    &quot;recovered_request&quot;: {
+      &quot;id&quot;: &quot;reboot_request&quot;,
+      &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:34881/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+      &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+      &quot;generation&quot;: &quot;1f3b18c8-acdf-4edd-aaa6-6b05dfca3f7c&quot;,
+      &quot;state&quot;: &quot;SUCCEEDED&quot;,
+      &quot;result&quot;: &quot;SUCCEEDED&quot;
+    },
+    &quot;before&quot;: {
+      &quot;boot_id&quot;: &quot;0e2a2052-8181-419b-8dab-e525e4774abe&quot;,
+      &quot;catalog_sha256&quot;: &quot;f6d381d22a2e9a05e671a631925afe58e8ad153ab8b2c0088f130fc75dd47a57&quot;,
+      &quot;stage_sha256&quot;: [
+        &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;
+      ],
+      &quot;target_absent&quot;: true,
+      &quot;crash_exit&quot;: 73,
+      &quot;states&quot;: {
+        &quot;objects&quot;: [
+          [
+            &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+            &quot;1f3b18c8-acdf-4edd-aaa6-6b05dfca3f7c&quot;,
+            &quot;PUBLISHING&quot;,
+            1048576
+          ]
+        ],
+        &quot;requests&quot;: [
+          [
+            &quot;reboot_request&quot;,
+            &quot;1f3b18c8-acdf-4edd-aaa6-6b05dfca3f7c&quot;,
+            &quot;WAITING&quot;
+          ]
+        ]
+      }
+    },
+    &quot;recovered_correct&quot;: true,
+    &quot;normal_reboot&quot;: true,
+    &quot;power_loss_tested&quot;: false
+  },
+  &quot;cleanup&quot;: {
+    &quot;vm_deleted&quot;: true,
+    &quot;disk_removed&quot;: true,
+    &quot;preexisting_unchanged&quot;: true
+  },
+  &quot;source_unchanged&quot;: true,
+  &quot;controls&quot;: {
+    &quot;rejected&quot;: 26,
+    &quot;all_rejected&quot;: true
+  }
+}</pre></html>

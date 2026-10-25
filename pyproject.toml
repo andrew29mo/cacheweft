@@ -5,9 +5,12 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "cacheweft"
 version = "0.0.1"
-description = "Bounded verified artifact cache: exploration core"
+description = "Bounded verified artifact cache with a local daemon"
 requires-python = ">=3.12"
 dependencies = []
+
+[project.scripts]
+cacheweft = "cacheweft.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["cacheweft*"]

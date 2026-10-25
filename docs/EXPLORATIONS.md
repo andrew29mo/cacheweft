@@ -1,5 +1,10 @@
 # Four explorations and MVP acceptance
 
+Historical exploration record as of commit 61739b6. Current milestone status is
+in [MILESTONE1](MILESTONE1.md); the daemon, total deadline and persistent manifest
+work listed below has since been implemented. Measurements here refer to the
+archived reviewed exploration cohort, not current milestone measurements.
+
 This is a formal minimal core, not the complete planned product. Tests import
 the same `cacheweft` package that the guest installs from a wheel. TLS origins,
 fault barriers and temporary mounts are observer fixtures; they do not replace
@@ -47,8 +52,8 @@ below, not the old pass flag, for that behaviour. See [review findings](REVIEW.m
 - Initial 37-test attempt: [archived JSON](../evidence/initial-01.json) and
   [HTML](../evidence/initial-01.html). These are unchanged historical records;
   their complete-checkpoint and coalescing evidence had the review gaps noted above.
-- Reviewed final attempt: [latest JSON](../evidence/latest.json),
-  [HTML](../evidence/latest.html). The exact frozen inputs, test IDs, module
+- Reviewed final exploration attempt: [JSON](../evidence/explorations-reviewed.json),
+  [HTML](../evidence/explorations-reviewed.html). The exact frozen inputs, test IDs, module
   fingerprints, stage outcomes, measurements and cleanup are recorded there.
 
 These are observations from the author-run harness; no independent VM
@@ -118,7 +123,7 @@ Per-root allocation excludes TLS fixture files and the guest image. Logical
 payload, remaining reservation, allocated payload, complete cache-file
 allocation and filesystem free bytes are distinct fields.
 
-## Remaining MVP acceptance (not passed yet)
+## Historical remaining MVP acceptance before milestone 1
 
 - Installed, unprivileged daemon with Unix socket API/CLI and explicit framed
   request/response limits; systemd start/stop/crash behaviour.

@@ -1,0 +1,459 @@
+{
+  "contract": "cacheweft-milestone1-v4",
+  "passed": false,
+  "recorded_utc": "2026-10-25T11:05:03.156432+00:00",
+  "source": {
+    "pyproject.toml": "6ee0499a249a5170281f960f4035720af3d6a808a085362437a1a3003123eecc",
+    "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
+    "cacheweft/cli.py": "7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5",
+    "cacheweft/core.py": "07d632bc1b86daececde75aa75f6cbff7399a3f77a7808e50a2f7305c9e7f1f8",
+    "cacheweft/http.py": "a0c851f801f67fdd5c8e7c652baee3fb0862d32b41db334e4813739dcd8db85c",
+    "cacheweft/service.py": "89d9dbd7c365bdf112236f25b57c9f92a8621c63c1c7962b49f82a0caa7805ee",
+    "tools/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tools/cases.py": "018793b45dc0d426c9cc31487cfc8c288130864da4ec360da99d54c5dc7edcde",
+    "tools/milestone.py": "e5aa771be7359d022b19bb5434c560a926012bf25453c6d18e76888337ac7f11",
+    "tools/reboot.py": "f948294a00c181c97d962d28cebe664a42cd38d924da718a56d80628ac9ef3f5",
+    "tools/report.py": "18b38d62e86ac928803f933190ebd398af22ef121e36e5e9b42c36942c1d3b55",
+    "tools/unit.py": "a1f904bef90862c9bbe376dca54d4d8bc1002dc67b96396645eee22a589669e0",
+    "tools/validate.py": "332d9fd6eb980d0b56fc82416bba8f076deb05a0d5c4ea67503f8a5e5031a7ed",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/daemon_fixture.py": "03ac73462542d1e7b8adbf38907b82398b093a1ce83a499bd919e4e8091acd1f",
+    "tests/fixture.py": "56fad050cd48c7cc1426f4b09f5d37d551a00f07494a5db4ccc417e0b8684aaf",
+    "tests/test_core.py": "ef8d6b1dd9195d814e47e4ce665ce1f4361340b39057945a5433f42a76b67a8b",
+    "tests/test_service.py": "6fa7e98ee8fd226e5e5a20f39edc8d28302c3bd5b93bd5cd629845aa0806a12d"
+  },
+  "wheel_sha256": "d98dd50fb5f0e5bc16402c13f884209b46b504f4497a448037d8f7952b9b962d",
+  "stages": [
+    {
+      "name": "initial",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.31381191697437316
+    },
+    {
+      "name": "create",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 22.266873459040653
+    },
+    {
+      "name": "dependencies",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 14.344205041998066
+    },
+    {
+      "name": "upload",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.37396620895015076
+    },
+    {
+      "name": "install",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 1.514353915990796
+    },
+    {
+      "name": "provenance",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.4809336659964174
+    },
+    {
+      "name": "native",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 16.96057016600389
+    },
+    {
+      "name": "native-cases",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.6882794999983162
+    },
+    {
+      "name": "native-service",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 4.587962791963946
+    },
+    {
+      "name": "linux",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 16.651172834041063
+    },
+    {
+      "name": "delete",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 1.6374873340246268
+    },
+    {
+      "name": "final",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.3152895420207642
+    }
+  ],
+  "host_mounts": "none",
+  "limits": {
+    "power_loss_tested": false,
+    "wan_tested": false,
+    "deployed_service_tested": true,
+    "systemd_tested": false,
+    "long_term_tested": false
+  },
+  "installed_modules": {
+    "cacheweft/service.py": "89d9dbd7c365bdf112236f25b57c9f92a8621c63c1c7962b49f82a0caa7805ee",
+    "cacheweft/core.py": "07d632bc1b86daececde75aa75f6cbff7399a3f77a7808e50a2f7305c9e7f1f8",
+    "cacheweft/cli.py": "7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5",
+    "cacheweft/http.py": "a0c851f801f67fdd5c8e7c652baee3fb0862d32b41db334e4813739dcd8db85c",
+    "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90"
+  },
+  "native": {
+    "passed": true,
+    "tests": 56,
+    "test_ids": [
+      "tests.test_core.CoreTests.test_416_not_success",
+      "tests.test_core.CoreTests.test_bad_range_refused",
+      "tests.test_core.CoreTests.test_cancel_races_durable_publish_intent",
+      "tests.test_core.CoreTests.test_cancel_sql_failure_no_success",
+      "tests.test_core.CoreTests.test_capacity_refusal_deletes_nothing",
+      "tests.test_core.CoreTests.test_changed_validator_restarts",
+      "tests.test_core.CoreTests.test_close_keeps_lock_until_reader_closed",
+      "tests.test_core.CoreTests.test_coalescing_cancel_one",
+      "tests.test_core.CoreTests.test_complete_checkpoint_corruption_not_published",
+      "tests.test_core.CoreTests.test_complete_checkpoint_needs_no_origin_or_attempt",
+      "tests.test_core.CoreTests.test_complete_checkpoint_without_validator",
+      "tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows",
+      "tests.test_core.CoreTests.test_disk_error_retires_authority",
+      "tests.test_core.CoreTests.test_encoded_body_refused",
+      "tests.test_core.CoreTests.test_existing_target_not_overwritten",
+      "tests.test_core.CoreTests.test_fixture_eof_range_is_416",
+      "tests.test_core.CoreTests.test_gc_crash_recovery",
+      "tests.test_core.CoreTests.test_gc_crash_retains_partial_deletion_ownership",
+      "tests.test_core.CoreTests.test_gc_then_read_and_stale_generation",
+      "tests.test_core.CoreTests.test_https_verified_content",
+      "tests.test_core.CoreTests.test_late_chunk_after_last_cancel",
+      "tests.test_core.CoreTests.test_local_quota_and_permission_errors_are_not_network_retries",
+      "tests.test_core.CoreTests.test_lock_and_corrupt_on_restart",
+      "tests.test_core.CoreTests.test_old_epoch_plan_and_pin_rejected",
+      "tests.test_core.CoreTests.test_persistent_attempt_budget",
+      "tests.test_core.CoreTests.test_pin_and_read_prevent_stale_gc_plan",
+      "tests.test_core.CoreTests.test_publish_boundary_cancel_too_late",
+      "tests.test_core.CoreTests.test_range_ignored_restarts",
+      "tests.test_core.CoreTests.test_reader_and_job_limits",
+      "tests.test_core.CoreTests.test_readonly_database_retires_authority",
+      "tests.test_core.CoreTests.test_request_budget_and_conflict",
+      "tests.test_core.CoreTests.test_reservation_not_oversold",
+      "tests.test_core.CoreTests.test_resume_real_range",
+      "tests.test_core.CoreTests.test_retired_download_cannot_block_new_generation",
+      "tests.test_core.CoreTests.test_shorter_than_checkpoint_restarts",
+      "tests.test_core.CoreTests.test_symlink_destination_never_overwritten",
+      "tests.test_core.CoreTests.test_symlink_not_followed",
+      "tests.test_core.CoreTests.test_tls_and_origin_restriction",
+      "tests.test_core.CoreTests.test_unknown_data_charged_not_deleted",
+      "tests.test_core.CoreTests.test_weak_or_absent_etag_restarts",
+      "tests.test_core.CoreTests.test_wrong_hash_not_published",
+      "tests.test_core.CoreTests.test_wrong_length_refused",
+      "tests.test_service.ServiceTests.test_authority_wait_cannot_turn_expired_fetch_into_hit",
+      "tests.test_service.ServiceTests.test_bad_frames_and_config_permissions",
+      "tests.test_service.ServiceTests.test_cli_flow_and_read",
+      "tests.test_service.ServiceTests.test_coalesced_old_deadline_not_extended",
+      "tests.test_service.ServiceTests.test_committed_publication_recovery_preserves_original_deadline",
+      "tests.test_service.ServiceTests.test_control_connection_limit",
+      "tests.test_service.ServiceTests.test_deadline_rechecked_after_verification",
+      "tests.test_service.ServiceTests.test_duplicate_id_cannot_extend_duration",
+      "tests.test_service.ServiceTests.test_manifest_immutable_and_revision_rollback",
+      "tests.test_service.ServiceTests.test_queued_job_expires_without_source_request",
+      "tests.test_service.ServiceTests.test_restart_interrupts_old_deadline_and_requires_explicit_resume",
+      "tests.test_service.ServiceTests.test_slow_body_total_deadline",
+      "tests.test_service.ServiceTests.test_slow_headers_total_deadline",
+      "tests.test_service.ServiceTests.test_slow_source_cancel_and_stale_token"
+    ],
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 16.852273333002813,
+    "platform": "Darwin",
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+    "modules": {
+      "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
+      "cacheweft/cli.py": "7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5",
+      "cacheweft/core.py": "07d632bc1b86daececde75aa75f6cbff7399a3f77a7808e50a2f7305c9e7f1f8",
+      "cacheweft/http.py": "a0c851f801f67fdd5c8e7c652baee3fb0862d32b41db334e4813739dcd8db85c",
+      "cacheweft/service.py": "89d9dbd7c365bdf112236f25b57c9f92a8621c63c1c7962b49f82a0caa7805ee"
+    }
+  },
+  "native_cases": {
+    "measurements": {
+      "environment": "Darwin",
+      "memory_scope": "whole observer process including TLS fixture and core",
+      "memory_kind": "peak_RSS",
+      "performance_scope": "local TLS fixture; single observation per mode, no WAN/speedup claim",
+      "trials": [
+        {
+          "mode": "cold",
+          "request_count": 1,
+          "size": 1048576,
+          "download_seconds": 0.027550208033062518,
+          "read_seconds": 0.0006149589898996055,
+          "actual_origin_requests": 1,
+          "origin_payload_bytes": 1048576,
+          "request_ranges": [
+            null
+          ],
+          "correct": true,
+          "subscribers_before_release": [],
+          "subscriber_outcomes": [
+            {
+              "id": "r",
+              "params": "[\"fixture\",\"https://localhost:58654/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "45d1cbf0-cdca-4134-8a71-3aa537ea44cb",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED",
+              "deadline": null,
+              "epoch": "77b17580-6d58-4d95-bbfe-de6e3195cdd2",
+              "revision": 2
+            }
+          ],
+          "process_rss_or_peak_bytes": 32931840,
+          "usage": {
+            "payload_bytes": 1048576,
+            "remaining_reserved": 0,
+            "allocated_payload_bytes": 1048576,
+            "budget": 16777216,
+            "free_bytes": 713586966528
+          },
+          "root_allocated_bytes": 1069056
+        },
+        {
+          "mode": "resume",
+          "request_count": 1,
+          "size": 1048576,
+          "download_seconds": 0.026708625024184585,
+          "read_seconds": 0.0006628750124946237,
+          "actual_origin_requests": 2,
+          "origin_payload_bytes": 1048576,
+          "request_ranges": [
+            null,
+            "bytes=131072-"
+          ],
+          "correct": true,
+          "subscribers_before_release": [],
+          "subscriber_outcomes": [
+            {
+              "id": "r",
+              "params": "[\"fixture\",\"https://localhost:58654/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "62f16f78-5f13-4da9-b2f3-5c9de714159a",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED",
+              "deadline": null,
+              "epoch": "6f39b900-cc75-4ada-92dc-95ecee650398",
+              "revision": 2
+            }
+          ],
+          "process_rss_or_peak_bytes": 34406400,
+          "usage": {
+            "payload_bytes": 1048576,
+            "remaining_reserved": 0,
+            "allocated_payload_bytes": 1048576,
+            "budget": 16777216,
+            "free_bytes": 713585897472
+          },
+          "root_allocated_bytes": 1069056
+        },
+        {
+          "mode": "coalesced",
+          "request_count": 4,
+          "size": 1048576,
+          "download_seconds": 0.029670834017451853,
+          "read_seconds": 0.0007661249837838113,
+          "actual_origin_requests": 1,
+          "origin_payload_bytes": 1048576,
+          "request_ranges": [
+            null
+          ],
+          "correct": true,
+          "subscribers_before_release": [
+            {
+              "id": "r",
+              "params": "[\"fixture\",\"https://localhost:58654/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "c92b84b2-81a3-476a-bdde-d1fce512c432",
+              "state": "WAITING",
+              "result": null,
+              "deadline": null,
+              "epoch": "81e50f9d-fe24-4387-b1cf-be7c7d9f0af4",
+              "revision": 1
+            },
+            {
+              "id": "r1",
+              "params": "[\"fixture\",\"https://localhost:58654/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "c92b84b2-81a3-476a-bdde-d1fce512c432",
+              "state": "WAITING",
+              "result": null,
+              "deadline": null,
+              "epoch": "81e50f9d-fe24-4387-b1cf-be7c7d9f0af4",
+              "revision": 1
+            },
+            {
+              "id": "r2",
+              "params": "[\"fixture\",\"https://localhost:58654/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "c92b84b2-81a3-476a-bdde-d1fce512c432",
+              "state": "WAITING",
+              "result": null,
+              "deadline": null,
+              "epoch": "81e50f9d-fe24-4387-b1cf-be7c7d9f0af4",
+              "revision": 1
+            },
+            {
+              "id": "r3",
+              "params": "[\"fixture\",\"https://localhost:58654/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "c92b84b2-81a3-476a-bdde-d1fce512c432",
+              "state": "WAITING",
+              "result": null,
+              "deadline": null,
+              "epoch": "81e50f9d-fe24-4387-b1cf-be7c7d9f0af4",
+              "revision": 1
+            }
+          ],
+          "subscriber_outcomes": [
+            {
+              "id": "r",
+              "params": "[\"fixture\",\"https://localhost:58654/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "c92b84b2-81a3-476a-bdde-d1fce512c432",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED",
+              "deadline": null,
+              "epoch": "81e50f9d-fe24-4387-b1cf-be7c7d9f0af4",
+              "revision": 2
+            },
+            {
+              "id": "r1",
+              "params": "[\"fixture\",\"https://localhost:58654/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "c92b84b2-81a3-476a-bdde-d1fce512c432",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED",
+              "deadline": null,
+              "epoch": "81e50f9d-fe24-4387-b1cf-be7c7d9f0af4",
+              "revision": 2
+            },
+            {
+              "id": "r2",
+              "params": "[\"fixture\",\"https://localhost:58654/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "c92b84b2-81a3-476a-bdde-d1fce512c432",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED",
+              "deadline": null,
+              "epoch": "81e50f9d-fe24-4387-b1cf-be7c7d9f0af4",
+              "revision": 2
+            },
+            {
+              "id": "r3",
+              "params": "[\"fixture\",\"https://localhost:58654/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "c92b84b2-81a3-476a-bdde-d1fce512c432",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED",
+              "deadline": null,
+              "epoch": "81e50f9d-fe24-4387-b1cf-be7c7d9f0af4",
+              "revision": 2
+            }
+          ],
+          "process_rss_or_peak_bytes": 34488320,
+          "usage": {
+            "payload_bytes": 1048576,
+            "remaining_reserved": 0,
+            "allocated_payload_bytes": 1048576,
+            "budget": 16777216,
+            "free_bytes": 713584824320
+          },
+          "root_allocated_bytes": 1069056
+        }
+      ]
+    }
+  },
+  "native_service": {
+    "cases": [
+      {
+        "mode": "slow_headers",
+        "result": "TIMED_OUT",
+        "deadline_unchanged": true,
+        "available": false,
+        "seconds": 0.30665870802477,
+        "stop_seconds": 0.23828175000380725,
+        "identity": {
+          "uid": 501,
+          "rss_bytes": 28753920,
+          "pid": 66498,
+          "scope": "daemon PID current RSS via ps"
+        },
+        "stale_cancel_rejected": null,
+        "exit_code": 0,
+        "receipt_removed": true
+      },
+      {
+        "mode": "slow_body",
+        "result": "TIMED_OUT",
+        "deadline_unchanged": true,
+        "available": false,
+        "seconds": 0.3198004579753615,
+        "stop_seconds": 1.8364509999519214,
+        "identity": {
+          "uid": 501,
+          "rss_bytes": 28737536,
+          "pid": 66501,
+          "scope": "daemon PID current RSS via ps"
+        },
+        "stale_cancel_rejected": null,
+        "exit_code": 0,
+        "receipt_removed": true
+      },
+      {
+        "mode": "cancel",
+        "result": "CANCELLED",
+        "deadline_unchanged": true,
+        "available": false,
+        "seconds": 0.008033166988752782,
+        "stop_seconds": 0.2363407500088215,
+        "identity": {
+          "uid": 501,
+          "rss_bytes": 28884992,
+          "pid": 66504,
+          "scope": "daemon PID current RSS via ps"
+        },
+        "stale_cancel_rejected": true,
+        "exit_code": 0,
+        "receipt_removed": true
+      },
+      {
+        "mode": "shared_deadlines",
+        "old_state": "TIMED_OUT",
+        "new_state": "SUCCEEDED",
+        "old_deadline_unchanged": true
+      }
+    ],
+    "cleanup": true,
+    "scope": "actual daemon subprocess; 2s assertion is a controlled observation bound, not a production SLA"
+  },
+  "error": "RuntimeError: linux failed or timed out",
+  "cleanup": {
+    "vm_deleted": true,
+    "disk_removed": true,
+    "preexisting_unchanged": true
+  },
+  "source_unchanged": true
+}

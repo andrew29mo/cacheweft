@@ -1,0 +1,27 @@
+{
+  "kind": "pre-fix controlled HTTP/1.0 lifecycle observation",
+  "response_status": 200,
+  "response_complete": false,
+  "watcher_done_before_body": true,
+  "source": {
+    "pyproject.toml": "6ee0499a249a5170281f960f4035720af3d6a808a085362437a1a3003123eecc",
+    "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
+    "cacheweft/cli.py": "7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5",
+    "cacheweft/core.py": "1bdea4796f53e1644a60dc6cfe5fa91b34fe9d88d3b6f68380411685a8087580",
+    "cacheweft/http.py": "a0c851f801f67fdd5c8e7c652baee3fb0862d32b41db334e4813739dcd8db85c",
+    "cacheweft/service.py": "7c34a9cfcffbf58fb1b7d0d85188ba14361f15a2dd5445d33617ffa16902e5d6",
+    "tools/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tools/cases.py": "018793b45dc0d426c9cc31487cfc8c288130864da4ec360da99d54c5dc7edcde",
+    "tools/milestone.py": "e5aa771be7359d022b19bb5434c560a926012bf25453c6d18e76888337ac7f11",
+    "tools/reboot.py": "f948294a00c181c97d962d28cebe664a42cd38d924da718a56d80628ac9ef3f5",
+    "tools/report.py": "f5905b64d42750f4c9fcb9b099f78d08a45f2bfb361850cb162b31cb79e47999",
+    "tools/unit.py": "a1f904bef90862c9bbe376dca54d4d8bc1002dc67b96396645eee22a589669e0",
+    "tools/validate.py": "332d9fd6eb980d0b56fc82416bba8f076deb05a0d5c4ea67503f8a5e5031a7ed",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/daemon_fixture.py": "03ac73462542d1e7b8adbf38907b82398b093a1ce83a499bd919e4e8091acd1f",
+    "tests/fixture.py": "56fad050cd48c7cc1426f4b09f5d37d551a00f07494a5db4ccc417e0b8684aaf",
+    "tests/test_core.py": "ef8d6b1dd9195d814e47e4ce665ce1f4361340b39057945a5433f42a76b67a8b",
+    "tests/test_service.py": "4532f001d2853278a5a414c18b72eaf3a4f1ae86737d99d6be7245630b09b148"
+  },
+  "scope": "controlled pre-fix observation; not a final qualification or VM failure"
+}

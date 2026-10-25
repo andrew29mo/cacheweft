@@ -1,5 +1,9 @@
 # Exploration review
 
+Historical review at 61739b6. Evidence in this document refers to
+[archived exploration JSON](../evidence/explorations-reviewed.json) and HTML.
+Current milestone implementation/evidence is described in MILESTONE1.
+
 Scope: formal minimal runtime, tests, four exploration fixtures, raw VM logs,
 JSON/HTML consistency and stated limitations. Two read-only reviewers made
 independent first passes on logic and evidence. The author reproduced the
@@ -51,7 +55,7 @@ the affected behaviours.
 
 ## Evidence and limits
 
-Latest JSON/HTML are generated from the same data. Both platforms execute the
+Archived reviewed JSON/HTML were generated from the same data. Both platforms executed the
 same identified 42 tests; the Linux guest uses installed wheel code after
 runtime source is removed from import reach. Runtime bytes, tests/tools/build
 input fingerprints and wheel digest are recorded. Report rejection controls

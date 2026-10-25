@@ -37,9 +37,9 @@ def main():
         payload={n:hashlib.sha256(z.read(n)).hexdigest() for n in z.namelist() if n.startswith('cacheweft/') and n.endswith('.py')}
     if payload!={k:v for k,v in source.items() if k.startswith('cacheweft/')}:p.error('Wheel/source mismatch')
     env=dict(os.environ,COLIMA_HOME=str(home),PATH=str(tool)+os.pathsep+os.environ['PATH'])
-    v=dict(contract='cacheweft-exploration-review-v3',passed=False,recorded_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
+    v=dict(contract='cacheweft-milestone1-v4',passed=False,recorded_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
            source=source,wheel_sha256=hashlib.sha256(wheel.read_bytes()).hexdigest(),stages=[],host_mounts='none',
-           limits=dict(power_loss_tested=False,wan_tested=False,deployed_service_tested=False,long_term_tested=False))
+           limits=dict(power_loss_tested=False,wan_tested=False,deployed_service_tested=True,systemd_tested=False,long_term_tested=False))
     def persist():
         (output/'evidence.json').write_text(json.dumps(v,indent=2,allow_nan=False)+'\n')
         (output/'report.html').write_text(render(v))
@@ -61,7 +61,7 @@ def main():
         if disk.exists() or any(x['name']==a.profile for x in initial):raise RuntimeError('Existing profile refused')
         created=True
         run('create',[colima,'start',a.profile,'--cpu','2','--memory','2','--disk','15','--mount','none','--activate=false','--ssh-config=false','--hostname','cacheweft-exp','--dns-host','cacheweft-exp=127.0.0.1','--dns-host','lima-colima-'+a.profile+'=127.0.0.1'],timeout=300)
-        ssh('dependencies',['sudo','sh','-c','apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-venv openssl util-linux'],timeout=300)
+        ssh('dependencies',['sudo','sh','-c','apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-venv openssl util-linux iproute2'],timeout=300)
         buf=io.BytesIO()
         with tarfile.open(fileobj=buf,mode='w:gz') as tar:
             for name in source:tar.add(ROOT/name,arcname='source/'+name,recursive=False)
@@ -76,10 +76,14 @@ def main():
         v['native']=json.loads((output/'native.json').read_text())
         run('native-cases',[sys.executable,'-m','tools.cases','--output',output/'native-cases.json'],timeout=120)
         v['native_cases']=json.loads((output/'native-cases.json').read_text())
+        run('native-service',[sys.executable,'-m','tools.milestone','cases','--output',output/'native-service.json'],timeout=60)
+        v['native_service']=json.loads((output/'native-service.json').read_text())
         guest('linux','/opt/cacheweft/venv/bin/python -m tools.unit --output /opt/cacheweft/linux.json',timeout=120)
         v['linux']=json.loads(ssh('linux-read',['sudo','cat','/opt/cacheweft/linux.json']))
         guest('linux-cases','/opt/cacheweft/venv/bin/python -m tools.cases --storage --output /opt/cacheweft/linux-cases.json',timeout=120)
         v['linux_cases']=json.loads(ssh('linux-cases-read',['sudo','cat','/opt/cacheweft/linux-cases.json']))
+        guest('linux-service','/opt/cacheweft/venv/bin/python -m tools.milestone cases --output /opt/cacheweft/service.json',timeout=60)
+        v['linux_service']=json.loads(ssh('linux-service-read',['sudo','cat','/opt/cacheweft/service.json']))
         guest('reboot-prepare','/opt/cacheweft/venv/bin/python -m tools.reboot prepare',timeout=40)
         prepared=json.loads(ssh('reboot-prepared-read',['sudo','cat','/opt/cacheweft/reboot/prepared.json']))
         ssh('schedule-reboot',['sudo','systemd-run','--unit=cacheweft-test-reboot','--on-active=2s','--timer-property=AccuracySec=1s','/usr/bin/systemctl','reboot'])
@@ -93,6 +97,19 @@ def main():
         if not changed:raise TimeoutError('Boot identity did not change')
         guest('reboot-finish','/opt/cacheweft/venv/bin/python -m tools.reboot finish',timeout=40)
         v['reboot']=json.loads(ssh('reboot-finished-read',['sudo','cat','/opt/cacheweft/reboot/finished.json']))
+        guest('service-boot-prepare','/opt/cacheweft/venv/bin/python -m tools.milestone prepare',timeout=40)
+        prepared=json.loads(ssh('service-boot-prepared-read',['sudo','cat','/opt/cacheweft/milestone-boot/prepared.json']))
+        ssh('service-schedule-reboot',['sudo','systemd-run','--unit=cacheweft-m1-reboot','--on-active=2s','--timer-property=AccuracySec=1s','/usr/bin/systemctl','reboot'])
+        until=time.monotonic()+120;changed=False
+        while time.monotonic()<until:
+            try:
+                r=subprocess.run([str(colima),'--profile',a.profile,'ssh','--','cat','/proc/sys/kernel/random/boot_id'],env=env,capture_output=True,text=True,timeout=5)
+                if r.returncode==0 and len(r.stdout.strip())==36 and r.stdout.strip()!=prepared['boot_id']:changed=True;break
+            except subprocess.TimeoutExpired:pass
+            time.sleep(1)
+        if not changed:raise TimeoutError('Service boot identity did not change')
+        guest('service-boot-finish','/opt/cacheweft/venv/bin/python -m tools.milestone finish',timeout=40)
+        v['service_reboot']=json.loads(ssh('service-boot-finished-read',['sudo','cat','/opt/cacheweft/milestone-boot/finished.json']))
         v['passed']=True
     except BaseException as exc:
         v['error']=type(exc).__name__+': '+str(exc).replace(str(ROOT),'<checkout>')

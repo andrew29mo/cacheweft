@@ -4,7 +4,9 @@ Use Python 3.12+, a current setuptools build environment, Colima/Lima and a
 Linux guest with systemd. The runner creates a fresh `cw-exp-*` profile, no host
 mounts, two vCPUs and 2 GiB requested RAM. No existing profile is reused or
 reconfigured. Root inside the disposable guest is used only for test storage
-mounts, dependency installation and reboot, not as a product privilege claim.
+mounts, network namespace fixtures, dependency installation and reboot. The
+official daemon runs as UID/GID 65534 via setpriv, without capabilities and with
+NoNewPrivs. Native macOS uses the invoking ordinary account.
 
 ```sh
 python3.12 -m venv .venv
@@ -45,6 +47,22 @@ The report also carries actual pre-recovery catalog/staging hashes and retained
 object/request rows tied to the recovered request.
 This tests manual invocation of the formal recovery core after reboot; it does
 not test installed systemd autostart or suddenly interrupted power.
+
+The milestone adds a second normal VM reboot of an actual bounded daemon
+request. It SIGKILLs the daemon after a partial checkpoint, records WAITING
+rows/deadline/catalog and staging hashes, then reboots. Before starting the
+daemon again, the harness verifies identical retained rows and bytes in a new
+boot. The official daemon marks the old request INTERRUPTED/PAUSED; no origin
+GET occurs until a new explicit resume. Old epoch/tokens are rejected and the
+old deadline/result stay unchanged after successful continuation and CLI read.
+The installed console entrypoint is also executed. There is no product autostart.
+
+Slow header/body, cancellation and shared-deadline cases use actual daemon
+processes and TLS sockets. A Linux-only veth/netns fixture connects to an
+unanswered on-link address, observes its unresolved neighbor and checks that
+deadline plus process cleanup stays within the controlled test bound. No host
+network is modified. The daemon is unprivileged after namespace entry; only the
+observer creates/deletes the fixture. These measured bounds are not realtime SLAs.
 
 Raw stage logs and generated test keys remain under ignored `results/`. Public
 JSON/HTML contain sanitized observations and fingerprints, not keys, local

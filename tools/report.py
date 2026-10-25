@@ -6,9 +6,9 @@ import math
 import re
 
 ARTIFACT_SHA="fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83"
-INPUTS={'pyproject.toml','cacheweft/__init__.py','cacheweft/core.py','cacheweft/http.py',
-        'tools/__init__.py','tools/cases.py','tools/reboot.py','tools/report.py','tools/unit.py','tools/validate.py',
-        'tests/__init__.py','tests/fixture.py','tests/test_core.py'}
+INPUTS={'pyproject.toml','cacheweft/__init__.py','cacheweft/core.py','cacheweft/http.py','cacheweft/cli.py','cacheweft/service.py',
+        'tools/__init__.py','tools/cases.py','tools/reboot.py','tools/report.py','tools/unit.py','tools/validate.py','tools/milestone.py',
+        'tests/__init__.py','tests/fixture.py','tests/test_core.py','tests/test_service.py','tests/daemon_fixture.py'}
 
 
 def verify(v):
@@ -19,17 +19,17 @@ def verify(v):
     def integer(value,positive=False):
         return type(value) is int and (value>0 if positive else value>=0)
     def sha(value):return isinstance(value,str) and re.fullmatch('[0-9a-f]{64}',value) is not None
-    need(v.get('contract')=='cacheweft-exploration-review-v3','Contract mismatch')
+    need(v.get('contract')=='cacheweft-milestone1-v4','Contract mismatch')
     need(v.get('passed') is True and not v.get('error') and not v.get('verification_error') and not v.get('cleanup_error'),'Not cleanly passed')
     need(v.get('source_unchanged') is True and v.get('host_mounts')=='none','Source/mount configuration')
-    expected={'cacheweft/__init__.py','cacheweft/core.py','cacheweft/http.py'}
+    expected={k for k in INPUTS if k.startswith('cacheweft/')}
     need(set(v['source'])==INPUTS,'Missing frozen inputs')
     need(set(v['installed_modules'])==expected and all(sha(h) for h in v['source'].values()) and sha(v['wheel_sha256']),'Missing source provenance')
     need(v['installed_modules']==v['native']['modules']==v['linux']['modules'],'Runtime provenance mismatch')
     need(v['installed_modules']=={k:h for k,h in v['source'].items() if k.startswith('cacheweft/')},'Runtime/source mismatch')
     n,l=v['native'],v['linux']
     need(n['platform']=='Darwin' and l['platform']=='Linux','Platform mismatch')
-    need(n['test_ids']==l['test_ids'] and len(set(n['test_ids']))==n['tests']==l['tests']==42,'Test cohort mismatch')
+    need(n['test_ids']==l['test_ids'] and len(set(n['test_ids']))==n['tests']==l['tests']==63,'Test cohort mismatch')
     for t in (n,l):
         need(t['passed'] is True and t['errors']==t['failures']==t['skipped']==0 and number(t['seconds'],True),'Tests not clean')
     stages=v['stages'];need(len({x['name'] for x in stages})==len(stages),'Duplicate stages')
@@ -37,6 +37,8 @@ def verify(v):
         need(type(stage['exit_code']) is int and stage['exit_code']==0 and stage['timed_out'] is False and number(stage['seconds']),'Stage failure')
     for name in ('initial','create','dependencies','upload','install','provenance','native','native-cases','linux','linux-read','linux-cases','linux-cases-read','reboot-prepare','reboot-prepared-read','schedule-reboot','reboot-finish','reboot-finished-read','delete','final'):
         need(name in [s['name'] for s in stages],'Missing stage '+name)
+    for name in ('native-service','linux-service','linux-service-read','service-boot-prepare','service-boot-prepared-read','service-schedule-reboot','service-boot-finish','service-boot-finished-read'):
+        need(name in [s['name'] for s in stages],'Missing service stage '+name)
     need(all(v['cleanup'][key] is True for key in ('vm_deleted','disk_removed','preexisting_unchanged')),'Cleanup incomplete')
     boot=v['reboot'];before=boot['before']
     need(boot['boot_changed'] is True and boot['catalog_unchanged_before_recovery'] is True and boot['recovered_correct'] is True,'Reboot invalid')
@@ -86,7 +88,34 @@ def verify(v):
             else:need(t['subscribers_before_release']==[],'Unexpected barrier cohort')
             ranges=[None,'bytes=131072-'] if t['mode']=='resume' else [None]
             need(t['actual_origin_requests']==len(ranges) and t['request_ranges']==ranges,'Origin request/range mismatch')
-    need(v['limits']==dict(power_loss_tested=False,wan_tested=False,deployed_service_tested=False,long_term_tested=False),'Limit changed')
+    for env in ('native_service','linux_service'):
+        service=v[env];need(service['cleanup'] is True,'Service cleanup')
+        need([x['mode'] for x in service['cases']]==['slow_headers','slow_body','cancel','shared_deadlines']+(['connect_blackhole'] if env=='linux_service' else []),'Missing service cases')
+        for case in service['cases'][:3]:
+            need(case['result']==('CANCELLED' if case['mode']=='cancel' else 'TIMED_OUT') and case['available'] is False and case['deadline_unchanged'] is True,'Late service success')
+            need(number(case['seconds'],True) and case['seconds']<2 and number(case['stop_seconds']) and case['stop_seconds']<2,'Service observation bound')
+            need(case['exit_code']==0 and case['receipt_removed'] is True and integer(case['identity']['rss_bytes'],True),'Service lifecycle/memory invalid')
+            if env=='linux_service':need([int(x) for x in case['identity']['Uid'].split()]==[65534]*4 and int(case['identity']['CapEff'],16)==0 and case['identity']['NoNewPrivs']=='1','Privilege mismatch')
+            else:need(integer(case['identity']['uid'],True),'Native root daemon')
+        need(service['cases'][2]['stale_cancel_rejected'] is True,'Stale cancellation accepted')
+        need(service['cases'][3]['old_state']=='TIMED_OUT' and service['cases'][3]['new_state']=='SUCCEEDED' and service['cases'][3]['old_deadline_unchanged'] is True,'Shared deadline extended')
+        if env=='linux_service':
+            x=service['cases'][4]
+            need(x['result']=='TIMED_OUT' and x['deadline_unchanged'] is True and x['available'] is False and x['namespace_isolated'] is True and x['unresolved_neighbor'] is True and x['origin_requests']==0 and x['exit_code']==0 and x['network_cleaned'] is True,'Blackhole case invalid')
+            need(number(x['terminal_seconds'],True) and number(x['total_through_stop_seconds'],True) and x['total_through_stop_seconds']<1.5,'Blackhole deadline/cleanup observation failed')
+    boot=v['service_reboot'];before=boot['before'];old=before['rows']['requests'][0];obj=before['rows']['objects'][0]
+    need(boot['boot_id_after']!=before['boot_id'] and len(boot['boot_id_after'])==36 and before['crash_exit']==-9,'Service boot witness invalid')
+    need(boot['catalog_sha256_before_recovery']==before['catalog_sha256'] and sha(before['catalog_sha256']) and boot['rows_before_recovery']==before['rows'] and boot['stage_sha256_before_recovery']==before['stage_sha256'],'Service journal changed before recovery')
+    need(old['id']=='old_request' and old['state']=='WAITING' and 65536<=obj['offset']<1048576 and old['digest']==obj['digest']==ARTIFACT_SHA and old['generation']==obj['generation'],'No old partial request')
+    need(boot['epoch_after']!=before['epoch'] and old['epoch']==before['epoch'],'Service epoch unchanged')
+    for item in ('old_before_resume','old_after_resume'):
+        r=boot[item];need(r['id']==old['id'] and r['state']==r['result']=='INTERRUPTED' and r['deadline']==old['deadline'] and r['epoch']==old['epoch'] and r['revision']==old['revision']+1,'Old deadline/result revived')
+    fresh=boot['fresh'];need(fresh['id']=='fresh_request' and fresh['state']==fresh['result']=='SUCCEEDED' and fresh['epoch']==boot['epoch_after'] and fresh['digest']==ARTIFACT_SHA,'Fresh resume invalid')
+    need(boot['no_automatic_origin_request'] is True and boot['old_epoch_rejected'] is True and boot['old_token_rejected'] is True,'Automatic or stale operation accepted')
+    need(boot['resume_ranges']==['bytes='+str(obj['offset'])+'-'] and boot['read_sha256']==ARTIFACT_SHA and boot['cli_read_exit']==boot['installed_entrypoint_exit']==0,'Resume or CLI incorrect')
+    need(boot['process_cleaned'] is True and boot['normal_reboot'] is True and boot['power_loss_tested'] is False,'Service boot cleanup/scope')
+    identity=boot['identity_after'];need([int(x) for x in identity['Uid'].split()]==[65534]*4 and int(identity['CapEff'],16)==0 and identity['NoNewPrivs']=='1','Boot privilege mismatch')
+    need(v['limits']==dict(power_loss_tested=False,wan_tested=False,deployed_service_tested=True,systemd_tested=False,long_term_tested=False),'Limit changed')
 
 
 def controls(value):
@@ -111,7 +140,17 @@ def controls(value):
              lambda v:v['reboot'].update(catalog_sha256_before_recovery='0'*64),
              lambda v:v['linux_cases']['storage']['cases'][3].update(published_before_repair=True),
              lambda v:v['linux_cases']['measurements']['trials'][2]['subscribers_before_release'][1].update(state='SUCCEEDED'),
-             lambda v:v['source'].pop('tests/test_core.py')]
+             lambda v:v['source'].pop('tests/test_core.py'),
+             lambda v:v['linux_service']['cases'][0].update(result='SUCCEEDED'),
+             lambda v:v['linux_service']['cases'][3].update(old_deadline_unchanged=False),
+             lambda v:v['service_reboot']['old_after_resume'].update(state='SUCCEEDED'),
+             lambda v:v['service_reboot'].update(old_epoch_rejected=False),
+             lambda v:v['service_reboot']['old_before_resume'].update(deadline=0),
+             lambda v:v['linux_service']['cases'][0]['identity'].update(Uid='0 0 0 0'),
+             lambda v:v['service_reboot'].update(catalog_sha256_before_recovery='0'*64),
+             lambda v:v['service_reboot'].update(resume_ranges=[None]),
+             lambda v:v['linux_service']['cases'][4].update(network_cleaned=False),
+             lambda v:v['linux_service']['cases'][4].update(total_through_stop_seconds=2.1)]
     for change in changes:
         v=copy.deepcopy(value);change(v)
         try:verify(v)
@@ -121,5 +160,5 @@ def controls(value):
 
 
 def render(v):
-    title='Cacheweft exploration evidence'
-    return '<!doctype html><html lang="en"><meta charset="utf-8"><title>'+title+'</title><style>body{font:16px system-ui;max-width:1000px;margin:40px auto;padding:20px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f6f8;padding:20px}</style><h1>'+title+'</h1><p>Passed: '+str(v.get('passed',False))+'</p><p>Exploration core only. Linux VM metrics are separate from native macOS. No power-loss, WAN, long-term or deployed-service qualification.</p><pre>'+html.escape(json.dumps(v,indent=2,allow_nan=False))+'</pre></html>\n'
+    title='Cacheweft milestone 1 evidence'
+    return '<!doctype html><html lang="en"><meta charset="utf-8"><title>'+title+'</title><style>body{font:16px system-ui;max-width:1000px;margin:40px auto;padding:20px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f6f8;padding:20px}</style><h1>'+title+'</h1><p>Passed: '+str(v.get('passed',False))+'</p><p>Unprivileged local daemon, deadlines and normal VM reboot. Linux VM metrics are separate from native macOS. No systemd, power-loss, WAN or long-term qualification.</p><pre>'+html.escape(json.dumps(v,indent=2,allow_nan=False))+'</pre></html>\n'

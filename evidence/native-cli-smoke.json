@@ -1,0 +1,42 @@
+{
+  "scope": "supplemental native macOS CLI subprocess smoke, not additional Linux qualification",
+  "source": {
+    "pyproject.toml": "6ee0499a249a5170281f960f4035720af3d6a808a085362437a1a3003123eecc",
+    "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
+    "cacheweft/cli.py": "7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5",
+    "cacheweft/core.py": "4f5f7a0db664b336e38cd218a0764007cd389bd2a983b0d7e50a0f9a7f615d3a",
+    "cacheweft/http.py": "41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76",
+    "cacheweft/service.py": "7c34a9cfcffbf58fb1b7d0d85188ba14361f15a2dd5445d33617ffa16902e5d6",
+    "tools/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tools/cases.py": "018793b45dc0d426c9cc31487cfc8c288130864da4ec360da99d54c5dc7edcde",
+    "tools/milestone.py": "e5aa771be7359d022b19bb5434c560a926012bf25453c6d18e76888337ac7f11",
+    "tools/reboot.py": "f948294a00c181c97d962d28cebe664a42cd38d924da718a56d80628ac9ef3f5",
+    "tools/report.py": "9523241cab94993d051133f6622062962cb5d8a965bf011b7e1e597fc66da890",
+    "tools/unit.py": "a1f904bef90862c9bbe376dca54d4d8bc1002dc67b96396645eee22a589669e0",
+    "tools/validate.py": "332d9fd6eb980d0b56fc82416bba8f076deb05a0d5c4ea67503f8a5e5031a7ed",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/daemon_fixture.py": "03ac73462542d1e7b8adbf38907b82398b093a1ce83a499bd919e4e8091acd1f",
+    "tests/fixture.py": "11eadd60812db5db5ebe5acbfbd620d6699497e6666e789f404e0d504c0b728e",
+    "tests/test_core.py": "ef8d6b1dd9195d814e47e4ce665ce1f4361340b39057945a5433f42a76b67a8b",
+    "tests/test_service.py": "4fa4b1429ec989275be88b96684cb7e6125af672d59a8d680ca027ca62ca324f"
+  },
+  "commands": [
+    "fetch old fixture-v1 --seconds .2",
+    "resume new fixture-v1 --source old --seconds 3",
+    "status new",
+    "gc-plan",
+    "gc-run --plan FILE",
+    "fetch cancelme fixture-v1 --seconds 3",
+    "cancel cancelme"
+  ],
+  "resume_exit": 0,
+  "status_exit": 0,
+  "cancel_exit": 0,
+  "resume_attempts": 1,
+  "old_state": "TIMED_OUT",
+  "old_deadline_unchanged": true,
+  "fresh_state": "SUCCEEDED",
+  "cancel_result": "CANCELLED",
+  "process_exit": 0,
+  "socket_removed": true
+}
