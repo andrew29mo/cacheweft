@@ -51,6 +51,7 @@ Linux VM metrics and native macOS observations are separate.
 
 - [Architecture and state machines](docs/ARCHITECTURE.md)
 - [Exploration results and remaining acceptance criteria](docs/EXPLORATIONS.md)
+- [Review findings and corrections](docs/REVIEW.md)
 - [Recorded JSON](evidence/latest.json) and [HTML](evidence/latest.html)
 - [Third-party tools](docs/DEPENDENCIES.md)
 

@@ -51,14 +51,17 @@ c.submit('reboot_request','fixture');c.wait('reboot_request');os._exit(74)
     else:
         before=json.loads((BASE/'prepared.json').read_text());boot=Path('/proc/sys/kernel/random/boot_id').read_text().strip()
         same=digest(root/'catalog.db')==before['catalog_sha256']
+        pre_catalog_hash=digest(root/'catalog.db')
+        stage_hashes=[digest(x) for x in (root/'staging').iterdir()]
         pre_states=states(root)
-        if boot==before['boot_id'] or not same:raise RuntimeError('Boot did not change or catalog changed before recovery')
+        if boot==before['boot_id'] or not same or stage_hashes!=before['stage_sha256']:raise RuntimeError('Boot did not change or retained state changed before recovery')
         with Cache(root,[],None) as c:
             status=c.status('reboot_request')
             if status['request']['state']!='SUCCEEDED' or not status['available']:raise RuntimeError('Pending publish not recovered')
             with c.read(status['request']['digest']) as f:
                 if f.read()!=DATA:raise RuntimeError('Recovered content differs')
         v=dict(boot_changed=True,boot_id_after=boot,catalog_unchanged_before_recovery=True,states_before_recovery=pre_states,
+               catalog_sha256_before_recovery=pre_catalog_hash,stage_sha256_before_recovery=stage_hashes,recovered_request=status['request'],
                before=before,recovered_correct=True,normal_reboot=True,power_loss_tested=False)
         (BASE/'finished.json').write_text(json.dumps(v,indent=2)+'\n');print(json.dumps(v))
 

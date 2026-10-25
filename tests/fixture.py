@@ -32,13 +32,16 @@ class Origin:
                 if mode=='weak': etag='W/"v1"'
                 if mode=='none': etag=None
                 if mode=='416':status=416
+                if rang and start>=len(DATA):status=416
                 body=DATA[start:]
+                if status==416:body=b''
                 if mode=='corrupt':body=b'x'*len(body)
                 self.send_response(status)
                 if etag:self.send_header('ETag',etag)
                 self.send_header('Content-Length',str(len(body)+(1 if mode=='wrong_length' else 0)))
                 if mode=='encoded': self.send_header('Content-Encoding','gzip')
                 if status==206:self.send_header('Content-Range',f'bytes {start+1 if mode=="bad_range" else start}-{len(DATA)-1}/{len(DATA)}')
+                if status==416:self.send_header('Content-Range',f'bytes */{len(DATA)}')
                 self.end_headers()
                 try:
                     if mode=='drop' and not rang:

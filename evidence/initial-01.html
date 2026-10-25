@@ -1,0 +1,518 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Cacheweft exploration evidence</title><style>body{font:16px system-ui;max-width:1000px;margin:40px auto;padding:20px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f6f8;padding:20px}</style><h1>Cacheweft exploration evidence</h1><p>Passed: True</p><p>Exploration core only. Linux VM metrics are separate from native macOS. No power-loss, WAN, long-term or deployed-service qualification.</p><pre>{
+  &quot;contract&quot;: &quot;cacheweft-exploration-v2&quot;,
+  &quot;passed&quot;: true,
+  &quot;recorded_utc&quot;: &quot;2026-10-25T08:46:45.810218+00:00&quot;,
+  &quot;source&quot;: {
+    &quot;pyproject.toml&quot;: &quot;af7360215f65e363a138cb62cf8c708f8669e52136ca7b7e028acfded6e70cce&quot;,
+    &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
+    &quot;cacheweft/core.py&quot;: &quot;9ae9adeaed840cb4bef1d96104840d47ff83435ca4930ce02c3f64c423aab004&quot;,
+    &quot;cacheweft/http.py&quot;: &quot;5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925&quot;,
+    &quot;tools/__init__.py&quot;: &quot;e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&quot;,
+    &quot;tools/cases.py&quot;: &quot;15bb694a93aa4ed9f8451d48e4d9a8073b8301b1cc6a247560a102d38a8801b1&quot;,
+    &quot;tools/reboot.py&quot;: &quot;11db34b29875052f619d6b021d8c527e7a65638a57606e0e188f362c61f0b3ec&quot;,
+    &quot;tools/report.py&quot;: &quot;d22684516e168e8f7d4013f93b14874659d3d200544c2b4e2b5e3b8b695432be&quot;,
+    &quot;tools/unit.py&quot;: &quot;a1f904bef90862c9bbe376dca54d4d8bc1002dc67b96396645eee22a589669e0&quot;,
+    &quot;tools/validate.py&quot;: &quot;06199619ce81c5c2c00675430418ef2ebf6913ac8537463fc7cd2c12175cef8b&quot;,
+    &quot;tests/__init__.py&quot;: &quot;e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&quot;,
+    &quot;tests/fixture.py&quot;: &quot;f12fb38aa24cd4c24b4a1e7c2bd96e68b54e8d25b052cd31b7f3a733bf300d22&quot;,
+    &quot;tests/test_core.py&quot;: &quot;e7783e29a875f3005e8d7ca66b5bbd88a7a74e4405634f8aa48f9fccac44842e&quot;
+  },
+  &quot;wheel_sha256&quot;: &quot;70bfa0610297587b250f2a5c96f48aef7e1d6167de13b3cec3bedfaae5ffc8b3&quot;,
+  &quot;stages&quot;: [
+    {
+      &quot;name&quot;: &quot;initial&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.37440808303654194
+    },
+    {
+      &quot;name&quot;: &quot;create&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 22.632361249998212
+    },
+    {
+      &quot;name&quot;: &quot;dependencies&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 14.084146584034897
+    },
+    {
+      &quot;name&quot;: &quot;upload&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.3917882079840638
+    },
+    {
+      &quot;name&quot;: &quot;install&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 1.9227069999906234
+    },
+    {
+      &quot;name&quot;: &quot;provenance&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.2935279999510385
+    },
+    {
+      &quot;name&quot;: &quot;native&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 3.7687445000046864
+    },
+    {
+      &quot;name&quot;: &quot;native-cases&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.8210708750411868
+    },
+    {
+      &quot;name&quot;: &quot;linux&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 3.5773272500373423
+    },
+    {
+      &quot;name&quot;: &quot;linux-read&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.35547208396019414
+    },
+    {
+      &quot;name&quot;: &quot;linux-cases&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 1.698228458990343
+    },
+    {
+      &quot;name&quot;: &quot;linux-cases-read&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.2755465419613756
+    },
+    {
+      &quot;name&quot;: &quot;reboot-prepare&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 1.0128189589595422
+    },
+    {
+      &quot;name&quot;: &quot;reboot-prepared-read&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.4834863339783624
+    },
+    {
+      &quot;name&quot;: &quot;schedule-reboot&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.3387920000241138
+    },
+    {
+      &quot;name&quot;: &quot;reboot-finish&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.3151057500508614
+    },
+    {
+      &quot;name&quot;: &quot;reboot-finished-read&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.25431941699935123
+    },
+    {
+      &quot;name&quot;: &quot;delete&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 1.4080540830036625
+    },
+    {
+      &quot;name&quot;: &quot;final&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.19465479103382677
+    }
+  ],
+  &quot;host_mounts&quot;: &quot;none&quot;,
+  &quot;limits&quot;: {
+    &quot;power_loss_tested&quot;: false,
+    &quot;wan_tested&quot;: false,
+    &quot;deployed_service_tested&quot;: false,
+    &quot;long_term_tested&quot;: false
+  },
+  &quot;installed_modules&quot;: {
+    &quot;cacheweft/core.py&quot;: &quot;9ae9adeaed840cb4bef1d96104840d47ff83435ca4930ce02c3f64c423aab004&quot;,
+    &quot;cacheweft/http.py&quot;: &quot;5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925&quot;,
+    &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;
+  },
+  &quot;native&quot;: {
+    &quot;passed&quot;: true,
+    &quot;tests&quot;: 37,
+    &quot;test_ids&quot;: [
+      &quot;tests.test_core.CoreTests.test_416_not_success&quot;,
+      &quot;tests.test_core.CoreTests.test_bad_range_refused&quot;,
+      &quot;tests.test_core.CoreTests.test_cancel_races_durable_publish_intent&quot;,
+      &quot;tests.test_core.CoreTests.test_cancel_sql_failure_no_success&quot;,
+      &quot;tests.test_core.CoreTests.test_capacity_refusal_deletes_nothing&quot;,
+      &quot;tests.test_core.CoreTests.test_changed_validator_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_close_keeps_lock_until_reader_closed&quot;,
+      &quot;tests.test_core.CoreTests.test_coalescing_cancel_one&quot;,
+      &quot;tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows&quot;,
+      &quot;tests.test_core.CoreTests.test_disk_error_retires_authority&quot;,
+      &quot;tests.test_core.CoreTests.test_encoded_body_refused&quot;,
+      &quot;tests.test_core.CoreTests.test_existing_target_not_overwritten&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_crash_recovery&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_crash_retains_partial_deletion_ownership&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_then_read_and_stale_generation&quot;,
+      &quot;tests.test_core.CoreTests.test_https_verified_content&quot;,
+      &quot;tests.test_core.CoreTests.test_late_chunk_after_last_cancel&quot;,
+      &quot;tests.test_core.CoreTests.test_lock_and_corrupt_on_restart&quot;,
+      &quot;tests.test_core.CoreTests.test_old_epoch_plan_and_pin_rejected&quot;,
+      &quot;tests.test_core.CoreTests.test_persistent_attempt_budget&quot;,
+      &quot;tests.test_core.CoreTests.test_pin_and_read_prevent_stale_gc_plan&quot;,
+      &quot;tests.test_core.CoreTests.test_publish_boundary_cancel_too_late&quot;,
+      &quot;tests.test_core.CoreTests.test_range_ignored_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_reader_and_job_limits&quot;,
+      &quot;tests.test_core.CoreTests.test_readonly_database_retires_authority&quot;,
+      &quot;tests.test_core.CoreTests.test_request_budget_and_conflict&quot;,
+      &quot;tests.test_core.CoreTests.test_reservation_not_oversold&quot;,
+      &quot;tests.test_core.CoreTests.test_resume_real_range&quot;,
+      &quot;tests.test_core.CoreTests.test_retired_download_cannot_block_new_generation&quot;,
+      &quot;tests.test_core.CoreTests.test_shorter_than_checkpoint_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_symlink_destination_never_overwritten&quot;,
+      &quot;tests.test_core.CoreTests.test_symlink_not_followed&quot;,
+      &quot;tests.test_core.CoreTests.test_tls_and_origin_restriction&quot;,
+      &quot;tests.test_core.CoreTests.test_unknown_data_charged_not_deleted&quot;,
+      &quot;tests.test_core.CoreTests.test_weak_or_absent_etag_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_wrong_hash_not_published&quot;,
+      &quot;tests.test_core.CoreTests.test_wrong_length_refused&quot;
+    ],
+    &quot;failures&quot;: 0,
+    &quot;errors&quot;: 0,
+    &quot;skipped&quot;: 0,
+    &quot;seconds&quot;: 3.6531427080044523,
+    &quot;platform&quot;: &quot;Darwin&quot;,
+    &quot;python&quot;: &quot;3.12.14&quot;,
+    &quot;sqlite&quot;: &quot;3.53.1&quot;,
+    &quot;openssl&quot;: &quot;OpenSSL 3.5.8 25 Aug 2026&quot;,
+    &quot;modules&quot;: {
+      &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
+      &quot;cacheweft/core.py&quot;: &quot;9ae9adeaed840cb4bef1d96104840d47ff83435ca4930ce02c3f64c423aab004&quot;,
+      &quot;cacheweft/http.py&quot;: &quot;5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925&quot;
+    }
+  },
+  &quot;native_cases&quot;: {
+    &quot;measurements&quot;: {
+      &quot;environment&quot;: &quot;Darwin&quot;,
+      &quot;memory_scope&quot;: &quot;whole observer process including TLS fixture and core&quot;,
+      &quot;memory_kind&quot;: &quot;peak_RSS&quot;,
+      &quot;performance_scope&quot;: &quot;local TLS fixture; single observation per mode, no WAN/speedup claim&quot;,
+      &quot;trials&quot;: [
+        {
+          &quot;mode&quot;: &quot;cold&quot;,
+          &quot;request_count&quot;: 1,
+          &quot;size&quot;: 1048576,
+          &quot;download_seconds&quot;: 0.0380678329966031,
+          &quot;read_seconds&quot;: 0.0018217909964732826,
+          &quot;actual_origin_requests&quot;: 1,
+          &quot;origin_payload_bytes&quot;: 1048576,
+          &quot;request_ranges&quot;: [
+            null
+          ],
+          &quot;correct&quot;: true,
+          &quot;process_rss_or_peak_bytes&quot;: 33030144,
+          &quot;usage&quot;: {
+            &quot;payload_bytes&quot;: 1048576,
+            &quot;remaining_reserved&quot;: 0,
+            &quot;allocated_payload_bytes&quot;: 1048576,
+            &quot;budget&quot;: 16777216,
+            &quot;free_bytes&quot;: 712807788544
+          },
+          &quot;root_allocated_bytes&quot;: 1069056
+        },
+        {
+          &quot;mode&quot;: &quot;resume&quot;,
+          &quot;request_count&quot;: 1,
+          &quot;size&quot;: 1048576,
+          &quot;download_seconds&quot;: 0.04039074998581782,
+          &quot;read_seconds&quot;: 0.0014147080364637077,
+          &quot;actual_origin_requests&quot;: 2,
+          &quot;origin_payload_bytes&quot;: 1048576,
+          &quot;request_ranges&quot;: [
+            null,
+            &quot;bytes=131072-&quot;
+          ],
+          &quot;correct&quot;: true,
+          &quot;process_rss_or_peak_bytes&quot;: 34488320,
+          &quot;usage&quot;: {
+            &quot;payload_bytes&quot;: 1048576,
+            &quot;remaining_reserved&quot;: 0,
+            &quot;allocated_payload_bytes&quot;: 1048576,
+            &quot;budget&quot;: 16777216,
+            &quot;free_bytes&quot;: 712806715392
+          },
+          &quot;root_allocated_bytes&quot;: 1069056
+        },
+        {
+          &quot;mode&quot;: &quot;coalesced&quot;,
+          &quot;request_count&quot;: 4,
+          &quot;size&quot;: 1048576,
+          &quot;download_seconds&quot;: 0.04012062499532476,
+          &quot;read_seconds&quot;: 0.0012482500169426203,
+          &quot;actual_origin_requests&quot;: 1,
+          &quot;origin_payload_bytes&quot;: 1048576,
+          &quot;request_ranges&quot;: [
+            null
+          ],
+          &quot;correct&quot;: true,
+          &quot;process_rss_or_peak_bytes&quot;: 34553856,
+          &quot;usage&quot;: {
+            &quot;payload_bytes&quot;: 1048576,
+            &quot;remaining_reserved&quot;: 0,
+            &quot;allocated_payload_bytes&quot;: 1048576,
+            &quot;budget&quot;: 16777216,
+            &quot;free_bytes&quot;: 712805646336
+          },
+          &quot;root_allocated_bytes&quot;: 1069056
+        }
+      ]
+    }
+  },
+  &quot;linux&quot;: {
+    &quot;passed&quot;: true,
+    &quot;tests&quot;: 37,
+    &quot;test_ids&quot;: [
+      &quot;tests.test_core.CoreTests.test_416_not_success&quot;,
+      &quot;tests.test_core.CoreTests.test_bad_range_refused&quot;,
+      &quot;tests.test_core.CoreTests.test_cancel_races_durable_publish_intent&quot;,
+      &quot;tests.test_core.CoreTests.test_cancel_sql_failure_no_success&quot;,
+      &quot;tests.test_core.CoreTests.test_capacity_refusal_deletes_nothing&quot;,
+      &quot;tests.test_core.CoreTests.test_changed_validator_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_close_keeps_lock_until_reader_closed&quot;,
+      &quot;tests.test_core.CoreTests.test_coalescing_cancel_one&quot;,
+      &quot;tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows&quot;,
+      &quot;tests.test_core.CoreTests.test_disk_error_retires_authority&quot;,
+      &quot;tests.test_core.CoreTests.test_encoded_body_refused&quot;,
+      &quot;tests.test_core.CoreTests.test_existing_target_not_overwritten&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_crash_recovery&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_crash_retains_partial_deletion_ownership&quot;,
+      &quot;tests.test_core.CoreTests.test_gc_then_read_and_stale_generation&quot;,
+      &quot;tests.test_core.CoreTests.test_https_verified_content&quot;,
+      &quot;tests.test_core.CoreTests.test_late_chunk_after_last_cancel&quot;,
+      &quot;tests.test_core.CoreTests.test_lock_and_corrupt_on_restart&quot;,
+      &quot;tests.test_core.CoreTests.test_old_epoch_plan_and_pin_rejected&quot;,
+      &quot;tests.test_core.CoreTests.test_persistent_attempt_budget&quot;,
+      &quot;tests.test_core.CoreTests.test_pin_and_read_prevent_stale_gc_plan&quot;,
+      &quot;tests.test_core.CoreTests.test_publish_boundary_cancel_too_late&quot;,
+      &quot;tests.test_core.CoreTests.test_range_ignored_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_reader_and_job_limits&quot;,
+      &quot;tests.test_core.CoreTests.test_readonly_database_retires_authority&quot;,
+      &quot;tests.test_core.CoreTests.test_request_budget_and_conflict&quot;,
+      &quot;tests.test_core.CoreTests.test_reservation_not_oversold&quot;,
+      &quot;tests.test_core.CoreTests.test_resume_real_range&quot;,
+      &quot;tests.test_core.CoreTests.test_retired_download_cannot_block_new_generation&quot;,
+      &quot;tests.test_core.CoreTests.test_shorter_than_checkpoint_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_symlink_destination_never_overwritten&quot;,
+      &quot;tests.test_core.CoreTests.test_symlink_not_followed&quot;,
+      &quot;tests.test_core.CoreTests.test_tls_and_origin_restriction&quot;,
+      &quot;tests.test_core.CoreTests.test_unknown_data_charged_not_deleted&quot;,
+      &quot;tests.test_core.CoreTests.test_weak_or_absent_etag_restarts&quot;,
+      &quot;tests.test_core.CoreTests.test_wrong_hash_not_published&quot;,
+      &quot;tests.test_core.CoreTests.test_wrong_length_refused&quot;
+    ],
+    &quot;failures&quot;: 0,
+    &quot;errors&quot;: 0,
+    &quot;skipped&quot;: 0,
+    &quot;seconds&quot;: 3.220003351999999,
+    &quot;platform&quot;: &quot;Linux&quot;,
+    &quot;python&quot;: &quot;3.12.3&quot;,
+    &quot;sqlite&quot;: &quot;3.45.1&quot;,
+    &quot;openssl&quot;: &quot;OpenSSL 3.0.13 30 Jan 2024&quot;,
+    &quot;modules&quot;: {
+      &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
+      &quot;cacheweft/core.py&quot;: &quot;9ae9adeaed840cb4bef1d96104840d47ff83435ca4930ce02c3f64c423aab004&quot;,
+      &quot;cacheweft/http.py&quot;: &quot;5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925&quot;
+    }
+  },
+  &quot;linux_cases&quot;: {
+    &quot;measurements&quot;: {
+      &quot;environment&quot;: &quot;Linux&quot;,
+      &quot;memory_scope&quot;: &quot;whole observer process including TLS fixture and core&quot;,
+      &quot;memory_kind&quot;: &quot;current_RSS&quot;,
+      &quot;performance_scope&quot;: &quot;local TLS fixture; single observation per mode, no WAN/speedup claim&quot;,
+      &quot;trials&quot;: [
+        {
+          &quot;mode&quot;: &quot;cold&quot;,
+          &quot;request_count&quot;: 1,
+          &quot;size&quot;: 1048576,
+          &quot;download_seconds&quot;: 0.033015563999995834,
+          &quot;read_seconds&quot;: 0.0009204590000067014,
+          &quot;actual_origin_requests&quot;: 1,
+          &quot;origin_payload_bytes&quot;: 1048576,
+          &quot;request_ranges&quot;: [
+            null
+          ],
+          &quot;correct&quot;: true,
+          &quot;process_rss_or_peak_bytes&quot;: 28004352,
+          &quot;usage&quot;: {
+            &quot;payload_bytes&quot;: 1048576,
+            &quot;remaining_reserved&quot;: 0,
+            &quot;allocated_payload_bytes&quot;: 1052672,
+            &quot;budget&quot;: 16777216,
+            &quot;free_bytes&quot;: 18383482880
+          },
+          &quot;root_allocated_bytes&quot;: 1073152
+        },
+        {
+          &quot;mode&quot;: &quot;resume&quot;,
+          &quot;request_count&quot;: 1,
+          &quot;size&quot;: 1048576,
+          &quot;download_seconds&quot;: 0.03343210100000249,
+          &quot;read_seconds&quot;: 0.0007520260000006829,
+          &quot;actual_origin_requests&quot;: 2,
+          &quot;origin_payload_bytes&quot;: 1048576,
+          &quot;request_ranges&quot;: [
+            null,
+            &quot;bytes=131072-&quot;
+          ],
+          &quot;correct&quot;: true,
+          &quot;process_rss_or_peak_bytes&quot;: 28258304,
+          &quot;usage&quot;: {
+            &quot;payload_bytes&quot;: 1048576,
+            &quot;remaining_reserved&quot;: 0,
+            &quot;allocated_payload_bytes&quot;: 1052672,
+            &quot;budget&quot;: 16777216,
+            &quot;free_bytes&quot;: 18382397440
+          },
+          &quot;root_allocated_bytes&quot;: 1073152
+        },
+        {
+          &quot;mode&quot;: &quot;coalesced&quot;,
+          &quot;request_count&quot;: 4,
+          &quot;size&quot;: 1048576,
+          &quot;download_seconds&quot;: 0.03569938999999778,
+          &quot;read_seconds&quot;: 0.001484091999998327,
+          &quot;actual_origin_requests&quot;: 1,
+          &quot;origin_payload_bytes&quot;: 1048576,
+          &quot;request_ranges&quot;: [
+            null
+          ],
+          &quot;correct&quot;: true,
+          &quot;process_rss_or_peak_bytes&quot;: 28180480,
+          &quot;usage&quot;: {
+            &quot;payload_bytes&quot;: 1048576,
+            &quot;remaining_reserved&quot;: 0,
+            &quot;allocated_payload_bytes&quot;: 1048576,
+            &quot;budget&quot;: 16777216,
+            &quot;free_bytes&quot;: 18381316096
+          },
+          &quot;root_allocated_bytes&quot;: 1069056
+        }
+      ]
+    },
+    &quot;storage&quot;: {
+      &quot;cases&quot;: [
+        {
+          &quot;mode&quot;: &quot;enospc&quot;,
+          &quot;actual_errors&quot;: [
+            {
+              &quot;point&quot;: &quot;worker_exit&quot;,
+              &quot;error&quot;: &quot;OSError&quot;,
+              &quot;errno&quot;: 28,
+              &quot;sqlite_errorcode&quot;: null
+            }
+          ],
+          &quot;rejected&quot;: true,
+          &quot;published_before_repair&quot;: false,
+          &quot;repair_correct&quot;: true,
+          &quot;injection&quot;: &quot;filled 8MiB tmpfs leaving 32KiB free&quot;
+        },
+        {
+          &quot;mode&quot;: &quot;readonly&quot;,
+          &quot;actual_errors&quot;: [
+            {
+              &quot;point&quot;: &quot;worker_exit&quot;,
+              &quot;error&quot;: &quot;OSError&quot;,
+              &quot;errno&quot;: 30,
+              &quot;sqlite_errorcode&quot;: null
+            }
+          ],
+          &quot;rejected&quot;: true,
+          &quot;published_before_repair&quot;: false,
+          &quot;repair_correct&quot;: true,
+          &quot;injection&quot;: &quot;read-only bind mount&quot;
+        },
+        {
+          &quot;mode&quot;: &quot;sqlite_full&quot;,
+          &quot;sqlite_errorcode&quot;: 13,
+          &quot;successful_extra_requests&quot;: 38,
+          &quot;degraded&quot;: true,
+          &quot;repair_correct&quot;: true
+        }
+      ],
+      &quot;mount_removed&quot;: true
+    }
+  },
+  &quot;reboot&quot;: {
+    &quot;boot_changed&quot;: true,
+    &quot;boot_id_after&quot;: &quot;cb565f85-df6e-4eec-8bc3-afae5dc272f8&quot;,
+    &quot;catalog_unchanged_before_recovery&quot;: true,
+    &quot;states_before_recovery&quot;: {
+      &quot;objects&quot;: [
+        [
+          &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+          &quot;2f68481b-c1f2-4bd9-ab87-c70c7ec64b45&quot;,
+          &quot;PUBLISHING&quot;,
+          1048576
+        ]
+      ],
+      &quot;requests&quot;: [
+        [
+          &quot;reboot_request&quot;,
+          &quot;2f68481b-c1f2-4bd9-ab87-c70c7ec64b45&quot;,
+          &quot;WAITING&quot;
+        ]
+      ]
+    },
+    &quot;before&quot;: {
+      &quot;boot_id&quot;: &quot;7d42bcd6-938a-48d0-b3a4-5ca12009216e&quot;,
+      &quot;catalog_sha256&quot;: &quot;19dc13318771feedc5e72f845ad9ea35b8815bd9f268e0f094dddd78e1b8d7f7&quot;,
+      &quot;stage_sha256&quot;: [
+        &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;
+      ],
+      &quot;target_absent&quot;: true,
+      &quot;crash_exit&quot;: 73,
+      &quot;states&quot;: {
+        &quot;objects&quot;: [
+          [
+            &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
+            &quot;2f68481b-c1f2-4bd9-ab87-c70c7ec64b45&quot;,
+            &quot;PUBLISHING&quot;,
+            1048576
+          ]
+        ],
+        &quot;requests&quot;: [
+          [
+            &quot;reboot_request&quot;,
+            &quot;2f68481b-c1f2-4bd9-ab87-c70c7ec64b45&quot;,
+            &quot;WAITING&quot;
+          ]
+        ]
+      }
+    },
+    &quot;recovered_correct&quot;: true,
+    &quot;normal_reboot&quot;: true,
+    &quot;power_loss_tested&quot;: false
+  },
+  &quot;cleanup&quot;: {
+    &quot;vm_deleted&quot;: true,
+    &quot;disk_removed&quot;: true,
+    &quot;preexisting_unchanged&quot;: true
+  },
+  &quot;source_unchanged&quot;: true,
+  &quot;controls&quot;: {
+    &quot;rejected&quot;: 14,
+    &quot;all_rejected&quot;: true
+  }
+}</pre></html>

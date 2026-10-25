@@ -26,14 +26,23 @@ exit codes, timeouts, source hashes and cleanup. Any failure prevents pass.
 
 The Linux-only storage suite fills an 8 MiB tmpfs until only 32 KiB is free,
 uses a real read-only bind mount for path-write failures, and sets a real SQLite
-page cap to obtain SQLITE_FULL. These are three distinct faults; a read-only
+page cap to obtain SQLITE_FULL. A read-only
 bind mount is not a claim of failing physical media. Each fault must deny new
-work, avoid publication and permit correct explicit repair/restart.
+work and permit correct explicit repair/restart. The admission-FULL case starts
+with a READY object, so it proves rejection of new catalog admission rather
+than preventing that earlier publication. A separate publish-FULL case uses a
+test-only SQLite allocation trigger at the formal publish-intent transaction:
+the page cap causes actual SQLITE_FULL, leaving VERIFYING/WAITING with no
+target. Offline trigger removal and restart must complete the exact request
+without another origin GET. It is controlled SQLite capacity pressure, not a
+physical disk-full event.
 
 For normal VM reboot, a child exits immediately after durable publish intent.
 No product process is then alive to clean it up. The catalog hash and staging
 digest are recorded. After kernel boot ID changes, the harness checks catalog
 bytes unchanged before invoking formal Cache recovery and verifies full content.
+The report also carries actual pre-recovery catalog/staging hashes and retained
+object/request rows tied to the recovered request.
 This tests manual invocation of the formal recovery core after reboot; it does
 not test installed systemd autostart or suddenly interrupted power.
 

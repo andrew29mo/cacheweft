@@ -77,6 +77,11 @@ Checkpoint ordering is payload write/flush/fsync, then SQLite offset/ETag
 commit. At recovery a tail beyond the checkpoint is truncated; a shorter file
 forces offset zero. The complete content is hashed before publication.
 
+A complete checkpoint (offset equals trusted size) is verified locally before
+any attempt/transfer budget check. It never sends `Range: bytes=size-` and does
+not need an ETag or working origin to finish publication. A compliant origin
+would reject that range with 416. The TLS fixture now does so as well.
+
 Publication: fsynced file -> durable PUBLISHING intent -> atomic hard link to
 digest destination (must not overwrite) -> target directory fsync -> unlink
 stage -> staging directory fsync -> READY and subscriber success transaction.
@@ -89,8 +94,14 @@ verification. The target is rechecked even when the staging name was already
 removed. No-intent orphan files are not promoted. READY objects are fully
 revalidated before startup completes. Same-size corruption becomes CORRUPT.
 
-SQLite uses DELETE/FULL. A synchronous storage/SQLite error retires mutation
+SQLite uses DELETE/FULL. A synchronous storage/SQLite error inside the controller retires mutation
 authority as DEGRADED. No async DB task or timeout-based lock takeover exists.
+The authority context classifies errors from controlled file/catalog operations;
+it does not infer their origin from a short errno allowlist. Network get/read
+is outside that context and can retry. EDQUOT/EACCES regression checks inject
+errors at a formal write boundary; they are not real quota-device trials.
+Consumer reads through the public file object occur outside authority; their
+read errors propagate to the consumer and do not promise global retirement.
 Repair then restart the same catalog/root/lock. Never erase them to manufacture
 recovery. Long-running synchronous fsync/commit blocks authority operations;
 bounded responsiveness under that fault is not qualified.

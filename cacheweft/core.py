@@ -96,6 +96,18 @@ class Cache:
     def _call(self, point, **info):
         self.hook(point, info)
 
+    @contextmanager
+    def _authority(self):
+        # Classify by operation boundary, not an incomplete list of errno values.
+        # Transport get/read never runs here. Controlled writes/catalog access do;
+        # reads through the public read() file object execute in the caller.
+        with self.lock:
+            try:
+                yield
+            except (OSError, sqlite3.Error):
+                self.degraded=True
+                raise
+
     def _row(self, digest):
         self.db.row_factory = sqlite3.Row
         return self.db.execute('SELECT * FROM objects WHERE digest=?', (digest,)).fetchone()
@@ -194,6 +206,18 @@ class Cache:
             self._finish_requests(row['digest'],row['generation'],'SUCCEEDED')
         self._call('after_ready', digest=row['digest'])
 
+    def _seal_publish(self, row):
+        # Authority is held. All writable FDs have closed before hashing.
+        with self._tx():
+            self.db.execute("UPDATE objects SET state='VERIFYING' WHERE digest=?",(row['digest'],))
+        self._call('sealed',digest=row['digest'])
+        if not self._verify(self._stage(row),row):raise CacheError('Digest mismatch')
+        self._call('verified',digest=row['digest'])
+        with self._tx():
+            self.db.execute("UPDATE objects SET state='PUBLISHING' WHERE digest=?",(row['digest'],))
+        self._call('publish_intent',digest=row['digest'])
+        self._publish(self._row(row['digest']))
+
     def _recover(self):
         self.db.row_factory = sqlite3.Row
         for row in list(self.db.execute('SELECT * FROM objects')):
@@ -240,7 +264,7 @@ class Cache:
             self.degraded=True
 
     def submit(self, request_id, name):
-        with self.lock:
+        with self._authority():
             self._guard()
             if not isinstance(request_id,str) or not re.fullmatch('[A-Za-z0-9_-]{1,64}',request_id):
                 raise CacheError('Invalid request ID')
@@ -291,7 +315,7 @@ class Cache:
         self.work.add(self.futures[digest])
 
     def resume(self):
-        with self.lock:
+        with self._authority():
             self._guard()
             for row in list(self.db.execute("SELECT * FROM objects WHERE state='QUEUED'")):
                 if self.db.execute("SELECT count(*) FROM requests WHERE digest=? AND generation=? AND state='WAITING'",(row['digest'],row['generation'])).fetchone()[0]:
@@ -307,8 +331,13 @@ class Cache:
     def _download(self,digest,generation,epoch):
         try:
             while True:
-                with self.lock:
+                with self._authority():
                     row=self._active(digest,generation,epoch)
+                    # A fully checkpointed artifact needs local verification, not
+                    # an unsatisfiable Range bytes=size- (which correctly gets 416).
+                    if row['offset']==row['size']:
+                        self._seal_publish(row)
+                        return
                     if row['attempts'] >= self.max_attempts or row['wire'] >= row['size']*4:
                         raise CacheError('Persistent transfer budget exhausted')
                     offset=row['offset'] if row['etag'] else 0
@@ -337,7 +366,7 @@ class Cache:
                         raise CacheError('Unexpected HTTP status')
                     if response.getheader('Content-Length') != str(size-offset):
                         raise CacheError('Exact Content-Length required')
-                    with self.lock:
+                    with self._authority():
                         row=self._active(digest,generation,epoch)
                         fd=self._open(stage,os.O_RDWR)
                         with os.fdopen(fd,'r+b') as f:
@@ -349,7 +378,7 @@ class Cache:
                         chunk=response.read(min(self.CHUNK,size-position))
                         if not chunk: raise OSError('Truncated body')
                         self._call('chunk_received',position=position,digest=digest)
-                        with self.lock:
+                        with self._authority():
                             row=self._active(digest,generation,epoch)
                             # Charge transfer before write; reservation is retained on any error.
                             if row['wire']+len(chunk)>row['size']*4:
@@ -365,32 +394,23 @@ class Cache:
                             with self._tx():
                                 self.db.execute('UPDATE objects SET offset=? WHERE digest=?',(position,digest))
                             self._call('after_checkpoint',digest=digest)
-                    with self.lock:
+                    with self._authority():
                         row=self._active(digest,generation,epoch)
-                        with self._tx():
-                            self.db.execute("UPDATE objects SET state='VERIFYING' WHERE digest=?",(digest,))
-                        self._call('sealed',digest=digest)
-                        if not self._verify(stage,row): raise CacheError('Digest mismatch')
-                        self._call('verified',digest=digest)
-                        with self._tx():
-                            self.db.execute("UPDATE objects SET state='PUBLISHING' WHERE digest=?",(digest,))
-                        self._call('publish_intent',digest=digest)
-                        self._publish(self._row(digest))
+                        self._seal_publish(row)
                     return
                 except (OSError,TimeoutError) as exc:
-                    if isinstance(exc,OSError) and exc.errno in (5,28,30):
-                        raise
+                    if self.degraded:raise
                     # Network failures may retry; disk/DB failures are handled outside.
-                    with self.lock:
+                    with self._authority():
                         row=self._active(digest,generation,epoch)
                         self._call('retry',offset=row['offset'],reason=type(exc).__name__)
                     continue
                 finally:
                     if conn: conn.close()
         except BaseException as exc:
-            with self.lock:
+            with self._authority():
                 row=self._row(digest)
-                if isinstance(exc,sqlite3.Error) or (isinstance(exc,OSError) and exc.errno in (5,28,30)):
+                if isinstance(exc,sqlite3.Error):
                     self.degraded=True
                 if not self.degraded and not self.stopping and row and row['generation']==generation and row['state'] not in ('CANCELLED','READY','PUBLISHING'):
                     try:
@@ -400,12 +420,12 @@ class Cache:
                     except sqlite3.Error:
                         self.degraded=True
                 # PUBLISHING failure remains recoverable and must stop mutations.
-                if row and row['state']=='PUBLISHING': self.degraded=True
+                if row and row['generation']==generation and row['state']=='PUBLISHING': self.degraded=True
                 self._call('worker_exit',error=type(exc).__name__,errno=getattr(exc,'errno',None),
                            sqlite_errorcode=getattr(exc,'sqlite_errorcode',None))
 
     def status(self,request_id):
-        with self.lock:
+        with self._authority():
             row=self.db.execute('SELECT * FROM requests WHERE id=?',(request_id,)).fetchone()
             if row is None: raise CacheError('Unknown request')
             obj=self._row(row['digest'])
@@ -422,7 +442,7 @@ class Cache:
         raise TimeoutError('Request not terminal')
 
     def cancel(self,request_id):
-        with self.lock:
+        with self._authority():
             self._guard()
             req=self.status(request_id)['request']; row=self._row(req['digest'])
             if req['state']!='WAITING': return 'TOO_LATE'
@@ -442,7 +462,7 @@ class Cache:
 
     @contextmanager
     def read(self,digest):
-        with self.lock:
+        with self._authority():
             self._guard()
             if sum(self.refs.values()) >= self.max_readers: raise CacheError('Reader limit')
             row=self._row(digest)
@@ -456,12 +476,12 @@ class Cache:
         try:
             with os.fdopen(fd,'rb') as f: yield f
         finally:
-            with self.lock:
+            with self._authority():
                 self.refs[digest]-=1
                 self.readers_changed.notify_all()
 
     def pin(self,digest,value,token):
-        with self.lock:
+        with self._authority():
             self._guard()
             row=self._row(digest)
             if row is None or row['state']!='READY' or row['generation']!=token.get('generation') or row['revision']!=token.get('revision') or self.epoch!=token.get('epoch'): raise CacheError('Stale pin')
@@ -471,11 +491,11 @@ class Cache:
                 self.degraded=True;raise
 
     def gc_plan(self):
-        with self.lock:
+        with self._authority():
             return [{'digest':r['digest'],'generation':r['generation'],'revision':r['revision'],'epoch':self.epoch} for r in self.db.execute("SELECT * FROM objects WHERE pin=0 AND state IN ('READY','CANCELLED','FAILED','CORRUPT') ORDER BY access") if not self.refs.get(r['digest'],0)]
 
     def gc(self,plan):
-        with self.lock:
+        with self._authority():
             self._guard()
             removed=[]
             try:
@@ -496,12 +516,12 @@ class Cache:
             return removed
 
     def usage(self):
-        with self.lock: return self._usage()
+        with self._authority(): return self._usage()
 
     def close(self):
-        with self.lock: self.stopping=True
+        with self._authority(): self.stopping=True
         self.pool.shutdown(wait=True,cancel_futures=True)
-        with self.lock:
+        with self._authority():
             while any(self.refs.values()):self.readers_changed.wait()
             self.db.close()
             self.lockfile.close()

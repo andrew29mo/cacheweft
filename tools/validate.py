@@ -37,7 +37,7 @@ def main():
         payload={n:hashlib.sha256(z.read(n)).hexdigest() for n in z.namelist() if n.startswith('cacheweft/') and n.endswith('.py')}
     if payload!={k:v for k,v in source.items() if k.startswith('cacheweft/')}:p.error('Wheel/source mismatch')
     env=dict(os.environ,COLIMA_HOME=str(home),PATH=str(tool)+os.pathsep+os.environ['PATH'])
-    v=dict(contract='cacheweft-exploration-v2',passed=False,recorded_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
+    v=dict(contract='cacheweft-exploration-review-v3',passed=False,recorded_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
            source=source,wheel_sha256=hashlib.sha256(wheel.read_bytes()).hexdigest(),stages=[],host_mounts='none',
            limits=dict(power_loss_tested=False,wan_tested=False,deployed_service_tested=False,long_term_tested=False))
     def persist():

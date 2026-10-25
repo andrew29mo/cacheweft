@@ -92,6 +92,7 @@ from cacheweft.http import HTTPS
 root,url,origin,cert,digest,point=sys.argv[1:]
 def hook(p,i):
  if p==point:os._exit(73)
+ if point=='final_checkpoint' and p=='after_checkpoint' and c._row(digest)['offset']==1048576:os._exit(73)
 c=Cache(root,[Spec('model-v1',url,1048576,digest)],HTTPS(origin,'127.0.0.1',cert),hook=hook)
 c.submit('r','model-v1');c.wait('r');os._exit(74)
 '''
@@ -111,6 +112,31 @@ c.submit('r','model-v1');c.wait('r');os._exit(74)
         c=self.cache();c.resume();self.assertEqual(c.wait('r')['request']['state'],'SUCCEEDED')
         self.assertEqual(self.origin.calls[0]['range'],'bytes=65536-')
         with c.read(self.digest) as f:self.assertEqual(f.read(),DATA)
+
+    def test_complete_checkpoint_needs_no_origin_or_attempt(self):
+        self.checkpoint_child('final_checkpoint');self.origin.mode='416';self.origin.calls.clear()
+        c=self.cache(attempts=1);c.resume()
+        self.assertEqual(c.wait('r')['request']['state'],'SUCCEEDED')
+        self.assertEqual(self.origin.calls,[])
+        with c.read(self.digest) as f:self.assertEqual(f.read(),DATA)
+
+    def test_complete_checkpoint_without_validator(self):
+        self.origin.mode='none';self.checkpoint_child('final_checkpoint');self.origin.calls.clear()
+        c=self.cache(attempts=1);c.resume()
+        self.assertEqual(c.wait('r')['request']['state'],'SUCCEEDED');self.assertEqual(self.origin.calls,[])
+
+    def test_complete_checkpoint_corruption_not_published(self):
+        self.checkpoint_child('final_checkpoint')
+        for p in (self.root/'staging').iterdir():p.write_bytes(b'x'*len(DATA))
+        self.origin.calls.clear();c=self.cache();c.resume()
+        self.assertEqual(c.wait('r')['request']['state'],'FAILED');self.assertEqual(self.origin.calls,[])
+
+    def test_fixture_eof_range_is_416(self):
+        conn,r=HTTPS(self.origin.origin,'127.0.0.1',self.origin.cert).get(self.origin.url,{'Range':f'bytes={len(DATA)}-','If-Range':'"v1"'})
+        try:
+            self.assertEqual(r.status,416);self.assertEqual(r.getheader('Content-Range'),f'bytes */{len(DATA)}')
+            self.assertEqual(r.read(),b'')
+        finally:conn.close()
 
     def test_changed_validator_restarts(self):
         self.checkpoint_child('after_checkpoint');self.origin.calls.clear();self.origin.mode='changed'
@@ -248,6 +274,19 @@ c.submit('r','model-v1');c.wait('r');os._exit(74)
         with self.assertRaises(CacheError):c.wait('r')
         self.assertTrue(c.degraded)
         with self.assertRaises(CacheError):c.submit('new','model-v1')
+
+    def test_local_quota_and_permission_errors_are_not_network_retries(self):
+        for code in (errno.EDQUOT,errno.EACCES):
+            with self.subTest(errno=code):
+                self.root=Path(self.dir.name)/str(code);retries=[]
+                def hook(p,i):
+                    if p=='before_write':raise OSError(code,'injected local storage error')
+                    if p=='retry':retries.append(i)
+                c=self.cache(hook=hook);c.submit('r','model-v1')
+                with self.assertRaises(CacheError):c.wait('r')
+                self.assertTrue(c.degraded);self.assertEqual(retries,[])
+                with self.assertRaises(CacheError):c.gc(c.gc_plan())
+                with self.assertRaises(CacheError):c.submit('new','model-v1')
 
     def test_readonly_database_retires_authority(self):
         c=self.cache();c.db.execute('PRAGMA query_only=ON')

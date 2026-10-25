@@ -5,6 +5,10 @@ the same `cacheweft` package that the guest installs from a wheel. TLS origins,
 fault barriers and temporary mounts are observer fixtures; they do not replace
 the transfer/publication/GC implementation.
 
+The initial qualification was reviewed and corrected. The original EOF-range
+fixture masked a complete-checkpoint recovery defect; use the reviewed evidence
+below, not the old pass flag, for that behaviour. See [review findings](REVIEW.md).
+
 ## Decisions reached
 
 1. **Continuation:** Python's direct HTTPS client exposes untransformed response
@@ -12,6 +16,8 @@ the transfer/publication/GC implementation.
    work with a controlled TLS origin. Weak/missing ETag restarts; invalid range,
    416, encoded or wrong-length responses fail. This narrow contract deliberately
    rejects other valid HTTP server behaviours (e.g. chunked-only responses).
+   Complete local checkpoints skip the origin and are rehashed/published even
+   if the last download attempt was consumed or no ETag exists.
 2. **Sealing/publication:** synchronous writes under authority close their FDs
    before verification. Hard-link publication refuses an existing destination;
    persistent intent bridges file/catalog crash windows. Recovery verifies
@@ -21,7 +27,8 @@ the transfer/publication/GC implementation.
    subscriber does not cancel other subscribers. Retired network work cannot
    write to or block a new generation; it still consumes a worker slot.
 4. **Storage/recovery:** actual payload ENOSPC, EROFS via read-only bind and
-   SQLite FULL retire mutation authority. Explicit repair/restart completes the
+   SQLite FULL retire mutation authority. FULL is tested both at catalog
+   admission and at the formal publish-intent transaction. Explicit repair/restart completes the
    operation. Normal VM reboot retains the unfinished catalog byte-for-byte;
    formal core recovery then publishes correct content.
 
@@ -37,7 +44,10 @@ the transfer/publication/GC implementation.
 - Attempt 03: 36 tests/platform and strengthened boot-state/report checks
   passed. It is likewise superseded. A subsequent source review found a missing
   staging-file cleanup in DELETING recovery, requiring a new regression/run.
-- Final attempt: [latest JSON](../evidence/latest.json),
+- Initial 37-test attempt: [archived JSON](../evidence/initial-01.json) and
+  [HTML](../evidence/initial-01.html). These are unchanged historical records;
+  their complete-checkpoint and coalescing evidence had the review gaps noted above.
+- Reviewed final attempt: [latest JSON](../evidence/latest.json),
   [HTML](../evidence/latest.html). The exact frozen inputs, test IDs, module
   fingerprints, stage outcomes, measurements and cleanup are recorded there.
 
@@ -50,13 +60,15 @@ reproduction or hosted CI is implied.
 |---|---|---|
 | File fsync before checkpoint commit | Trim uncommitted tail, restart/resume safely | formal crash-window test |
 | Checkpoint committed | Correct Range from persisted offset | TLS origin request log |
+| Complete checkpoint at last attempt, with/without ETag | Local hash and publish, no GET | formal regression tests |
 | File shorter than checkpoint | Restart from zero | formal test |
 | Verify/publish windows | Complete hash before READY, no half artifact | eight crash positions |
 | Final subscriber cancelled, old chunk returns | No write/publication | delayed chunk test |
 | Old generation delayed while new generation starts | New result remains correct | interleaving test |
-| GC intent before unlink, including staging remainder | Complete owned deletion, keep request history | formal SIGKILL-equivalent exit test |
+| GC intent before unlink, including staging remainder | Complete owned deletion, keep request history | formal abrupt-exit test |
 | GC plan precedes read/pin or instance restart | Reject stale deletion | reference/token tests |
 | Disk full / read-only / SQLite FULL | No false success; deny mutation, explicit repair | actual isolated Linux fault suite |
+| EDQUOT/EACCES at controlled write boundary | No network retry; DEGRADED rejects mutations | injected-error regression, not real quota device |
 | Normal VM reboot with PUBLISHING intent | Catalog unchanged before recovery; correct final bytes | before/after boot IDs and catalog hash |
 
 Crash-window children terminate via `os._exit(73)` at test barriers. This is
@@ -65,15 +77,15 @@ and not literally a SIGKILL signal. Normal VM reboot is separate evidence.
 
 ## Measurement interpretation
 
-Final qualification: **37 implementation tests on each of native macOS and
-isolated Linux**, zero failures/errors/skips. Fourteen independently modified
+Final qualification: **42 implementation tests on each of native macOS and
+isolated Linux**, zero failures/errors/skips. Twenty-six modified
 evidence copies were rejected by the report contract; these are observer
 controls, not additional implementation tests.
 
 | Environment | Cold complete | Interrupted/resumed complete | Four-subscriber complete | Memory observations |
 |---|---:|---:|---:|---|
-| Native macOS | 38.07 ms | 40.39 ms | 40.12 ms | Whole-observer peak RSS: 31.50–32.95 MiB |
-| Isolated Linux VM | 33.02 ms | 33.43 ms | 35.70 ms | Whole-observer current RSS: 26.71–26.95 MiB |
+| Native macOS | 38.82 ms | 41.25 ms | 31.36 ms | Whole-observer peak RSS: 31.25–32.69 MiB |
+| Isolated Linux VM | 92.07 ms | 91.58 ms | 42.30 ms | Whole-observer current RSS: 26.62–26.82 MiB |
 
 Each final cache contains 1,048,576 logical payload bytes and zero remaining
 reservation. Complete cache-file allocation was 1,069,056 bytes on macOS and
@@ -82,6 +94,8 @@ All three modes sent 1,048,576 origin body bytes; resumed mode used two GETs,
 with the second starting at 131,072, while the four-subscriber mode used one.
 
 These are separate observations, not a macOS-versus-Linux performance ranking.
+The latest run was selected because it matches the final source, not because
+it was the fastest. Single observations do not establish a stable latency.
 
 The fixture is deterministic 1 MiB binary data, not a real model. Each mode has
 one observation per environment, with a fresh cache directory and the same
@@ -89,7 +103,10 @@ content: cold, interruption after 128 KiB, and four coalesced subscribers.
 
 Cold completion includes TLS connection, checkpoint fsyncs, full verification
 and publication. Read timing is a subsequent warm read, not download latency.
-Coalescing is verified by four successful request results and one origin GET.
+Coalescing is verified by four WAITING subscribers of one generation before
+the origin response is released, then four successful outcomes and one GET.
+Its completion time includes that controlled barrier and all four submissions;
+it is not a speedup comparison against the unblocked cold path.
 Continuation is verified by an initial GET plus `bytes=131072-` and exactly
 1 MiB of origin body sent across the two requests. No timing-derived speedup
 or confidence interval is claimed.

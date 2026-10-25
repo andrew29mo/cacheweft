@@ -1,137 +1,137 @@
 {
-  "contract": "cacheweft-exploration-v2",
+  "contract": "cacheweft-exploration-review-v3",
   "passed": true,
-  "recorded_utc": "2026-10-25T08:46:45.810218+00:00",
+  "recorded_utc": "2026-10-25T10:35:52.921702+00:00",
   "source": {
     "pyproject.toml": "af7360215f65e363a138cb62cf8c708f8669e52136ca7b7e028acfded6e70cce",
     "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
-    "cacheweft/core.py": "9ae9adeaed840cb4bef1d96104840d47ff83435ca4930ce02c3f64c423aab004",
+    "cacheweft/core.py": "e826b34a08ccb3a51b84ef902ac2717a336565494d7c4223463f6c9fc609b1fb",
     "cacheweft/http.py": "5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925",
     "tools/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "tools/cases.py": "15bb694a93aa4ed9f8451d48e4d9a8073b8301b1cc6a247560a102d38a8801b1",
-    "tools/reboot.py": "11db34b29875052f619d6b021d8c527e7a65638a57606e0e188f362c61f0b3ec",
-    "tools/report.py": "d22684516e168e8f7d4013f93b14874659d3d200544c2b4e2b5e3b8b695432be",
+    "tools/cases.py": "018793b45dc0d426c9cc31487cfc8c288130864da4ec360da99d54c5dc7edcde",
+    "tools/reboot.py": "f948294a00c181c97d962d28cebe664a42cd38d924da718a56d80628ac9ef3f5",
+    "tools/report.py": "80d5a4762ba7cfe03a7a22e9272dd7d76478284af142b954bea319a9cad8aa23",
     "tools/unit.py": "a1f904bef90862c9bbe376dca54d4d8bc1002dc67b96396645eee22a589669e0",
-    "tools/validate.py": "06199619ce81c5c2c00675430418ef2ebf6913ac8537463fc7cd2c12175cef8b",
+    "tools/validate.py": "8707ad92984dcf2fd5108571f88c9b3a31670ec476d1489f82dbb1321096e76a",
     "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "tests/fixture.py": "f12fb38aa24cd4c24b4a1e7c2bd96e68b54e8d25b052cd31b7f3a733bf300d22",
-    "tests/test_core.py": "e7783e29a875f3005e8d7ca66b5bbd88a7a74e4405634f8aa48f9fccac44842e"
+    "tests/fixture.py": "334d6e3493da6c34d3794561ec79a3645d3ad9cb7b0d633595ba1a1b9a9c50b4",
+    "tests/test_core.py": "ef8d6b1dd9195d814e47e4ce665ce1f4361340b39057945a5433f42a76b67a8b"
   },
-  "wheel_sha256": "70bfa0610297587b250f2a5c96f48aef7e1d6167de13b3cec3bedfaae5ffc8b3",
+  "wheel_sha256": "266b3c8e42c5edbf954ccea492b48d52aae5afb221fb21ac6a5e80a38f862418",
   "stages": [
     {
       "name": "initial",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.37440808303654194
+      "seconds": 0.3167764169629663
     },
     {
       "name": "create",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 22.632361249998212
+      "seconds": 21.051962167024612
     },
     {
       "name": "dependencies",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 14.084146584034897
+      "seconds": 17.73784766701283
     },
     {
       "name": "upload",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.3917882079840638
+      "seconds": 0.52073383302195
     },
     {
       "name": "install",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 1.9227069999906234
+      "seconds": 1.4387970420066267
     },
     {
       "name": "provenance",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.2935279999510385
+      "seconds": 0.3353927090065554
     },
     {
       "name": "native",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 3.7687445000046864
+      "seconds": 3.28964387497399
     },
     {
       "name": "native-cases",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.8210708750411868
+      "seconds": 0.7421145830303431
     },
     {
       "name": "linux",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 3.5773272500373423
+      "seconds": 3.2265797079890035
     },
     {
       "name": "linux-read",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.35547208396019414
+      "seconds": 0.346890417044051
     },
     {
       "name": "linux-cases",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 1.698228458990343
+      "seconds": 1.821204291016329
     },
     {
       "name": "linux-cases-read",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.2755465419613756
+      "seconds": 0.3377379580051638
     },
     {
       "name": "reboot-prepare",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 1.0128189589595422
+      "seconds": 0.9794314170139842
     },
     {
       "name": "reboot-prepared-read",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.4834863339783624
+      "seconds": 0.2432995840208605
     },
     {
       "name": "schedule-reboot",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.3387920000241138
+      "seconds": 0.31357512495014817
     },
     {
       "name": "reboot-finish",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.3151057500508614
+      "seconds": 0.4304205839871429
     },
     {
       "name": "reboot-finished-read",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.25431941699935123
+      "seconds": 0.23344149999320507
     },
     {
       "name": "delete",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 1.4080540830036625
+      "seconds": 1.46285191597417
     },
     {
       "name": "final",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.19465479103382677
+      "seconds": 0.20043366600293666
     }
   ],
   "host_mounts": "none",
@@ -142,13 +142,13 @@
     "long_term_tested": false
   },
   "installed_modules": {
-    "cacheweft/core.py": "9ae9adeaed840cb4bef1d96104840d47ff83435ca4930ce02c3f64c423aab004",
+    "cacheweft/core.py": "e826b34a08ccb3a51b84ef902ac2717a336565494d7c4223463f6c9fc609b1fb",
     "cacheweft/http.py": "5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925",
     "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90"
   },
   "native": {
     "passed": true,
-    "tests": 37,
+    "tests": 42,
     "test_ids": [
       "tests.test_core.CoreTests.test_416_not_success",
       "tests.test_core.CoreTests.test_bad_range_refused",
@@ -158,15 +158,20 @@
       "tests.test_core.CoreTests.test_changed_validator_restarts",
       "tests.test_core.CoreTests.test_close_keeps_lock_until_reader_closed",
       "tests.test_core.CoreTests.test_coalescing_cancel_one",
+      "tests.test_core.CoreTests.test_complete_checkpoint_corruption_not_published",
+      "tests.test_core.CoreTests.test_complete_checkpoint_needs_no_origin_or_attempt",
+      "tests.test_core.CoreTests.test_complete_checkpoint_without_validator",
       "tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows",
       "tests.test_core.CoreTests.test_disk_error_retires_authority",
       "tests.test_core.CoreTests.test_encoded_body_refused",
       "tests.test_core.CoreTests.test_existing_target_not_overwritten",
+      "tests.test_core.CoreTests.test_fixture_eof_range_is_416",
       "tests.test_core.CoreTests.test_gc_crash_recovery",
       "tests.test_core.CoreTests.test_gc_crash_retains_partial_deletion_ownership",
       "tests.test_core.CoreTests.test_gc_then_read_and_stale_generation",
       "tests.test_core.CoreTests.test_https_verified_content",
       "tests.test_core.CoreTests.test_late_chunk_after_last_cancel",
+      "tests.test_core.CoreTests.test_local_quota_and_permission_errors_are_not_network_retries",
       "tests.test_core.CoreTests.test_lock_and_corrupt_on_restart",
       "tests.test_core.CoreTests.test_old_epoch_plan_and_pin_rejected",
       "tests.test_core.CoreTests.test_persistent_attempt_budget",
@@ -191,14 +196,14 @@
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "seconds": 3.6531427080044523,
+    "seconds": 3.196347584016621,
     "platform": "Darwin",
     "python": "3.12.14",
     "sqlite": "3.53.1",
     "openssl": "OpenSSL 3.5.8 25 Aug 2026",
     "modules": {
       "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
-      "cacheweft/core.py": "9ae9adeaed840cb4bef1d96104840d47ff83435ca4930ce02c3f64c423aab004",
+      "cacheweft/core.py": "e826b34a08ccb3a51b84ef902ac2717a336565494d7c4223463f6c9fc609b1fb",
       "cacheweft/http.py": "5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925"
     }
   },
@@ -213,21 +218,32 @@
           "mode": "cold",
           "request_count": 1,
           "size": 1048576,
-          "download_seconds": 0.0380678329966031,
-          "read_seconds": 0.0018217909964732826,
+          "download_seconds": 0.038817457971163094,
+          "read_seconds": 0.0012124580098316073,
           "actual_origin_requests": 1,
           "origin_payload_bytes": 1048576,
           "request_ranges": [
             null
           ],
           "correct": true,
-          "process_rss_or_peak_bytes": 33030144,
+          "subscribers_before_release": [],
+          "subscriber_outcomes": [
+            {
+              "id": "r",
+              "params": "[\"fixture\",\"https://localhost:58164/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "2da6d317-993e-4da1-9290-f54bac57bde8",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED"
+            }
+          ],
+          "process_rss_or_peak_bytes": 32768000,
           "usage": {
             "payload_bytes": 1048576,
             "remaining_reserved": 0,
             "allocated_payload_bytes": 1048576,
             "budget": 16777216,
-            "free_bytes": 712807788544
+            "free_bytes": 713735483392
           },
           "root_allocated_bytes": 1069056
         },
@@ -235,8 +251,8 @@
           "mode": "resume",
           "request_count": 1,
           "size": 1048576,
-          "download_seconds": 0.04039074998581782,
-          "read_seconds": 0.0014147080364637077,
+          "download_seconds": 0.041253749979659915,
+          "read_seconds": 0.0018164999783039093,
           "actual_origin_requests": 2,
           "origin_payload_bytes": 1048576,
           "request_ranges": [
@@ -244,13 +260,24 @@
             "bytes=131072-"
           ],
           "correct": true,
-          "process_rss_or_peak_bytes": 34488320,
+          "subscribers_before_release": [],
+          "subscriber_outcomes": [
+            {
+              "id": "r",
+              "params": "[\"fixture\",\"https://localhost:58164/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "1f5d075b-1a8a-4f5e-92e4-376fdaf2c467",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED"
+            }
+          ],
+          "process_rss_or_peak_bytes": 34226176,
           "usage": {
             "payload_bytes": 1048576,
             "remaining_reserved": 0,
             "allocated_payload_bytes": 1048576,
             "budget": 16777216,
-            "free_bytes": 712806715392
+            "free_bytes": 713734414336
           },
           "root_allocated_bytes": 1069056
         },
@@ -258,21 +285,89 @@
           "mode": "coalesced",
           "request_count": 4,
           "size": 1048576,
-          "download_seconds": 0.04012062499532476,
-          "read_seconds": 0.0012482500169426203,
+          "download_seconds": 0.03135904198279604,
+          "read_seconds": 0.0010020839981734753,
           "actual_origin_requests": 1,
           "origin_payload_bytes": 1048576,
           "request_ranges": [
             null
           ],
           "correct": true,
-          "process_rss_or_peak_bytes": 34553856,
+          "subscribers_before_release": [
+            {
+              "id": "r",
+              "params": "[\"fixture\",\"https://localhost:58164/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "7fff9a58-d59d-4d75-8ddc-b8ae455c4c03",
+              "state": "WAITING",
+              "result": null
+            },
+            {
+              "id": "r1",
+              "params": "[\"fixture\",\"https://localhost:58164/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "7fff9a58-d59d-4d75-8ddc-b8ae455c4c03",
+              "state": "WAITING",
+              "result": null
+            },
+            {
+              "id": "r2",
+              "params": "[\"fixture\",\"https://localhost:58164/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "7fff9a58-d59d-4d75-8ddc-b8ae455c4c03",
+              "state": "WAITING",
+              "result": null
+            },
+            {
+              "id": "r3",
+              "params": "[\"fixture\",\"https://localhost:58164/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "7fff9a58-d59d-4d75-8ddc-b8ae455c4c03",
+              "state": "WAITING",
+              "result": null
+            }
+          ],
+          "subscriber_outcomes": [
+            {
+              "id": "r",
+              "params": "[\"fixture\",\"https://localhost:58164/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "7fff9a58-d59d-4d75-8ddc-b8ae455c4c03",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED"
+            },
+            {
+              "id": "r1",
+              "params": "[\"fixture\",\"https://localhost:58164/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "7fff9a58-d59d-4d75-8ddc-b8ae455c4c03",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED"
+            },
+            {
+              "id": "r2",
+              "params": "[\"fixture\",\"https://localhost:58164/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "7fff9a58-d59d-4d75-8ddc-b8ae455c4c03",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED"
+            },
+            {
+              "id": "r3",
+              "params": "[\"fixture\",\"https://localhost:58164/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "7fff9a58-d59d-4d75-8ddc-b8ae455c4c03",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED"
+            }
+          ],
+          "process_rss_or_peak_bytes": 34275328,
           "usage": {
             "payload_bytes": 1048576,
             "remaining_reserved": 0,
             "allocated_payload_bytes": 1048576,
             "budget": 16777216,
-            "free_bytes": 712805646336
+            "free_bytes": 713733341184
           },
           "root_allocated_bytes": 1069056
         }
@@ -281,7 +376,7 @@
   },
   "linux": {
     "passed": true,
-    "tests": 37,
+    "tests": 42,
     "test_ids": [
       "tests.test_core.CoreTests.test_416_not_success",
       "tests.test_core.CoreTests.test_bad_range_refused",
@@ -291,15 +386,20 @@
       "tests.test_core.CoreTests.test_changed_validator_restarts",
       "tests.test_core.CoreTests.test_close_keeps_lock_until_reader_closed",
       "tests.test_core.CoreTests.test_coalescing_cancel_one",
+      "tests.test_core.CoreTests.test_complete_checkpoint_corruption_not_published",
+      "tests.test_core.CoreTests.test_complete_checkpoint_needs_no_origin_or_attempt",
+      "tests.test_core.CoreTests.test_complete_checkpoint_without_validator",
       "tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows",
       "tests.test_core.CoreTests.test_disk_error_retires_authority",
       "tests.test_core.CoreTests.test_encoded_body_refused",
       "tests.test_core.CoreTests.test_existing_target_not_overwritten",
+      "tests.test_core.CoreTests.test_fixture_eof_range_is_416",
       "tests.test_core.CoreTests.test_gc_crash_recovery",
       "tests.test_core.CoreTests.test_gc_crash_retains_partial_deletion_ownership",
       "tests.test_core.CoreTests.test_gc_then_read_and_stale_generation",
       "tests.test_core.CoreTests.test_https_verified_content",
       "tests.test_core.CoreTests.test_late_chunk_after_last_cancel",
+      "tests.test_core.CoreTests.test_local_quota_and_permission_errors_are_not_network_retries",
       "tests.test_core.CoreTests.test_lock_and_corrupt_on_restart",
       "tests.test_core.CoreTests.test_old_epoch_plan_and_pin_rejected",
       "tests.test_core.CoreTests.test_persistent_attempt_budget",
@@ -324,14 +424,14 @@
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "seconds": 3.220003351999999,
+    "seconds": 2.9167154390000007,
     "platform": "Linux",
     "python": "3.12.3",
     "sqlite": "3.45.1",
     "openssl": "OpenSSL 3.0.13 30 Jan 2024",
     "modules": {
       "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
-      "cacheweft/core.py": "9ae9adeaed840cb4bef1d96104840d47ff83435ca4930ce02c3f64c423aab004",
+      "cacheweft/core.py": "e826b34a08ccb3a51b84ef902ac2717a336565494d7c4223463f6c9fc609b1fb",
       "cacheweft/http.py": "5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925"
     }
   },
@@ -346,30 +446,41 @@
           "mode": "cold",
           "request_count": 1,
           "size": 1048576,
-          "download_seconds": 0.033015563999995834,
-          "read_seconds": 0.0009204590000067014,
+          "download_seconds": 0.09206668299999876,
+          "read_seconds": 0.011764110000001438,
           "actual_origin_requests": 1,
           "origin_payload_bytes": 1048576,
           "request_ranges": [
             null
           ],
           "correct": true,
-          "process_rss_or_peak_bytes": 28004352,
+          "subscribers_before_release": [],
+          "subscriber_outcomes": [
+            {
+              "id": "r",
+              "params": "[\"fixture\",\"https://localhost:42605/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "fd13fedc-ee60-4472-b91d-7736d7e68979",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED"
+            }
+          ],
+          "process_rss_or_peak_bytes": 27910144,
           "usage": {
             "payload_bytes": 1048576,
             "remaining_reserved": 0,
-            "allocated_payload_bytes": 1052672,
+            "allocated_payload_bytes": 1048576,
             "budget": 16777216,
-            "free_bytes": 18383482880
+            "free_bytes": 18383478784
           },
-          "root_allocated_bytes": 1073152
+          "root_allocated_bytes": 1069056
         },
         {
           "mode": "resume",
           "request_count": 1,
           "size": 1048576,
-          "download_seconds": 0.03343210100000249,
-          "read_seconds": 0.0007520260000006829,
+          "download_seconds": 0.09157772900000083,
+          "read_seconds": 0.0007322869999981663,
           "actual_origin_requests": 2,
           "origin_payload_bytes": 1048576,
           "request_ranges": [
@@ -377,37 +488,116 @@
             "bytes=131072-"
           ],
           "correct": true,
-          "process_rss_or_peak_bytes": 28258304,
+          "subscribers_before_release": [],
+          "subscriber_outcomes": [
+            {
+              "id": "r",
+              "params": "[\"fixture\",\"https://localhost:42605/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "12778772-3e6f-4bd4-b8d2-36d733cea24f",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED"
+            }
+          ],
+          "process_rss_or_peak_bytes": 28127232,
           "usage": {
             "payload_bytes": 1048576,
             "remaining_reserved": 0,
-            "allocated_payload_bytes": 1052672,
+            "allocated_payload_bytes": 1048576,
             "budget": 16777216,
             "free_bytes": 18382397440
           },
-          "root_allocated_bytes": 1073152
+          "root_allocated_bytes": 1069056
         },
         {
           "mode": "coalesced",
           "request_count": 4,
           "size": 1048576,
-          "download_seconds": 0.03569938999999778,
-          "read_seconds": 0.001484091999998327,
+          "download_seconds": 0.04229570100000046,
+          "read_seconds": 0.0008556380000044328,
           "actual_origin_requests": 1,
           "origin_payload_bytes": 1048576,
           "request_ranges": [
             null
           ],
           "correct": true,
-          "process_rss_or_peak_bytes": 28180480,
+          "subscribers_before_release": [
+            {
+              "id": "r",
+              "params": "[\"fixture\",\"https://localhost:42605/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "837cfb60-24de-47ca-8499-640b79edf2fd",
+              "state": "WAITING",
+              "result": null
+            },
+            {
+              "id": "r1",
+              "params": "[\"fixture\",\"https://localhost:42605/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "837cfb60-24de-47ca-8499-640b79edf2fd",
+              "state": "WAITING",
+              "result": null
+            },
+            {
+              "id": "r2",
+              "params": "[\"fixture\",\"https://localhost:42605/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "837cfb60-24de-47ca-8499-640b79edf2fd",
+              "state": "WAITING",
+              "result": null
+            },
+            {
+              "id": "r3",
+              "params": "[\"fixture\",\"https://localhost:42605/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "837cfb60-24de-47ca-8499-640b79edf2fd",
+              "state": "WAITING",
+              "result": null
+            }
+          ],
+          "subscriber_outcomes": [
+            {
+              "id": "r",
+              "params": "[\"fixture\",\"https://localhost:42605/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "837cfb60-24de-47ca-8499-640b79edf2fd",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED"
+            },
+            {
+              "id": "r1",
+              "params": "[\"fixture\",\"https://localhost:42605/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "837cfb60-24de-47ca-8499-640b79edf2fd",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED"
+            },
+            {
+              "id": "r2",
+              "params": "[\"fixture\",\"https://localhost:42605/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "837cfb60-24de-47ca-8499-640b79edf2fd",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED"
+            },
+            {
+              "id": "r3",
+              "params": "[\"fixture\",\"https://localhost:42605/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+              "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+              "generation": "837cfb60-24de-47ca-8499-640b79edf2fd",
+              "state": "SUCCEEDED",
+              "result": "SUCCEEDED"
+            }
+          ],
+          "process_rss_or_peak_bytes": 28053504,
           "usage": {
             "payload_bytes": 1048576,
             "remaining_reserved": 0,
-            "allocated_payload_bytes": 1048576,
+            "allocated_payload_bytes": 1052672,
             "budget": 16777216,
-            "free_bytes": 18381316096
+            "free_bytes": 18381312000
           },
-          "root_allocated_bytes": 1069056
+          "root_allocated_bytes": 1073152
         }
       ]
     },
@@ -444,11 +634,34 @@
           "injection": "read-only bind mount"
         },
         {
-          "mode": "sqlite_full",
+          "mode": "sqlite_full_admission",
           "sqlite_errorcode": 13,
           "successful_extra_requests": 38,
           "degraded": true,
+          "rejected": true,
+          "scope": "request catalog admission after an already READY artifact",
           "repair_correct": true
+        },
+        {
+          "mode": "sqlite_full_publish",
+          "actual_errors": [
+            {
+              "point": "worker_exit",
+              "error": "OperationalError",
+              "errno": null,
+              "sqlite_errorcode": 13
+            }
+          ],
+          "degraded": true,
+          "rejected": true,
+          "state_before_repair": {
+            "object": "VERIFYING",
+            "request": "WAITING"
+          },
+          "published_before_repair": false,
+          "repair_correct": true,
+          "repair_origin_requests": 0,
+          "injection": "SQLite allocation trigger at publish intent under 16-page cap; trigger removed offline"
         }
       ],
       "mount_removed": true
@@ -456,13 +669,13 @@
   },
   "reboot": {
     "boot_changed": true,
-    "boot_id_after": "cb565f85-df6e-4eec-8bc3-afae5dc272f8",
+    "boot_id_after": "34cb3ec1-ea14-4ad3-8ba9-9739cc2a80d2",
     "catalog_unchanged_before_recovery": true,
     "states_before_recovery": {
       "objects": [
         [
           "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
-          "2f68481b-c1f2-4bd9-ab87-c70c7ec64b45",
+          "1f3b18c8-acdf-4edd-aaa6-6b05dfca3f7c",
           "PUBLISHING",
           1048576
         ]
@@ -470,14 +683,26 @@
       "requests": [
         [
           "reboot_request",
-          "2f68481b-c1f2-4bd9-ab87-c70c7ec64b45",
+          "1f3b18c8-acdf-4edd-aaa6-6b05dfca3f7c",
           "WAITING"
         ]
       ]
     },
+    "catalog_sha256_before_recovery": "f6d381d22a2e9a05e671a631925afe58e8ad153ab8b2c0088f130fc75dd47a57",
+    "stage_sha256_before_recovery": [
+      "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83"
+    ],
+    "recovered_request": {
+      "id": "reboot_request",
+      "params": "[\"fixture\",\"https://localhost:34881/artifact\",1048576,\"fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\"]",
+      "digest": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+      "generation": "1f3b18c8-acdf-4edd-aaa6-6b05dfca3f7c",
+      "state": "SUCCEEDED",
+      "result": "SUCCEEDED"
+    },
     "before": {
-      "boot_id": "7d42bcd6-938a-48d0-b3a4-5ca12009216e",
-      "catalog_sha256": "19dc13318771feedc5e72f845ad9ea35b8815bd9f268e0f094dddd78e1b8d7f7",
+      "boot_id": "0e2a2052-8181-419b-8dab-e525e4774abe",
+      "catalog_sha256": "f6d381d22a2e9a05e671a631925afe58e8ad153ab8b2c0088f130fc75dd47a57",
       "stage_sha256": [
         "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83"
       ],
@@ -487,7 +712,7 @@
         "objects": [
           [
             "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
-            "2f68481b-c1f2-4bd9-ab87-c70c7ec64b45",
+            "1f3b18c8-acdf-4edd-aaa6-6b05dfca3f7c",
             "PUBLISHING",
             1048576
           ]
@@ -495,7 +720,7 @@
         "requests": [
           [
             "reboot_request",
-            "2f68481b-c1f2-4bd9-ab87-c70c7ec64b45",
+            "1f3b18c8-acdf-4edd-aaa6-6b05dfca3f7c",
             "WAITING"
           ]
         ]
@@ -512,7 +737,7 @@
   },
   "source_unchanged": true,
   "controls": {
-    "rejected": 14,
+    "rejected": 26,
     "all_rejected": true
   }
 }

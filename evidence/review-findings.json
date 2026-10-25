@@ -1,0 +1,41 @@
+{
+  "source_commit": "db72d1dbb7cd1fc9dea89e9b6d9d5f360cb4d182",
+  "kind": "controlled counterexamples, not VM incidents",
+  "full_checkpoint_416": {
+    "crash_exit": 73,
+    "result": "FAILED",
+    "requests": [
+      {
+        "range": "bytes=1048576-",
+        "if_range": "\"v1\"",
+        "encoding": "identity"
+      }
+    ]
+  },
+  "injected_EDQUOT": {
+    "result": "FAILED",
+    "degraded": false,
+    "gc_accepted": true
+  },
+  "warm_hits_mislabelled_coalesced": {
+    "follower_leader_states": [
+      "SUCCEEDED",
+      "SUCCEEDED",
+      "SUCCEEDED"
+    ],
+    "reported_mode": "coalesced",
+    "reported_requests": 4,
+    "actual_origin_requests": 1
+  },
+  "report_counterexamples": {
+    "scope": "offline modified copies, not observed VM faults",
+    "accepted_before_fix": [
+      "infinite latency",
+      "duplicate cold modes",
+      "empty runtime provenance",
+      "missing native-cases stage",
+      "negative memory/allocation",
+      "missing usage"
+    ]
+  }
+}
