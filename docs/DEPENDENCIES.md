@@ -63,3 +63,11 @@ license file. The matching upstream release was checked at
 instead. The record preserves that distinction; Cacheweft redistributes neither
 that wheel nor its source. NumPy/ONNX Runtime/protobuf notices and packaging's
 `Apache-2.0 OR BSD-2-Clause` expression remain with their external installations.
+
+## Optional application integration
+
+The [application pilot](APPLICATION_INTEGRATION.md) uses a separately installed
+MIT tiny-batch-service and its attributed CC BY 4.0 Digits-derived fixture.
+That guide preserves the tested upstream notices and data attribution. No
+consumer code, model weights or dataset arrays are redistributed here, and
+no inference dependency is added to the Cacheweft package.
