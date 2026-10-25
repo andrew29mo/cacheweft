@@ -1,0 +1,293 @@
+{
+  "contract": "cacheweft-exploration-v1",
+  "passed": false,
+  "recorded_utc": "2026-10-25T08:39:14.110956+00:00",
+  "source": {
+    "pyproject.toml": "af7360215f65e363a138cb62cf8c708f8669e52136ca7b7e028acfded6e70cce",
+    "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
+    "cacheweft/core.py": "d95c67463a14406d71ac9e3c39966a3a12c0814ea4d38cafa1ae670540a99cbb",
+    "cacheweft/http.py": "5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925",
+    "tools/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tools/cases.py": "b52c0d379ac186874b2b01598ef55fe527bfdd33678bd211f8d65c7ad7f3ef25",
+    "tools/reboot.py": "262092f1f3ddaee7b59b37e2c849ccbe384ff4ab67f665d31eb4142144f10f30",
+    "tools/report.py": "f716f9424bf5a548e5217d3923d8936ef71a63dae09e0f2a938551c3a078e68f",
+    "tools/unit.py": "a1f904bef90862c9bbe376dca54d4d8bc1002dc67b96396645eee22a589669e0",
+    "tools/validate.py": "ff86b2cbb783f0b6e6b7f9a81b7bb43ba46b0d809678079c09926bb311200169",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/fixture.py": "d2c5adcd798f8c483bac43a0ae6cce7e4fe924f13074914ff00990d0e3a527cd",
+    "tests/test_core.py": "9cc8e11db9e8c9492edd4e9937d88bf2169be0dfde5a4de69f060ef3862abea0"
+  },
+  "wheel_sha256": "3efe6d55c4148c8fb081c21137397714df3b8a9af594d0fcbe98dfd7d646576f",
+  "stages": [
+    {
+      "name": "initial",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.5494922499638051
+    },
+    {
+      "name": "create",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 22.314792583987582
+    },
+    {
+      "name": "dependencies",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 22.770020583993755
+    },
+    {
+      "name": "upload",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.35934291599551216
+    },
+    {
+      "name": "install",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 1.6087199170142412
+    },
+    {
+      "name": "provenance",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.25904800003627315
+    },
+    {
+      "name": "native",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 3.0127960839890875
+    },
+    {
+      "name": "native-cases",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.7057460410287604
+    },
+    {
+      "name": "linux",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 3.0297162089846097
+    },
+    {
+      "name": "linux-read",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.2553224579896778
+    },
+    {
+      "name": "linux-cases",
+      "exit_code": 1,
+      "timed_out": false,
+      "seconds": 3.157609166984912
+    },
+    {
+      "name": "delete",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 1.5412651249789633
+    },
+    {
+      "name": "final",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.20463812502566725
+    }
+  ],
+  "host_mounts": "none",
+  "limits": {
+    "power_loss_tested": false,
+    "wan_tested": false,
+    "deployed_service_tested": false,
+    "long_term_tested": false
+  },
+  "installed_modules": {
+    "cacheweft/core.py": "d95c67463a14406d71ac9e3c39966a3a12c0814ea4d38cafa1ae670540a99cbb",
+    "cacheweft/http.py": "5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925",
+    "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90"
+  },
+  "native": {
+    "passed": true,
+    "tests": 29,
+    "test_ids": [
+      "tests.test_core.CoreTests.test_416_not_success",
+      "tests.test_core.CoreTests.test_bad_range_refused",
+      "tests.test_core.CoreTests.test_cancel_sql_failure_no_success",
+      "tests.test_core.CoreTests.test_capacity_refusal_deletes_nothing",
+      "tests.test_core.CoreTests.test_changed_validator_restarts",
+      "tests.test_core.CoreTests.test_coalescing_cancel_one",
+      "tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows",
+      "tests.test_core.CoreTests.test_disk_error_retires_authority",
+      "tests.test_core.CoreTests.test_encoded_body_refused",
+      "tests.test_core.CoreTests.test_existing_target_not_overwritten",
+      "tests.test_core.CoreTests.test_gc_crash_recovery",
+      "tests.test_core.CoreTests.test_gc_then_read_and_stale_generation",
+      "tests.test_core.CoreTests.test_https_verified_content",
+      "tests.test_core.CoreTests.test_late_chunk_after_last_cancel",
+      "tests.test_core.CoreTests.test_lock_and_corrupt_on_restart",
+      "tests.test_core.CoreTests.test_persistent_attempt_budget",
+      "tests.test_core.CoreTests.test_pin_and_read_prevent_stale_gc_plan",
+      "tests.test_core.CoreTests.test_publish_boundary_cancel_too_late",
+      "tests.test_core.CoreTests.test_range_ignored_restarts",
+      "tests.test_core.CoreTests.test_readonly_database_retires_authority",
+      "tests.test_core.CoreTests.test_request_budget_and_conflict",
+      "tests.test_core.CoreTests.test_reservation_not_oversold",
+      "tests.test_core.CoreTests.test_resume_real_range",
+      "tests.test_core.CoreTests.test_shorter_than_checkpoint_restarts",
+      "tests.test_core.CoreTests.test_symlink_not_followed",
+      "tests.test_core.CoreTests.test_tls_and_origin_restriction",
+      "tests.test_core.CoreTests.test_unknown_data_charged_not_deleted",
+      "tests.test_core.CoreTests.test_weak_or_absent_etag_restarts",
+      "tests.test_core.CoreTests.test_wrong_hash_not_published"
+    ],
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 2.928662499994971,
+    "platform": "Darwin",
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+    "modules": {
+      "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
+      "cacheweft/core.py": "d95c67463a14406d71ac9e3c39966a3a12c0814ea4d38cafa1ae670540a99cbb",
+      "cacheweft/http.py": "5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925"
+    }
+  },
+  "native_cases": {
+    "measurements": {
+      "environment": "Darwin",
+      "memory_scope": "whole observer process including TLS fixture and core",
+      "memory_kind": "peak_RSS",
+      "performance_scope": "local TLS fixture; single observation per mode, no WAN/speedup claim",
+      "trials": [
+        {
+          "mode": "cold",
+          "request_count": 1,
+          "size": 1048576,
+          "download_seconds": 0.03738391702063382,
+          "read_seconds": 0.0012635840103030205,
+          "actual_origin_requests": 1,
+          "origin_payload_bytes": 1048576,
+          "request_ranges": [
+            null
+          ],
+          "correct": true,
+          "process_rss_or_peak_bytes": 32948224,
+          "usage": {
+            "payload_bytes": 1048576,
+            "remaining_reserved": 0,
+            "allocated_payload_bytes": 1048576,
+            "budget": 16777216,
+            "free_bytes": 713348067328
+          },
+          "root_allocated_bytes": 1069056
+        },
+        {
+          "mode": "resume",
+          "request_count": 1,
+          "size": 1048576,
+          "download_seconds": 0.026473166944924742,
+          "read_seconds": 0.0006535419961437583,
+          "actual_origin_requests": 2,
+          "origin_payload_bytes": 1048576,
+          "request_ranges": [
+            null,
+            "bytes=131072-"
+          ],
+          "correct": true,
+          "process_rss_or_peak_bytes": 34439168,
+          "usage": {
+            "payload_bytes": 1048576,
+            "remaining_reserved": 0,
+            "allocated_payload_bytes": 1048576,
+            "budget": 16777216,
+            "free_bytes": 713346994176
+          },
+          "root_allocated_bytes": 1069056
+        },
+        {
+          "mode": "coalesced",
+          "request_count": 4,
+          "size": 1048576,
+          "download_seconds": 0.0300501249730587,
+          "read_seconds": 0.000695333001203835,
+          "actual_origin_requests": 1,
+          "origin_payload_bytes": 1048576,
+          "request_ranges": [
+            null
+          ],
+          "correct": true,
+          "process_rss_or_peak_bytes": 34504704,
+          "usage": {
+            "payload_bytes": 1048576,
+            "remaining_reserved": 0,
+            "allocated_payload_bytes": 1048576,
+            "budget": 16777216,
+            "free_bytes": 713345990656
+          },
+          "root_allocated_bytes": 1069056
+        }
+      ]
+    }
+  },
+  "linux": {
+    "passed": true,
+    "tests": 29,
+    "test_ids": [
+      "tests.test_core.CoreTests.test_416_not_success",
+      "tests.test_core.CoreTests.test_bad_range_refused",
+      "tests.test_core.CoreTests.test_cancel_sql_failure_no_success",
+      "tests.test_core.CoreTests.test_capacity_refusal_deletes_nothing",
+      "tests.test_core.CoreTests.test_changed_validator_restarts",
+      "tests.test_core.CoreTests.test_coalescing_cancel_one",
+      "tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows",
+      "tests.test_core.CoreTests.test_disk_error_retires_authority",
+      "tests.test_core.CoreTests.test_encoded_body_refused",
+      "tests.test_core.CoreTests.test_existing_target_not_overwritten",
+      "tests.test_core.CoreTests.test_gc_crash_recovery",
+      "tests.test_core.CoreTests.test_gc_then_read_and_stale_generation",
+      "tests.test_core.CoreTests.test_https_verified_content",
+      "tests.test_core.CoreTests.test_late_chunk_after_last_cancel",
+      "tests.test_core.CoreTests.test_lock_and_corrupt_on_restart",
+      "tests.test_core.CoreTests.test_persistent_attempt_budget",
+      "tests.test_core.CoreTests.test_pin_and_read_prevent_stale_gc_plan",
+      "tests.test_core.CoreTests.test_publish_boundary_cancel_too_late",
+      "tests.test_core.CoreTests.test_range_ignored_restarts",
+      "tests.test_core.CoreTests.test_readonly_database_retires_authority",
+      "tests.test_core.CoreTests.test_request_budget_and_conflict",
+      "tests.test_core.CoreTests.test_reservation_not_oversold",
+      "tests.test_core.CoreTests.test_resume_real_range",
+      "tests.test_core.CoreTests.test_shorter_than_checkpoint_restarts",
+      "tests.test_core.CoreTests.test_symlink_not_followed",
+      "tests.test_core.CoreTests.test_tls_and_origin_restriction",
+      "tests.test_core.CoreTests.test_unknown_data_charged_not_deleted",
+      "tests.test_core.CoreTests.test_weak_or_absent_etag_restarts",
+      "tests.test_core.CoreTests.test_wrong_hash_not_published"
+    ],
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 2.638175516000004,
+    "platform": "Linux",
+    "python": "3.12.3",
+    "sqlite": "3.45.1",
+    "openssl": "OpenSSL 3.0.13 30 Jan 2024",
+    "modules": {
+      "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
+      "cacheweft/core.py": "d95c67463a14406d71ac9e3c39966a3a12c0814ea4d38cafa1ae670540a99cbb",
+      "cacheweft/http.py": "5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925"
+    }
+  },
+  "error": "RuntimeError: linux-cases failed or timed out",
+  "cleanup": {
+    "vm_deleted": true,
+    "disk_removed": true,
+    "preexisting_unchanged": true
+  },
+  "source_unchanged": true
+}

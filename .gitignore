@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+build/
+dist/
+*.egg-info/
+results/
+AGENTS.md
+*.pem
+*.key
+*.db

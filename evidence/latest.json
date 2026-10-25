@@ -1,0 +1,518 @@
+{
+  "contract": "cacheweft-exploration-v2",
+  "passed": true,
+  "recorded_utc": "2026-10-25T08:46:45.810218+00:00",
+  "source": {
+    "pyproject.toml": "af7360215f65e363a138cb62cf8c708f8669e52136ca7b7e028acfded6e70cce",
+    "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
+    "cacheweft/core.py": "9ae9adeaed840cb4bef1d96104840d47ff83435ca4930ce02c3f64c423aab004",
+    "cacheweft/http.py": "5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925",
+    "tools/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tools/cases.py": "15bb694a93aa4ed9f8451d48e4d9a8073b8301b1cc6a247560a102d38a8801b1",
+    "tools/reboot.py": "11db34b29875052f619d6b021d8c527e7a65638a57606e0e188f362c61f0b3ec",
+    "tools/report.py": "d22684516e168e8f7d4013f93b14874659d3d200544c2b4e2b5e3b8b695432be",
+    "tools/unit.py": "a1f904bef90862c9bbe376dca54d4d8bc1002dc67b96396645eee22a589669e0",
+    "tools/validate.py": "06199619ce81c5c2c00675430418ef2ebf6913ac8537463fc7cd2c12175cef8b",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/fixture.py": "f12fb38aa24cd4c24b4a1e7c2bd96e68b54e8d25b052cd31b7f3a733bf300d22",
+    "tests/test_core.py": "e7783e29a875f3005e8d7ca66b5bbd88a7a74e4405634f8aa48f9fccac44842e"
+  },
+  "wheel_sha256": "70bfa0610297587b250f2a5c96f48aef7e1d6167de13b3cec3bedfaae5ffc8b3",
+  "stages": [
+    {
+      "name": "initial",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.37440808303654194
+    },
+    {
+      "name": "create",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 22.632361249998212
+    },
+    {
+      "name": "dependencies",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 14.084146584034897
+    },
+    {
+      "name": "upload",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.3917882079840638
+    },
+    {
+      "name": "install",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 1.9227069999906234
+    },
+    {
+      "name": "provenance",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.2935279999510385
+    },
+    {
+      "name": "native",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 3.7687445000046864
+    },
+    {
+      "name": "native-cases",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.8210708750411868
+    },
+    {
+      "name": "linux",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 3.5773272500373423
+    },
+    {
+      "name": "linux-read",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.35547208396019414
+    },
+    {
+      "name": "linux-cases",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 1.698228458990343
+    },
+    {
+      "name": "linux-cases-read",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.2755465419613756
+    },
+    {
+      "name": "reboot-prepare",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 1.0128189589595422
+    },
+    {
+      "name": "reboot-prepared-read",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.4834863339783624
+    },
+    {
+      "name": "schedule-reboot",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.3387920000241138
+    },
+    {
+      "name": "reboot-finish",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.3151057500508614
+    },
+    {
+      "name": "reboot-finished-read",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.25431941699935123
+    },
+    {
+      "name": "delete",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 1.4080540830036625
+    },
+    {
+      "name": "final",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.19465479103382677
+    }
+  ],
+  "host_mounts": "none",
+  "limits": {
+    "power_loss_tested": false,
+    "wan_tested": false,
+    "deployed_service_tested": false,
+    "long_term_tested": false
+  },
+  "installed_modules": {
+    "cacheweft/core.py": "9ae9adeaed840cb4bef1d96104840d47ff83435ca4930ce02c3f64c423aab004",
+    "cacheweft/http.py": "5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925",
+    "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90"
+  },
+  "native": {
+    "passed": true,
+    "tests": 37,
+    "test_ids": [
+      "tests.test_core.CoreTests.test_416_not_success",
+      "tests.test_core.CoreTests.test_bad_range_refused",
+      "tests.test_core.CoreTests.test_cancel_races_durable_publish_intent",
+      "tests.test_core.CoreTests.test_cancel_sql_failure_no_success",
+      "tests.test_core.CoreTests.test_capacity_refusal_deletes_nothing",
+      "tests.test_core.CoreTests.test_changed_validator_restarts",
+      "tests.test_core.CoreTests.test_close_keeps_lock_until_reader_closed",
+      "tests.test_core.CoreTests.test_coalescing_cancel_one",
+      "tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows",
+      "tests.test_core.CoreTests.test_disk_error_retires_authority",
+      "tests.test_core.CoreTests.test_encoded_body_refused",
+      "tests.test_core.CoreTests.test_existing_target_not_overwritten",
+      "tests.test_core.CoreTests.test_gc_crash_recovery",
+      "tests.test_core.CoreTests.test_gc_crash_retains_partial_deletion_ownership",
+      "tests.test_core.CoreTests.test_gc_then_read_and_stale_generation",
+      "tests.test_core.CoreTests.test_https_verified_content",
+      "tests.test_core.CoreTests.test_late_chunk_after_last_cancel",
+      "tests.test_core.CoreTests.test_lock_and_corrupt_on_restart",
+      "tests.test_core.CoreTests.test_old_epoch_plan_and_pin_rejected",
+      "tests.test_core.CoreTests.test_persistent_attempt_budget",
+      "tests.test_core.CoreTests.test_pin_and_read_prevent_stale_gc_plan",
+      "tests.test_core.CoreTests.test_publish_boundary_cancel_too_late",
+      "tests.test_core.CoreTests.test_range_ignored_restarts",
+      "tests.test_core.CoreTests.test_reader_and_job_limits",
+      "tests.test_core.CoreTests.test_readonly_database_retires_authority",
+      "tests.test_core.CoreTests.test_request_budget_and_conflict",
+      "tests.test_core.CoreTests.test_reservation_not_oversold",
+      "tests.test_core.CoreTests.test_resume_real_range",
+      "tests.test_core.CoreTests.test_retired_download_cannot_block_new_generation",
+      "tests.test_core.CoreTests.test_shorter_than_checkpoint_restarts",
+      "tests.test_core.CoreTests.test_symlink_destination_never_overwritten",
+      "tests.test_core.CoreTests.test_symlink_not_followed",
+      "tests.test_core.CoreTests.test_tls_and_origin_restriction",
+      "tests.test_core.CoreTests.test_unknown_data_charged_not_deleted",
+      "tests.test_core.CoreTests.test_weak_or_absent_etag_restarts",
+      "tests.test_core.CoreTests.test_wrong_hash_not_published",
+      "tests.test_core.CoreTests.test_wrong_length_refused"
+    ],
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 3.6531427080044523,
+    "platform": "Darwin",
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "openssl": "OpenSSL 3.5.8 25 Aug 2026",
+    "modules": {
+      "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
+      "cacheweft/core.py": "9ae9adeaed840cb4bef1d96104840d47ff83435ca4930ce02c3f64c423aab004",
+      "cacheweft/http.py": "5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925"
+    }
+  },
+  "native_cases": {
+    "measurements": {
+      "environment": "Darwin",
+      "memory_scope": "whole observer process including TLS fixture and core",
+      "memory_kind": "peak_RSS",
+      "performance_scope": "local TLS fixture; single observation per mode, no WAN/speedup claim",
+      "trials": [
+        {
+          "mode": "cold",
+          "request_count": 1,
+          "size": 1048576,
+          "download_seconds": 0.0380678329966031,
+          "read_seconds": 0.0018217909964732826,
+          "actual_origin_requests": 1,
+          "origin_payload_bytes": 1048576,
+          "request_ranges": [
+            null
+          ],
+          "correct": true,
+          "process_rss_or_peak_bytes": 33030144,
+          "usage": {
+            "payload_bytes": 1048576,
+            "remaining_reserved": 0,
+            "allocated_payload_bytes": 1048576,
+            "budget": 16777216,
+            "free_bytes": 712807788544
+          },
+          "root_allocated_bytes": 1069056
+        },
+        {
+          "mode": "resume",
+          "request_count": 1,
+          "size": 1048576,
+          "download_seconds": 0.04039074998581782,
+          "read_seconds": 0.0014147080364637077,
+          "actual_origin_requests": 2,
+          "origin_payload_bytes": 1048576,
+          "request_ranges": [
+            null,
+            "bytes=131072-"
+          ],
+          "correct": true,
+          "process_rss_or_peak_bytes": 34488320,
+          "usage": {
+            "payload_bytes": 1048576,
+            "remaining_reserved": 0,
+            "allocated_payload_bytes": 1048576,
+            "budget": 16777216,
+            "free_bytes": 712806715392
+          },
+          "root_allocated_bytes": 1069056
+        },
+        {
+          "mode": "coalesced",
+          "request_count": 4,
+          "size": 1048576,
+          "download_seconds": 0.04012062499532476,
+          "read_seconds": 0.0012482500169426203,
+          "actual_origin_requests": 1,
+          "origin_payload_bytes": 1048576,
+          "request_ranges": [
+            null
+          ],
+          "correct": true,
+          "process_rss_or_peak_bytes": 34553856,
+          "usage": {
+            "payload_bytes": 1048576,
+            "remaining_reserved": 0,
+            "allocated_payload_bytes": 1048576,
+            "budget": 16777216,
+            "free_bytes": 712805646336
+          },
+          "root_allocated_bytes": 1069056
+        }
+      ]
+    }
+  },
+  "linux": {
+    "passed": true,
+    "tests": 37,
+    "test_ids": [
+      "tests.test_core.CoreTests.test_416_not_success",
+      "tests.test_core.CoreTests.test_bad_range_refused",
+      "tests.test_core.CoreTests.test_cancel_races_durable_publish_intent",
+      "tests.test_core.CoreTests.test_cancel_sql_failure_no_success",
+      "tests.test_core.CoreTests.test_capacity_refusal_deletes_nothing",
+      "tests.test_core.CoreTests.test_changed_validator_restarts",
+      "tests.test_core.CoreTests.test_close_keeps_lock_until_reader_closed",
+      "tests.test_core.CoreTests.test_coalescing_cancel_one",
+      "tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows",
+      "tests.test_core.CoreTests.test_disk_error_retires_authority",
+      "tests.test_core.CoreTests.test_encoded_body_refused",
+      "tests.test_core.CoreTests.test_existing_target_not_overwritten",
+      "tests.test_core.CoreTests.test_gc_crash_recovery",
+      "tests.test_core.CoreTests.test_gc_crash_retains_partial_deletion_ownership",
+      "tests.test_core.CoreTests.test_gc_then_read_and_stale_generation",
+      "tests.test_core.CoreTests.test_https_verified_content",
+      "tests.test_core.CoreTests.test_late_chunk_after_last_cancel",
+      "tests.test_core.CoreTests.test_lock_and_corrupt_on_restart",
+      "tests.test_core.CoreTests.test_old_epoch_plan_and_pin_rejected",
+      "tests.test_core.CoreTests.test_persistent_attempt_budget",
+      "tests.test_core.CoreTests.test_pin_and_read_prevent_stale_gc_plan",
+      "tests.test_core.CoreTests.test_publish_boundary_cancel_too_late",
+      "tests.test_core.CoreTests.test_range_ignored_restarts",
+      "tests.test_core.CoreTests.test_reader_and_job_limits",
+      "tests.test_core.CoreTests.test_readonly_database_retires_authority",
+      "tests.test_core.CoreTests.test_request_budget_and_conflict",
+      "tests.test_core.CoreTests.test_reservation_not_oversold",
+      "tests.test_core.CoreTests.test_resume_real_range",
+      "tests.test_core.CoreTests.test_retired_download_cannot_block_new_generation",
+      "tests.test_core.CoreTests.test_shorter_than_checkpoint_restarts",
+      "tests.test_core.CoreTests.test_symlink_destination_never_overwritten",
+      "tests.test_core.CoreTests.test_symlink_not_followed",
+      "tests.test_core.CoreTests.test_tls_and_origin_restriction",
+      "tests.test_core.CoreTests.test_unknown_data_charged_not_deleted",
+      "tests.test_core.CoreTests.test_weak_or_absent_etag_restarts",
+      "tests.test_core.CoreTests.test_wrong_hash_not_published",
+      "tests.test_core.CoreTests.test_wrong_length_refused"
+    ],
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 3.220003351999999,
+    "platform": "Linux",
+    "python": "3.12.3",
+    "sqlite": "3.45.1",
+    "openssl": "OpenSSL 3.0.13 30 Jan 2024",
+    "modules": {
+      "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
+      "cacheweft/core.py": "9ae9adeaed840cb4bef1d96104840d47ff83435ca4930ce02c3f64c423aab004",
+      "cacheweft/http.py": "5a6b8fd472b08ac5fe359dcc9d6eb7a0df4325eeb02e06270aaf6154912dd925"
+    }
+  },
+  "linux_cases": {
+    "measurements": {
+      "environment": "Linux",
+      "memory_scope": "whole observer process including TLS fixture and core",
+      "memory_kind": "current_RSS",
+      "performance_scope": "local TLS fixture; single observation per mode, no WAN/speedup claim",
+      "trials": [
+        {
+          "mode": "cold",
+          "request_count": 1,
+          "size": 1048576,
+          "download_seconds": 0.033015563999995834,
+          "read_seconds": 0.0009204590000067014,
+          "actual_origin_requests": 1,
+          "origin_payload_bytes": 1048576,
+          "request_ranges": [
+            null
+          ],
+          "correct": true,
+          "process_rss_or_peak_bytes": 28004352,
+          "usage": {
+            "payload_bytes": 1048576,
+            "remaining_reserved": 0,
+            "allocated_payload_bytes": 1052672,
+            "budget": 16777216,
+            "free_bytes": 18383482880
+          },
+          "root_allocated_bytes": 1073152
+        },
+        {
+          "mode": "resume",
+          "request_count": 1,
+          "size": 1048576,
+          "download_seconds": 0.03343210100000249,
+          "read_seconds": 0.0007520260000006829,
+          "actual_origin_requests": 2,
+          "origin_payload_bytes": 1048576,
+          "request_ranges": [
+            null,
+            "bytes=131072-"
+          ],
+          "correct": true,
+          "process_rss_or_peak_bytes": 28258304,
+          "usage": {
+            "payload_bytes": 1048576,
+            "remaining_reserved": 0,
+            "allocated_payload_bytes": 1052672,
+            "budget": 16777216,
+            "free_bytes": 18382397440
+          },
+          "root_allocated_bytes": 1073152
+        },
+        {
+          "mode": "coalesced",
+          "request_count": 4,
+          "size": 1048576,
+          "download_seconds": 0.03569938999999778,
+          "read_seconds": 0.001484091999998327,
+          "actual_origin_requests": 1,
+          "origin_payload_bytes": 1048576,
+          "request_ranges": [
+            null
+          ],
+          "correct": true,
+          "process_rss_or_peak_bytes": 28180480,
+          "usage": {
+            "payload_bytes": 1048576,
+            "remaining_reserved": 0,
+            "allocated_payload_bytes": 1048576,
+            "budget": 16777216,
+            "free_bytes": 18381316096
+          },
+          "root_allocated_bytes": 1069056
+        }
+      ]
+    },
+    "storage": {
+      "cases": [
+        {
+          "mode": "enospc",
+          "actual_errors": [
+            {
+              "point": "worker_exit",
+              "error": "OSError",
+              "errno": 28,
+              "sqlite_errorcode": null
+            }
+          ],
+          "rejected": true,
+          "published_before_repair": false,
+          "repair_correct": true,
+          "injection": "filled 8MiB tmpfs leaving 32KiB free"
+        },
+        {
+          "mode": "readonly",
+          "actual_errors": [
+            {
+              "point": "worker_exit",
+              "error": "OSError",
+              "errno": 30,
+              "sqlite_errorcode": null
+            }
+          ],
+          "rejected": true,
+          "published_before_repair": false,
+          "repair_correct": true,
+          "injection": "read-only bind mount"
+        },
+        {
+          "mode": "sqlite_full",
+          "sqlite_errorcode": 13,
+          "successful_extra_requests": 38,
+          "degraded": true,
+          "repair_correct": true
+        }
+      ],
+      "mount_removed": true
+    }
+  },
+  "reboot": {
+    "boot_changed": true,
+    "boot_id_after": "cb565f85-df6e-4eec-8bc3-afae5dc272f8",
+    "catalog_unchanged_before_recovery": true,
+    "states_before_recovery": {
+      "objects": [
+        [
+          "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+          "2f68481b-c1f2-4bd9-ab87-c70c7ec64b45",
+          "PUBLISHING",
+          1048576
+        ]
+      ],
+      "requests": [
+        [
+          "reboot_request",
+          "2f68481b-c1f2-4bd9-ab87-c70c7ec64b45",
+          "WAITING"
+        ]
+      ]
+    },
+    "before": {
+      "boot_id": "7d42bcd6-938a-48d0-b3a4-5ca12009216e",
+      "catalog_sha256": "19dc13318771feedc5e72f845ad9ea35b8815bd9f268e0f094dddd78e1b8d7f7",
+      "stage_sha256": [
+        "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83"
+      ],
+      "target_absent": true,
+      "crash_exit": 73,
+      "states": {
+        "objects": [
+          [
+            "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83",
+            "2f68481b-c1f2-4bd9-ab87-c70c7ec64b45",
+            "PUBLISHING",
+            1048576
+          ]
+        ],
+        "requests": [
+          [
+            "reboot_request",
+            "2f68481b-c1f2-4bd9-ab87-c70c7ec64b45",
+            "WAITING"
+          ]
+        ]
+      }
+    },
+    "recovered_correct": true,
+    "normal_reboot": true,
+    "power_loss_tested": false
+  },
+  "cleanup": {
+    "vm_deleted": true,
+    "disk_removed": true,
+    "preexisting_unchanged": true
+  },
+  "source_unchanged": true,
+  "controls": {
+    "rejected": 14,
+    "all_rejected": true
+  }
+}
