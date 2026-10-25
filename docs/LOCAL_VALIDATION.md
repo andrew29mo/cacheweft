@@ -1,5 +1,10 @@
 # Local validation
 
+Use [CLOSEOUT.md](CLOSEOUT.md) for the current clean-systemd deployment and
+74-test runner. Earlier qualification commands below must be run at their
+recorded commits; their source hashes and cohorts are historical.
+
+
 The download/deadline/reboot record below belongs to commit `59860ca`. For
 the current systemd deployment runner and its 71-test cohort, use
 [DEPLOYMENT.md](DEPLOYMENT.md). The earlier runner retains its original

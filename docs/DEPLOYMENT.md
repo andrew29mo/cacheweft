@@ -1,5 +1,11 @@
 # Linux systemd deployment
 
+The operational procedure remains applicable. The original qualification below
+belongs to commit `5404e8a` (71 tests and its original runtime hashes). Check out
+that revision to reproduce that exact historical runner. Current deployment and
+74-test closeout evidence is in [CLOSEOUT.md](CLOSEOUT.md).
+
+
 This milestone installs the official wheel under a dedicated unprivileged
 `cacheweft` account. The administrator owns the executable environment and unit.
 The daemon owns only its private state and configuration. This is a local Unix

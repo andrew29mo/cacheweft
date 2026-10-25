@@ -5,9 +5,10 @@ import json
 import math
 from pathlib import Path
 from tools.report import INPUTS
-from tools.deployment_report import EXTRA,TESTS
+from tools.deployment_report import EXTRA,TESTS as PRIOR_TESTS
 
 FILES=INPUTS|EXTRA|{'examples/'+n for n in ('__init__.py','model.json','requirements.txt','prepare.py','origin.py','demo.py','infer.py','wan.py','report.py','validate.py')}
+TESTS=sorted((*PRIOR_TESTS,*('tests.test_core.CoreTests.'+n for n in ('test_completed_generation_leases_are_reclaimed','test_retired_callback_preserves_new_generation_lease','test_retired_callback_preserves_same_generation_resume'))))
 MODEL=json.loads(Path(__file__).with_name('model.json').read_text())
 INPUT_SHA='c83ddde4b251e6fa2366412601f133aec1e80e2b33ea31236716c2eeef541d9d'
 STAGES={'initial','create','dependencies','upload','install','provenance','native-provenance','native','native-model','native-wan','linux','linux-read','linux-model','linux-model-read','delete','final'}
@@ -43,7 +44,7 @@ def success(f):
     seconds(f['seconds']);final=f['final'];need(final['request']['state']=='SUCCEEDED' and final['available'] is True and final['request']['deadline']==f['accepted_deadline'] and final['object']['digest']==MODEL['sha256'],'Unverified success/extended deadline')
 
 def verify(v):
-    need(v['contract']=='cacheweft-real-model-v1' and v['passed'] is True and set(v['source'])==FILES and v['source_unchanged'] is True,'Source/success')
+    need(v['contract']=='cacheweft-real-model-v2' and v['passed'] is True and set(v['source'])==FILES and v['source_unchanged'] is True,'Source/success')
     runtime={k:h for k,h in v['source'].items() if k.startswith('cacheweft/')}
     need(v['installed_modules']==v['native_installed_modules']==runtime,'Runtime provenance')
     need(v['reference']['model']==MODEL and v['reference']['reference_sha256']==MODEL['sha256'] and v['reference']['reference_size']==MODEL['size'],'Reference provenance')
@@ -53,7 +54,7 @@ def verify(v):
     names=[s['name'] for s in v['stages']];need(STAGES<=set(names) and len(names)==len(set(names)),'Missing stages')
     for s in v['stages']:need(s['exit_code']==0 and s['timed_out'] is False and math.isfinite(s['seconds']) and s['seconds']>=0,'Stage failed')
     for key,platform in [('native','Darwin'),('linux','Linux')]:
-        u=v[key];need(u['passed'] is True and u['tests']==71 and u['test_ids']==TESTS and u['platform']==platform and u['failures']==u['errors']==u['skipped']==0 and u['modules']==runtime,'Formal test cohort')
+        u=v[key];need(u['passed'] is True and u['tests']==74 and u['test_ids']==TESTS and u['platform']==platform and u['failures']==u['errors']==u['skipped']==0 and u['modules']==runtime,'Formal test cohort')
         demo=v[key+'_model'];need(demo['platform']==platform and demo['reference_sha256']==MODEL['sha256'],'Model platform')
         need([c['mode'] for c in demo['cases']]==['cold','resumed','offline','corrupt'],'Model cases')
         cold,resume,offline,bad=demo['cases']

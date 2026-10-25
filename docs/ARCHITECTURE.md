@@ -1,6 +1,7 @@
 # Architecture decisions (milestone 1)
 
-Status: download/deadline qualification is recorded in MILESTONE1_REVIEW;
+Status: current lifecycle correction and bounded acceptance are described in
+[CLOSEOUT.md](CLOSEOUT.md). Historical download/deadline qualification is recorded in MILESTONE1_REVIEW;
 subsequent systemd deployment is described in [DEPLOYMENT.md](DEPLOYMENT.md).
 The following design supersedes the initial chat proposal.
 
@@ -162,3 +163,11 @@ block rounding and other filesystem users are not covered by that number;
 allocated bytes, total cache-file allocation and filesystem free bytes are
 reported separately. Dedicated filesystem sizing is needed for an external
 physical limit. Actual ENOSPC can still happen and must fail safely.
+
+## Completed generation ownership
+
+A completed download future releases its transport lease and work-set entry
+after transport cleanup. Its callback checks current future/generation ownership:
+a delayed callback cannot remove a newer generation or same-generation resume
+lease. READY hits create no download lease. Request history remains durable and
+finite; retiring an in-memory lease does not erase request IDs or outcomes.

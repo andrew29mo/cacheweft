@@ -1,0 +1,53 @@
+{
+  "scope": "Installed wheel library, managed manifest, eight SUCCEEDED transfers and verified reads over actual TLS; supplemental lifecycle reproduction, not a systemd measurement",
+  "before_commit": "b3597f7",
+  "before": {
+    "runtime_core_sha256": "068325c996f6acad07353a112970120327e75c70448edb084e23f3b054a48723",
+    "leases_after_gc": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "work_after_gc": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "requests_retained": 8
+  },
+  "after": {
+    "runtime_core_sha256": "de6442307960c0066603ba37827205bd550011b9f3db71d600d49362bf6e6ba1",
+    "leases_after_gc": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "work_after_gc": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "requests_retained": 8
+  },
+  "driver": "import hashlib,json,pathlib,sys,tempfile,time\nimport cacheweft\nfrom cacheweft import Cache,Spec\nfrom cacheweft.http import HTTPS\nsys.path.insert(0,sys.argv[1])\nfrom tests.fixture import Origin,DATA\nroot=pathlib.Path(cacheweft.__file__).parent\nresult={'runtime_core_sha256':hashlib.sha256((root/'core.py').read_bytes()).hexdigest(),'leases_after_gc':[],'work_after_gc':[]}\nwith tempfile.TemporaryDirectory(prefix='cw-lease-',dir='/tmp') as tmp:\n    base=pathlib.Path(tmp);origin=Origin(base/'tls');digest=hashlib.sha256(DATA).hexdigest()\n    try:\n        with Cache(base/'cache',[Spec('a',origin.url,len(DATA),digest)],HTTPS(origin.origin,'127.0.0.1',origin.cert),manifest_revision=1) as c:\n            for i in range(8):\n                c.submit('r'+str(i),'a',seconds=3,epoch=c.epoch);status=c.wait('r'+str(i));assert status['request']['state']=='SUCCEEDED'\n                with c.read(digest) as file:assert file.read()==DATA\n                c.futures[digest].result(3);time.sleep(.02)\n                c.gc(c.gc_plan())\n                result['leases_after_gc'].append(len(c.leases));result['work_after_gc'].append(len(c.work))\n            result['requests_retained']=c.db.execute('SELECT count(*) FROM requests').fetchone()[0]\n    finally:origin.close()\nprint(json.dumps(result))\n"
+}

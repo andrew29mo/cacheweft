@@ -32,7 +32,7 @@ def main():
     with zipfile.ZipFile(wheel) as z:runtime={n:hashlib.sha256(z.read(n)).hexdigest() for n in z.namelist() if n.startswith('cacheweft/') and n.endswith('.py')}
     if runtime!={k:h for k,h in source.items() if k.startswith('cacheweft/')}:p.error('Wheel/source mismatch')
     env=dict(os.environ,COLIMA_HOME=str(home),PATH=str(tool)+os.pathsep+os.environ['PATH'])
-    v=dict(contract='cacheweft-real-model-v1',passed=False,recorded_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),source=source,wheel_sha256=hashlib.sha256(wheel.read_bytes()).hexdigest(),stages=[],host_mounts='none',reference=provenance,limits=dict(accuracy_tested=False,wan_trials=1,syscall_trace_linux_only=True,systemd_tested=False,power_loss_tested=False,long_term_tested=False))
+    v=dict(contract='cacheweft-real-model-v2',passed=False,recorded_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),source=source,wheel_sha256=hashlib.sha256(wheel.read_bytes()).hexdigest(),stages=[],host_mounts='none',reference=provenance,limits=dict(accuracy_tested=False,wan_trials=1,syscall_trace_linux_only=True,systemd_tested=False,power_loss_tested=False,long_term_tested=False))
     def persist():
         (output/'evidence.json').write_text(json.dumps(v,indent=2,allow_nan=False)+'\n');(output/'report.html').write_text(render(v))
     def run(name,args,timeout=60,stdin=None,cwd=ROOT):

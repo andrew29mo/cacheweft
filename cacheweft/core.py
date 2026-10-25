@@ -430,7 +430,7 @@ class Cache:
                         self.db.execute("UPDATE objects SET state='QUEUED',revision=revision+1 WHERE digest=?",(spec.sha256,))
                     self.db.execute('INSERT INTO requests(id,params,digest,generation,state,result,deadline,epoch,revision) VALUES(?,?,?,?,?,?,?,?,1)',
                                     (request_id,params,spec.sha256,generation,'SUCCEEDED' if done else 'WAITING','SUCCEEDED' if done else None,received+seconds if seconds is not None else None,self.epoch))
-                self._lease(spec.sha256,generation)
+                if not done:self._lease(spec.sha256,generation)
                 self._schedule(spec.sha256,generation)
             except sqlite3.Error:
                 self.degraded=True
@@ -445,7 +445,17 @@ class Cache:
         if old and not old.done() and self.future_generations.get(digest)==generation:return
         self.future_generations[digest]=generation
         self.futures[digest]=self.pool.submit(self._download,digest,generation,self.epoch)
-        self.work.add(self.futures[digest])
+        future=self.futures[digest]
+        self.work.add(future)
+        future.add_done_callback(lambda f:self._retire_download(digest,generation,f))
+
+    def _retire_download(self,digest,generation,future):
+        # Future.done alone does not mean its callback acquired authority yet.
+        # A resumed worker can already own this same generation's replacement lease.
+        with self.lock:
+            self.work.discard(future)
+            if self.future_generations.get(digest)!=generation or self.futures.get(digest) is future:
+                self.leases.pop((digest,generation),None)
 
     def resume(self):
         with self._authority():

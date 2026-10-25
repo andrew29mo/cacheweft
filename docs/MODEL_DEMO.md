@@ -1,5 +1,11 @@
 # Real-model demonstration
 
+The prior `b3597f7` record is preserved as [JSON](../evidence/model-demo-before-closeout.json)
+and [HTML](../evidence/model-demo-before-closeout.html). The current runner uses
+the expanded 74-test cohort after the generation-retirement correction; use the
+recorded revision when reproducing historical evidence.
+
+
 This milestone exercises the installed Cacheweft daemon and CLI with a real
 pre-trained SqueezeNet 1.1 ONNX model, instead of only deterministic test payloads.
 It demonstrates verified transport, explicit continuation, offline availability
@@ -124,7 +130,7 @@ python3.12 -m venv .demo-venv
 The runtime and inference interpreters must remain separate. Do not resolve the
 Python venv executable's symlink to its base interpreter: that loses the venv.
 The runner verifies wheel/runtime/source hashes, checks the runtime interpreter
-cannot import NumPy or ONNX Runtime, runs the same existing 71 identified tests
+cannot import NumPy or ONNX Runtime, runs the same 74 identified tests
 on both platforms, then runs the real-model cases. Linux runtime source is moved
 out of import reach after wheel installation. The guest installs the optional
 inference requirements into a second venv and the observer attaches strace.
@@ -169,41 +175,41 @@ power-loss recovery, or boot-zero-gap qualification.
 
 ## Recorded result
 
-[JSON](../evidence/model-demo.json) and [HTML](../evidence/model-demo.html)
-record **71 identified unit tests passing on each platform**, four controlled
-real-model integration cases per platform, and one separate native Internet
-fetch. All 16 stages completed with exit 0 and no timeout.
-The verifier rejected 24 deliberately corrupted evidence copies, including
-wrong source/runtime, false range savings, fake offline tracing and incomplete
-corrupt-body reception. Normal and optimized Python verification both pass.
+The current [JSON](../evidence/model-demo.json) and [HTML](../evidence/model-demo.html)
+revalidate the model workflows with exactly the same corrected runtime modules
+and wheel SHA-256 as the bounded closeout. The earlier b3597f7 record is archived
+above; its timings are not mixed into this run.
+
+Both platforms passed **74 identified unit tests** and four controlled model
+integration cases; native macOS also ran one separate Internet fetch. All
+16 stages finished with exit 0/no timeout. The verifier rejected
+24 corrupted copies; normal and optimized Python checks pass.
 
 | Environment | Mode | Fetch phase seconds | CLI read seconds | Sampled max daemon RSS bytes | Cache-root logical bytes |
 |---|---|---:|---:|---:|---:|
-| Native macOS | cold | 0.179 | 0.052 | 30687232 | 4989062 |
-| Native macOS | resumed | 0.112 | 0.050 | 30146560 | 4989062 |
-| Native macOS | offline | 0.070 | 0.061 | 29097984 | 4989062 |
-| Linux VM | cold | 0.213 | 0.034 | 25260032 | 4989062 |
-| Linux VM | resumed | 0.145 | 0.038 | 25387008 | 4989062 |
-| Linux VM | offline | 0.047 | 0.045 | 24674304 | 4989062 |
+| Native macOS | cold | 0.163 | 0.051 | 30179328 | 4989063 |
+| Native macOS | resumed | 0.140 | 0.051 | 30277632 | 4989063 |
+| Native macOS | offline | 0.066 | 0.065 | 29130752 | 4989063 |
+| Linux VM | cold | 0.159 | 0.033 | 25272320 | 4989062 |
+| Linux VM | resumed | 0.134 | 0.033 | 25432064 | 4989062 |
+| Linux VM | offline | 0.044 | 0.044 | 24678400 | 4989062 |
 
-These are individual observations, not paired performance distributions.
-Resumed phase time excludes the prefix/crash/restart; no speedup ratio is
-computed. All successful files match the locked SHA-256 and produce identical
-output digests to the independent reference **within each platform** (max
-absolute error 0). Cross-platform floating-point digest equality is not required.
-Linux offline access had an attached syscall tracer and zero connect calls;
-macOS claims only source refusal and unchanged formal transfer counters.
+Resumed time excludes the prefix, crash and restart; no speedup ratio is derived.
+All successful outputs match the locked model SHA-256. Their inference output
+digests match the independent reference within each platform, with maximum
+absolute error 0. Cross-platform bit equality is not required. Linux offline
+fetch/read had an attached tracer and zero connect syscalls; native macOS
+claims source refusal and unchanged transfer counters, without syscall tracing.
+The corrupted case fully received the altered body, matched its known different
+staging SHA-256 and refused publication/read.
 
-The separate real Internet fetch took 0.646 seconds through the official
-daemon/CLI, plus 0.067 seconds for CLI read. This is a single GitHub
-CDN sample with a provisioned address, not a WAN speedup or service-level bound.
-The native temporary experiment directory and dedicated VM/data disk were
-removed; preexisting Colima profiles retained their previous state.
+The separate Internet fetch took 1.093 seconds, plus
+0.084 seconds for CLI read. It is one CDN/address observation, not a WAN
+speedup, percentile or bound. Daemon RSS excludes the inference process and
+Linux VM samples remain separate from native macOS. All temporary model work,
+the dedicated VM and its data disk were cleaned; preexisting profiles were unchanged.
 
-During development, checks caught an outdated upstream output shape, a
-one-attempt fixture that legitimately could not resume, and accidental venv
-symlink resolution that selected the base interpreter. Those demonstration
-issues were corrected; Cacheweft runtime source and its dependency list were
-unchanged in this milestone. The corruption witness was strengthened to rule
-out early network failure, and child process groups/cleanup were hardened
-before recording this final run.
+Development checks caught the upstream card's outdated output shape, an
+insufficient one-attempt fixture and venv symlink resolution losing its environment.
+The original model milestone added no runtime dependencies; the closeout core
+retirement correction is explicitly included and revalidated in this record.

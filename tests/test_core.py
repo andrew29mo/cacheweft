@@ -190,6 +190,61 @@ c.submit('r','model-v1');c.wait('r');os._exit(74)
         self.assertTrue(c.status('new')['available'])
         with c.read(self.digest) as f:self.assertEqual(f.read(),DATA)
 
+    def settled(self,c):
+        until=time.monotonic()+3
+        while time.monotonic()<until:
+            with c.lock:
+                if not c.work:return
+            time.sleep(.01)
+        self.fail('Completed futures/leases did not retire')
+
+    def test_completed_generation_leases_are_reclaimed(self):
+        c=self.cache()
+        for i in range(12):
+            self.success(c,'download_'+str(i))
+            c.submit('hit_'+str(i),'model-v1')
+            self.settled(c)
+            with c.lock:self.assertEqual(c.leases,{});self.assertEqual(len(c.futures),1)
+            self.assertEqual(c.gc(c.gc_plan()),[self.digest])
+        self.assertEqual(c.db.execute('SELECT count(*) FROM requests').fetchone()[0],24)
+
+    def test_retired_callback_preserves_new_generation_lease(self):
+        old_arrived,new_arrived=threading.Event(),threading.Event()
+        old_release,new_release=threading.Event(),threading.Event();generations=[]
+        def hook(p,i):
+            if p!='chunk_received':return
+            with c.lock:gen=c._row(self.digest)['generation']
+            if not generations:generations.append(gen)
+            if gen==generations[0]:old_arrived.set();old_release.wait(4)
+            else:new_arrived.set();new_release.wait(4)
+        c=self.cache(hook=hook)
+        try:
+            old_status=c.submit('old','model-v1');self.assertTrue(old_arrived.wait(3));old=c.futures[self.digest]
+            c.cancel('old');c.gc(c.gc_plan());new_status=c.submit('new','model-v1');self.assertTrue(new_arrived.wait(3))
+            key=(self.digest,new_status['object']['generation']);new_lease=c.leases[key]
+            old_release.set();old.result(3)
+            c._retire_download(self.digest,old_status['object']['generation'],old)
+            with c.lock:self.assertIs(c.leases[key],new_lease);self.assertFalse(new_lease.cancelled.is_set());self.assertFalse(c.futures[self.digest].done())
+            new_release.set();self.assertEqual(c.wait('new')['request']['state'],'SUCCEEDED');self.settled(c)
+            self.assertEqual(c.leases,{})
+        finally:old_release.set();new_release.set()
+
+    def test_retired_callback_preserves_same_generation_resume(self):
+        self.origin.mode='partial_hold';c=self.cache()
+        old_status=c.submit('old','model-v1',seconds=.15);old=c.futures[self.digest]
+        self.assertTrue(self.origin.arrived.wait(2));self.assertEqual(c.wait('old')['request']['state'],'TIMED_OUT')
+        self.origin.release.set();old.result(3);self.settled(c)
+        source=c.status('old');self.origin.mode='hold';self.origin.arrived.clear();self.origin.release.clear()
+        token=dict(epoch=source['epoch'],generation=source['request']['generation'],revision=source['request']['revision'])
+        try:
+            new=c.submit('new','model-v1',seconds=3,epoch=c.epoch,resume_from='old',token=token)
+            self.assertTrue(self.origin.arrived.wait(2));key=(self.digest,new['object']['generation']);lease=c.leases[key]
+            c._retire_download(self.digest,old_status['object']['generation'],old)
+            with c.lock:self.assertIs(c.leases[key],lease);self.assertIn(c.futures[self.digest],c.work)
+            self.origin.release.set();self.assertEqual(c.wait('new')['request']['state'],'SUCCEEDED');self.settled(c)
+            self.assertEqual(c.leases,{})
+        finally:self.origin.release.set()
+
     def test_pin_and_read_prevent_stale_gc_plan(self):
         c=self.cache();v=self.success(c);plan=c.gc_plan();gen=v['object']['generation']
         token=dict(epoch=v['epoch'],generation=gen,revision=v['object']['revision'])

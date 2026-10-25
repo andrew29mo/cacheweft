@@ -1,11 +1,11 @@
 {
-  "contract": "cacheweft-real-model-v1",
+  "contract": "cacheweft-real-model-v2",
   "passed": true,
-  "recorded_utc": "2026-10-25T14:55:25.727858+00:00",
+  "recorded_utc": "2026-10-25T15:53:25.038148+00:00",
   "source": {
     "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
     "cacheweft/cli.py": "7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5",
-    "cacheweft/core.py": "068325c996f6acad07353a112970120327e75c70448edb084e23f3b054a48723",
+    "cacheweft/core.py": "de6442307960c0066603ba37827205bd550011b9f3db71d600d49362bf6e6ba1",
     "cacheweft/http.py": "41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76",
     "cacheweft/service.py": "c8c608aa79fc164e6b9259cdb76acbae550ab2408e054e483aaf233f029fa21e",
     "deploy/cacheweft.service": "b29542634a9f525d089e107f593b20ee28690e37ab4afc177c28bc2141c84053",
@@ -17,16 +17,16 @@
     "examples/model.json": "2dbcc23c1fd8b9e37e8f60e9a2154a1407d33869c0b39f195493fc12613b70f9",
     "examples/origin.py": "31cdeb243307575cfe5ab5796647cc721b10a4aa13724c26da4a802a9211da04",
     "examples/prepare.py": "affd5090cedd319f48b7f43ac8bcc8a1194637cf6890a048ed56c9b658e0a28f",
-    "examples/report.py": "e0d77e5f6d6bc007d3b085f03c901f55f11b426d572d5bd2bcd053cb8ff57871",
+    "examples/report.py": "412eb512fc85055525657fa020c1af4040fe6a7d34c3b9d17ffae388cfc9774c",
     "examples/requirements.txt": "cc93bef4f4fef4de4daf859793b1cbe2b21f2a862e3c4613117028d1abfa368d",
-    "examples/validate.py": "7eae74f5d00d63c15fcf1e0b2f0d782d6cca2fcf22dcad406523b4820810a0db",
+    "examples/validate.py": "3ecbb8643f19689d2e7de5e85da2f3d8f85b59fdf032e79e96a9d47813eb6d0c",
     "examples/wan.py": "5ab6c850de9766e027a3071f2531950329760db4adf8a0c8a49be320b7bebb32",
     "pyproject.toml": "6ee0499a249a5170281f960f4035720af3d6a808a085362437a1a3003123eecc",
     "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "tests/daemon_fixture.py": "03ac73462542d1e7b8adbf38907b82398b093a1ce83a499bd919e4e8091acd1f",
     "tests/fixture.py": "11eadd60812db5db5ebe5acbfbd620d6699497e6666e789f404e0d504c0b728e",
     "tests/review_fixture.py": "6fcbbc68944799c7134ad51b5251cddae313af2e0c54bd681a589a35ca374542",
-    "tests/test_core.py": "ef8d6b1dd9195d814e47e4ce665ce1f4361340b39057945a5433f42a76b67a8b",
+    "tests/test_core.py": "2cbbfc3a94396252c04d29346ca9e01eb821a383574cac3fb9ab755b12f60be1",
     "tests/test_review.py": "02da5fb7322fa4ebde3265b892598329ef256bc762bdc52c58d774ab892b58a6",
     "tests/test_service.py": "4fa4b1429ec989275be88b96684cb7e6125af672d59a8d680ca027ca62ca324f",
     "tools/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -41,103 +41,103 @@
     "tools/unit.py": "a1f904bef90862c9bbe376dca54d4d8bc1002dc67b96396645eee22a589669e0",
     "tools/validate.py": "1d30c0333b962ce550f61efae3f3d34c6b8afb570cdc5fc0561affb10f391993"
   },
-  "wheel_sha256": "fb4ef2397fa599c1cb874c80943521be9a6f52d39a0a24a3bc8bd8a0705a3ca5",
+  "wheel_sha256": "0480c2845eb175e2286d83307b59ba79efab7d72ff6a0a0c93dd381101a559a9",
   "stages": [
     {
       "name": "initial",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.21725487499998053
+      "seconds": 0.2698069999996733
     },
     {
       "name": "create",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 20.66536958300003
+      "seconds": 22.25035966699943
     },
     {
       "name": "dependencies",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 14.730194624999967
+      "seconds": 15.751897291000205
     },
     {
       "name": "upload",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.445404999999937
+      "seconds": 0.37355825000031473
     },
     {
       "name": "install",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 9.442675165999844
+      "seconds": 6.56619899999987
     },
     {
       "name": "provenance",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.3048982089999299
+      "seconds": 0.34277100000053906
     },
     {
       "name": "native-provenance",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.07207204199994521
+      "seconds": 0.10738137499993172
     },
     {
       "name": "native",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 26.57438091699987
+      "seconds": 27.486804166000184
     },
     {
       "name": "native-model",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 3.0281265830003576
+      "seconds": 3.6047566249999363
     },
     {
       "name": "native-wan",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 1.3613310000000638
+      "seconds": 1.8009534170005281
     },
     {
       "name": "linux",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 26.5812840829999
+      "seconds": 27.53947404199971
     },
     {
       "name": "linux-read",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.286864874999992
+      "seconds": 0.27036437500009924
     },
     {
       "name": "linux-model",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 2.9259122920002483
+      "seconds": 3.048629124999934
     },
     {
       "name": "linux-model-read",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.2984760410004128
+      "seconds": 0.22686304200033192
     },
     {
       "name": "delete",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 1.4295308749997275
+      "seconds": 1.5498845840002105
     },
     {
       "name": "final",
       "exit_code": 0,
       "timed_out": false,
-      "seconds": 0.19745929100008652
+      "seconds": 0.271167749999222
     }
   ],
   "host_mounts": "none",
@@ -175,7 +175,7 @@
   },
   "installed_modules": {
     "cacheweft/service.py": "c8c608aa79fc164e6b9259cdb76acbae550ab2408e054e483aaf233f029fa21e",
-    "cacheweft/core.py": "068325c996f6acad07353a112970120327e75c70448edb084e23f3b054a48723",
+    "cacheweft/core.py": "de6442307960c0066603ba37827205bd550011b9f3db71d600d49362bf6e6ba1",
     "cacheweft/cli.py": "7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5",
     "cacheweft/http.py": "41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76",
     "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90"
@@ -183,13 +183,13 @@
   "native_installed_modules": {
     "cacheweft/service.py": "c8c608aa79fc164e6b9259cdb76acbae550ab2408e054e483aaf233f029fa21e",
     "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
-    "cacheweft/core.py": "068325c996f6acad07353a112970120327e75c70448edb084e23f3b054a48723",
+    "cacheweft/core.py": "de6442307960c0066603ba37827205bd550011b9f3db71d600d49362bf6e6ba1",
     "cacheweft/cli.py": "7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5",
     "cacheweft/http.py": "41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76"
   },
   "native": {
     "passed": true,
-    "tests": 71,
+    "tests": 74,
     "test_ids": [
       "deploy.test_notify.NotifyTests.test_failed_notify_is_failed_start_and_cleans_socket",
       "deploy.test_notify.NotifyTests.test_no_notify_environment",
@@ -205,6 +205,7 @@
       "tests.test_core.CoreTests.test_complete_checkpoint_corruption_not_published",
       "tests.test_core.CoreTests.test_complete_checkpoint_needs_no_origin_or_attempt",
       "tests.test_core.CoreTests.test_complete_checkpoint_without_validator",
+      "tests.test_core.CoreTests.test_completed_generation_leases_are_reclaimed",
       "tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows",
       "tests.test_core.CoreTests.test_disk_error_retires_authority",
       "tests.test_core.CoreTests.test_encoded_body_refused",
@@ -227,6 +228,8 @@
       "tests.test_core.CoreTests.test_request_budget_and_conflict",
       "tests.test_core.CoreTests.test_reservation_not_oversold",
       "tests.test_core.CoreTests.test_resume_real_range",
+      "tests.test_core.CoreTests.test_retired_callback_preserves_new_generation_lease",
+      "tests.test_core.CoreTests.test_retired_callback_preserves_same_generation_resume",
       "tests.test_core.CoreTests.test_retired_download_cannot_block_new_generation",
       "tests.test_core.CoreTests.test_shorter_than_checkpoint_restarts",
       "tests.test_core.CoreTests.test_symlink_destination_never_overwritten",
@@ -266,13 +269,13 @@
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "seconds": 26.46442179199994,
+    "seconds": 27.370475708999948,
     "platform": "Darwin",
     "python": "3.12.14",
     "modules": {
       "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
       "cacheweft/cli.py": "7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5",
-      "cacheweft/core.py": "068325c996f6acad07353a112970120327e75c70448edb084e23f3b054a48723",
+      "cacheweft/core.py": "de6442307960c0066603ba37827205bd550011b9f3db71d600d49362bf6e6ba1",
       "cacheweft/http.py": "41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76",
       "cacheweft/service.py": "c8c608aa79fc164e6b9259cdb76acbae550ab2408e054e483aaf233f029fa21e"
     }
@@ -284,42 +287,42 @@
       {
         "mode": "cold",
         "fetch": {
-          "seconds": 0.17899462500008667,
-          "accepted_deadline": 2532.72743375,
+          "seconds": 0.162630290999914,
+          "accepted_deadline": 6013.129342583,
           "final": {
             "request": {
               "id": "cold",
-              "params": "[\"squeezenet1.1-opset7\",\"https://localhost:50558/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,null]",
+              "params": "[\"squeezenet1.1-opset7\",\"https://localhost:51724/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,null]",
               "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
-              "generation": "c6b0111e-3eb1-416f-9adb-1acb1fe4ec3b",
+              "generation": "2b2fad2e-b33d-47f4-82a3-eea7cc297e0e",
               "state": "SUCCEEDED",
               "result": "SUCCEEDED",
-              "deadline": 2532.72743375,
-              "epoch": "42cf28e6-993e-424c-84eb-7bf6c33ca344",
+              "deadline": 6013.129342583,
+              "epoch": "f63e405f-601b-4b8d-afab-83fd5857fbe9",
               "revision": 2
             },
             "available": true,
             "object": {
               "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
               "size": 4956208,
-              "url": "https://localhost:50558/model.onnx",
-              "generation": "c6b0111e-3eb1-416f-9adb-1acb1fe4ec3b",
+              "url": "https://localhost:51724/model.onnx",
+              "generation": "2b2fad2e-b33d-47f4-82a3-eea7cc297e0e",
               "state": "READY",
               "offset": 4956208,
               "etag": "\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\"",
               "attempts": 1,
               "wire": 4956208,
               "pin": 0,
-              "access": 1792940198620769000,
+              "access": 1792943679031023000,
               "revision": 1
             },
             "degraded": false,
-            "epoch": "42cf28e6-993e-424c-84eb-7bf6c33ca344",
+            "epoch": "f63e405f-601b-4b8d-afab-83fd5857fbe9",
             "remaining_seconds": null
           }
         },
         "read": {
-          "seconds": 0.052121416999852954,
+          "seconds": 0.05102645799979655,
           "cli_exit": 0,
           "size": 4956208,
           "sha256": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088"
@@ -335,7 +338,7 @@
         ],
         "server_body_write_bytes": 4956208,
         "disk": {
-          "root_regular_unique_inode_logical_bytes": 4989062,
+          "root_regular_unique_inode_logical_bytes": 4989063,
           "root_regular_unique_inode_allocated_bytes": 4997120,
           "scope": "cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded"
         },
@@ -346,12 +349,12 @@
           "budget": 16777216
         },
         "memory": {
-          "pid": 5497,
+          "pid": 10740,
           "uid": 501,
-          "daemon_pgid": 5495,
-          "observer_pgid": 5495,
-          "sampled_min_bytes": 29114368,
-          "sampled_max_bytes": 30687232,
+          "daemon_pgid": 10737,
+          "observer_pgid": 10737,
+          "sampled_min_bytes": 28917760,
+          "sampled_max_bytes": 30179328,
           "samples": 4,
           "requested_interval_seconds": 0.05,
           "scope": "daemon PID current RSS samples only; observer, inference and VM/host memory excluded",
@@ -367,59 +370,59 @@
         "mode": "resumed",
         "before_crash": {
           "state": "WAITING",
-          "deadline": 2533.283796208,
-          "epoch": "7fa6c7c3-0f66-414f-94a7-5c38c07a149d"
+          "deadline": 6013.724251333,
+          "epoch": "afea514f-5fb0-486d-92b4-57d5bb76f2ee"
         },
         "checkpoint": 262144,
         "crash_exit": -9,
         "recovered_old": {
           "id": "old",
-          "params": "[\"squeezenet1.1-opset7\",\"https://localhost:50558/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,null]",
+          "params": "[\"squeezenet1.1-opset7\",\"https://localhost:51724/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,null]",
           "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
-          "generation": "e0f494c3-12b6-4164-a202-daaba7484352",
+          "generation": "b87af768-cdf0-4afd-ae3b-68f34ddd108e",
           "state": "INTERRUPTED",
           "result": "INTERRUPTED",
-          "deadline": 2533.283796208,
-          "epoch": "7fa6c7c3-0f66-414f-94a7-5c38c07a149d",
+          "deadline": 6013.724251333,
+          "epoch": "afea514f-5fb0-486d-92b4-57d5bb76f2ee",
           "revision": 2
         },
         "old_epoch_rejected": true,
         "no_automatic_get": true,
-        "restart_seconds": 0.049857417000112036,
-        "resume_fetch_seconds": 0.11187316599989572,
+        "restart_seconds": 0.08022612500008108,
+        "resume_fetch_seconds": 0.14040124999974068,
         "final": {
           "request": {
             "id": "new",
-            "params": "[\"squeezenet1.1-opset7\",\"https://localhost:50558/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,\"old\"]",
+            "params": "[\"squeezenet1.1-opset7\",\"https://localhost:51724/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,\"old\"]",
             "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
-            "generation": "e0f494c3-12b6-4164-a202-daaba7484352",
+            "generation": "b87af768-cdf0-4afd-ae3b-68f34ddd108e",
             "state": "SUCCEEDED",
             "result": "SUCCEEDED",
-            "deadline": 2533.396085291,
-            "epoch": "e122f1ef-50fc-4b1c-89ce-a1595af9b30d",
+            "deadline": 6013.885385541,
+            "epoch": "4dee0f48-74fa-4221-b50b-8631a7d841ed",
             "revision": 2
           },
           "available": true,
           "object": {
             "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
             "size": 4956208,
-            "url": "https://localhost:50558/model.onnx",
-            "generation": "e0f494c3-12b6-4164-a202-daaba7484352",
+            "url": "https://localhost:51724/model.onnx",
+            "generation": "b87af768-cdf0-4afd-ae3b-68f34ddd108e",
             "state": "READY",
             "offset": 4956208,
             "etag": "\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\"",
             "attempts": 2,
             "wire": 4956208,
             "pin": 0,
-            "access": 1792940199177107000,
+            "access": 1792943679625905000,
             "revision": 2
           },
           "degraded": false,
-          "epoch": "e122f1ef-50fc-4b1c-89ce-a1595af9b30d",
+          "epoch": "4dee0f48-74fa-4221-b50b-8631a7d841ed",
           "remaining_seconds": null
         },
         "read": {
-          "seconds": 0.04983041700006652,
+          "seconds": 0.05068679099986184,
           "cli_exit": 0,
           "size": 4956208,
           "sha256": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088"
@@ -442,31 +445,31 @@
         ],
         "server_body_write_bytes": 4956208,
         "memory_before_crash": {
-          "pid": 5504,
+          "pid": 10750,
           "uid": 501,
-          "daemon_pgid": 5495,
-          "observer_pgid": 5495,
+          "daemon_pgid": 10737,
+          "observer_pgid": 10737,
           "sampled_min_bytes": 28917760,
-          "sampled_max_bytes": 30097408,
+          "sampled_max_bytes": 29949952,
           "samples": 2,
           "requested_interval_seconds": 0.05,
           "scope": "daemon PID current RSS samples only; observer, inference and VM/host memory excluded",
           "platform": "Darwin"
         },
         "memory": {
-          "pid": 5508,
+          "pid": 10754,
           "uid": 501,
-          "daemon_pgid": 5495,
-          "observer_pgid": 5495,
-          "sampled_min_bytes": 29097984,
-          "sampled_max_bytes": 30146560,
-          "samples": 3,
+          "daemon_pgid": 10737,
+          "observer_pgid": 10737,
+          "sampled_min_bytes": 29163520,
+          "sampled_max_bytes": 30277632,
+          "samples": 4,
           "requested_interval_seconds": 0.05,
           "scope": "daemon PID current RSS samples only; observer, inference and VM/host memory excluded",
           "platform": "Darwin"
         },
         "disk": {
-          "root_regular_unique_inode_logical_bytes": 4989062,
+          "root_regular_unique_inode_logical_bytes": 4989063,
           "root_regular_unique_inode_allocated_bytes": 4997120,
           "scope": "cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded"
         },
@@ -485,42 +488,42 @@
       {
         "mode": "offline",
         "fetch": {
-          "seconds": 0.07013866700026483,
-          "accepted_deadline": 2534.068793041,
+          "seconds": 0.06586295800025255,
+          "accepted_deadline": 6014.552622166,
           "final": {
             "request": {
               "id": "offline",
-              "params": "[\"squeezenet1.1-opset7\",\"https://localhost:50558/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,null]",
+              "params": "[\"squeezenet1.1-opset7\",\"https://localhost:51724/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,null]",
               "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
-              "generation": "c6b0111e-3eb1-416f-9adb-1acb1fe4ec3b",
+              "generation": "2b2fad2e-b33d-47f4-82a3-eea7cc297e0e",
               "state": "SUCCEEDED",
               "result": "SUCCEEDED",
-              "deadline": 2534.068793041,
-              "epoch": "4cb71efd-36c2-4435-b4b5-8dfbce682a88",
+              "deadline": 6014.552622166,
+              "epoch": "b60d4a74-3a7e-4958-b8f1-223bbcfc236f",
               "revision": 1
             },
             "available": true,
             "object": {
               "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
               "size": 4956208,
-              "url": "https://localhost:50558/model.onnx",
-              "generation": "c6b0111e-3eb1-416f-9adb-1acb1fe4ec3b",
+              "url": "https://localhost:51724/model.onnx",
+              "generation": "2b2fad2e-b33d-47f4-82a3-eea7cc297e0e",
               "state": "READY",
               "offset": 4956208,
               "etag": "\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\"",
               "attempts": 1,
               "wire": 4956208,
               "pin": 0,
-              "access": 1792940198788807000,
+              "access": 1792943679169836000,
               "revision": 1
             },
             "degraded": false,
-            "epoch": "4cb71efd-36c2-4435-b4b5-8dfbce682a88",
+            "epoch": "b60d4a74-3a7e-4958-b8f1-223bbcfc236f",
             "remaining_seconds": null
           }
         },
         "read": {
-          "seconds": 0.06060208300004888,
+          "seconds": 0.06480087500040099,
           "cli_exit": 0,
           "size": 4956208,
           "sha256": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088"
@@ -534,19 +537,19 @@
           "scope": "Native macOS: closed origin and unchanged formal transfer counters only; no syscall trace"
         },
         "memory": {
-          "pid": 5518,
+          "pid": 10761,
           "uid": 501,
-          "daemon_pgid": 5495,
-          "observer_pgid": 5495,
-          "sampled_min_bytes": 28983296,
-          "sampled_max_bytes": 29097984,
+          "daemon_pgid": 10737,
+          "observer_pgid": 10737,
+          "sampled_min_bytes": 29048832,
+          "sampled_max_bytes": 29130752,
           "samples": 3,
           "requested_interval_seconds": 0.05,
           "scope": "daemon PID current RSS samples only; observer, inference and VM/host memory excluded",
           "platform": "Darwin"
         },
         "disk": {
-          "root_regular_unique_inode_logical_bytes": 4989062,
+          "root_regular_unique_inode_logical_bytes": 4989063,
           "root_regular_unique_inode_allocated_bytes": 4997120,
           "scope": "cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded"
         },
@@ -575,19 +578,19 @@
         "attempts": 1,
         "server_body_write_bytes": 4956208,
         "memory": {
-          "pid": 5526,
+          "pid": 10768,
           "uid": 501,
-          "daemon_pgid": 5495,
-          "observer_pgid": 5495,
-          "sampled_min_bytes": 28917760,
-          "sampled_max_bytes": 30277632,
+          "daemon_pgid": 10737,
+          "observer_pgid": 10737,
+          "sampled_min_bytes": 28934144,
+          "sampled_max_bytes": 30195712,
           "samples": 4,
           "requested_interval_seconds": 0.05,
           "scope": "daemon PID current RSS samples only; observer, inference and VM/host memory excluded",
           "platform": "Darwin"
         },
         "disk": {
-          "root_regular_unique_inode_logical_bytes": 4989062,
+          "root_regular_unique_inode_logical_bytes": 4989063,
           "root_regular_unique_inode_allocated_bytes": 4997120,
           "scope": "cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded"
         },
@@ -632,13 +635,13 @@
           "finite": true,
           "rtol": 1e-05,
           "atol": 1e-06,
-          "session_load_seconds": 0.022448791999977402,
+          "session_load_seconds": 0.023739666999972542,
           "run_seconds": [
-            0.002433624999866879,
-            0.002011208000112674,
-            0.0020016250000480795,
-            0.0019958749999204883,
-            0.002003125000101136
+            0.0025950829995053937,
+            0.0020165840005574864,
+            0.00200700000004872,
+            0.0033467080002083094,
+            0.0032728340001995093
           ],
           "providers": [
             "CPUExecutionProvider"
@@ -657,13 +660,13 @@
           "finite": true,
           "rtol": 1e-05,
           "atol": 1e-06,
-          "session_load_seconds": 0.003956749999815656,
+          "session_load_seconds": 0.004244040999765275,
           "run_seconds": [
-            0.004114333999950759,
-            0.0032848330001797876,
-            0.0033673749999252323,
-            0.0031677090000812314,
-            0.0031819580003684678
+            0.0048622500007695635,
+            0.0022195840001586475,
+            0.003101208000771294,
+            0.003227417000744026,
+            0.0032269169996652636
           ],
           "providers": [
             "CPUExecutionProvider"
@@ -682,13 +685,13 @@
           "finite": true,
           "rtol": 1e-05,
           "atol": 1e-06,
-          "session_load_seconds": 0.00406112500013478,
+          "session_load_seconds": 0.0037160000001676963,
           "run_seconds": [
-            0.0037276250000104483,
-            0.003388709000319068,
-            0.0034644590000425524,
-            0.003104791000168916,
-            0.0020308749999458087
+            0.0036094589995627757,
+            0.0032039999996413826,
+            0.003213208000488521,
+            0.003201165999598743,
+            0.0032843330000105198
           ],
           "providers": [
             "CPUExecutionProvider"
@@ -707,13 +710,13 @@
           "finite": true,
           "rtol": 1e-05,
           "atol": 1e-06,
-          "session_load_seconds": 0.004159833999892726,
+          "session_load_seconds": 0.002921416000390309,
           "run_seconds": [
-            0.00374412500013932,
-            0.0031697919998805446,
-            0.0020736250003210444,
-            0.0020268749999559077,
-            0.0026187080002273433
+            0.0020231670005159685,
+            0.002057833999970171,
+            0.00230495800042263,
+            0.0020547920003082254,
+            0.001993082999433682
           ],
           "providers": [
             "CPUExecutionProvider"
@@ -732,17 +735,17 @@
       "185.199.111.133"
     ],
     "pinned_address": "185.199.108.133",
-    "fetch_seconds": 0.6462279589995887,
+    "fetch_seconds": 1.0934451250004713,
     "final": {
       "request": {
         "id": "wan",
         "params": "[\"squeezenet1.1-opset7\",\"https://media.githubusercontent.com/media/onnx/models/c5cae0f1942c8d7727372c7b1f6b485aa39e4421/validated/vision/classification/squeezenet/model/squeezenet1.1-7.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",120.0,null]",
         "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
-        "generation": "e94c6018-f937-47e4-8352-dc3631ae538a",
+        "generation": "bc415ca4-0db3-4c3a-8012-a623c5b9f1a1",
         "state": "SUCCEEDED",
         "result": "SUCCEEDED",
-        "deadline": 2635.649661333,
-        "epoch": "6dfe8713-521d-4744-936a-6e4060082fa9",
+        "deadline": 6116.212957916,
+        "epoch": "3112f76d-b227-4ad7-94b4-5e7191625cb8",
         "revision": 2
       },
       "available": true,
@@ -750,47 +753,47 @@
         "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
         "size": 4956208,
         "url": "https://media.githubusercontent.com/media/onnx/models/c5cae0f1942c8d7727372c7b1f6b485aa39e4421/validated/vision/classification/squeezenet/model/squeezenet1.1-7.onnx",
-        "generation": "e94c6018-f937-47e4-8352-dc3631ae538a",
+        "generation": "bc415ca4-0db3-4c3a-8012-a623c5b9f1a1",
         "state": "READY",
         "offset": 4956208,
         "etag": "\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\"",
         "attempts": 1,
         "wire": 4956208,
         "pin": 0,
-        "access": 1792940201543032000,
+        "access": 1792943682114556000,
         "revision": 1
       },
       "degraded": false,
-      "epoch": "6dfe8713-521d-4744-936a-6e4060082fa9",
+      "epoch": "3112f76d-b227-4ad7-94b4-5e7191625cb8",
       "remaining_seconds": null
     },
     "read": {
-      "seconds": 0.06730954199974803,
+      "seconds": 0.08367849999922328,
       "cli_exit": 0,
       "size": 4956208,
       "sha256": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088"
     },
     "memory": {
-      "pid": 5535,
+      "pid": 10779,
       "uid": 501,
-      "daemon_pgid": 5534,
-      "observer_pgid": 5534,
-      "sampled_min_bytes": 30048256,
-      "sampled_max_bytes": 31932416,
-      "samples": 13,
+      "daemon_pgid": 10778,
+      "observer_pgid": 10778,
+      "sampled_min_bytes": 29917184,
+      "sampled_max_bytes": 31440896,
+      "samples": 19,
       "requested_interval_seconds": 0.05,
       "scope": "daemon PID current RSS samples only; observer, inference and VM/host memory excluded",
       "platform": "Darwin"
     },
     "disk": {
-      "root_regular_unique_inode_logical_bytes": 4989062,
-      "root_regular_unique_inode_allocated_bytes": 4997120,
+      "root_regular_unique_inode_logical_bytes": 4989063,
+      "root_regular_unique_inode_allocated_bytes": 6000640,
       "scope": "cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded"
     },
     "usage": {
       "payload_bytes": 4956208,
       "remaining_reserved": 0,
-      "allocated_payload_bytes": 4960256,
+      "allocated_payload_bytes": 5963776,
       "budget": 16777216
     },
     "cleanup": {
@@ -832,13 +835,13 @@
           "finite": true,
           "rtol": 1e-05,
           "atol": 1e-06,
-          "session_load_seconds": 0.005146542000147747,
+          "session_load_seconds": 0.005400125000051048,
           "run_seconds": [
-            0.0038359580003088922,
-            0.0034824169997591525,
-            0.003209749999768974,
-            0.0033739580003384617,
-            0.0032042920001913444
+            0.004101083999557886,
+            0.0025733329994181986,
+            0.0021148329997231485,
+            0.002236208000795159,
+            0.0020453329998417757
           ],
           "providers": [
             "CPUExecutionProvider"
@@ -857,13 +860,13 @@
           "finite": true,
           "rtol": 1e-05,
           "atol": 1e-06,
-          "session_load_seconds": 0.004148792000250978,
+          "session_load_seconds": 0.0038886249994902755,
           "run_seconds": [
-            0.002953667000383575,
-            0.0033561670002200117,
-            0.003441208999902301,
-            0.0032015829997362744,
-            0.0032261670003208565
+            0.002682833000108076,
+            0.003553250000550179,
+            0.003194041999449837,
+            0.0032521249995625112,
+            0.004233915999975579
           ],
           "providers": [
             "CPUExecutionProvider"
@@ -875,7 +878,7 @@
   },
   "linux": {
     "passed": true,
-    "tests": 71,
+    "tests": 74,
     "test_ids": [
       "deploy.test_notify.NotifyTests.test_failed_notify_is_failed_start_and_cleans_socket",
       "deploy.test_notify.NotifyTests.test_no_notify_environment",
@@ -891,6 +894,7 @@
       "tests.test_core.CoreTests.test_complete_checkpoint_corruption_not_published",
       "tests.test_core.CoreTests.test_complete_checkpoint_needs_no_origin_or_attempt",
       "tests.test_core.CoreTests.test_complete_checkpoint_without_validator",
+      "tests.test_core.CoreTests.test_completed_generation_leases_are_reclaimed",
       "tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows",
       "tests.test_core.CoreTests.test_disk_error_retires_authority",
       "tests.test_core.CoreTests.test_encoded_body_refused",
@@ -913,6 +917,8 @@
       "tests.test_core.CoreTests.test_request_budget_and_conflict",
       "tests.test_core.CoreTests.test_reservation_not_oversold",
       "tests.test_core.CoreTests.test_resume_real_range",
+      "tests.test_core.CoreTests.test_retired_callback_preserves_new_generation_lease",
+      "tests.test_core.CoreTests.test_retired_callback_preserves_same_generation_resume",
       "tests.test_core.CoreTests.test_retired_download_cannot_block_new_generation",
       "tests.test_core.CoreTests.test_shorter_than_checkpoint_restarts",
       "tests.test_core.CoreTests.test_symlink_destination_never_overwritten",
@@ -952,13 +958,13 @@
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "seconds": 26.218259695,
+    "seconds": 27.128257206,
     "platform": "Linux",
     "python": "3.12.3",
     "modules": {
       "cacheweft/__init__.py": "513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90",
       "cacheweft/cli.py": "7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5",
-      "cacheweft/core.py": "068325c996f6acad07353a112970120327e75c70448edb084e23f3b054a48723",
+      "cacheweft/core.py": "de6442307960c0066603ba37827205bd550011b9f3db71d600d49362bf6e6ba1",
       "cacheweft/http.py": "41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76",
       "cacheweft/service.py": "c8c608aa79fc164e6b9259cdb76acbae550ab2408e054e483aaf233f029fa21e"
     }
@@ -970,42 +976,42 @@
       {
         "mode": "cold",
         "fetch": {
-          "seconds": 0.21250385599999788,
-          "accepted_deadline": 118.883076907,
+          "seconds": 0.1588778800000057,
+          "accepted_deadline": 121.353397389,
           "final": {
             "request": {
               "id": "cold",
-              "params": "[\"squeezenet1.1-opset7\",\"https://localhost:43397/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,null]",
+              "params": "[\"squeezenet1.1-opset7\",\"https://localhost:37151/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,null]",
               "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
-              "generation": "76390e0e-3726-4262-baa6-efb50497e5c5",
+              "generation": "09079853-71bb-4a43-b21f-32c4fba86fc7",
               "state": "SUCCEEDED",
               "result": "SUCCEEDED",
-              "deadline": 118.883076907,
-              "epoch": "59f5dd1b-b2c9-443f-80cf-24dbdb324cbb",
+              "deadline": 121.353397389,
+              "epoch": "50640b20-4852-44cb-86dd-9037398025d2",
               "revision": 2
             },
             "available": true,
             "object": {
               "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
               "size": 4956208,
-              "url": "https://localhost:43397/model.onnx",
-              "generation": "76390e0e-3726-4262-baa6-efb50497e5c5",
+              "url": "https://localhost:37151/model.onnx",
+              "generation": "09079853-71bb-4a43-b21f-32c4fba86fc7",
               "state": "READY",
               "offset": 4956208,
               "etag": "\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\"",
               "attempts": 1,
               "wire": 4956208,
               "pin": 0,
-              "access": 1792940229953709896,
+              "access": 1792943712081905452,
               "revision": 1
             },
             "degraded": false,
-            "epoch": "59f5dd1b-b2c9-443f-80cf-24dbdb324cbb",
+            "epoch": "50640b20-4852-44cb-86dd-9037398025d2",
             "remaining_seconds": null
           }
         },
         "read": {
-          "seconds": 0.034142629000001534,
+          "seconds": 0.03304848900000934,
           "cli_exit": 0,
           "size": 4956208,
           "sha256": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088"
@@ -1022,23 +1028,23 @@
         "server_body_write_bytes": 4956208,
         "disk": {
           "root_regular_unique_inode_logical_bytes": 4989062,
-          "root_regular_unique_inode_allocated_bytes": 4997120,
+          "root_regular_unique_inode_allocated_bytes": 5001216,
           "scope": "cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded"
         },
         "usage": {
           "payload_bytes": 4956208,
           "remaining_reserved": 0,
-          "allocated_payload_bytes": 4960256,
+          "allocated_payload_bytes": 4964352,
           "budget": 16777216
         },
         "memory": {
-          "pid": 3256,
+          "pid": 3282,
           "uid": 65534,
-          "daemon_pgid": 3248,
-          "observer_pgid": 3248,
-          "sampled_min_bytes": 24326144,
-          "sampled_max_bytes": 25260032,
-          "samples": 5,
+          "daemon_pgid": 3274,
+          "observer_pgid": 3274,
+          "sampled_min_bytes": 24334336,
+          "sampled_max_bytes": 25272320,
+          "samples": 4,
           "requested_interval_seconds": 0.05,
           "scope": "daemon PID current RSS samples only; observer, inference and VM/host memory excluded",
           "platform": "Linux"
@@ -1053,59 +1059,59 @@
         "mode": "resumed",
         "before_crash": {
           "state": "WAITING",
-          "deadline": 119.432743653,
-          "epoch": "17ea4740-c1eb-4388-9a89-21161bfb47e6"
+          "deadline": 121.862924368,
+          "epoch": "1c1908e0-ea71-4ec8-9759-396e6b65ed1f"
         },
         "checkpoint": 262144,
         "crash_exit": -9,
         "recovered_old": {
           "id": "old",
-          "params": "[\"squeezenet1.1-opset7\",\"https://localhost:43397/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,null]",
+          "params": "[\"squeezenet1.1-opset7\",\"https://localhost:37151/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,null]",
           "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
-          "generation": "816ab7ca-08b0-4667-8681-9e5c9ce251db",
+          "generation": "9ef3215f-ed7d-4b70-8b24-6d206406f911",
           "state": "INTERRUPTED",
           "result": "INTERRUPTED",
-          "deadline": 119.432743653,
-          "epoch": "17ea4740-c1eb-4388-9a89-21161bfb47e6",
+          "deadline": 121.862924368,
+          "epoch": "1c1908e0-ea71-4ec8-9759-396e6b65ed1f",
           "revision": 2
         },
         "old_epoch_rejected": true,
         "no_automatic_get": true,
-        "restart_seconds": 0.04247002699999314,
-        "resume_fetch_seconds": 0.14526036499999861,
+        "restart_seconds": 0.043071619999992095,
+        "resume_fetch_seconds": 0.13366125699999998,
         "final": {
           "request": {
             "id": "new",
-            "params": "[\"squeezenet1.1-opset7\",\"https://localhost:43397/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,\"old\"]",
+            "params": "[\"squeezenet1.1-opset7\",\"https://localhost:37151/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,\"old\"]",
             "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
-            "generation": "816ab7ca-08b0-4667-8681-9e5c9ce251db",
+            "generation": "9ef3215f-ed7d-4b70-8b24-6d206406f911",
             "state": "SUCCEEDED",
             "result": "SUCCEEDED",
-            "deadline": 119.52016343,
-            "epoch": "abac2f1a-b353-4c3a-9058-240469824197",
+            "deadline": 121.95052666,
+            "epoch": "f47cd2e4-6d60-4441-8d3d-2f6710c8510f",
             "revision": 2
           },
           "available": true,
           "object": {
             "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
             "size": 4956208,
-            "url": "https://localhost:43397/model.onnx",
-            "generation": "816ab7ca-08b0-4667-8681-9e5c9ce251db",
+            "url": "https://localhost:37151/model.onnx",
+            "generation": "9ef3215f-ed7d-4b70-8b24-6d206406f911",
             "state": "READY",
             "offset": 4956208,
             "etag": "\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\"",
             "attempts": 2,
             "wire": 4956208,
             "pin": 0,
-            "access": 1792940230503386144,
+            "access": 1792943712591473676,
             "revision": 2
           },
           "degraded": false,
-          "epoch": "abac2f1a-b353-4c3a-9058-240469824197",
+          "epoch": "f47cd2e4-6d60-4441-8d3d-2f6710c8510f",
           "remaining_seconds": null
         },
         "read": {
-          "seconds": 0.037536715000001664,
+          "seconds": 0.033007452000006765,
           "cli_exit": 0,
           "size": 4956208,
           "sha256": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088"
@@ -1128,24 +1134,24 @@
         ],
         "server_body_write_bytes": 4956208,
         "memory_before_crash": {
-          "pid": 3282,
+          "pid": 3307,
           "uid": 65534,
-          "daemon_pgid": 3248,
-          "observer_pgid": 3248,
-          "sampled_min_bytes": 24334336,
-          "sampled_max_bytes": 24334336,
+          "daemon_pgid": 3274,
+          "observer_pgid": 3274,
+          "sampled_min_bytes": 24338432,
+          "sampled_max_bytes": 24338432,
           "samples": 1,
           "requested_interval_seconds": 0.05,
           "scope": "daemon PID current RSS samples only; observer, inference and VM/host memory excluded",
           "platform": "Linux"
         },
         "memory": {
-          "pid": 3294,
+          "pid": 3319,
           "uid": 65534,
-          "daemon_pgid": 3248,
-          "observer_pgid": 3248,
-          "sampled_min_bytes": 24498176,
-          "sampled_max_bytes": 25387008,
+          "daemon_pgid": 3274,
+          "observer_pgid": 3274,
+          "sampled_min_bytes": 24494080,
+          "sampled_max_bytes": 25432064,
           "samples": 4,
           "requested_interval_seconds": 0.05,
           "scope": "daemon PID current RSS samples only; observer, inference and VM/host memory excluded",
@@ -1153,13 +1159,13 @@
         },
         "disk": {
           "root_regular_unique_inode_logical_bytes": 4989062,
-          "root_regular_unique_inode_allocated_bytes": 4997120,
+          "root_regular_unique_inode_allocated_bytes": 5001216,
           "scope": "cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded"
         },
         "usage": {
           "payload_bytes": 4956208,
           "remaining_reserved": 0,
-          "allocated_payload_bytes": 4960256,
+          "allocated_payload_bytes": 4964352,
           "budget": 16777216
         },
         "cleanup": {
@@ -1171,42 +1177,42 @@
       {
         "mode": "offline",
         "fetch": {
-          "seconds": 0.046844473999996694,
-          "accepted_deadline": 120.134732276,
+          "seconds": 0.04367239300000847,
+          "accepted_deadline": 122.569184715,
           "final": {
             "request": {
               "id": "offline",
-              "params": "[\"squeezenet1.1-opset7\",\"https://localhost:43397/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,null]",
+              "params": "[\"squeezenet1.1-opset7\",\"https://localhost:37151/model.onnx\",4956208,\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\",20.0,null]",
               "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
-              "generation": "76390e0e-3726-4262-baa6-efb50497e5c5",
+              "generation": "09079853-71bb-4a43-b21f-32c4fba86fc7",
               "state": "SUCCEEDED",
               "result": "SUCCEEDED",
-              "deadline": 120.134732276,
-              "epoch": "0fdcf8dc-f2ad-40ad-a996-4c4e0cdb3e86",
+              "deadline": 122.569184715,
+              "epoch": "ae565f12-fc26-41e0-86f2-c5577ba01a99",
               "revision": 1
             },
             "available": true,
             "object": {
               "digest": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088",
               "size": 4956208,
-              "url": "https://localhost:43397/model.onnx",
-              "generation": "76390e0e-3726-4262-baa6-efb50497e5c5",
+              "url": "https://localhost:37151/model.onnx",
+              "generation": "09079853-71bb-4a43-b21f-32c4fba86fc7",
               "state": "READY",
               "offset": 4956208,
               "etag": "\"1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088\"",
               "attempts": 1,
               "wire": 4956208,
               "pin": 0,
-              "access": 1792940230167089090,
+              "access": 1792943712239801520,
               "revision": 1
             },
             "degraded": false,
-            "epoch": "0fdcf8dc-f2ad-40ad-a996-4c4e0cdb3e86",
+            "epoch": "ae565f12-fc26-41e0-86f2-c5577ba01a99",
             "remaining_seconds": null
           }
         },
         "read": {
-          "seconds": 0.04531002099999171,
+          "seconds": 0.04372709600001201,
           "cli_exit": 0,
           "size": 4956208,
           "sha256": "1eeff551a67ae8d565ca33b572fc4b66e3ef357b0eb2863bb9ff47a918cc4088"
@@ -1218,20 +1224,20 @@
         "trace": {
           "tested": true,
           "tracer_attached": true,
-          "daemon_pid": 3321,
-          "tracer_pid": 3326,
+          "daemon_pid": 3345,
+          "tracer_pid": 3350,
           "connect_syscalls": 0,
           "trace_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "tracer_exit": -2,
           "scope": "Linux strace attached to formal daemon and its threads before offline fetch through CLI read"
         },
         "memory": {
-          "pid": 3321,
+          "pid": 3345,
           "uid": 65534,
-          "daemon_pgid": 3248,
-          "observer_pgid": 3248,
-          "sampled_min_bytes": 24489984,
-          "sampled_max_bytes": 24674304,
+          "daemon_pgid": 3274,
+          "observer_pgid": 3274,
+          "sampled_min_bytes": 24494080,
+          "sampled_max_bytes": 24678400,
           "samples": 3,
           "requested_interval_seconds": 0.05,
           "scope": "daemon PID current RSS samples only; observer, inference and VM/host memory excluded",
@@ -1239,13 +1245,13 @@
         },
         "disk": {
           "root_regular_unique_inode_logical_bytes": 4989062,
-          "root_regular_unique_inode_allocated_bytes": 4997120,
+          "root_regular_unique_inode_allocated_bytes": 5001216,
           "scope": "cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded"
         },
         "usage": {
           "payload_bytes": 4956208,
           "remaining_reserved": 0,
-          "allocated_payload_bytes": 4960256,
+          "allocated_payload_bytes": 4964352,
           "budget": 16777216
         },
         "cleanup": {
@@ -1267,12 +1273,12 @@
         "attempts": 1,
         "server_body_write_bytes": 4956208,
         "memory": {
-          "pid": 3339,
+          "pid": 3363,
           "uid": 65534,
-          "daemon_pgid": 3248,
-          "observer_pgid": 3248,
-          "sampled_min_bytes": 24334336,
-          "sampled_max_bytes": 25255936,
+          "daemon_pgid": 3274,
+          "observer_pgid": 3274,
+          "sampled_min_bytes": 24338432,
+          "sampled_max_bytes": 25313280,
           "samples": 4,
           "requested_interval_seconds": 0.05,
           "scope": "daemon PID current RSS samples only; observer, inference and VM/host memory excluded",
@@ -1280,7 +1286,7 @@
         },
         "disk": {
           "root_regular_unique_inode_logical_bytes": 4989062,
-          "root_regular_unique_inode_allocated_bytes": 4997120,
+          "root_regular_unique_inode_allocated_bytes": 5001216,
           "scope": "cache root only, payload plus catalog and metadata; reference/read outputs and inference environment excluded"
         },
         "cleanup": {
@@ -1324,13 +1330,13 @@
           "finite": true,
           "rtol": 1e-05,
           "atol": 1e-06,
-          "session_load_seconds": 0.008862672000006455,
+          "session_load_seconds": 0.006954084999989618,
           "run_seconds": [
-            0.009825950000006856,
-            0.008174800000006144,
-            0.008817735999997467,
-            0.008410482000002162,
-            0.007667963000002942
+            0.007683094000000779,
+            0.0072340560000014875,
+            0.007076155999996558,
+            0.0070712400000019215,
+            0.006967041999999424
           ],
           "providers": [
             "CPUExecutionProvider"
@@ -1349,13 +1355,13 @@
           "finite": true,
           "rtol": 1e-05,
           "atol": 1e-06,
-          "session_load_seconds": 0.004549323000006211,
+          "session_load_seconds": 0.0038540240000060066,
           "run_seconds": [
-            0.008571048999996833,
-            0.008927823000007606,
-            0.007878550000000928,
-            0.007449370999992766,
-            0.007616190999996775
+            0.007191144000003646,
+            0.007265885999999,
+            0.007134608000001208,
+            0.006848887000003856,
+            0.006940460999999232
           ],
           "providers": [
             "CPUExecutionProvider"
@@ -1374,13 +1380,13 @@
           "finite": true,
           "rtol": 1e-05,
           "atol": 1e-06,
-          "session_load_seconds": 0.0035647440000019515,
+          "session_load_seconds": 0.0021217419999999265,
           "run_seconds": [
-            0.007841702000007444,
-            0.007624903000007066,
-            0.0075468710000023975,
-            0.007668713000001048,
-            0.007596973999994816
+            0.007010578999995687,
+            0.007078280000001769,
+            0.007070197999993866,
+            0.006867717999995193,
+            0.006965084000000843
           ],
           "providers": [
             "CPUExecutionProvider"
@@ -1399,13 +1405,13 @@
           "finite": true,
           "rtol": 1e-05,
           "atol": 1e-06,
-          "session_load_seconds": 0.0032396070000118016,
+          "session_load_seconds": 0.0027892580000070666,
           "run_seconds": [
-            0.0076782159999879696,
-            0.007430779999992865,
-            0.007564044000005765,
-            0.0074214010000019925,
-            0.007500142000012033
+            0.006935794999989753,
+            0.0071748539999987315,
+            0.006931586999996853,
+            0.006938295000011863,
+            0.006948751999999558
           ],
           "providers": [
             "CPUExecutionProvider"

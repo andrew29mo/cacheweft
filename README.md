@@ -5,7 +5,9 @@ and CLI. Downloads are checkpointed, verified against a trusted size/SHA-256,
 then published immutably. Clients can share work, cancel their own request,
 stream verified content, pin objects and explicitly reclaim space.
 
-**Current scope:** a [real-model demonstration](docs/MODEL_DEMO.md) verifies
+**Current scope:** [bounded closeout](docs/CLOSEOUT.md) checks clean deployment,
+180 seconds of same-process operation, capacity refusal and explicit repair.
+A [real-model demonstration](docs/MODEL_DEMO.md) verifies
 cold download, interrupted continuation, offline read and independent model
 execution. Linux systemd deployment adds unprivileged start/stop,
 readiness notifications, crash takeover and bounded rapid restart attempts.
@@ -47,6 +49,8 @@ into a new download attempt.
 
 ## Evidence
 
+- [Current bounded closeout JSON](evidence/closeout.json) and [HTML](evidence/closeout.html)
+- [Closeout procedure, fixed gates and limits](docs/CLOSEOUT.md)
 - [Reviewed milestone results, scope and remaining work](docs/MILESTONE1_REVIEW.md)
 - [Initial milestone record](docs/MILESTONE1.md)
 - [Architecture](docs/ARCHITECTURE.md) and [local VM reproduction](docs/LOCAL_VALIDATION.md)
@@ -56,12 +60,13 @@ into a new download attempt.
 - [Earlier exploration review](docs/REVIEW.md) and [archived exploration JSON](evidence/explorations-reviewed.json)
 - [Dependency/licensing status](docs/DEPENDENCIES.md)
 
-The deployment runner installs a wheel in a fresh isolated Linux VM, removes
-runtime source from import reach, and runs the same 71 identified tests as native
-macOS. Linux additionally exercises the shipped systemd service. In this run,
-SIGKILL to a new running invocation plus live RPC took about 1.09 seconds; this
-is one observation, not a recovery bound. See the deployment report for service
-RSS, restart-limit and cleanup observations. Historical download/deadline evidence
+The current closeout runner separates its observation environment from a clean
+production installation, removes runtime source from test import reach, and
+runs the same 74 identified tests on native macOS and Linux. Linux additionally
+executes the installed systemd service and fixed 180-second workload. The
+earlier deployment record at `5404e8a` measured about 1.09 seconds from SIGKILL
+to a new running invocation plus live RPC; that is a historical single
+observation, not a current recovery bound. Historical download/deadline evidence
 at `59860ca` separately includes unresolved-neighbor namespace and normal VM
 reboot tests of manually launched daemons; it does not prove systemd autostart.
 
@@ -82,4 +87,6 @@ Deadlines stop pre-publication authority; synchronous disk I/O can delay a
 response. Once publication intent commits, cancellation is TOO_LATE and a
 client timeout requires status reconciliation. No arbitrary external URL API,
 remote administration, external mmap lease, qualified systemd autostart, sudden power-loss,
-suspend or boot-zero-gap qualification is included. Bounded sustained operation remains a later milestone.
+suspend or boot-zero-gap qualification is included. The three-minute bounded
+observation does not establish long-term stability. GC does not reclaim request
+history; no automatic history rollover exists.
