@@ -7,8 +7,80 @@ import re
 
 ARTIFACT_SHA="fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83"
 INPUTS={'pyproject.toml','cacheweft/__init__.py','cacheweft/core.py','cacheweft/http.py','cacheweft/cli.py','cacheweft/service.py',
-        'tools/__init__.py','tools/cases.py','tools/reboot.py','tools/report.py','tools/unit.py','tools/validate.py','tools/milestone.py',
-        'tests/__init__.py','tests/fixture.py','tests/test_core.py','tests/test_service.py','tests/daemon_fixture.py'}
+        'tools/__init__.py','tools/cases.py','tools/reboot.py','tools/report.py','tools/unit.py','tools/validate.py','tools/milestone.py','tools/review_cases.py',
+        'tests/__init__.py','tests/fixture.py','tests/test_core.py','tests/test_service.py','tests/daemon_fixture.py','tests/review_fixture.py','tests/test_review.py'}
+
+
+COHORT = (
+    'tests.test_core.CoreTests.test_416_not_success',
+    'tests.test_core.CoreTests.test_bad_range_refused',
+    'tests.test_core.CoreTests.test_cancel_races_durable_publish_intent',
+    'tests.test_core.CoreTests.test_cancel_sql_failure_no_success',
+    'tests.test_core.CoreTests.test_capacity_refusal_deletes_nothing',
+    'tests.test_core.CoreTests.test_changed_validator_restarts',
+    'tests.test_core.CoreTests.test_close_keeps_lock_until_reader_closed',
+    'tests.test_core.CoreTests.test_coalescing_cancel_one',
+    'tests.test_core.CoreTests.test_complete_checkpoint_corruption_not_published',
+    'tests.test_core.CoreTests.test_complete_checkpoint_needs_no_origin_or_attempt',
+    'tests.test_core.CoreTests.test_complete_checkpoint_without_validator',
+    'tests.test_core.CoreTests.test_crash_checkpoints_and_publish_windows',
+    'tests.test_core.CoreTests.test_disk_error_retires_authority',
+    'tests.test_core.CoreTests.test_encoded_body_refused',
+    'tests.test_core.CoreTests.test_existing_target_not_overwritten',
+    'tests.test_core.CoreTests.test_fixture_eof_range_is_416',
+    'tests.test_core.CoreTests.test_gc_crash_recovery',
+    'tests.test_core.CoreTests.test_gc_crash_retains_partial_deletion_ownership',
+    'tests.test_core.CoreTests.test_gc_then_read_and_stale_generation',
+    'tests.test_core.CoreTests.test_https_verified_content',
+    'tests.test_core.CoreTests.test_late_chunk_after_last_cancel',
+    'tests.test_core.CoreTests.test_local_quota_and_permission_errors_are_not_network_retries',
+    'tests.test_core.CoreTests.test_lock_and_corrupt_on_restart',
+    'tests.test_core.CoreTests.test_old_epoch_plan_and_pin_rejected',
+    'tests.test_core.CoreTests.test_persistent_attempt_budget',
+    'tests.test_core.CoreTests.test_pin_and_read_prevent_stale_gc_plan',
+    'tests.test_core.CoreTests.test_publish_boundary_cancel_too_late',
+    'tests.test_core.CoreTests.test_range_ignored_restarts',
+    'tests.test_core.CoreTests.test_reader_and_job_limits',
+    'tests.test_core.CoreTests.test_readonly_database_retires_authority',
+    'tests.test_core.CoreTests.test_request_budget_and_conflict',
+    'tests.test_core.CoreTests.test_reservation_not_oversold',
+    'tests.test_core.CoreTests.test_resume_real_range',
+    'tests.test_core.CoreTests.test_retired_download_cannot_block_new_generation',
+    'tests.test_core.CoreTests.test_shorter_than_checkpoint_restarts',
+    'tests.test_core.CoreTests.test_symlink_destination_never_overwritten',
+    'tests.test_core.CoreTests.test_symlink_not_followed',
+    'tests.test_core.CoreTests.test_tls_and_origin_restriction',
+    'tests.test_core.CoreTests.test_unknown_data_charged_not_deleted',
+    'tests.test_core.CoreTests.test_weak_or_absent_etag_restarts',
+    'tests.test_core.CoreTests.test_wrong_hash_not_published',
+    'tests.test_core.CoreTests.test_wrong_length_refused',
+    'tests.test_review.DeadlineReviewTests.test_daemon_admission_commit_reader_cutoff',
+    'tests.test_review.DeadlineReviewTests.test_delayed_validation_cannot_commit_after_cutoff',
+    'tests.test_review.DeadlineReviewTests.test_publish_commit_reader_cutoff',
+    'tests.test_review.DeadlineReviewTests.test_shared_begin_wait_only_live_member_succeeds',
+    'tests.test_review.DeadlineReviewTests.test_shared_commit_wait_only_live_member_succeeds',
+    'tests.test_service.ServiceTests.test_authority_wait_cannot_turn_expired_fetch_into_hit',
+    'tests.test_service.ServiceTests.test_bad_frames_and_config_permissions',
+    'tests.test_service.ServiceTests.test_cli_flow_and_read',
+    'tests.test_service.ServiceTests.test_coalesced_old_deadline_not_extended',
+    'tests.test_service.ServiceTests.test_committed_publication_recovery_preserves_original_deadline',
+    'tests.test_service.ServiceTests.test_control_connection_limit',
+    'tests.test_service.ServiceTests.test_deadline_check_survives_delayed_sweeper',
+    'tests.test_service.ServiceTests.test_deadline_rechecked_after_verification',
+    'tests.test_service.ServiceTests.test_deadline_rechecked_after_write_precharge',
+    'tests.test_service.ServiceTests.test_duplicate_id_cannot_extend_duration',
+    'tests.test_service.ServiceTests.test_managed_core_cannot_import_or_create_unbounded_interest',
+    'tests.test_service.ServiceTests.test_manifest_immutable_and_revision_rollback',
+    'tests.test_service.ServiceTests.test_queued_job_expires_without_source_request',
+    'tests.test_service.ServiceTests.test_restart_interrupts_old_deadline_and_requires_explicit_resume',
+    'tests.test_service.ServiceTests.test_shutdown_rejects_preaccepted_incomplete_request',
+    'tests.test_service.ServiceTests.test_slow_body_total_deadline',
+    'tests.test_service.ServiceTests.test_slow_headers_total_deadline',
+    'tests.test_service.ServiceTests.test_slow_source_cancel_and_stale_token',
+    'tests.test_service.ServiceTests.test_sqlite_admission_wait_cannot_accept_expired_hit',
+    'tests.test_service.ServiceTests.test_sqlite_publish_wait_cannot_create_expired_intent',
+    'tests.test_service.ServiceTests.test_watchdog_lives_through_connection_close_response_body',
+)
 
 
 def verify(v):
@@ -19,7 +91,7 @@ def verify(v):
     def integer(value,positive=False):
         return type(value) is int and (value>0 if positive else value>=0)
     def sha(value):return isinstance(value,str) and re.fullmatch('[0-9a-f]{64}',value) is not None
-    need(v.get('contract')=='cacheweft-milestone1-v4','Contract mismatch')
+    need(v.get('contract')=='cacheweft-milestone1-review-v5','Contract mismatch')
     need(v.get('passed') is True and not v.get('error') and not v.get('verification_error') and not v.get('cleanup_error'),'Not cleanly passed')
     need(v.get('source_unchanged') is True and v.get('host_mounts')=='none','Source/mount configuration')
     expected={k for k in INPUTS if k.startswith('cacheweft/')}
@@ -29,7 +101,7 @@ def verify(v):
     need(v['installed_modules']=={k:h for k,h in v['source'].items() if k.startswith('cacheweft/')},'Runtime/source mismatch')
     n,l=v['native'],v['linux']
     need(n['platform']=='Darwin' and l['platform']=='Linux','Platform mismatch')
-    need(n['test_ids']==l['test_ids'] and len(set(n['test_ids']))==n['tests']==l['tests']==63,'Test cohort mismatch')
+    need(n['test_ids']==l['test_ids']==list(COHORT) and len(set(n['test_ids']))==n['tests']==l['tests']==len(COHORT),'Test cohort mismatch')
     for t in (n,l):
         need(t['passed'] is True and t['errors']==t['failures']==t['skipped']==0 and number(t['seconds'],True),'Tests not clean')
     stages=v['stages'];need(len({x['name'] for x in stages})==len(stages),'Duplicate stages')
@@ -39,6 +111,8 @@ def verify(v):
         need(name in [s['name'] for s in stages],'Missing stage '+name)
     for name in ('native-service','linux-service','linux-service-read','service-boot-prepare','service-boot-prepared-read','service-schedule-reboot','service-boot-finish','service-boot-finished-read'):
         need(name in [s['name'] for s in stages],'Missing service stage '+name)
+    for name in ('native-review','linux-review','linux-review-read'):
+        need(name in [s['name'] for s in stages],'Missing review stage '+name)
     need(all(v['cleanup'][key] is True for key in ('vm_deleted','disk_removed','preexisting_unchanged')),'Cleanup incomplete')
     boot=v['reboot'];before=boot['before']
     need(boot['boot_changed'] is True and boot['catalog_unchanged_before_recovery'] is True and boot['recovered_correct'] is True,'Reboot invalid')
@@ -103,6 +177,16 @@ def verify(v):
             x=service['cases'][4]
             need(x['result']=='TIMED_OUT' and x['deadline_unchanged'] is True and x['available'] is False and x['namespace_isolated'] is True and x['unresolved_neighbor'] is True and x['origin_requests']==0 and x['exit_code']==0 and x['network_cleaned'] is True,'Blackhole case invalid')
             need(number(x['terminal_seconds'],True) and number(x['total_through_stop_seconds'],True) and x['total_through_stop_seconds']<1.5,'Blackhole deadline/cleanup observation failed')
+    for env in ('native_review','linux_review'):
+        review=v[env];need(review['cleanup'] is True,'Review cleanup')
+        need([x['mode'] for x in review['cases']]==['admission_commit_reader','publish_commit_reader','shared_writer_wait','shared_reader_wait'],'Missing contention cases')
+        admission=review['cases'][0]
+        need(admission['subject']=='actual daemon' and admission['rejected'] is True and admission['no_receipt'] is True and admission['healthy_after'] is True and admission['sqlite_busy_timeout_ms']==200 and number(admission['seconds'],True) and admission['busy_statement']=='COMMIT' and integer(admission['busy_count'],True),'Late admission accepted or no contention')
+        for case in review['cases'][1:]:
+            need(case['subject']=='formal managed backend with scheduling barrier' and case['short_state']=='TIMED_OUT' and case['short_deadline_unchanged'] is True and case['short_revision_delta']==1 and case['sqlite_busy_timeout_ms']==200 and case['busy_timeout_restored'] is True and case['healthy_after'] is True,'Short subscriber revived')
+            need(case['lock_acquired_before_cutoff'] is True and case['busy_before_cutoff'] is True and integer(case['busy_count'],True) and case['busy_statement']==('BEGIN IMMEDIATE' if case['mode']=='shared_writer_wait' else 'COMMIT'),'Contention was not exercised')
+            if case['mode']=='publish_commit_reader':need(case['no_intent'] is True and case['long_state'] is None,'Late intent accepted')
+            else:need(case['long_state']=='SUCCEEDED' and case['no_intent'] is False and number(case['intent_after_short_deadline'],True) and case['bytes_correct'] is True,'Did not cross short deadline with valid long interest')
     boot=v['service_reboot'];before=boot['before'];old=before['rows']['requests'][0];obj=before['rows']['objects'][0]
     need(boot['boot_id_after']!=before['boot_id'] and len(boot['boot_id_after'])==36 and before['crash_exit']==-9,'Service boot witness invalid')
     need(boot['catalog_sha256_before_recovery']==before['catalog_sha256'] and sha(before['catalog_sha256']) and boot['rows_before_recovery']==before['rows'] and boot['stage_sha256_before_recovery']==before['stage_sha256'],'Service journal changed before recovery')
@@ -150,7 +234,13 @@ def controls(value):
              lambda v:v['service_reboot'].update(catalog_sha256_before_recovery='0'*64),
              lambda v:v['service_reboot'].update(resume_ranges=[None]),
              lambda v:v['linux_service']['cases'][4].update(network_cleaned=False),
-             lambda v:v['linux_service']['cases'][4].update(total_through_stop_seconds=2.1)]
+             lambda v:v['linux_service']['cases'][4].update(total_through_stop_seconds=2.1),
+             lambda v:(v['native'].update(test_ids=['unrelated.case_'+str(i) for i in range(len(COHORT))]),v['linux'].update(test_ids=['unrelated.case_'+str(i) for i in range(len(COHORT))])),
+             lambda v:v['linux_review']['cases'][0].update(rejected=False),
+             lambda v:v['linux_review']['cases'][2].update(short_state='SUCCEEDED'),
+             lambda v:v['native_review']['cases'][3].update(short_deadline_unchanged=False),
+             lambda v:v['linux_review']['cases'][0].update(busy_count=0),
+             lambda v:v['linux_review']['cases'][1].update(busy_before_cutoff=False)]
     for change in changes:
         v=copy.deepcopy(value);change(v)
         try:verify(v)

@@ -66,6 +66,7 @@ class Cache:
         self.refs, self.futures, self.future_generations = {}, {}, {}
         self.work = set()
         self.leases={};self.sweeper_stop=threading.Event();self.sweeper=None
+        self.sqlite_busy={'BEGIN IMMEDIATE':0,'COMMIT':0}
         self.stopping = self.degraded = False
         self.epoch = str(uuid.uuid4())
         self.pool = ThreadPoolExecutor(max_workers=2, thread_name_prefix='cacheweft')
@@ -189,15 +190,40 @@ class Cache:
         return self.root/'objects'/digest
 
     @contextmanager
-    def _tx(self):
+    def _tx(self, *, deadline=None, before_commit=None, deadline_error='Transaction deadline expired'):
+        # SQLite's built-in busy handler can sleep across an entire deadline.
+        # Critical decisions use nonblocking lock attempts and bounded retries.
+        critical=deadline is not None or before_commit is not None
+        old_timeout=self.db.execute('PRAGMA busy_timeout').fetchone()[0] if critical else None
+        if critical:self.db.execute('PRAGMA busy_timeout=0')
+        def step(sql,validate=None):
+            until=time.monotonic()+old_timeout/1000
+            while True:
+                if deadline is not None and time.monotonic()>=deadline:raise CacheError(deadline_error)
+                if validate is not None:validate()
+                if deadline is not None and time.monotonic()>=deadline:raise CacheError(deadline_error)
+                try:
+                    self.db.execute(sql);return
+                except sqlite3.OperationalError as exc:
+                    if getattr(exc,'sqlite_errorcode',0)&255!=sqlite3.SQLITE_BUSY:raise
+                    now=time.monotonic()
+                    self.sqlite_busy[sql]=min(2**63-1,self.sqlite_busy[sql]+1)
+                    self._call('sqlite_busy',statement=sql,monotonic_at=now)
+                    if deadline is not None and now>=deadline:raise CacheError(deadline_error) from exc
+                    if now>=until:raise
+                    time.sleep(min(.002,until-now,max(0,deadline-now) if deadline is not None else .002))
         try:
-            self.db.execute('BEGIN IMMEDIATE')
+            if critical:step('BEGIN IMMEDIATE')
+            else:self.db.execute('BEGIN IMMEDIATE')
             yield
-            self.db.execute('COMMIT')
+            if critical:step('COMMIT',before_commit)
+            else:self.db.execute('COMMIT')
         except BaseException:
             if self.db.in_transaction:
                 self.db.execute('ROLLBACK')
             raise
+        finally:
+            if critical:self.db.execute('PRAGMA busy_timeout='+str(old_timeout))
 
     def _guard(self):
         if self.stopping or self.degraded:
@@ -281,10 +307,19 @@ class Cache:
         if not self._verify(self._stage(row),row):raise CacheError('Digest mismatch')
         self._call('verified',digest=row['digest'])
         if not self._expire(row['digest'],row['generation']):raise CacheError('No live subscriber')
-        with self._tx():
-            # BEGIN may wait on SQLite even while our process authority is held.
-            live=self.db.execute("SELECT count(*) FROM requests WHERE digest=? AND generation=? AND state='WAITING' AND (deadline IS NULL OR (epoch=? AND deadline>?))",(row['digest'],row['generation'],self.epoch,time.monotonic())).fetchone()[0]
-            if not live:raise CacheError('Publication deadline expired before intent')
+        deadlines=[r[0] for r in self.db.execute("SELECT deadline FROM requests WHERE digest=? AND generation=? AND state='WAITING'",(row['digest'],row['generation']))]
+        deadline=None if any(d is None for d in deadlines) else max(deadlines,default=time.monotonic())
+        def fence():
+            while True:
+                interested=list(self.db.execute("SELECT id,deadline,epoch FROM requests WHERE digest=? AND generation=? AND state='WAITING'",(row['digest'],row['generation'])))
+                now=time.monotonic()
+                expired=[(r['id'],) for r in interested if r['deadline'] is not None and (r['epoch']!=self.epoch or r['deadline']<=now)]
+                if not expired:
+                    if not interested:raise CacheError('Publication deadline expired before intent')
+                    return
+                self.db.executemany("UPDATE requests SET state='TIMED_OUT',result='TIMED_OUT',revision=revision+1 WHERE id=? AND state='WAITING'",expired)
+                # SQL work can consume another member's last budget; re-read.
+        with self._tx(deadline=deadline,before_commit=fence,deadline_error='Publication deadline expired before intent'):
             self.db.execute("UPDATE objects SET state='PUBLISHING' WHERE digest=?",(row['digest'],))
         self._call('publish_intent',digest=row['digest'])
         self._publish(self._row(row['digest']))
@@ -382,7 +417,7 @@ class Cache:
             else:
                 generation=row['generation']
             try:
-                with self._tx():
+                with self._tx(deadline=received+seconds if seconds is not None else None,deadline_error='Submission deadline expired before admission'):
                     if seconds is not None and time.monotonic()>=received+seconds:raise CacheError('Submission deadline expired before admission')
                     if row is None:
                         self.db.execute('INSERT INTO objects VALUES(?,?,?,?,?,?,?,?,?,?,?,?)',

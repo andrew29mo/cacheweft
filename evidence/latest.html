@@ -1,190 +1,211 @@
 <!doctype html><html lang="en"><meta charset="utf-8"><title>Cacheweft milestone 1 evidence</title><style>body{font:16px system-ui;max-width:1000px;margin:40px auto;padding:20px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f6f8;padding:20px}</style><h1>Cacheweft milestone 1 evidence</h1><p>Passed: True</p><p>Unprivileged local daemon, deadlines and normal VM reboot. Linux VM metrics are separate from native macOS. No systemd, power-loss, WAN or long-term qualification.</p><pre>{
-  &quot;contract&quot;: &quot;cacheweft-milestone1-v4&quot;,
+  &quot;contract&quot;: &quot;cacheweft-milestone1-review-v5&quot;,
   &quot;passed&quot;: true,
-  &quot;recorded_utc&quot;: &quot;2026-10-25T11:32:57.872999+00:00&quot;,
+  &quot;recorded_utc&quot;: &quot;2026-10-25T12:10:04.935865+00:00&quot;,
   &quot;source&quot;: {
     &quot;pyproject.toml&quot;: &quot;6ee0499a249a5170281f960f4035720af3d6a808a085362437a1a3003123eecc&quot;,
     &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
     &quot;cacheweft/cli.py&quot;: &quot;7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5&quot;,
-    &quot;cacheweft/core.py&quot;: &quot;4f5f7a0db664b336e38cd218a0764007cd389bd2a983b0d7e50a0f9a7f615d3a&quot;,
+    &quot;cacheweft/core.py&quot;: &quot;068325c996f6acad07353a112970120327e75c70448edb084e23f3b054a48723&quot;,
     &quot;cacheweft/http.py&quot;: &quot;41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76&quot;,
-    &quot;cacheweft/service.py&quot;: &quot;7c34a9cfcffbf58fb1b7d0d85188ba14361f15a2dd5445d33617ffa16902e5d6&quot;,
+    &quot;cacheweft/service.py&quot;: &quot;2df9ee748ba605044c9e254522f40fc7c40bf82d7c781fbdb26dea693f8961be&quot;,
     &quot;tools/__init__.py&quot;: &quot;e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&quot;,
     &quot;tools/cases.py&quot;: &quot;018793b45dc0d426c9cc31487cfc8c288130864da4ec360da99d54c5dc7edcde&quot;,
     &quot;tools/milestone.py&quot;: &quot;e5aa771be7359d022b19bb5434c560a926012bf25453c6d18e76888337ac7f11&quot;,
     &quot;tools/reboot.py&quot;: &quot;f948294a00c181c97d962d28cebe664a42cd38d924da718a56d80628ac9ef3f5&quot;,
-    &quot;tools/report.py&quot;: &quot;9523241cab94993d051133f6622062962cb5d8a965bf011b7e1e597fc66da890&quot;,
+    &quot;tools/report.py&quot;: &quot;2e2653e027ea7fbb0538ddf08fdcbf17f4e982ae4a52ca2b89e0dff0d853e228&quot;,
+    &quot;tools/review_cases.py&quot;: &quot;4768007961241cecfdf8527c8e4a6979e81847d46aa41809537fd46ec58717e0&quot;,
     &quot;tools/unit.py&quot;: &quot;a1f904bef90862c9bbe376dca54d4d8bc1002dc67b96396645eee22a589669e0&quot;,
-    &quot;tools/validate.py&quot;: &quot;332d9fd6eb980d0b56fc82416bba8f076deb05a0d5c4ea67503f8a5e5031a7ed&quot;,
+    &quot;tools/validate.py&quot;: &quot;1d30c0333b962ce550f61efae3f3d34c6b8afb570cdc5fc0561affb10f391993&quot;,
     &quot;tests/__init__.py&quot;: &quot;e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&quot;,
     &quot;tests/daemon_fixture.py&quot;: &quot;03ac73462542d1e7b8adbf38907b82398b093a1ce83a499bd919e4e8091acd1f&quot;,
     &quot;tests/fixture.py&quot;: &quot;11eadd60812db5db5ebe5acbfbd620d6699497e6666e789f404e0d504c0b728e&quot;,
+    &quot;tests/review_fixture.py&quot;: &quot;6fcbbc68944799c7134ad51b5251cddae313af2e0c54bd681a589a35ca374542&quot;,
     &quot;tests/test_core.py&quot;: &quot;ef8d6b1dd9195d814e47e4ce665ce1f4361340b39057945a5433f42a76b67a8b&quot;,
+    &quot;tests/test_review.py&quot;: &quot;02da5fb7322fa4ebde3265b892598329ef256bc762bdc52c58d774ab892b58a6&quot;,
     &quot;tests/test_service.py&quot;: &quot;4fa4b1429ec989275be88b96684cb7e6125af672d59a8d680ca027ca62ca324f&quot;
   },
-  &quot;wheel_sha256&quot;: &quot;86d9e981607688d1fd1f99384d7ba0cd9b02fe74c167e0ac8e5f41162cf9dbaa&quot;,
+  &quot;wheel_sha256&quot;: &quot;7d22f836d20decbfcd44ef0b0c9c22bb5f80ad469916057bfcc857330b39e624&quot;,
   &quot;stages&quot;: [
     {
       &quot;name&quot;: &quot;initial&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.3825119999819435
+      &quot;seconds&quot;: 0.3384617919800803
     },
     {
       &quot;name&quot;: &quot;create&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 21.8573365000193
+      &quot;seconds&quot;: 22.071350750047714
     },
     {
       &quot;name&quot;: &quot;dependencies&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 16.854318834026344
+      &quot;seconds&quot;: 15.006352208962198
     },
     {
       &quot;name&quot;: &quot;upload&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.47264866600744426
+      &quot;seconds&quot;: 0.3185308750253171
     },
     {
       &quot;name&quot;: &quot;install&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 1.507114916050341
+      &quot;seconds&quot;: 1.4900710419751704
     },
     {
       &quot;name&quot;: &quot;provenance&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.3037231669877656
+      &quot;seconds&quot;: 0.25862258300185204
     },
     {
       &quot;name&quot;: &quot;native&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 19.64457816700451
+      &quot;seconds&quot;: 26.355955209000967
     },
     {
       &quot;name&quot;: &quot;native-cases&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.8315302499686368
+      &quot;seconds&quot;: 0.7358977920375764
     },
     {
       &quot;name&quot;: &quot;native-service&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 2.936923375003971
+      &quot;seconds&quot;: 2.888862000021618
+    },
+    {
+      &quot;name&quot;: &quot;native-review&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 4.421660749998409
     },
     {
       &quot;name&quot;: &quot;linux&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 19.61734699999215
+      &quot;seconds&quot;: 25.65691204101313
     },
     {
       &quot;name&quot;: &quot;linux-read&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.46370970900170505
+      &quot;seconds&quot;: 0.2868319160188548
     },
     {
       &quot;name&quot;: &quot;linux-cases&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 1.8917637499980628
+      &quot;seconds&quot;: 1.6389937910134904
     },
     {
       &quot;name&quot;: &quot;linux-cases-read&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.24251433298923075
+      &quot;seconds&quot;: 0.25711629196302965
     },
     {
       &quot;name&quot;: &quot;linux-service&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 3.5381909160059877
+      &quot;seconds&quot;: 3.4392086250009015
     },
     {
       &quot;name&quot;: &quot;linux-service-read&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.27052541699958965
+      &quot;seconds&quot;: 0.36969262501224875
+    },
+    {
+      &quot;name&quot;: &quot;linux-review&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 4.631029125011992
+    },
+    {
+      &quot;name&quot;: &quot;linux-review-read&quot;,
+      &quot;exit_code&quot;: 0,
+      &quot;timed_out&quot;: false,
+      &quot;seconds&quot;: 0.35532670898828655
     },
     {
       &quot;name&quot;: &quot;reboot-prepare&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 1.0315128750517033
+      &quot;seconds&quot;: 0.8608191250241362
     },
     {
       &quot;name&quot;: &quot;reboot-prepared-read&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.2659804160357453
+      &quot;seconds&quot;: 0.3448682500165887
     },
     {
       &quot;name&quot;: &quot;schedule-reboot&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.3583221669541672
+      &quot;seconds&quot;: 0.23659179103560746
     },
     {
       &quot;name&quot;: &quot;reboot-finish&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.2968046250171028
+      &quot;seconds&quot;: 0.3363689999678172
     },
     {
       &quot;name&quot;: &quot;reboot-finished-read&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.3554030419909395
+      &quot;seconds&quot;: 0.3171555000008084
     },
     {
       &quot;name&quot;: &quot;service-boot-prepare&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.9389974169898778
+      &quot;seconds&quot;: 0.8899007919826545
     },
     {
       &quot;name&quot;: &quot;service-boot-prepared-read&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.25553645798936486
+      &quot;seconds&quot;: 0.3076968750101514
     },
     {
       &quot;name&quot;: &quot;service-schedule-reboot&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.2394002500222996
+      &quot;seconds&quot;: 0.23645895801018924
     },
     {
       &quot;name&quot;: &quot;service-boot-finish&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.9875009159441106
+      &quot;seconds&quot;: 0.9072393749956973
     },
     {
       &quot;name&quot;: &quot;service-boot-finished-read&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.24290004099020734
+      &quot;seconds&quot;: 0.33606141596101224
     },
     {
       &quot;name&quot;: &quot;delete&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 1.4182954169809818
+      &quot;seconds&quot;: 1.5952567079802975
     },
     {
       &quot;name&quot;: &quot;final&quot;,
       &quot;exit_code&quot;: 0,
       &quot;timed_out&quot;: false,
-      &quot;seconds&quot;: 0.17488499998580664
+      &quot;seconds&quot;: 0.19610037497477606
     }
   ],
   &quot;host_mounts&quot;: &quot;none&quot;,
@@ -196,15 +217,15 @@
     &quot;long_term_tested&quot;: false
   },
   &quot;installed_modules&quot;: {
-    &quot;cacheweft/service.py&quot;: &quot;7c34a9cfcffbf58fb1b7d0d85188ba14361f15a2dd5445d33617ffa16902e5d6&quot;,
-    &quot;cacheweft/core.py&quot;: &quot;4f5f7a0db664b336e38cd218a0764007cd389bd2a983b0d7e50a0f9a7f615d3a&quot;,
+    &quot;cacheweft/service.py&quot;: &quot;2df9ee748ba605044c9e254522f40fc7c40bf82d7c781fbdb26dea693f8961be&quot;,
+    &quot;cacheweft/core.py&quot;: &quot;068325c996f6acad07353a112970120327e75c70448edb084e23f3b054a48723&quot;,
     &quot;cacheweft/cli.py&quot;: &quot;7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5&quot;,
     &quot;cacheweft/http.py&quot;: &quot;41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76&quot;,
     &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;
   },
   &quot;native&quot;: {
     &quot;passed&quot;: true,
-    &quot;tests&quot;: 63,
+    &quot;tests&quot;: 68,
     &quot;test_ids&quot;: [
       &quot;tests.test_core.CoreTests.test_416_not_success&quot;,
       &quot;tests.test_core.CoreTests.test_bad_range_refused&quot;,
@@ -248,6 +269,11 @@
       &quot;tests.test_core.CoreTests.test_weak_or_absent_etag_restarts&quot;,
       &quot;tests.test_core.CoreTests.test_wrong_hash_not_published&quot;,
       &quot;tests.test_core.CoreTests.test_wrong_length_refused&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_daemon_admission_commit_reader_cutoff&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_delayed_validation_cannot_commit_after_cutoff&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_publish_commit_reader_cutoff&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_shared_begin_wait_only_live_member_succeeds&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_shared_commit_wait_only_live_member_succeeds&quot;,
       &quot;tests.test_service.ServiceTests.test_authority_wait_cannot_turn_expired_fetch_into_hit&quot;,
       &quot;tests.test_service.ServiceTests.test_bad_frames_and_config_permissions&quot;,
       &quot;tests.test_service.ServiceTests.test_cli_flow_and_read&quot;,
@@ -273,7 +299,7 @@
     &quot;failures&quot;: 0,
     &quot;errors&quot;: 0,
     &quot;skipped&quot;: 0,
-    &quot;seconds&quot;: 19.54007454100065,
+    &quot;seconds&quot;: 26.249734374985565,
     &quot;platform&quot;: &quot;Darwin&quot;,
     &quot;python&quot;: &quot;3.12.14&quot;,
     &quot;sqlite&quot;: &quot;3.53.1&quot;,
@@ -281,9 +307,9 @@
     &quot;modules&quot;: {
       &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
       &quot;cacheweft/cli.py&quot;: &quot;7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5&quot;,
-      &quot;cacheweft/core.py&quot;: &quot;4f5f7a0db664b336e38cd218a0764007cd389bd2a983b0d7e50a0f9a7f615d3a&quot;,
+      &quot;cacheweft/core.py&quot;: &quot;068325c996f6acad07353a112970120327e75c70448edb084e23f3b054a48723&quot;,
       &quot;cacheweft/http.py&quot;: &quot;41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76&quot;,
-      &quot;cacheweft/service.py&quot;: &quot;7c34a9cfcffbf58fb1b7d0d85188ba14361f15a2dd5445d33617ffa16902e5d6&quot;
+      &quot;cacheweft/service.py&quot;: &quot;2df9ee748ba605044c9e254522f40fc7c40bf82d7c781fbdb26dea693f8961be&quot;
     }
   },
   &quot;native_cases&quot;: {
@@ -297,8 +323,8 @@
           &quot;mode&quot;: &quot;cold&quot;,
           &quot;request_count&quot;: 1,
           &quot;size&quot;: 1048576,
-          &quot;download_seconds&quot;: 0.04041741701075807,
-          &quot;read_seconds&quot;: 0.0013386670034378767,
+          &quot;download_seconds&quot;: 0.03839458298170939,
+          &quot;read_seconds&quot;: 0.0014875830383971334,
           &quot;actual_origin_requests&quot;: 1,
           &quot;origin_payload_bytes&quot;: 1048576,
           &quot;request_ranges&quot;: [
@@ -309,23 +335,23 @@
           &quot;subscriber_outcomes&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:60394/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;420c2b84-d7ce-4014-83f6-c5cae9cbf96d&quot;,
+              &quot;generation&quot;: &quot;e2c83cbb-66c1-4839-93fe-2ce70de8ec88&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
               &quot;result&quot;: &quot;SUCCEEDED&quot;,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;8d1d3e91-dcc9-44a9-8716-59065cf41e15&quot;,
+              &quot;epoch&quot;: &quot;8c0b37c1-4016-4271-b8ad-f1d28039a659&quot;,
               &quot;revision&quot;: 2
             }
           ],
-          &quot;process_rss_or_peak_bytes&quot;: 33292288,
+          &quot;process_rss_or_peak_bytes&quot;: 33308672,
           &quot;usage&quot;: {
             &quot;payload_bytes&quot;: 1048576,
             &quot;remaining_reserved&quot;: 0,
             &quot;allocated_payload_bytes&quot;: 1048576,
             &quot;budget&quot;: 16777216,
-            &quot;free_bytes&quot;: 711845478400
+            &quot;free_bytes&quot;: 709068140544
           },
           &quot;root_allocated_bytes&quot;: 1069056
         },
@@ -333,8 +359,8 @@
           &quot;mode&quot;: &quot;resume&quot;,
           &quot;request_count&quot;: 1,
           &quot;size&quot;: 1048576,
-          &quot;download_seconds&quot;: 0.04042754101101309,
-          &quot;read_seconds&quot;: 0.0010182500118389726,
+          &quot;download_seconds&quot;: 0.02902004198404029,
+          &quot;read_seconds&quot;: 0.0005911250482313335,
           &quot;actual_origin_requests&quot;: 2,
           &quot;origin_payload_bytes&quot;: 1048576,
           &quot;request_ranges&quot;: [
@@ -346,23 +372,23 @@
           &quot;subscriber_outcomes&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:60394/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;ae4ee372-9667-4cb1-8954-5fa7710ef085&quot;,
+              &quot;generation&quot;: &quot;422fb8b4-fd95-4013-9258-be3ecbb899d9&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
               &quot;result&quot;: &quot;SUCCEEDED&quot;,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;2795bf36-60f3-4e31-ba62-2a508733000f&quot;,
+              &quot;epoch&quot;: &quot;beb4f66c-198e-4a89-85a9-78739500d1da&quot;,
               &quot;revision&quot;: 2
             }
           ],
-          &quot;process_rss_or_peak_bytes&quot;: 34832384,
+          &quot;process_rss_or_peak_bytes&quot;: 34783232,
           &quot;usage&quot;: {
             &quot;payload_bytes&quot;: 1048576,
             &quot;remaining_reserved&quot;: 0,
             &quot;allocated_payload_bytes&quot;: 1048576,
             &quot;budget&quot;: 16777216,
-            &quot;free_bytes&quot;: 711844409344
+            &quot;free_bytes&quot;: 709067067392
           },
           &quot;root_allocated_bytes&quot;: 1069056
         },
@@ -370,8 +396,8 @@
           &quot;mode&quot;: &quot;coalesced&quot;,
           &quot;request_count&quot;: 4,
           &quot;size&quot;: 1048576,
-          &quot;download_seconds&quot;: 0.029196792049333453,
-          &quot;read_seconds&quot;: 0.0009468329953961074,
+          &quot;download_seconds&quot;: 0.029708624992053956,
+          &quot;read_seconds&quot;: 0.001959917019121349,
           &quot;actual_origin_requests&quot;: 1,
           &quot;origin_payload_bytes&quot;: 1048576,
           &quot;request_ranges&quot;: [
@@ -381,102 +407,102 @@
           &quot;subscribers_before_release&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:60394/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
+              &quot;generation&quot;: &quot;52d21c30-6b38-4986-b4d0-9623cd7471f5&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
               &quot;result&quot;: null,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;epoch&quot;: &quot;43eadb47-8d56-4d99-b1bc-0190191c48ea&quot;,
               &quot;revision&quot;: 1
             },
             {
               &quot;id&quot;: &quot;r1&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:60394/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
+              &quot;generation&quot;: &quot;52d21c30-6b38-4986-b4d0-9623cd7471f5&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
               &quot;result&quot;: null,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;epoch&quot;: &quot;43eadb47-8d56-4d99-b1bc-0190191c48ea&quot;,
               &quot;revision&quot;: 1
             },
             {
               &quot;id&quot;: &quot;r2&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:60394/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
+              &quot;generation&quot;: &quot;52d21c30-6b38-4986-b4d0-9623cd7471f5&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
               &quot;result&quot;: null,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;epoch&quot;: &quot;43eadb47-8d56-4d99-b1bc-0190191c48ea&quot;,
               &quot;revision&quot;: 1
             },
             {
               &quot;id&quot;: &quot;r3&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:60394/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
+              &quot;generation&quot;: &quot;52d21c30-6b38-4986-b4d0-9623cd7471f5&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
               &quot;result&quot;: null,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;epoch&quot;: &quot;43eadb47-8d56-4d99-b1bc-0190191c48ea&quot;,
               &quot;revision&quot;: 1
             }
           ],
           &quot;subscriber_outcomes&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:60394/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
+              &quot;generation&quot;: &quot;52d21c30-6b38-4986-b4d0-9623cd7471f5&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
               &quot;result&quot;: &quot;SUCCEEDED&quot;,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;epoch&quot;: &quot;43eadb47-8d56-4d99-b1bc-0190191c48ea&quot;,
               &quot;revision&quot;: 2
             },
             {
               &quot;id&quot;: &quot;r1&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:60394/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
+              &quot;generation&quot;: &quot;52d21c30-6b38-4986-b4d0-9623cd7471f5&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
               &quot;result&quot;: &quot;SUCCEEDED&quot;,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;epoch&quot;: &quot;43eadb47-8d56-4d99-b1bc-0190191c48ea&quot;,
               &quot;revision&quot;: 2
             },
             {
               &quot;id&quot;: &quot;r2&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:60394/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
+              &quot;generation&quot;: &quot;52d21c30-6b38-4986-b4d0-9623cd7471f5&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
               &quot;result&quot;: &quot;SUCCEEDED&quot;,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;epoch&quot;: &quot;43eadb47-8d56-4d99-b1bc-0190191c48ea&quot;,
               &quot;revision&quot;: 2
             },
             {
               &quot;id&quot;: &quot;r3&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:59577/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:60394/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;31682a4b-5068-4d11-b005-c59899e909e7&quot;,
+              &quot;generation&quot;: &quot;52d21c30-6b38-4986-b4d0-9623cd7471f5&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
               &quot;result&quot;: &quot;SUCCEEDED&quot;,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;a6d79f83-0679-4c37-b5c6-62764de86088&quot;,
+              &quot;epoch&quot;: &quot;43eadb47-8d56-4d99-b1bc-0190191c48ea&quot;,
               &quot;revision&quot;: 2
             }
           ],
-          &quot;process_rss_or_peak_bytes&quot;: 34914304,
+          &quot;process_rss_or_peak_bytes&quot;: 34881536,
           &quot;usage&quot;: {
             &quot;payload_bytes&quot;: 1048576,
             &quot;remaining_reserved&quot;: 0,
             &quot;allocated_payload_bytes&quot;: 1048576,
             &quot;budget&quot;: 16777216,
-            &quot;free_bytes&quot;: 711843336192
+            &quot;free_bytes&quot;: 709065744384
           },
           &quot;root_allocated_bytes&quot;: 1069056
         }
@@ -490,12 +516,12 @@
         &quot;result&quot;: &quot;TIMED_OUT&quot;,
         &quot;deadline_unchanged&quot;: true,
         &quot;available&quot;: false,
-        &quot;seconds&quot;: 0.3127420420059934,
-        &quot;stop_seconds&quot;: 0.2319307919824496,
+        &quot;seconds&quot;: 0.30579137499444187,
+        &quot;stop_seconds&quot;: 0.23056087497388944,
         &quot;identity&quot;: {
           &quot;uid&quot;: 501,
-          &quot;rss_bytes&quot;: 28950528,
-          &quot;pid&quot;: 72005,
+          &quot;rss_bytes&quot;: 28835840,
+          &quot;pid&quot;: 77411,
           &quot;scope&quot;: &quot;daemon PID current RSS via ps&quot;
         },
         &quot;stale_cancel_rejected&quot;: null,
@@ -507,12 +533,12 @@
         &quot;result&quot;: &quot;TIMED_OUT&quot;,
         &quot;deadline_unchanged&quot;: true,
         &quot;available&quot;: false,
-        &quot;seconds&quot;: 0.3204023750149645,
-        &quot;stop_seconds&quot;: 0.22795570798916742,
+        &quot;seconds&quot;: 0.3124487909954041,
+        &quot;stop_seconds&quot;: 0.23081345797982067,
         &quot;identity&quot;: {
           &quot;uid&quot;: 501,
           &quot;rss_bytes&quot;: 29032448,
-          &quot;pid&quot;: 72008,
+          &quot;pid&quot;: 77414,
           &quot;scope&quot;: &quot;daemon PID current RSS via ps&quot;
         },
         &quot;stale_cancel_rejected&quot;: null,
@@ -524,12 +550,12 @@
         &quot;result&quot;: &quot;CANCELLED&quot;,
         &quot;deadline_unchanged&quot;: true,
         &quot;available&quot;: false,
-        &quot;seconds&quot;: 0.008666208013892174,
-        &quot;stop_seconds&quot;: 0.235336790967267,
+        &quot;seconds&quot;: 0.009124750038608909,
+        &quot;stop_seconds&quot;: 0.23166191595373675,
         &quot;identity&quot;: {
           &quot;uid&quot;: 501,
-          &quot;rss_bytes&quot;: 28983296,
-          &quot;pid&quot;: 72011,
+          &quot;rss_bytes&quot;: 28934144,
+          &quot;pid&quot;: 77422,
           &quot;scope&quot;: &quot;daemon PID current RSS via ps&quot;
         },
         &quot;stale_cancel_rejected&quot;: true,
@@ -546,9 +572,81 @@
     &quot;cleanup&quot;: true,
     &quot;scope&quot;: &quot;actual daemon subprocess; 2s assertion is a controlled observation bound, not a production SLA&quot;
   },
+  &quot;native_review&quot;: {
+    &quot;cases&quot;: [
+      {
+        &quot;mode&quot;: &quot;admission_commit_reader&quot;,
+        &quot;subject&quot;: &quot;actual daemon&quot;,
+        &quot;duration&quot;: 0.1,
+        &quot;reader_hold&quot;: 0.15,
+        &quot;sqlite_busy_timeout_ms&quot;: 200,
+        &quot;rejected&quot;: true,
+        &quot;no_receipt&quot;: true,
+        &quot;healthy_after&quot;: true,
+        &quot;seconds&quot;: 0.1015425410005264,
+        &quot;busy_statement&quot;: &quot;COMMIT&quot;,
+        &quot;busy_count&quot;: 40
+      },
+      {
+        &quot;mode&quot;: &quot;publish_commit_reader&quot;,
+        &quot;subject&quot;: &quot;formal managed backend with scheduling barrier&quot;,
+        &quot;sqlite_busy_timeout_ms&quot;: 200,
+        &quot;short_state&quot;: &quot;TIMED_OUT&quot;,
+        &quot;short_deadline_unchanged&quot;: true,
+        &quot;short_revision_delta&quot;: 1,
+        &quot;long_state&quot;: null,
+        &quot;intent_after_short_deadline&quot;: null,
+        &quot;no_intent&quot;: true,
+        &quot;busy_timeout_restored&quot;: true,
+        &quot;healthy_after&quot;: true,
+        &quot;bytes_correct&quot;: null,
+        &quot;lock_acquired_before_cutoff&quot;: true,
+        &quot;busy_before_cutoff&quot;: true,
+        &quot;busy_statement&quot;: &quot;COMMIT&quot;,
+        &quot;busy_count&quot;: 31
+      },
+      {
+        &quot;mode&quot;: &quot;shared_writer_wait&quot;,
+        &quot;subject&quot;: &quot;formal managed backend with scheduling barrier&quot;,
+        &quot;sqlite_busy_timeout_ms&quot;: 200,
+        &quot;short_state&quot;: &quot;TIMED_OUT&quot;,
+        &quot;short_deadline_unchanged&quot;: true,
+        &quot;short_revision_delta&quot;: 1,
+        &quot;long_state&quot;: &quot;SUCCEEDED&quot;,
+        &quot;intent_after_short_deadline&quot;: 0.08205358299892396,
+        &quot;no_intent&quot;: false,
+        &quot;busy_timeout_restored&quot;: true,
+        &quot;healthy_after&quot;: true,
+        &quot;bytes_correct&quot;: true,
+        &quot;lock_acquired_before_cutoff&quot;: true,
+        &quot;busy_before_cutoff&quot;: true,
+        &quot;busy_statement&quot;: &quot;BEGIN IMMEDIATE&quot;,
+        &quot;busy_count&quot;: 60
+      },
+      {
+        &quot;mode&quot;: &quot;shared_reader_wait&quot;,
+        &quot;subject&quot;: &quot;formal managed backend with scheduling barrier&quot;,
+        &quot;sqlite_busy_timeout_ms&quot;: 200,
+        &quot;short_state&quot;: &quot;TIMED_OUT&quot;,
+        &quot;short_deadline_unchanged&quot;: true,
+        &quot;short_revision_delta&quot;: 1,
+        &quot;long_state&quot;: &quot;SUCCEEDED&quot;,
+        &quot;intent_after_short_deadline&quot;: 0.08057487499900162,
+        &quot;no_intent&quot;: false,
+        &quot;busy_timeout_restored&quot;: true,
+        &quot;healthy_after&quot;: true,
+        &quot;bytes_correct&quot;: true,
+        &quot;lock_acquired_before_cutoff&quot;: true,
+        &quot;busy_before_cutoff&quot;: true,
+        &quot;busy_statement&quot;: &quot;COMMIT&quot;,
+        &quot;busy_count&quot;: 62
+      }
+    ],
+    &quot;cleanup&quot;: true
+  },
   &quot;linux&quot;: {
     &quot;passed&quot;: true,
-    &quot;tests&quot;: 63,
+    &quot;tests&quot;: 68,
     &quot;test_ids&quot;: [
       &quot;tests.test_core.CoreTests.test_416_not_success&quot;,
       &quot;tests.test_core.CoreTests.test_bad_range_refused&quot;,
@@ -592,6 +690,11 @@
       &quot;tests.test_core.CoreTests.test_weak_or_absent_etag_restarts&quot;,
       &quot;tests.test_core.CoreTests.test_wrong_hash_not_published&quot;,
       &quot;tests.test_core.CoreTests.test_wrong_length_refused&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_daemon_admission_commit_reader_cutoff&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_delayed_validation_cannot_commit_after_cutoff&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_publish_commit_reader_cutoff&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_shared_begin_wait_only_live_member_succeeds&quot;,
+      &quot;tests.test_review.DeadlineReviewTests.test_shared_commit_wait_only_live_member_succeeds&quot;,
       &quot;tests.test_service.ServiceTests.test_authority_wait_cannot_turn_expired_fetch_into_hit&quot;,
       &quot;tests.test_service.ServiceTests.test_bad_frames_and_config_permissions&quot;,
       &quot;tests.test_service.ServiceTests.test_cli_flow_and_read&quot;,
@@ -617,7 +720,7 @@
     &quot;failures&quot;: 0,
     &quot;errors&quot;: 0,
     &quot;skipped&quot;: 0,
-    &quot;seconds&quot;: 19.173983075000002,
+    &quot;seconds&quot;: 25.216338136000005,
     &quot;platform&quot;: &quot;Linux&quot;,
     &quot;python&quot;: &quot;3.12.3&quot;,
     &quot;sqlite&quot;: &quot;3.45.1&quot;,
@@ -625,9 +728,9 @@
     &quot;modules&quot;: {
       &quot;cacheweft/__init__.py&quot;: &quot;513a5beb5f6f839a00b5c0a4993709374b4728acb1c29077d953bca269d7db90&quot;,
       &quot;cacheweft/cli.py&quot;: &quot;7fc7c6f6c6277aae9ee31dc8bbb8bbc2c32540df49956b1a82b60005fb4eb0c5&quot;,
-      &quot;cacheweft/core.py&quot;: &quot;4f5f7a0db664b336e38cd218a0764007cd389bd2a983b0d7e50a0f9a7f615d3a&quot;,
+      &quot;cacheweft/core.py&quot;: &quot;068325c996f6acad07353a112970120327e75c70448edb084e23f3b054a48723&quot;,
       &quot;cacheweft/http.py&quot;: &quot;41c8380c89a9b0d62e0f8d63bcc2c96bc679831705867fa0dfb1dde5138e1b76&quot;,
-      &quot;cacheweft/service.py&quot;: &quot;7c34a9cfcffbf58fb1b7d0d85188ba14361f15a2dd5445d33617ffa16902e5d6&quot;
+      &quot;cacheweft/service.py&quot;: &quot;2df9ee748ba605044c9e254522f40fc7c40bf82d7c781fbdb26dea693f8961be&quot;
     }
   },
   &quot;linux_cases&quot;: {
@@ -641,8 +744,8 @@
           &quot;mode&quot;: &quot;cold&quot;,
           &quot;request_count&quot;: 1,
           &quot;size&quot;: 1048576,
-          &quot;download_seconds&quot;: 0.059136180000010086,
-          &quot;read_seconds&quot;: 0.0012908599999974513,
+          &quot;download_seconds&quot;: 0.03209397999999908,
+          &quot;read_seconds&quot;: 0.0007375379999956522,
           &quot;actual_origin_requests&quot;: 1,
           &quot;origin_payload_bytes&quot;: 1048576,
           &quot;request_ranges&quot;: [
@@ -653,23 +756,23 @@
           &quot;subscriber_outcomes&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:39401/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;fdcd081f-bbb1-41ab-acfc-af8fab9f4c09&quot;,
+              &quot;generation&quot;: &quot;d82fc4a3-c409-4227-891e-c27563b07e13&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
               &quot;result&quot;: &quot;SUCCEEDED&quot;,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;9f1bf584-607c-4eaa-97a3-890551b16a93&quot;,
+              &quot;epoch&quot;: &quot;55d7621a-9301-4956-b752-2402403ec96b&quot;,
               &quot;revision&quot;: 2
             }
           ],
-          &quot;process_rss_or_peak_bytes&quot;: 28512256,
+          &quot;process_rss_or_peak_bytes&quot;: 28516352,
           &quot;usage&quot;: {
             &quot;payload_bytes&quot;: 1048576,
             &quot;remaining_reserved&quot;: 0,
             &quot;allocated_payload_bytes&quot;: 1052672,
             &quot;budget&quot;: 16777216,
-            &quot;free_bytes&quot;: 18382106624
+            &quot;free_bytes&quot;: 18382049280
           },
           &quot;root_allocated_bytes&quot;: 1073152
         },
@@ -677,8 +780,8 @@
           &quot;mode&quot;: &quot;resume&quot;,
           &quot;request_count&quot;: 1,
           &quot;size&quot;: 1048576,
-          &quot;download_seconds&quot;: 0.08801979800000481,
-          &quot;read_seconds&quot;: 0.006481465000007347,
+          &quot;download_seconds&quot;: 0.031541023999992035,
+          &quot;read_seconds&quot;: 0.0007037889999992331,
           &quot;actual_origin_requests&quot;: 2,
           &quot;origin_payload_bytes&quot;: 1048576,
           &quot;request_ranges&quot;: [
@@ -690,23 +793,23 @@
           &quot;subscriber_outcomes&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:39401/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;63f6092a-b934-486a-9682-08e4b697c2c2&quot;,
+              &quot;generation&quot;: &quot;567729eb-5ab7-401e-aa04-18cfeaff96fa&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
               &quot;result&quot;: &quot;SUCCEEDED&quot;,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;ff805f52-c1b8-4587-9c19-7b1caf77f472&quot;,
+              &quot;epoch&quot;: &quot;90864a3a-9e61-42c6-a537-d7de15217379&quot;,
               &quot;revision&quot;: 2
             }
           ],
-          &quot;process_rss_or_peak_bytes&quot;: 28983296,
+          &quot;process_rss_or_peak_bytes&quot;: 28975104,
           &quot;usage&quot;: {
             &quot;payload_bytes&quot;: 1048576,
             &quot;remaining_reserved&quot;: 0,
             &quot;allocated_payload_bytes&quot;: 1052672,
             &quot;budget&quot;: 16777216,
-            &quot;free_bytes&quot;: 18381021184
+            &quot;free_bytes&quot;: 18380963840
           },
           &quot;root_allocated_bytes&quot;: 1073152
         },
@@ -714,8 +817,8 @@
           &quot;mode&quot;: &quot;coalesced&quot;,
           &quot;request_count&quot;: 4,
           &quot;size&quot;: 1048576,
-          &quot;download_seconds&quot;: 0.08593749000000628,
-          &quot;read_seconds&quot;: 0.0013979839999933574,
+          &quot;download_seconds&quot;: 0.029785074000002965,
+          &quot;read_seconds&quot;: 0.0008939540000056923,
           &quot;actual_origin_requests&quot;: 1,
           &quot;origin_payload_bytes&quot;: 1048576,
           &quot;request_ranges&quot;: [
@@ -725,104 +828,104 @@
           &quot;subscribers_before_release&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:39401/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
+              &quot;generation&quot;: &quot;491b8345-21e5-4cfa-a255-65f93d028d20&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
               &quot;result&quot;: null,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;epoch&quot;: &quot;e0568d2d-e9cb-4ab5-89a9-206c60305c27&quot;,
               &quot;revision&quot;: 1
             },
             {
               &quot;id&quot;: &quot;r1&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:39401/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
+              &quot;generation&quot;: &quot;491b8345-21e5-4cfa-a255-65f93d028d20&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
               &quot;result&quot;: null,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;epoch&quot;: &quot;e0568d2d-e9cb-4ab5-89a9-206c60305c27&quot;,
               &quot;revision&quot;: 1
             },
             {
               &quot;id&quot;: &quot;r2&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:39401/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
+              &quot;generation&quot;: &quot;491b8345-21e5-4cfa-a255-65f93d028d20&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
               &quot;result&quot;: null,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;epoch&quot;: &quot;e0568d2d-e9cb-4ab5-89a9-206c60305c27&quot;,
               &quot;revision&quot;: 1
             },
             {
               &quot;id&quot;: &quot;r3&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:39401/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
+              &quot;generation&quot;: &quot;491b8345-21e5-4cfa-a255-65f93d028d20&quot;,
               &quot;state&quot;: &quot;WAITING&quot;,
               &quot;result&quot;: null,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;epoch&quot;: &quot;e0568d2d-e9cb-4ab5-89a9-206c60305c27&quot;,
               &quot;revision&quot;: 1
             }
           ],
           &quot;subscriber_outcomes&quot;: [
             {
               &quot;id&quot;: &quot;r&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:39401/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
+              &quot;generation&quot;: &quot;491b8345-21e5-4cfa-a255-65f93d028d20&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
               &quot;result&quot;: &quot;SUCCEEDED&quot;,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;epoch&quot;: &quot;e0568d2d-e9cb-4ab5-89a9-206c60305c27&quot;,
               &quot;revision&quot;: 2
             },
             {
               &quot;id&quot;: &quot;r1&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:39401/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
+              &quot;generation&quot;: &quot;491b8345-21e5-4cfa-a255-65f93d028d20&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
               &quot;result&quot;: &quot;SUCCEEDED&quot;,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;epoch&quot;: &quot;e0568d2d-e9cb-4ab5-89a9-206c60305c27&quot;,
               &quot;revision&quot;: 2
             },
             {
               &quot;id&quot;: &quot;r2&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:39401/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
+              &quot;generation&quot;: &quot;491b8345-21e5-4cfa-a255-65f93d028d20&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
               &quot;result&quot;: &quot;SUCCEEDED&quot;,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;epoch&quot;: &quot;e0568d2d-e9cb-4ab5-89a9-206c60305c27&quot;,
               &quot;revision&quot;: 2
             },
             {
               &quot;id&quot;: &quot;r3&quot;,
-              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:46551/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+              &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:39401/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
               &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-              &quot;generation&quot;: &quot;48e9fe8b-9fbd-4953-8c78-2cf7b2679cd3&quot;,
+              &quot;generation&quot;: &quot;491b8345-21e5-4cfa-a255-65f93d028d20&quot;,
               &quot;state&quot;: &quot;SUCCEEDED&quot;,
               &quot;result&quot;: &quot;SUCCEEDED&quot;,
               &quot;deadline&quot;: null,
-              &quot;epoch&quot;: &quot;848e59af-9122-452c-a21e-fc1860a30de5&quot;,
+              &quot;epoch&quot;: &quot;e0568d2d-e9cb-4ab5-89a9-206c60305c27&quot;,
               &quot;revision&quot;: 2
             }
           ],
-          &quot;process_rss_or_peak_bytes&quot;: 28913664,
+          &quot;process_rss_or_peak_bytes&quot;: 28917760,
           &quot;usage&quot;: {
             &quot;payload_bytes&quot;: 1048576,
             &quot;remaining_reserved&quot;: 0,
-            &quot;allocated_payload_bytes&quot;: 1052672,
+            &quot;allocated_payload_bytes&quot;: 1048576,
             &quot;budget&quot;: 16777216,
-            &quot;free_bytes&quot;: 18379935744
+            &quot;free_bytes&quot;: 18379882496
           },
-          &quot;root_allocated_bytes&quot;: 1073152
+          &quot;root_allocated_bytes&quot;: 1069056
         }
       ]
     },
@@ -899,17 +1002,17 @@
         &quot;result&quot;: &quot;TIMED_OUT&quot;,
         &quot;deadline_unchanged&quot;: true,
         &quot;available&quot;: false,
-        &quot;seconds&quot;: 0.3081160250000039,
-        &quot;stop_seconds&quot;: 0.22067121999999983,
+        &quot;seconds&quot;: 0.3057832410000003,
+        &quot;stop_seconds&quot;: 0.2267952220000069,
         &quot;identity&quot;: {
           &quot;Uid&quot;: &quot;65534\t65534\t65534\t65534&quot;,
           &quot;FDSize&quot;: &quot;64&quot;,
-          &quot;VmRSS&quot;: &quot;23748 kB&quot;,
+          &quot;VmRSS&quot;: &quot;23764 kB&quot;,
           &quot;CapEff&quot;: &quot;0000000000000000&quot;,
           &quot;NoNewPrivs&quot;: &quot;1&quot;,
-          &quot;pid&quot;: 3243,
+          &quot;pid&quot;: 3242,
           &quot;fd_count&quot;: 6,
-          &quot;rss_bytes&quot;: 24317952
+          &quot;rss_bytes&quot;: 24334336
         },
         &quot;stale_cancel_rejected&quot;: null,
         &quot;exit_code&quot;: 0,
@@ -920,17 +1023,17 @@
         &quot;result&quot;: &quot;TIMED_OUT&quot;,
         &quot;deadline_unchanged&quot;: true,
         &quot;available&quot;: false,
-        &quot;seconds&quot;: 0.3127959279999999,
-        &quot;stop_seconds&quot;: 0.22949411000000453,
+        &quot;seconds&quot;: 0.31259651199999894,
+        &quot;stop_seconds&quot;: 0.2268113620000065,
         &quot;identity&quot;: {
           &quot;Uid&quot;: &quot;65534\t65534\t65534\t65534&quot;,
           &quot;FDSize&quot;: &quot;64&quot;,
-          &quot;VmRSS&quot;: &quot;23752 kB&quot;,
+          &quot;VmRSS&quot;: &quot;23764 kB&quot;,
           &quot;CapEff&quot;: &quot;0000000000000000&quot;,
           &quot;NoNewPrivs&quot;: &quot;1&quot;,
-          &quot;pid&quot;: 3279,
+          &quot;pid&quot;: 3278,
           &quot;fd_count&quot;: 6,
-          &quot;rss_bytes&quot;: 24322048
+          &quot;rss_bytes&quot;: 24334336
         },
         &quot;stale_cancel_rejected&quot;: null,
         &quot;exit_code&quot;: 0,
@@ -941,15 +1044,15 @@
         &quot;result&quot;: &quot;CANCELLED&quot;,
         &quot;deadline_unchanged&quot;: true,
         &quot;available&quot;: false,
-        &quot;seconds&quot;: 0.008207920999993235,
-        &quot;stop_seconds&quot;: 0.217662016999995,
+        &quot;seconds&quot;: 0.006289601000005973,
+        &quot;stop_seconds&quot;: 0.22739352700000381,
         &quot;identity&quot;: {
           &quot;Uid&quot;: &quot;65534\t65534\t65534\t65534&quot;,
           &quot;FDSize&quot;: &quot;64&quot;,
           &quot;VmRSS&quot;: &quot;23760 kB&quot;,
           &quot;CapEff&quot;: &quot;0000000000000000&quot;,
           &quot;NoNewPrivs&quot;: &quot;1&quot;,
-          &quot;pid&quot;: 3316,
+          &quot;pid&quot;: 3315,
           &quot;fd_count&quot;: 6,
           &quot;rss_bytes&quot;: 24330240
         },
@@ -971,17 +1074,17 @@
         &quot;namespace_isolated&quot;: true,
         &quot;unresolved_neighbor&quot;: true,
         &quot;origin_requests&quot;: 0,
-        &quot;terminal_seconds&quot;: 0.31816719399999727,
-        &quot;total_through_stop_seconds&quot;: 0.5507383890000028,
+        &quot;terminal_seconds&quot;: 0.3123863219999947,
+        &quot;total_through_stop_seconds&quot;: 0.5415864889999966,
         &quot;identity&quot;: {
           &quot;Uid&quot;: &quot;65534\t65534\t65534\t65534&quot;,
           &quot;FDSize&quot;: &quot;64&quot;,
-          &quot;VmRSS&quot;: &quot;23752 kB&quot;,
+          &quot;VmRSS&quot;: &quot;23760 kB&quot;,
           &quot;CapEff&quot;: &quot;0000000000000000&quot;,
           &quot;NoNewPrivs&quot;: &quot;1&quot;,
           &quot;pid&quot;: 3382,
           &quot;fd_count&quot;: 6,
-          &quot;rss_bytes&quot;: 24322048
+          &quot;rss_bytes&quot;: 24330240
         },
         &quot;exit_code&quot;: 0,
         &quot;network_cleaned&quot;: true
@@ -990,15 +1093,87 @@
     &quot;cleanup&quot;: true,
     &quot;scope&quot;: &quot;actual daemon subprocess; 2s assertion is a controlled observation bound, not a production SLA&quot;
   },
+  &quot;linux_review&quot;: {
+    &quot;cases&quot;: [
+      {
+        &quot;mode&quot;: &quot;admission_commit_reader&quot;,
+        &quot;subject&quot;: &quot;actual daemon&quot;,
+        &quot;duration&quot;: 0.1,
+        &quot;reader_hold&quot;: 0.15,
+        &quot;sqlite_busy_timeout_ms&quot;: 200,
+        &quot;rejected&quot;: true,
+        &quot;no_receipt&quot;: true,
+        &quot;healthy_after&quot;: true,
+        &quot;seconds&quot;: 0.10076178699999616,
+        &quot;busy_statement&quot;: &quot;COMMIT&quot;,
+        &quot;busy_count&quot;: 40
+      },
+      {
+        &quot;mode&quot;: &quot;publish_commit_reader&quot;,
+        &quot;subject&quot;: &quot;formal managed backend with scheduling barrier&quot;,
+        &quot;sqlite_busy_timeout_ms&quot;: 200,
+        &quot;short_state&quot;: &quot;TIMED_OUT&quot;,
+        &quot;short_deadline_unchanged&quot;: true,
+        &quot;short_revision_delta&quot;: 1,
+        &quot;long_state&quot;: null,
+        &quot;intent_after_short_deadline&quot;: null,
+        &quot;no_intent&quot;: true,
+        &quot;busy_timeout_restored&quot;: true,
+        &quot;healthy_after&quot;: true,
+        &quot;bytes_correct&quot;: null,
+        &quot;lock_acquired_before_cutoff&quot;: true,
+        &quot;busy_before_cutoff&quot;: true,
+        &quot;busy_statement&quot;: &quot;COMMIT&quot;,
+        &quot;busy_count&quot;: 31
+      },
+      {
+        &quot;mode&quot;: &quot;shared_writer_wait&quot;,
+        &quot;subject&quot;: &quot;formal managed backend with scheduling barrier&quot;,
+        &quot;sqlite_busy_timeout_ms&quot;: 200,
+        &quot;short_state&quot;: &quot;TIMED_OUT&quot;,
+        &quot;short_deadline_unchanged&quot;: true,
+        &quot;short_revision_delta&quot;: 1,
+        &quot;long_state&quot;: &quot;SUCCEEDED&quot;,
+        &quot;intent_after_short_deadline&quot;: 0.0791979629999986,
+        &quot;no_intent&quot;: false,
+        &quot;busy_timeout_restored&quot;: true,
+        &quot;healthy_after&quot;: true,
+        &quot;bytes_correct&quot;: true,
+        &quot;lock_acquired_before_cutoff&quot;: true,
+        &quot;busy_before_cutoff&quot;: true,
+        &quot;busy_statement&quot;: &quot;BEGIN IMMEDIATE&quot;,
+        &quot;busy_count&quot;: 57
+      },
+      {
+        &quot;mode&quot;: &quot;shared_reader_wait&quot;,
+        &quot;subject&quot;: &quot;formal managed backend with scheduling barrier&quot;,
+        &quot;sqlite_busy_timeout_ms&quot;: 200,
+        &quot;short_state&quot;: &quot;TIMED_OUT&quot;,
+        &quot;short_deadline_unchanged&quot;: true,
+        &quot;short_revision_delta&quot;: 1,
+        &quot;long_state&quot;: &quot;SUCCEEDED&quot;,
+        &quot;intent_after_short_deadline&quot;: 0.07754766099999699,
+        &quot;no_intent&quot;: false,
+        &quot;busy_timeout_restored&quot;: true,
+        &quot;healthy_after&quot;: true,
+        &quot;bytes_correct&quot;: true,
+        &quot;lock_acquired_before_cutoff&quot;: true,
+        &quot;busy_before_cutoff&quot;: true,
+        &quot;busy_statement&quot;: &quot;COMMIT&quot;,
+        &quot;busy_count&quot;: 60
+      }
+    ],
+    &quot;cleanup&quot;: true
+  },
   &quot;reboot&quot;: {
     &quot;boot_changed&quot;: true,
-    &quot;boot_id_after&quot;: &quot;4e6fb81d-4941-4503-a5d9-1a0ac1650993&quot;,
+    &quot;boot_id_after&quot;: &quot;a0a286a0-0d99-446b-bded-fdcbaa07ee7a&quot;,
     &quot;catalog_unchanged_before_recovery&quot;: true,
     &quot;states_before_recovery&quot;: {
       &quot;objects&quot;: [
         [
           &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-          &quot;a8842976-6e47-4b1c-b2ec-c90913ed6b20&quot;,
+          &quot;abb62be0-07b4-4595-b03a-a501b0a69f6c&quot;,
           &quot;PUBLISHING&quot;,
           1048576
         ]
@@ -1006,29 +1181,29 @@
       &quot;requests&quot;: [
         [
           &quot;reboot_request&quot;,
-          &quot;a8842976-6e47-4b1c-b2ec-c90913ed6b20&quot;,
+          &quot;abb62be0-07b4-4595-b03a-a501b0a69f6c&quot;,
           &quot;WAITING&quot;
         ]
       ]
     },
-    &quot;catalog_sha256_before_recovery&quot;: &quot;427d92fab881dd0ac3121f65cdb1ad649dfa679546ca6f42fc815d98cd47721e&quot;,
+    &quot;catalog_sha256_before_recovery&quot;: &quot;3583dbed7a34aa64427e01427f0b3e06db95c639c4e71934e6ca6c99f0904c37&quot;,
     &quot;stage_sha256_before_recovery&quot;: [
       &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;
     ],
     &quot;recovered_request&quot;: {
       &quot;id&quot;: &quot;reboot_request&quot;,
-      &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:39427/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
+      &quot;params&quot;: &quot;[\&quot;fixture\&quot;,\&quot;https://localhost:44787/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;]&quot;,
       &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-      &quot;generation&quot;: &quot;a8842976-6e47-4b1c-b2ec-c90913ed6b20&quot;,
+      &quot;generation&quot;: &quot;abb62be0-07b4-4595-b03a-a501b0a69f6c&quot;,
       &quot;state&quot;: &quot;SUCCEEDED&quot;,
       &quot;result&quot;: &quot;SUCCEEDED&quot;,
       &quot;deadline&quot;: null,
-      &quot;epoch&quot;: &quot;277498b3-f471-4253-8219-2849239a962c&quot;,
+      &quot;epoch&quot;: &quot;75fa6dd6-dc9b-4ac4-bbf1-4ffbf58758c2&quot;,
       &quot;revision&quot;: 2
     },
     &quot;before&quot;: {
-      &quot;boot_id&quot;: &quot;04fc6dcd-d64d-4449-8188-88a30559c483&quot;,
-      &quot;catalog_sha256&quot;: &quot;427d92fab881dd0ac3121f65cdb1ad649dfa679546ca6f42fc815d98cd47721e&quot;,
+      &quot;boot_id&quot;: &quot;958c20bc-9c48-4996-a4c4-19d8470468a9&quot;,
+      &quot;catalog_sha256&quot;: &quot;3583dbed7a34aa64427e01427f0b3e06db95c639c4e71934e6ca6c99f0904c37&quot;,
       &quot;stage_sha256&quot;: [
         &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;
       ],
@@ -1038,7 +1213,7 @@
         &quot;objects&quot;: [
           [
             &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-            &quot;a8842976-6e47-4b1c-b2ec-c90913ed6b20&quot;,
+            &quot;abb62be0-07b4-4595-b03a-a501b0a69f6c&quot;,
             &quot;PUBLISHING&quot;,
             1048576
           ]
@@ -1046,7 +1221,7 @@
         &quot;requests&quot;: [
           [
             &quot;reboot_request&quot;,
-            &quot;a8842976-6e47-4b1c-b2ec-c90913ed6b20&quot;,
+            &quot;abb62be0-07b4-4595-b03a-a501b0a69f6c&quot;,
             &quot;WAITING&quot;
           ]
         ]
@@ -1058,8 +1233,8 @@
   },
   &quot;service_reboot&quot;: {
     &quot;before&quot;: {
-      &quot;boot_id&quot;: &quot;4e6fb81d-4941-4503-a5d9-1a0ac1650993&quot;,
-      &quot;epoch&quot;: &quot;cb97ab33-2d06-4a07-b948-fb9b400aa3db&quot;,
+      &quot;boot_id&quot;: &quot;a0a286a0-0d99-446b-bded-fdcbaa07ee7a&quot;,
+      &quot;epoch&quot;: &quot;48fe49e5-2c9b-4f7a-876d-bcab90faee49&quot;,
       &quot;identity&quot;: {
         &quot;Uid&quot;: &quot;65534\t65534\t65534\t65534&quot;,
         &quot;FDSize&quot;: &quot;64&quot;,
@@ -1070,18 +1245,18 @@
         &quot;fd_count&quot;: 6,
         &quot;rss_bytes&quot;: 24244224
       },
-      &quot;catalog_sha256&quot;: &quot;d55a878dcfa3f447cfb66ab092a20e3f3b90c9d6e9a64c0353b572a290a30c72&quot;,
+      &quot;catalog_sha256&quot;: &quot;6e94e3bb714749d2161cf32ccecdc41e4e04282276068243b6087c8a4a0544ab&quot;,
       &quot;rows&quot;: {
         &quot;requests&quot;: [
           {
             &quot;id&quot;: &quot;old_request&quot;,
-            &quot;params&quot;: &quot;[\&quot;fixture-v1\&quot;,\&quot;https://localhost:40493/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;,30.0,null]&quot;,
+            &quot;params&quot;: &quot;[\&quot;fixture-v1\&quot;,\&quot;https://localhost:42091/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;,30.0,null]&quot;,
             &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-            &quot;generation&quot;: &quot;a320d95a-dd55-4ab5-8855-b649f7d3dfec&quot;,
+            &quot;generation&quot;: &quot;a3826672-4a88-4cb8-9132-50dcfd7272e5&quot;,
             &quot;state&quot;: &quot;WAITING&quot;,
             &quot;result&quot;: null,
-            &quot;deadline&quot;: 34.432437043,
-            &quot;epoch&quot;: &quot;cb97ab33-2d06-4a07-b948-fb9b400aa3db&quot;,
+            &quot;deadline&quot;: 33.299798459,
+            &quot;epoch&quot;: &quot;48fe49e5-2c9b-4f7a-876d-bcab90faee49&quot;,
             &quot;revision&quot;: 1
           }
         ],
@@ -1089,38 +1264,38 @@
           {
             &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
             &quot;size&quot;: 1048576,
-            &quot;url&quot;: &quot;https://localhost:40493/artifact&quot;,
-            &quot;generation&quot;: &quot;a320d95a-dd55-4ab5-8855-b649f7d3dfec&quot;,
+            &quot;url&quot;: &quot;https://localhost:42091/artifact&quot;,
+            &quot;generation&quot;: &quot;a3826672-4a88-4cb8-9132-50dcfd7272e5&quot;,
             &quot;state&quot;: &quot;DOWNLOADING&quot;,
-            &quot;offset&quot;: 131072,
+            &quot;offset&quot;: 65536,
             &quot;etag&quot;: &quot;\&quot;v1\&quot;&quot;,
             &quot;attempts&quot;: 1,
-            &quot;wire&quot;: 131072,
+            &quot;wire&quot;: 65536,
             &quot;pin&quot;: 0,
-            &quot;access&quot;: 1792928079880048377,
+            &quot;access&quot;: 1792930324745813793,
             &quot;revision&quot;: 1
           }
         ]
       },
-      &quot;port&quot;: 40493,
+      &quot;port&quot;: 42091,
       &quot;stage_sha256&quot;: [
-        &quot;59f410ae5e17962412e2aed4f815918f634932f2abf084f00bb638c4db017850&quot;
+        &quot;7daca2095d0438260fa849183dfc67faa459fdf4936e1bc91eec6b281b27e4c2&quot;
       ],
       &quot;crash_exit&quot;: -9
     },
-    &quot;boot_id_after&quot;: &quot;6ed064a3-edd1-461d-8765-4cc1b26557e6&quot;,
-    &quot;catalog_sha256_before_recovery&quot;: &quot;d55a878dcfa3f447cfb66ab092a20e3f3b90c9d6e9a64c0353b572a290a30c72&quot;,
+    &quot;boot_id_after&quot;: &quot;9417d606-9c6f-43da-9d86-b574053ba830&quot;,
+    &quot;catalog_sha256_before_recovery&quot;: &quot;6e94e3bb714749d2161cf32ccecdc41e4e04282276068243b6087c8a4a0544ab&quot;,
     &quot;rows_before_recovery&quot;: {
       &quot;requests&quot;: [
         {
           &quot;id&quot;: &quot;old_request&quot;,
-          &quot;params&quot;: &quot;[\&quot;fixture-v1\&quot;,\&quot;https://localhost:40493/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;,30.0,null]&quot;,
+          &quot;params&quot;: &quot;[\&quot;fixture-v1\&quot;,\&quot;https://localhost:42091/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;,30.0,null]&quot;,
           &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-          &quot;generation&quot;: &quot;a320d95a-dd55-4ab5-8855-b649f7d3dfec&quot;,
+          &quot;generation&quot;: &quot;a3826672-4a88-4cb8-9132-50dcfd7272e5&quot;,
           &quot;state&quot;: &quot;WAITING&quot;,
           &quot;result&quot;: null,
-          &quot;deadline&quot;: 34.432437043,
-          &quot;epoch&quot;: &quot;cb97ab33-2d06-4a07-b948-fb9b400aa3db&quot;,
+          &quot;deadline&quot;: 33.299798459,
+          &quot;epoch&quot;: &quot;48fe49e5-2c9b-4f7a-876d-bcab90faee49&quot;,
           &quot;revision&quot;: 1
         }
       ],
@@ -1128,71 +1303,71 @@
         {
           &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
           &quot;size&quot;: 1048576,
-          &quot;url&quot;: &quot;https://localhost:40493/artifact&quot;,
-          &quot;generation&quot;: &quot;a320d95a-dd55-4ab5-8855-b649f7d3dfec&quot;,
+          &quot;url&quot;: &quot;https://localhost:42091/artifact&quot;,
+          &quot;generation&quot;: &quot;a3826672-4a88-4cb8-9132-50dcfd7272e5&quot;,
           &quot;state&quot;: &quot;DOWNLOADING&quot;,
-          &quot;offset&quot;: 131072,
+          &quot;offset&quot;: 65536,
           &quot;etag&quot;: &quot;\&quot;v1\&quot;&quot;,
           &quot;attempts&quot;: 1,
-          &quot;wire&quot;: 131072,
+          &quot;wire&quot;: 65536,
           &quot;pin&quot;: 0,
-          &quot;access&quot;: 1792928079880048377,
+          &quot;access&quot;: 1792930324745813793,
           &quot;revision&quot;: 1
         }
       ]
     },
     &quot;stage_sha256_before_recovery&quot;: [
-      &quot;59f410ae5e17962412e2aed4f815918f634932f2abf084f00bb638c4db017850&quot;
+      &quot;7daca2095d0438260fa849183dfc67faa459fdf4936e1bc91eec6b281b27e4c2&quot;
     ],
     &quot;identity_after&quot;: {
       &quot;Uid&quot;: &quot;65534\t65534\t65534\t65534&quot;,
       &quot;FDSize&quot;: &quot;64&quot;,
-      &quot;VmRSS&quot;: &quot;23820 kB&quot;,
+      &quot;VmRSS&quot;: &quot;23828 kB&quot;,
       &quot;CapEff&quot;: &quot;0000000000000000&quot;,
       &quot;NoNewPrivs&quot;: &quot;1&quot;,
       &quot;pid&quot;: 1027,
       &quot;fd_count&quot;: 6,
-      &quot;rss_bytes&quot;: 24391680
+      &quot;rss_bytes&quot;: 24399872
     },
-    &quot;epoch_after&quot;: &quot;a0b1f447-dd41-4079-aef6-501da4728d35&quot;,
+    &quot;epoch_after&quot;: &quot;d8e0660b-06d9-47b2-9391-63cd42fd73ab&quot;,
     &quot;old_before_resume&quot;: {
       &quot;id&quot;: &quot;old_request&quot;,
-      &quot;params&quot;: &quot;[\&quot;fixture-v1\&quot;,\&quot;https://localhost:40493/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;,30.0,null]&quot;,
+      &quot;params&quot;: &quot;[\&quot;fixture-v1\&quot;,\&quot;https://localhost:42091/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;,30.0,null]&quot;,
       &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-      &quot;generation&quot;: &quot;a320d95a-dd55-4ab5-8855-b649f7d3dfec&quot;,
+      &quot;generation&quot;: &quot;a3826672-4a88-4cb8-9132-50dcfd7272e5&quot;,
       &quot;state&quot;: &quot;INTERRUPTED&quot;,
       &quot;result&quot;: &quot;INTERRUPTED&quot;,
-      &quot;deadline&quot;: 34.432437043,
-      &quot;epoch&quot;: &quot;cb97ab33-2d06-4a07-b948-fb9b400aa3db&quot;,
+      &quot;deadline&quot;: 33.299798459,
+      &quot;epoch&quot;: &quot;48fe49e5-2c9b-4f7a-876d-bcab90faee49&quot;,
       &quot;revision&quot;: 2
     },
     &quot;old_after_resume&quot;: {
       &quot;id&quot;: &quot;old_request&quot;,
-      &quot;params&quot;: &quot;[\&quot;fixture-v1\&quot;,\&quot;https://localhost:40493/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;,30.0,null]&quot;,
+      &quot;params&quot;: &quot;[\&quot;fixture-v1\&quot;,\&quot;https://localhost:42091/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;,30.0,null]&quot;,
       &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-      &quot;generation&quot;: &quot;a320d95a-dd55-4ab5-8855-b649f7d3dfec&quot;,
+      &quot;generation&quot;: &quot;a3826672-4a88-4cb8-9132-50dcfd7272e5&quot;,
       &quot;state&quot;: &quot;INTERRUPTED&quot;,
       &quot;result&quot;: &quot;INTERRUPTED&quot;,
-      &quot;deadline&quot;: 34.432437043,
-      &quot;epoch&quot;: &quot;cb97ab33-2d06-4a07-b948-fb9b400aa3db&quot;,
+      &quot;deadline&quot;: 33.299798459,
+      &quot;epoch&quot;: &quot;48fe49e5-2c9b-4f7a-876d-bcab90faee49&quot;,
       &quot;revision&quot;: 2
     },
     &quot;fresh&quot;: {
       &quot;id&quot;: &quot;fresh_request&quot;,
-      &quot;params&quot;: &quot;[\&quot;fixture-v1\&quot;,\&quot;https://localhost:40493/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;,3.0,\&quot;old_request\&quot;]&quot;,
+      &quot;params&quot;: &quot;[\&quot;fixture-v1\&quot;,\&quot;https://localhost:42091/artifact\&quot;,1048576,\&quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83\&quot;,3.0,\&quot;old_request\&quot;]&quot;,
       &quot;digest&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
-      &quot;generation&quot;: &quot;a320d95a-dd55-4ab5-8855-b649f7d3dfec&quot;,
+      &quot;generation&quot;: &quot;a3826672-4a88-4cb8-9132-50dcfd7272e5&quot;,
       &quot;state&quot;: &quot;SUCCEEDED&quot;,
       &quot;result&quot;: &quot;SUCCEEDED&quot;,
-      &quot;deadline&quot;: 7.261721583,
-      &quot;epoch&quot;: &quot;a0b1f447-dd41-4079-aef6-501da4728d35&quot;,
+      &quot;deadline&quot;: 6.51452825,
+      &quot;epoch&quot;: &quot;d8e0660b-06d9-47b2-9391-63cd42fd73ab&quot;,
       &quot;revision&quot;: 2
     },
     &quot;no_automatic_origin_request&quot;: true,
     &quot;old_epoch_rejected&quot;: true,
     &quot;old_token_rejected&quot;: true,
     &quot;resume_ranges&quot;: [
-      &quot;bytes=131072-&quot;
+      &quot;bytes=65536-&quot;
     ],
     &quot;read_sha256&quot;: &quot;fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83&quot;,
     &quot;cli_read_exit&quot;: 0,
@@ -1208,7 +1383,7 @@
   },
   &quot;source_unchanged&quot;: true,
   &quot;controls&quot;: {
-    &quot;rejected&quot;: 36,
+    &quot;rejected&quot;: 42,
     &quot;all_rejected&quot;: true
   }
 }</pre></html>

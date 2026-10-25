@@ -49,7 +49,7 @@ revalidation; it is not a reserved deletion right.
 
 | CLI operation | Behaviour |
 |---|---|
-| `info` | Live epoch, active manifest revision, degraded state, IDs and usage |
+| `info` | Live epoch, active manifest revision, degraded state, IDs, usage and process-local SQLite busy counters |
 | `fetch ID ARTIFACT --seconds N` | Persist admission then return; same accepted ID/parameters returns original result, changed parameters conflict |
 | `status ID` | Immutable terminal request result plus current content availability |
 | `cancel ID` | Cancel that subscription; last cancellation stops write/publication authority and interrupts its transport |
@@ -86,10 +86,17 @@ Admission checks again after SQLite BEGIN returns; publication checks live
 interest inside its write transaction. Chunk writes recheck after precharging
 their byte counter. Database waits do not authorize starting a later step
 with an already exhausted budget.
+For bounded admission and publication decisions, SQLite's built-in busy timeout
+is temporarily zero; explicit retries retain the original wait budget (default
+200 ms), rechecking the fixed deadline before each BEGIN/COMMIT attempt and
+after validation. On cutoff the uncommitted transaction rolls back. Individual
+expired subscribers are recorded as TIMED_OUT inside the publication transaction
+on each COMMIT retry, even if another subscriber remains live. Process-local
+`sqlite_busy` counters reset at startup and are diagnostic, not an audit record.
 The watcher owns an independent socket handle through response-body cleanup;
 HTTP/1.0 or Connection: close detachment must not retire it after headers.
 
-Before durable PUBLISHING intent, expiry makes the request TIMED_OUT and stops
+Before publication's checked COMMIT attempt, expiry makes the request TIMED_OUT and stops
 its interest. If no subscribers remain, the object becomes PAUSED and transport
 is interrupted. Staged bytes remain charged; unused reservation is released
 because no further writes are authorized. Explicit GC may reclaim those bytes.
@@ -98,6 +105,9 @@ Cancellation before that boundary returns CANCELLED; after it, TOO_LATE.
 Synchronous fsync/SQLite/kernel I/O and scheduling can delay actual response or
 shutdown. The deadline is a cutoff for starting publication authority, not a
 hard realtime promise to undo committed work or finish all local I/O by N.
+The software cutoff is checked before issuing COMMIT and on SQLITE_BUSY retries;
+an already-issued filesystem/fsync call cannot be preempted. No physical
+durability-time cutoff or blocked-storage timing guarantee has been qualified.
 If intent already committed, completion/recovery proceeds and a client timeout
 means result unknown until status is queried. SIGKILL and normal reboot are
 qualified separately; sudden power loss and suspend are not qualified.

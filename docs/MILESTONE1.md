@@ -1,5 +1,10 @@
 # Milestone 1: managed manifest, bounded requests and daemon
 
+Historical initial implementation at 705c510. It did not cover COMMIT lock
+waits and mixed-subscriber expiry during transaction waiting. Those defects
+and the current qualification are in [MILESTONE1_REVIEW](MILESTONE1_REVIEW.md).
+The numbers below refer to the archived initial cohort, not current results.
+
 This milestone implements the local daemon/CLI over the formal core, persisted
 manifest revisions, immutable request operations, fixed per-request download
 deadlines and conservative explicit continuation after restart. Current
@@ -14,7 +19,7 @@ same identified tests, including actual daemon and CLI subprocesses. The Linux
 observer uses setpriv to execute the product as UID/GID 65534, CapEff 0 and
 NoNewPrivs 1; root is used only by the observer for fixtures and reboot.
 
-Current [JSON](../evidence/latest.json) and [HTML](../evidence/latest.html) bind
+Archived initial [JSON](../evidence/milestone1-initial.json) and [HTML](../evidence/milestone1-initial.html) bind
 the test cohort, wheel digest, all 18 source inputs, actual stage exit/timeout
 results, controlled cases and cleanup. Deliberately corrupted report copies
 are rejection controls, not additional implementation tests. The original
@@ -35,7 +40,7 @@ The Linux unresolved-neighbor connect plus daemon stop took **550.74 ms** in thi
 
 Each memory sample belongs to a separate actual daemon PID. A range across those samples is not a growth trace or peak. No platform speed ranking or production recovery upper bound is inferred. Both normal VM reboot witnesses and all VM/disk/profile cleanup checks passed.
 
-A [supplemental native CLI smoke](../evidence/native-cli-smoke.json) records subprocess resume/status/cancel and immutable old outcome; it is not additional Linux qualification.
+A [supplemental initial native CLI smoke](../evidence/milestone1-native-cli-initial.json) records subprocess resume/status/cancel and immutable old outcome; it is not additional Linux qualification.
 
 ## Acceptance covered
 

@@ -1,0 +1,26 @@
+{
+  "source_commit": "705c5102f8d4570a982c1cb23d9bac8f2579aefb",
+  "scope": "controlled actual TLS and SQLite contention; supported project Python",
+  "admission_commit_wait": {
+    "state": "SUCCEEDED",
+    "elapsed": 0.20890870899893343,
+    "after_deadline": 0.10904170799767599,
+    "sqlite_busy_timeout_ms": 200
+  },
+  "publish_commit_wait": {
+    "state": "SUCCEEDED",
+    "available": true,
+    "intent_after_deadline": 0.15273945801891387,
+    "sqlite_busy_timeout_ms": 200
+  },
+  "shared_begin_wait": {
+    "short_state": "SUCCEEDED",
+    "long_state": "SUCCEEDED",
+    "intent_after_short_deadline": 0.32015929196495563,
+    "sqlite_busy_timeout_ms": 2000
+  },
+  "report_counterexample": {
+    "scope": "modified JSON copies, not a runtime failure",
+    "accepted_before_fix": "both test ID lists replaced with unrelated names while preserving old count and source fields"
+  }
+}

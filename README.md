@@ -41,7 +41,8 @@ into a new download attempt.
 
 ## Evidence
 
-- [Milestone results, scope and remaining work](docs/MILESTONE1.md)
+- [Reviewed milestone results, scope and remaining work](docs/MILESTONE1_REVIEW.md)
+- [Initial milestone record](docs/MILESTONE1.md)
 - [Architecture](docs/ARCHITECTURE.md) and [local VM reproduction](docs/LOCAL_VALIDATION.md)
 - [Current JSON](evidence/latest.json) and [HTML](evidence/latest.html)
 - [Earlier exploration review](docs/REVIEW.md) and [archived exploration JSON](evidence/explorations-reviewed.json)

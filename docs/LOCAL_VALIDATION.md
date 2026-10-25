@@ -48,6 +48,14 @@ object/request rows tied to the recovered request.
 This tests manual invocation of the formal recovery core after reboot; it does
 not test installed systemd autostart or suddenly interrupted power.
 
+The reviewed run adds actual shared-reader COMMIT contention and writer BEGIN
+contention. The daemon admission case requires a real COMMIT busy-count change;
+backend publication cases require the holder to be acquired while the short
+deadline is still live and an actual SQLITE_BUSY event before cutoff. Mixed
+subscribers then cross that cutoff: short must remain TIMED_OUT, long must
+succeed with exact bytes. No original 200 ms busy budget is relaxed. A separate
+delayed-validation regression checks rollback after callback budget exhaustion.
+
 The milestone adds a second normal VM reboot of an actual bounded daemon
 request. It SIGKILLs the daemon after a partial checkpoint, records WAITING
 rows/deadline/catalog and staging hashes, then reboots. Before starting the

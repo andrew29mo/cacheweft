@@ -1,6 +1,6 @@
 # Architecture decisions (milestone 1)
 
-Status: current implementation and qualification are linked from MILESTONE1.
+Status: current implementation and qualification are linked from MILESTONE1_REVIEW.
 The following design supersedes the initial chat proposal.
 
 ## Authority and trust
@@ -91,6 +91,14 @@ Expired interest is checked before writes, after verification and on exception
 cleanup (socket shutdown can surface as HTTP parser error). A later subscriber
 cannot extend an old deadline. The expiry sweep is an aid, not the only guard.
 See SERVICE for committed-publication, synchronous I/O and suspend boundaries.
+
+Deadline-sensitive admission/intent transactions disable SQLite's internal busy
+sleep and explicitly retry BEGIN/COMMIT with the original busy budget. Each
+retry checks the fixed cutoff, including after validation. Publication expires
+individual subscribers inside the transaction before every COMMIT attempt;
+a live long subscriber cannot turn an expired short subscriber into success.
+The prior busy_timeout is restored on success or rollback. Diagnostic busy
+counters are process-local, saturated and neither authority nor durable audit.
 
 ## Checkpoint and publication
 

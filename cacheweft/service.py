@@ -115,7 +115,7 @@ class Handler(socketserver.BaseRequestHandler):
             if op in ('resume','cancel','pin') and not isinstance(q['token'],dict):raise CacheError('Token object required')
             if op in ('fetch','resume'):
                 if type(q['seconds']) not in (int,float) or not math.isfinite(q['seconds']) or not .1<=q['seconds']<=120:raise CacheError('Duration must be 0.1..120 seconds')
-            if op=='info':result=dict(epoch=c.epoch,manifest_revision=c.manifest_revision,degraded=c.degraded,entries=list(c.specs),usage=c.usage())
+            if op=='info':result=dict(epoch=c.epoch,manifest_revision=c.manifest_revision,degraded=c.degraded,entries=list(c.specs),usage=c.usage(),sqlite_busy=dict(c.sqlite_busy))
             elif op=='status':result=c.status(q['id'])
             elif op=='fetch':result=c.submit(q['id'],q['artifact'],seconds=q['seconds'],epoch=q['epoch'])
             elif op=='resume':result=c.submit(q['id'],q['artifact'],seconds=q['seconds'],epoch=q['epoch'],resume_from=q['source'],token=q['token'])

@@ -37,7 +37,7 @@ def main():
         payload={n:hashlib.sha256(z.read(n)).hexdigest() for n in z.namelist() if n.startswith('cacheweft/') and n.endswith('.py')}
     if payload!={k:v for k,v in source.items() if k.startswith('cacheweft/')}:p.error('Wheel/source mismatch')
     env=dict(os.environ,COLIMA_HOME=str(home),PATH=str(tool)+os.pathsep+os.environ['PATH'])
-    v=dict(contract='cacheweft-milestone1-v4',passed=False,recorded_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
+    v=dict(contract='cacheweft-milestone1-review-v5',passed=False,recorded_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
            source=source,wheel_sha256=hashlib.sha256(wheel.read_bytes()).hexdigest(),stages=[],host_mounts='none',
            limits=dict(power_loss_tested=False,wan_tested=False,deployed_service_tested=True,systemd_tested=False,long_term_tested=False))
     def persist():
@@ -78,12 +78,16 @@ def main():
         v['native_cases']=json.loads((output/'native-cases.json').read_text())
         run('native-service',[sys.executable,'-m','tools.milestone','cases','--output',output/'native-service.json'],timeout=60)
         v['native_service']=json.loads((output/'native-service.json').read_text())
+        run('native-review',[sys.executable,'-m','tools.review_cases','--output',output/'native-review.json'],timeout=60)
+        v['native_review']=json.loads((output/'native-review.json').read_text())
         guest('linux','/opt/cacheweft/venv/bin/python -m tools.unit --output /opt/cacheweft/linux.json',timeout=120)
         v['linux']=json.loads(ssh('linux-read',['sudo','cat','/opt/cacheweft/linux.json']))
         guest('linux-cases','/opt/cacheweft/venv/bin/python -m tools.cases --storage --output /opt/cacheweft/linux-cases.json',timeout=120)
         v['linux_cases']=json.loads(ssh('linux-cases-read',['sudo','cat','/opt/cacheweft/linux-cases.json']))
         guest('linux-service','/opt/cacheweft/venv/bin/python -m tools.milestone cases --output /opt/cacheweft/service.json',timeout=60)
         v['linux_service']=json.loads(ssh('linux-service-read',['sudo','cat','/opt/cacheweft/service.json']))
+        guest('linux-review','/opt/cacheweft/venv/bin/python -m tools.review_cases --output /opt/cacheweft/review.json',timeout=60)
+        v['linux_review']=json.loads(ssh('linux-review-read',['sudo','cat','/opt/cacheweft/review.json']))
         guest('reboot-prepare','/opt/cacheweft/venv/bin/python -m tools.reboot prepare',timeout=40)
         prepared=json.loads(ssh('reboot-prepared-read',['sudo','cat','/opt/cacheweft/reboot/prepared.json']))
         ssh('schedule-reboot',['sudo','systemd-run','--unit=cacheweft-test-reboot','--on-active=2s','--timer-property=AccuracySec=1s','/usr/bin/systemctl','reboot'])
